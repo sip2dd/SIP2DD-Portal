@@ -58,7 +58,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6">
                         <div class="section-tittle pt-25 text-center mb-30">
-                            <h2>Berita</h2>
+                            <h2>Pencarian</h2>
                         </div>
                     </div>
                 </div>
@@ -86,30 +86,42 @@
                 </div>
                 <!--Hasil Pencarian -->
                 <div class="row">
-                    <div class="card w-100 card-besar mb-10">
+                    <div class="card w-100 card-besar">
                         <div class="row no-gutters berita_card">
-                            <div class="col-lg-4">
-                                <img class="berita_img" src="{{ URL::asset('img/berita/coba1.jpg') }}">
+                            <div class="col-lg-4 berita_img">
+                                <img class="" src="{{ URL::asset('img/berita/coba1.jpg') }}">
                             </div>
                             <div class="col-lg-8 card_desk">
                                 <div class="card-body">
-                                    <h6>01 Oktober 2020</h6>
-                                    <h4>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                        Digital dan Pertumbuhan Ekonomi</h4>
+                                    <h5>Kamis, 01 Oktober 2020</h5>
+                                    <h4><a href="#">Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
+                                            Digital dan Pertumbuhan Ekonomi</a></h4>
+                                    <p>Multiply sea night grass fourth day sea lesser rule open subdue female fill which
+                                        them
+                                        Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                    </p>
+                                    <p id="selengkapnya"><a href="">Selengkapnya <i
+                                                class="fas fa-chevron-right"></i></a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card w-100 card-besar">
                         <div class="row no-gutters berita_card">
-                            <div class="col-lg-4">
-                                <img class="berita_img" src="{{ URL::asset('img/berita/coba1.jpg') }}">
+                            <div class="col-lg-4 berita_img">
+                                <img class="" src="{{ URL::asset('img/berita/coba1.jpg') }}">
                             </div>
                             <div class="col-lg-8 card_desk">
                                 <div class="card-body">
-                                    <h6>01 Oktober 2020</h6>
-                                    <h4>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                        Digital dan Pertumbuhan Ekonomi</h4>
+                                    <h5>Kamis, 01 Oktober 2020</h5>
+                                    <h4><a href="#">Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
+                                            Digital dan Pertumbuhan Ekonomi</a></h4>
+                                    <p>Multiply sea night grass fourth day sea lesser rule open subdue female fill which
+                                        them
+                                        Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                    </p>
+                                    <p id="selengkapnya"><a href="">Selengkapnya <i
+                                                class="fas fa-chevron-right"></i></a></p>
                                 </div>
                             </div>
                         </div>

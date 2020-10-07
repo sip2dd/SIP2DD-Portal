@@ -64,7 +64,7 @@
             <!--Section Form input-->
             <div class="form-row justify-content-center">
                 <div class="col-lg-8 col-md-4">
-                    <form action="{!! url('/pencarianberita') !!}" method="GET">
+                    <form action="/pencarianberita" method="GET">
                         <div class="form-group">
                             <div class="input-group">
                                 <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
@@ -162,7 +162,7 @@
                                     <div class="col-lg-12 pr-0 pl-0">
                                         <article class="blog_item">
                                             <div class="blog_item_img">
-                                                <img class="card-img" src="{{ URL::asset('img/blog/single_blog_3.png') }}" alt="">
+                                                <img class="card-img" src="{{ URL::asset('img/blog/single_blog_4.png') }}" alt="">
                                             </div>
                                             <div class="blog_details">
                                                 <div class="row">
@@ -306,39 +306,55 @@
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
                             <div class="media post_item">
-                                <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>From life was you fish mencoba lebih pnajgadada adakdj</h3>
-                                    </a>
-                                    <p>January 12, 2019</p>
+                                <div class="col-lg-4 col-4">
+                                    <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="single-blog.html">
+                                            <h3>From life was you fish mencoba lebih pnajgadada adakdj</h3>
+                                        </a>
+                                        <p>02 Oktober 2020</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="media post_item">
-                                <img src="{{ URL::asset('img/post/post_2.png') }}" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>The Amazing Hubble</h3>
-                                    </a>
-                                    <p>02 Hours ago</p>
+                                <div class="col-lg-4 col-4">
+                                    <img src="{{ URL::asset('img/post/post_2.png') }}" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="single-blog.html">
+                                            <h3>The Amazing Hubble</h3>
+                                        </a>
+                                        <p>01 Oktober 2020</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="media post_item">
-                                <img src="{{ URL::asset('img/post/post_3.png') }}" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>Astronomy Or Astrology</h3>
-                                    </a>
-                                    <p>03 Hours ago</p>
+                                <div class="col-lg-4 col-4">
+                                    <img src="{{ URL::asset('img/post/post_3.png') }}" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="single-blog.html">
+                                            <h3>Astronomy Or Astrology</h3>
+                                        </a>
+                                        <p>30 September 2020</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="media post_item">
-                                <img src="{{ URL::asset('img/post/post_4.png') }}" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>Asteroids telescope</h3>
-                                    </a>
-                                    <p>01 Hours ago</p>
+                                <div class="col-lg-4 col-4">
+                                    <img src="{{ URL::asset('img/post/post_4.png') }}" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="single-blog.html">
+                                            <h3>Asteroids telescope</h3>
+                                        </a>
+                                        <p>30 September 2020</p>
+                                    </div>
                                 </div>
                             </div>
                         </aside>
@@ -356,39 +372,55 @@
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
                             <div class="media post_item">
-                                <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>From life was you fish mencoba lebih pnajgadada adakdj</h3>
-                                    </a>
-                                    <p>January 12, 2019</p>
+                                <div class="col-lg-4 col-4">
+                                    <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="single-blog.html">
+                                            <h3>From life was you fish mencoba lebih pnajgadada adakdj</h3>
+                                        </a>
+                                        <p>01 Oktober 2020</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="media post_item">
-                                <img src="{{ URL::asset('img/post/post_2.png') }}" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>The Amazing Hubble</h3>
-                                    </a>
-                                    <p>02 Hours ago</p>
+                                <div class="col-lg-4 col-4">
+                                    <img src="{{ URL::asset('img/post/post_2.png') }}" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="single-blog.html">
+                                            <h3>The Amazing Hubble</h3>
+                                        </a>
+                                        <p>30 September 2020</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="media post_item">
-                                <img src="{{ URL::asset('img/post/post_3.png') }}" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>Astronomy Or Astrology</h3>
-                                    </a>
-                                    <p>03 Hours ago</p>
+                                <div class="col-lg-4 col-4">
+                                    <img src="{{ URL::asset('img/post/post_3.png') }}" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="single-blog.html">
+                                            <h3>Astronomy Or Astrology</h3>
+                                        </a>
+                                        <p>29 September 2020</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="media post_item">
-                                <img src="{{ URL::asset('img/post/post_4.png') }}" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>Asteroids telescope</h3>
-                                    </a>
-                                    <p>01 Hours ago</p>
+                                <div class="col-lg-4 col-4">
+                                    <img src="{{ URL::asset('img/post/post_4.png') }}" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="single-blog.html">
+                                            <h3>Asteroids telescope</h3>
+                                        </a>
+                                        <p>29 September 2020</p>
+                                    </div>
                                 </div>
                             </div>
                         </aside>

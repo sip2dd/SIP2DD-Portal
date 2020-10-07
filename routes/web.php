@@ -22,12 +22,15 @@ use App\Http\Controllers\PemdaController;
 // });
 
 Route::get('/', [HomeController::class, 'index']);
-
 Route::get('/pencarian', [HomeController::class, 'pencarian']);
 
 Route::get('/berita', [NewsController::class, 'index']);
-
 Route::get('/pencarianberita', [NewsController::class, 'pencarianBerita']);
+Route::get('/beritadaerah', [NewsController::class, 'beritaDaerah']);
+Route::get('/beritasatgas', [NewsController::class, 'beritaSatgas']);
+Route::get('/detailberita', [NewsController::class, 'detailBerita']);
+Route::get('/galeri', [NewsController::class, 'galeri']);
+Route::get('/detailgaleri', [NewsController::class, 'detailGaleri']);
 
 Route::get('/tp2dd', [PemdaController::class, 'index']);
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\RequestException;
 
 class NewsController extends Controller
@@ -17,14 +18,74 @@ class NewsController extends Controller
 
      	// $menu = json_decode($response, true);
 
-         // print("<pre>".print_r($menu, true)."</pre>");
-         return view('news.berita');
+        // print("<pre>".print_r($menu, true)."</pre>");
+
+        $client = new Client();
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1527.json');
+            $response = $request->getBody()->getContents();
+    
+            $highlight = json_decode($response, true);
+            
+            
+        }catch (RequestException $e){
+            $highlight = null;
+        }
+
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1529.json');
+            $response = $request->getBody()->getContents();
+    
+            $berita_satgas = json_decode($response, true);
+            
+        }catch (RequestException $e){
+            $berita_satgas = null;
+        }
+
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1530.json');
+            $response = $request->getBody()->getContents();
+    
+            $berita_nasional = json_decode($response, true);
+            
+        }catch (RequestException $e){
+            $berita_nasional = null;
+        }
+
+        //dd($highlight);
+
+        return view('news.berita');
      
     }
 
     public function pencarianBerita()
     {
         return view('news.pencarianberita');
+    }
+
+    public function beritaDaerah()
+    {
+        return view('news.beritadaerah');
+    }
+
+    public function beritaSatgas()
+    {
+        return view('news.beritasatgas');
+    }
+
+    public function detailBerita()
+    {
+        return view('news.detailberita');
+    }
+
+    public function galeri()
+    {
+        return view('news.galeriberita');
+    }
+
+    public function detailGaleri()
+    {
+        return view('news.galeriberitadetail');
     }
 
     public function kategori()
@@ -66,13 +127,16 @@ class NewsController extends Controller
     public function beritajson()
     {
         $client = new Client();
-        $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1527.json');
-        $response = $request->getBody()->getContents();
-
-        $menu = json_decode($response, true);
-
-        print("<pre>".print_r($menu, true)."</pre>");
-     
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/aapi/TemplateData/keluaran/1527.json');
+            $response = $request->getBody()->getContents();
+    
+            $menu = json_decode($response, true);
+            dd($menu);
+        }catch (RequestException $e){
+            
+        }
+        
     }
 
     public function kategorijson()
