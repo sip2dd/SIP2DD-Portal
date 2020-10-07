@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="20.003in" height="11.9254in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 62880 37488"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#F4FEFF;stroke-width:9.43059;stroke-opacity:0.788235}
+    .str1 {stroke:#F4FEFF;stroke-width:9.43059}
+    .fil3 {fill:#F4FEFF}
+    .fil0 {fill:white}
+    .fil2 {fill:#F4FEFF;fill-opacity:0.788235}
+    .fil1 {fill:#F4FEFF;fill-opacity:0.960784}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_516175410688">
+   <rect class="fil0" x="5" y="5" width="62871" height="37483"/>
+   <g>
+    <polygon id="Rectangle_x0020_2" class="fil1" points="5,10896 62875,10896 62875,19080 41820,23420 32455,18603 20962,24497 5,19080 "/>
+    <polygon id="Rectangle_x0020_2_2" class="fil2 str0" points="62875,11942 5,11942 5,20127 20962,25543 26457,22716 33994,25543 46863,16079 62875,20127 "/>
+    <polygon id="Combined_x0020_Shape" class="fil3 str1" points="62875,5 62875,10896 62875,11404 62875,19080 41918,13775 20962,24497 5,19080 5,11404 5,10896 5,5 "/>
+   </g>
+  </g>
+ </g>
+</svg>

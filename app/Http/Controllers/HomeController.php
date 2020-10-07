@@ -13,6 +13,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        return view('home.home');
+    }
+
+    public function pencarian()
+    {
+        return view('home.pencarian');
+    }
+    
     public function menu()
     {
      	$client = new Client();
@@ -36,6 +46,19 @@ class HomeController extends Controller
      	print("<pre>".print_r($menu, true)."</pre>");
     }
 
+    public function highlightDetail()
+    {
+        $id = "highlightdetail Testing";
+        $client = new Client();
+        $request = $client->get('http://localhost:8000/api/v1/highlightdetail?id='.$id);
+
+        $response = $request->getBody()->getContents();
+
+        $menu = json_decode($response, true);
+
+        print("<pre>".print_r($menu, true)."</pre>");
+    }
+
     public function pojaknas()
     {
     	$client = new Client();
@@ -46,6 +69,19 @@ class HomeController extends Controller
 
      	print("<pre>".print_r($menu, true)."</pre>");
         
+    }
+
+    public function pojaknasDetail()
+    {
+        $id = "Testing";
+        $client = new Client();
+        $request = $client->get('http://localhost:8000/api/v1/pojaknasdetail?id='.$id);
+
+        $response = $request->getBody()->getContents();
+
+        $menu = json_decode($response, true);
+
+        print("<pre>".print_r($menu, true)."</pre>");
     }
 
     public function layanan()
@@ -60,6 +96,19 @@ class HomeController extends Controller
        
     }
 
+    public function layananDetail()
+    {
+        $id = "Testing";
+        $client = new Client();
+        $request = $client->get('http://localhost:8000/api/v1/layanandetail?id='.$id);
+
+        $response = $request->getBody()->getContents();
+
+        $menu = json_decode($response, true);
+
+        print("<pre>".print_r($menu, true)."</pre>");
+    }
+
     public function galeri()
     {
       	$client = new Client();
@@ -71,10 +120,10 @@ class HomeController extends Controller
      	print("<pre>".print_r($menu, true)."</pre>");
     }
 
-    public function event()
+    public function kegiatan()
     {
     	$client = new Client();
-     	$request = $client->get('http://localhost:8000/api/v1/event');
+     	$request = $client->get('http://localhost:8000/api/v1/kegiatan');
      	$response = $request->getBody()->getContents();
 
      	$menu = json_decode($response, true);
@@ -83,15 +132,28 @@ class HomeController extends Controller
        
     }
 
-    public function pencarian(Request $request)
+    public function kegiatanDetail()
     {
-         $form_search = [
-            'search' => $request->search,
-            'category' => $request->category,
-        ];
+        $id = "Testing";
+        $client = new Client();
+        $request = $client->get('http://localhost:8000/api/v1/kegiatandetail?id='.$id);
 
-        return $form_search;
+        $response = $request->getBody()->getContents();
+
+        $menu = json_decode($response, true);
+
+        print("<pre>".print_r($menu, true)."</pre>");
     }
+
+    // public function pencarian(Request $request)
+    // {
+    //      $form_search = [
+    //         'search' => $request->search,
+    //         'category' => $request->category,
+    //     ];
+
+    //     return $form_search;
+    // }
 
 
 }
