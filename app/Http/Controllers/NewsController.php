@@ -26,10 +26,11 @@ class NewsController extends Controller
             $response = $request->getBody()->getContents();
     
             $highlight = json_decode($response, true);
+            $highlight_c = $highlight['data']['highlight'];
             
             
         }catch (RequestException $e){
-            $highlight = null;
+            $highlight_c = null;
         }
 
         try{
@@ -37,55 +38,209 @@ class NewsController extends Controller
             $response = $request->getBody()->getContents();
     
             $berita_satgas = json_decode($response, true);
+            $berita_satgas_c = $berita_satgas['data']['berita'];
             
         }catch (RequestException $e){
-            $berita_satgas = null;
+            $berita_satgas_c = null;
         }
 
         try{
             $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1530.json');
             $response = $request->getBody()->getContents();
     
-            $berita_nasional = json_decode($response, true);
+            $berita_daerah = json_decode($response, true);
+            $berita_daerah_c = $berita_daerah['data']['berita'];
             
         }catch (RequestException $e){
-            $berita_nasional = null;
+            $berita_daerah_c = null;
+        }
+
+        try{
+            $request = $client->get('http://localhost:8000/api/v1/galeriberita');
+            $response = $request->getBody()->getContents();
+    
+            $galeri = json_decode($response, true);
+            $galeri_c = $galeri['data']['galeri'];
+            
+        }catch (RequestException $e){
+            $galeri_c = null;
         }
 
         //dd($highlight);
 
-        return view('news.berita');
+        return view('news.berita', [
+                        'highlights' => $highlight_c, 
+                        'berita_satgases' => $berita_satgas_c,
+                        'berita_daerahes' => $berita_daerah_c,
+                        'galeris' => $galeri_c
+                        ]);
      
     }
 
-    public function pencarianBerita()
+    public function pencarianBerita(Request $request)
     {
-        return view('news.pencarianberita');
+        $search = $request->cari != null ? $request->cari : null;
+        
+        return view('news.pencarianberita', ['cari' => $search]);
+    }
+
+    public function highlight()
+    {
+        $client = new Client();
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1527.json');
+            $response = $request->getBody()->getContents();
+    
+            $highlight = json_decode($response, true);
+            $highlight_c = $highlight['data']['highlight'];
+            
+            
+        }catch (RequestException $e){
+            $highlight_c = null;
+        }
+
+        return view('news.highlightberita', ['highlights' => $highlight_c]);
     }
 
     public function beritaDaerah()
     {
-        return view('news.beritadaerah');
+        $client = new Client();
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1530.json');
+            $response = $request->getBody()->getContents();
+    
+            $berita_daerah = json_decode($response, true);
+            $berita_daerah_c = $berita_daerah['data']['berita'];
+            
+        }catch (RequestException $e){
+            $berita_daerah_c = null;
+        }
+
+        return view('news.beritadaerah', ['berita_daerahs' => $berita_daerah_c]);
     }
 
     public function beritaSatgas()
     {
-        return view('news.beritasatgas');
+        $client = new Client();
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1529.json');
+            $response = $request->getBody()->getContents();
+    
+            $berita_satgas = json_decode($response, true);
+            $berita_satgas_c = $berita_satgas['data']['berita'];
+            
+        }catch (RequestException $e){
+            $berita_satgas_c = null;
+        }
+
+        return view('news.beritasatgas', ['berita_satgases' => $berita_satgas_c]);
     }
 
-    public function detailBerita()
+    public function detailBerita(Request $request)
     {
-        return view('news.detailberita');
+        $search = $request->id;
+
+        $client = new Client();
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1528.json');
+            $response = $request->getBody()->getContents();
+    
+            $detail = json_decode($response, true);
+            
+            $detail_berita = $detail['data']['berita'][0];
+         
+            
+        }catch (RequestException $e){
+            $detail_berita = null;
+        }
+
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1527.json');
+            $response = $request->getBody()->getContents();
+    
+            $highlight = json_decode($response, true);
+            $highlight_c = $highlight['data']['highlight'];
+            
+            
+        }catch (RequestException $e){
+            $highlight_c = null;
+        }
+
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1529.json');
+            $response = $request->getBody()->getContents();
+    
+            $berita_satgas = json_decode($response, true);
+            $berita_satgas_c = $berita_satgas['data']['berita'];
+            
+        }catch (RequestException $e){
+            $berita_satgas_c = null;
+        }
+
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1530.json');
+            $response = $request->getBody()->getContents();
+    
+            $berita_daerah = json_decode($response, true);
+            $berita_daerah_c = $berita_daerah['data']['berita'];
+            
+        }catch (RequestException $e){
+            $berita_daerah_c = null;
+        }
+
+        return view('news.detailberita', ['detail_berita' => $detail_berita, 
+                                            'highlights' => $highlight_c, 
+                                            'berita_satgases' => $berita_satgas_c,
+                                            'berita_daerahes' => $berita_daerah_c,]);
     }
 
     public function galeri()
     {
-        return view('news.galeriberita');
+        $client = new Client();
+        try{
+            $request = $client->get('http://localhost:8000/api/v1/galeriberita');
+            $response = $request->getBody()->getContents();
+    
+            $galeri = json_decode($response, true);
+            $galeri_c = $galeri['data']['galeri'];
+            
+        }catch (RequestException $e){
+            $galeri_c = null;
+        }
+
+        return view('news.galeriberita', ['galeris' => $galeri_c]);
     }
 
-    public function detailGaleri()
+    public function detailGaleri(Request $request)
     {
-        return view('news.galeriberitadetail');
+        $search = $request->id;
+        $client = new Client();
+
+        try{
+            $request = $client->get('http://localhost:8000/api/v1/galeriberita');
+            $response = $request->getBody()->getContents();
+    
+            $galeri = json_decode($response, true);
+            $galeri_c = $galeri['data']['galeri'];
+            
+        }catch (RequestException $e){
+            $galeri_c = null;
+        }
+
+        try{
+            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1528.json');
+            $response = $request->getBody()->getContents();
+    
+            $detail = json_decode($response, true);
+            
+            $detail_galeri = $detail['data']['berita'][0];
+         
+            
+        }catch (RequestException $e){
+            $detail_galeri = null;
+        }
+
+        return view('news.galeriberitadetail', ['galeris' => $galeri_c, 'detail_galeri' => $detail_galeri]);
     }
 
     public function kategori()

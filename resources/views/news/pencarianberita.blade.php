@@ -65,10 +65,10 @@
                 <!--Section Form input-->
                 <div class="form-row justify-content-center mb-50">
                     <div class="col-lg-8 col-md-4">
-                        <form action="" method="">
+                        <form action="{!! url('/pencarianberita')!!}" method="GET">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                    <input name="cari" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                     <div class="input-group-append">
                                         <button class="button1">
                                             <i class="fas fa-search"></i>
@@ -79,11 +79,13 @@
                         </form>
                     </div>
                 </div>
+                @if($cari != null)
                 <div class="row">
                     <div class="col-lg-12 col-md-6 ket-jumlah-cari">
-                        <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p>
+                        <p>Hasil pencarian <strong>{{$cari}}</strong>, 2 hasil ditemukan</p>
                     </div>
                 </div>
+                @endif
                 <!--Hasil Pencarian -->
                 <div class="row">
                     <div class="card w-100 card-besar">
@@ -94,13 +96,13 @@
                             <div class="col-lg-8 card_desk">
                                 <div class="card-body">
                                     <h5>Kamis, 01 Oktober 2020</h5>
-                                    <h4><a href="#">Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
+                                    <h4><a href="{!! url('/detailberita?id=10')!!}">Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
                                             Digital dan Pertumbuhan Ekonomi</a></h4>
                                     <p>Multiply sea night grass fourth day sea lesser rule open subdue female fill which
                                         them
                                         Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
                                     </p>
-                                    <p id="selengkapnya"><a href="">Selengkapnya <i
+                                    <p id="selengkapnya"><a href="{!! url('/detailberita?id=10')!!}">Selengkapnya <i
                                                 class="fas fa-chevron-right"></i></a></p>
                                 </div>
                             </div>
@@ -114,13 +116,13 @@
                             <div class="col-lg-8 card_desk">
                                 <div class="card-body">
                                     <h5>Kamis, 01 Oktober 2020</h5>
-                                    <h4><a href="#">Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
+                                    <h4><a href="{!! url('/detailberita?id=10')!!}">Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
                                             Digital dan Pertumbuhan Ekonomi</a></h4>
                                     <p>Multiply sea night grass fourth day sea lesser rule open subdue female fill which
                                         them
                                         Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
                                     </p>
-                                    <p id="selengkapnya"><a href="">Selengkapnya <i
+                                    <p id="selengkapnya"><a href="{!! url('/detailberita?id=10')!!}">Selengkapnya <i
                                                 class="fas fa-chevron-right"></i></a></p>
                                 </div>
                             </div>

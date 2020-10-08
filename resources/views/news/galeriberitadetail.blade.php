@@ -13,7 +13,7 @@
                   <!-- Logo -->
                   <div class="col-xl-2 col-lg-2 col-md-2">
                      <div class="logo">
-                        <a href="index.html"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                        <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
                      </div>
                   </div>
                   <div class="col-xl-10 col-lg-10 col-md-10">
@@ -21,9 +21,9 @@
                      <div class="main-menu f-right d-none d-lg-block">
                         <nav>
                            <ul id="navigation">
-                              <li><a href="index.html">Beranda</a></li>
-                              <li class="active"><a href="#">Berita</a></li>
-                              <li><a href="TP2DD.html">TP2DD</a></li>
+                              <li><a href="{!! url('/') !!}">Beranda</a></li>
+                              <li class="active"><a href="{!! url('/berita') !!}">Berita</a></li>
+                              <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                               <li><a href="#">Edukasi</a>
                                  <ul class="submenu">
                                     <li><a href="#">Edukasi Artikel</a></li>
@@ -56,9 +56,9 @@
       <div class="container nav-bread mt-30">
          <nav>
             <ol class="breadcrumb pl-0 pr-0 sky-blue">
-               <li class="breadcrumb-item"><a href="Berita.html">Berita</a></li>
-               <li class="breadcrumb-item"><a href="Galeri.html">Galeri</a></li>
-               <li class="breadcrumb-item active"><a href="#">Mulai 20..dkjajdkakdjkajdkjkjadkjakd</a>
+               <li class="breadcrumb-item"><a href="{!! url('/berita') !!}">Berita</a></li>
+               <li class="breadcrumb-item"><a href="{!! url('/galeri') !!}">Galeri</a></li>
+               <li class="breadcrumb-item active"><a href="">{{$detail_galeri['judul']}}</a>
                </li>
             </ol>
          </nav>
@@ -73,11 +73,10 @@
                <div class="single-post">
                   <div class="blogs">
                      <video controls>
-                        <source src="https://www.youtube.com/watch?v=A0IM-2zdNhY.mp4">
+                        <source src="{{ URL::asset('videos/1.mp4') }}">
                      </video>
                      <div class="blogs_details">
-                        <h2>Second divided from form fish beast made every of seas
-                           all gathered us saying he our
+                        <h2>{{$detail_galeri['judul']}}
                         </h2>
                      </div>
                   </div>
@@ -85,8 +84,8 @@
                   <div class="navigationss-top ">
                      <div class="d-sm-flex justify-content-between text-center">
                         <ul class="blog-info-link">
-                           <li><i class="fa fa-user"></i> Admin Pemda</li>
-                           <li><i class="fa fa-clock"></i>03 Oktober 2020</li>
+                           <li><i class="fa fa-user"></i> {{$detail_galeri['dibuat_oleh']}}</li>
+                           <li><i class="fa fa-clock"></i>{{$detail_galeri['tanggal_publikasi']}}</li>
                         </ul>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -115,71 +114,22 @@
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
+                  @foreach($galeris as $galeri)
                      <div class="media post_item">
                         <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
+                           <img src="{{$galeri['gambar_utama']}}  " alt="post">
                         </div>
                         <div class="col-lg-8 col-8">
                            <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>From life was you fish...</h3>
+                              <a href="{!! url('/detailgaleri?id=10')!!}">
+                                 <h3>{{$galeri['judul']}}</h3>
                               </a>
-                              <p>January 12, 2019</p>
+                              <p>{{$galeri['tanggal_publikasi']}}</p>
                            </div>
                         </div>
                      </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_2.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>The Amazing Hubble</h3>
-                              </a>
-                              <p>02 Hours ago</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_2.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>Astronomy Or Astrology</h3>
-                              </a>
-                              <p>03 Hours ago</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/blog/blog_1.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>Astronomy Or Astrology</h3>
-                              </a>
-                              <p>03 Hours ago</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/blog/blog_1.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>Astronomy Or Astrology</h3>
-                              </a>
-                              <p>03 Hours ago</p>
-                           </div>
-                        </div>
-                     </div>
+                  @endforeach
+                    
                   </aside>
                </div>
             </div>

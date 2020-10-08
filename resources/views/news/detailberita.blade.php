@@ -12,7 +12,7 @@
                   <!-- Logo -->
                   <div class="col-xl-2 col-lg-2 col-md-2">
                      <div class="logo">
-                        <a href="index.html"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                        <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
                      </div>
                   </div>
                   <div class="col-xl-10 col-lg-10 col-md-10">
@@ -20,9 +20,9 @@
                      <div class="main-menu f-right d-none d-lg-block">
                         <nav>
                            <ul id="navigation">
-                              <li><a href="index.html">Beranda</a></li>
-                              <li class="active"><a href="#">Berita</a></li>
-                              <li><a href="TP2DD.html">TP2DD</a></li>
+                              <li><a href="{!! url('/') !!}">Beranda</a></li>
+                              <li class="active"><a href="{!! url('/berita') !!}">Berita</a></li>
+                              <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                               <li><a href="#">Edukasi</a>
                                  <ul class="submenu">
                                     <li><a href="#">Edukasi Artikel</a></li>
@@ -55,9 +55,8 @@
       <div class="container nav-bread mt-30">
          <nav>
             <ol class="breadcrumb pl-0 sky-blue">
-               <li class="breadcrumb-item"><a href="Berita.html">Berita</a></li>
-               <li class="breadcrumb-item"><a href="#">Berita Terbaru</a>
-               <li class="breadcrumb-item active"><a href="#">Berjadjdakdjda</a>
+               <li class="breadcrumb-item"><a href="{!! url('/berita') !!}">Berita</a></li>
+               <li class="breadcrumb-item active"><a href="">{{ $detail_berita['judul']}}</a>
                </li>
             </ol>
          </nav>
@@ -75,7 +74,7 @@
                         <div class="carousel-inner w-100" role="listbox">
                            <div class="carousel-item active">
                               <div class="col-lg-12">
-                                 <img class="card-img" src="{{ URL::asset('img/berita/kominfo2.jpeg') }}" alt="slide1">
+                                 <img class="card-img" src="{{ $detail_berita['gambar_utama']}}" alt="slide1">
                               </div>
                            </div>
                            <div class="carousel-item">
@@ -102,41 +101,17 @@
                      </div>
                   </div>
                   <div class="blog_detailss">
-                     <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                        Digital
-                        dan
-                        Pertumbuhan Ekonomi
+                     <h2>{{ $detail_berita['judul']}}
                      </h2>
-                     <p>
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower
-                     </p>
-                     <p>
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower to actually sit through a
-                        self-imposed MCSE training. who has the willpower to actually
-                     </p>
-                     <p>
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower
-                     </p>
-                     <p>
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower to actually sit through a
-                        self-imposed MCSE training. who has the willpower to actually
-                     </p>
+                     {!! $detail_berita['body'] !!}
                   </div>
                   <div class="divider"></div>
                </div>
                <div class="navigation-top ">
                   <div class="d-sm-flex justify-content-between text-center">
                      <ul class="blog-info-link">
-                        <li><i class="fa fa-user"></i> Admin Pemda</li>
-                        <li><i class="fa fa-clock"></i>03 Oktober 2020</li>
+                        <li><i class="fa fa-user"></i> {{ $detail_berita['dibuat_oleh']}}a</li>
+                        <li><i class="fa fa-clock"></i>{{ $detail_berita['tanggal_publikasi']}}</li>
                      </ul>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -159,50 +134,27 @@
                      </div>
                      <div class="col">
                         <div class="section-judul-berita">
-                           <h6><a href="">Lihat Semua</a></h6>
+                           <h6><a href="{!! url('beritaterbaru') !!}">Lihat Semua</a></h6>
                         </div>
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
+                  @foreach($highlights as $highlight)
                      <div class="media post_item">
                         <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
+                           <img src="{{$highlight['gambar_utama']}}" alt="post">
                         </div>
                         <div class="col-lg-8 col-8">
                            <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>From life was you fish...</h3>
+                              <a href="{!! url('/detailberita?id=10')!!}">
+                                 <h3>{{$highlight['judul']}}</h3>
                               </a>
-                              <p>January 12, 2019</p>
+                              <p>{{$highlight['tanggal_publikasi']}}</p>
                            </div>
                         </div>
                      </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_2.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>The Amazing Hubble</h3>
-                              </a>
-                              <p>02 Hours ago</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/blog/blog_1.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>Astronomy Or Astrology</h3>
-                              </a>
-                              <p>03 Hours ago</p>
-                           </div>
-                        </div>
-                     </div>
+                  @endforeach
+                     
                   </aside>
                   <div class="row pt-0">
                      <div class="col">
@@ -212,50 +164,27 @@
                      </div>
                      <div class="col">
                         <div class="section-judul-berita">
-                           <h6><a href="">Lihat Semua</a></h6>
+                           <h6><a href="{!! url('beritasatgas') !!}">Lihat Semua</a></h6>
                         </div>
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
+                  @foreach($berita_satgases as $berita_satgas)
                      <div class="media post_item">
                         <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
+                           <img src="{{$berita_satgas['gambar_utama']}}" alt="post">
                         </div>
                         <div class="col-lg-8 col-8">
                            <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>From life was you fish...</h3>
+                              <a href="{!! url('/detailberita?id=10')!!}">
+                                 <h3>{{$berita_satgas['judul']}}.</h3>
                               </a>
-                              <p>January 12, 2019</p>
+                              <p>{{$berita_satgas['tanggal_publikasi']}}</p>
                            </div>
                         </div>
                      </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>The Amazing Hubble dkjkadadadadaddad</h3>
-                              </a>
-                              <p>02 Hours ago</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_3.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>Astronomy Or Astrology</h3>
-                              </a>
-                              <p>03 Hours ago</p>
-                           </div>
-                        </div>
-                     </div>
+                  @endforeach
+                     
                   </aside>
                   <div class="row pt-0">
                      <div class="col">
@@ -265,50 +194,27 @@
                      </div>
                      <div class="col">
                         <div class="section-judul-berita">
-                           <h6><a href="">Lihat Semua</a></h6>
+                           <h6><a href="{!! url('beritadaerah') !!}">Lihat Semua</a></h6>
                         </div>
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
+                  @foreach($berita_daerahes as $berita_daerah)
                      <div class="media post_item">
                         <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
+                           <img src="{{$berita_daerah['gambar_utama']}}" alt="post">
                         </div>
                         <div class="col-lg-8 col-8">
                            <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>From life was you fish...</h3>
+                              <a href="{!! url('/detailberita?id=10')!!}">
+                                 <h3>{{$berita_daerah['judul']}}</h3>
                               </a>
-                              <p>January 12, 2019</p>
+                              <p>{{$berita_daerah['tanggal_publikasi']}}</p>
                            </div>
                         </div>
                      </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_2.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>The Amazing Hubble</h3>
-                              </a>
-                              <p>02 Hours ago</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{ URL::asset('img/post/post_3.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>Astronomy Or Astrology</h3>
-                              </a>
-                              <p>03 Hours ago</p>
-                           </div>
-                        </div>
-                     </div>
+                  @endforeach
+                     
                   </aside>
                </div>
             </div>

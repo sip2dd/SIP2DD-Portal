@@ -64,10 +64,10 @@
             <!--Section Form input-->
             <div class="form-row justify-content-center">
                 <div class="col-lg-8 col-md-4">
-                    <form action="/pencarianberita" method="GET">
+                    <form action="{!! url('/pencarianberita')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input name="cari" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>
@@ -96,13 +96,13 @@
                             </div>
                             <div class="col">
                                 <div class="section-judul-berita1">
-                                    <h6><a href="">Lihat Semua</a>
+                                    <h6><a href="{!! url('/beritaterbaru') !!}">Lihat Semua</a>
                                 </div>
                             </div>
                         </div>
                         <div id="BeritaTrCarousel" class="carousel slide w-100" data-ride="carousel">
                             <div class="carousel-inner w-100" role="listbox">
-                                <div class="carousel-item active">
+                            <div class="carousel-item active">
                                     <div class="col-lg-12 pr-0 pl-0">
                                         <article class="blog_item">
                                             <div class="blog_item_img">
@@ -115,12 +115,12 @@
                                                     </div>
                                                     <div class="col">
                                                         <div class="lengkapnya_1">
-                                                            <a href="">Selengkapnya <i
+                                                            <a href="{!! url('/detailberita?id=10')!!}">Selengkapnya <i
                                                                     class="fas fa-chevron-right"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a href="single-blog.html">
+                                                <a href="{!! url('/detailberita?id=10')!!}">
                                                     <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
                                                         Digital
                                                         dan
@@ -130,62 +130,34 @@
                                         </article>
                                     </div>
                                 </div>
+                            @foreach($highlights as $highlight)
                                 <div class="carousel-item">
                                     <div class="col-lg-12 pr-0 pl-0">
                                         <article class="blog_item">
                                             <div class="blog_item_img">
-                                                <img class="card-img" src="{{ URL::asset('img/blog/single_blog_2.png') }}" alt="">
+                                                <img class="card-img" src="{{$highlight['gambar_utama']}}" alt="">
                                             </div>
                                             <div class="blog_details">
                                                 <div class="row">
                                                     <div class="col">
-                                                        <p>02 Oktober 2020</p>
+                                                        <p>{{$highlight['tanggal_publikasi']}}</p>
                                                     </div>
                                                     <div class="col">
                                                         <div class="lengkapnya_1">
-                                                            <a href="">Selengkapnya <i
+                                                            <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
                                                                     class="fas fa-chevron-right"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a href="single-blog.html">
-                                                    <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                                        Digital
-                                                        dan
-                                                        Pertumbuhan Ekonomi</h2>
+                                                <a href="{!! url('/detailberita?id=10')!!}">
+                                                    <h2>{{$highlight['judul']}}</h2>
                                                 </a>
                                             </div>
                                         </article>
                                     </div>
                                 </div>
-                                <div class="carousel-item">
-                                    <div class="col-lg-12 pr-0 pl-0">
-                                        <article class="blog_item">
-                                            <div class="blog_item_img">
-                                                <img class="card-img" src="{{ URL::asset('img/blog/single_blog_4.png') }}" alt="">
-                                            </div>
-                                            <div class="blog_details">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p>02 Oktober 2020</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="lengkapnya_1">
-                                                            <a href="">Selengkapnya <i
-                                                                    class="fas fa-chevron-right"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a href="single-blog.html">
-                                                    <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                                        Digital
-                                                        dan
-                                                        Pertumbuhan Ekonomi</h2>
-                                                </a>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
+                            @endforeach
+                                
                             </div>
                             <a class="carousel-control-prev w-auto" href="#BeritaTrCarousel" role="button"
                                 data-slide="prev">
@@ -210,7 +182,7 @@
                             </div>
                             <div class="col">
                                 <div class="section-judul-berita1">
-                                    <h6><a href="">Lihat Semua</a></h6>
+                                    <h6><a href="{!! url('/galeri') !!}">Lihat Semua</a></h6>
                                 </div>
                             </div>
                         </div>
@@ -231,12 +203,12 @@
                                                         </div>
                                                         <div class="col">
                                                             <div class="lengkapnya_2">
-                                                                <a href="">Selengkapnya <i
+                                                                <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
                                                                         class="fas fa-chevron-right"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a href="single-blog.html" class="deskripsi-galeri1">
+                                                    <a href="{!! url('/detailgaleri?id=10')!!}" class="deskripsi-galeri1">
                                                         <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
                                                             Digital dan
                                                             Pertumbuhan Ekonomi</h2>
@@ -245,34 +217,34 @@
                                             </article>
                                         </div>
                                     </div>
+                                    @foreach($galeris as $galeri)
                                     <div class="carousel-item">
                                         <div class="col-lg-6">
                                             <article class="blog_item">
                                                 <div class="blog_item_img">
-                                                    <img class="card-img" src="{{ URL::asset('img/blog/single_blog_2.png') }}"
+                                                    <img class="card-img" src="{{$galeri['gambar_utama']}}"
                                                         alt="">
                                                 </div>
                                                 <div class="blog_details">
                                                     <div class="row">
                                                         <div class="col galeri-detail-tgl1">
-                                                            <p>02 Oktober 2020</p>
+                                                            <p>{{$galeri['tanggal_publikasi']}}</p>
                                                         </div>
                                                         <div class="col">
                                                             <div class="lengkapnya_2">
-                                                                <a href="">Selengkapnya <i
+                                                                <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
                                                                         class="fas fa-chevron-right"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a href="single-blog.html" class="deskripsi-galeri1">
-                                                        <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                                            Digital dan
-                                                            Pertumbuhan Ekonomi</h2>
+                                                    <a href="{!! url('/detailgaleri?id=10')!!}" class="deskripsi-galeri1">
+                                                        <h2>{{$galeri['judul']}}</h2>
                                                     </a>
                                                 </div>
                                             </article>
                                         </div>
                                     </div>
+                                    @endforeach
                                 </div>
                                 <a class="carousel-control-prev w-auto" href="#GaleriCarousel" role="button"
                                     data-slide="prev">
@@ -300,63 +272,28 @@
                             </div>
                             <div class="col">
                                 <div class="section-judul-berita2">
-                                    <h6><a href="">Lihat Semua</a></h6>
+                                    <h6><a href="{!! url('/beritasatgas') !!}">Lihat Semua</a></h6>
                                 </div>
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
+                            
+                        @foreach($berita_satgases as $berita_satgas)
                             <div class="media post_item">
                                 <div class="col-lg-4 col-4">
-                                    <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
+                                    <img src="{{$berita_satgas['gambar_utama']}}" alt="post">
                                 </div>
                                 <div class="col-lg-8 col-8">
                                     <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>From life was you fish mencoba lebih pnajgadada adakdj</h3>
+                                        <a href="{!! url('/detailberita?id=10')!!}">
+                                            <h3>{{$berita_satgas['judul']}}</h3>
                                         </a>
-                                        <p>02 Oktober 2020</p>
+                                        <p>{{$berita_satgas['tanggal_publikasi']}}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="media post_item">
-                                <div class="col-lg-4 col-4">
-                                    <img src="{{ URL::asset('img/post/post_2.png') }}" alt="post">
-                                </div>
-                                <div class="col-lg-8 col-8">
-                                    <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>The Amazing Hubble</h3>
-                                        </a>
-                                        <p>01 Oktober 2020</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media post_item">
-                                <div class="col-lg-4 col-4">
-                                    <img src="{{ URL::asset('img/post/post_3.png') }}" alt="post">
-                                </div>
-                                <div class="col-lg-8 col-8">
-                                    <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>Astronomy Or Astrology</h3>
-                                        </a>
-                                        <p>30 September 2020</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media post_item">
-                                <div class="col-lg-4 col-4">
-                                    <img src="{{ URL::asset('img/post/post_4.png') }}" alt="post">
-                                </div>
-                                <div class="col-lg-8 col-8">
-                                    <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>Asteroids telescope</h3>
-                                        </a>
-                                        <p>30 September 2020</p>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
+                            
                         </aside>
                         <div class="row">
                             <div class="col">
@@ -366,63 +303,27 @@
                             </div>
                             <div class="col">
                                 <div class="section-judul-berita2">
-                                    <h6><a href="">Lihat Semua</a></h6>
+                                    <h6><a href="{!! url('/beritadaerah') !!}">Lihat Semua</a></h6>
                                 </div>
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
+                        @foreach($berita_daerahes as $berita_daerah)
                             <div class="media post_item">
                                 <div class="col-lg-4 col-4">
-                                    <img src="{{ URL::asset('img/post/post_1.png') }}" alt="post">
+                                    <img src="{{$berita_daerah['gambar_utama']}}" alt="post">
                                 </div>
                                 <div class="col-lg-8 col-8">
                                     <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>From life was you fish mencoba lebih pnajgadada adakdj</h3>
+                                        <a href="{!! url('/detailberita?id=10')!!}">
+                                            <h3>{{$berita_daerah['judul']}}</h3>
                                         </a>
-                                        <p>01 Oktober 2020</p>
+                                        <p>{{$berita_daerah['tanggal_publikasi']}}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="media post_item">
-                                <div class="col-lg-4 col-4">
-                                    <img src="{{ URL::asset('img/post/post_2.png') }}" alt="post">
-                                </div>
-                                <div class="col-lg-8 col-8">
-                                    <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>The Amazing Hubble</h3>
-                                        </a>
-                                        <p>30 September 2020</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media post_item">
-                                <div class="col-lg-4 col-4">
-                                    <img src="{{ URL::asset('img/post/post_3.png') }}" alt="post">
-                                </div>
-                                <div class="col-lg-8 col-8">
-                                    <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>Astronomy Or Astrology</h3>
-                                        </a>
-                                        <p>29 September 2020</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media post_item">
-                                <div class="col-lg-4 col-4">
-                                    <img src="{{ URL::asset('img/post/post_4.png') }}" alt="post">
-                                </div>
-                                <div class="col-lg-8 col-8">
-                                    <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>Asteroids telescope</h3>
-                                        </a>
-                                        <p>29 September 2020</p>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
+                            
                         </aside>
                     </div>
                 </div>
