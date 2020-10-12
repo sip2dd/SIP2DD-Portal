@@ -6,7 +6,14 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ConnectException;
 use Share;
+
+use BenSampo\Embed\Services\Vimeo;
+use BenSampo\Embed\Services\YouTube;
+use BenSampo\Embed\Rules\EmbeddableUrl;
+use GuzzleHttp\Promise;
+
 
 class NewsController extends Controller
 {
@@ -32,6 +39,8 @@ class NewsController extends Controller
             
         }catch (RequestException $e){
             $highlight_c = null;
+        }catch (ConnectException $e) {
+            $highlight_c = null;
         }
 
         try{
@@ -42,6 +51,8 @@ class NewsController extends Controller
             $berita_satgas_c = $berita_satgas['data']['berita'];
             
         }catch (RequestException $e){
+            $berita_satgas_c = null;
+        }catch (ConnectException $e) {
             $berita_satgas_c = null;
         }
 
@@ -54,6 +65,8 @@ class NewsController extends Controller
             
         }catch (RequestException $e){
             $berita_daerah_c = null;
+        }catch (ConnectException $e) {
+            $berita_daerah_c = null;
         }
 
         try{
@@ -63,7 +76,9 @@ class NewsController extends Controller
             $galeri = json_decode($response, true);
             $galeri_c = $galeri['data']['galeri'];
             
-        }catch (RuntimeException $e){
+        }catch (RequestException $e){
+            $galeri_c = null;
+        }catch (ConnectException $e) {
             $galeri_c = null;
         }
 
@@ -98,6 +113,8 @@ class NewsController extends Controller
             
         }catch (RequestException $e){
             $highlight_c = null;
+        }catch (ConnectException $e) {
+            $highlight_c = null;
         }
 
         return view('news.highlightberita', ['highlights' => $highlight_c]);
@@ -114,6 +131,8 @@ class NewsController extends Controller
             $berita_daerah_c = $berita_daerah['data']['berita'];
             
         }catch (RequestException $e){
+            $berita_daerah_c = null;
+        }catch (ConnectException $e) {
             $berita_daerah_c = null;
         }
 
@@ -132,6 +151,8 @@ class NewsController extends Controller
             
         }catch (RequestException $e){
             $berita_satgas_c = null;
+        }catch (ConnectException $e) {
+            $berita_satgas_c = null;
         }
 
         return view('news.beritasatgas', ['berita_satgases' => $berita_satgas_c]);
@@ -147,11 +168,12 @@ class NewsController extends Controller
             $response = $request->getBody()->getContents();
     
             $detail = json_decode($response, true);
-            
-            $detail_berita = $detail['data']['berita'][0];
-         
+
+            $detail_berita = $detail['data']['berita'][0]; 
             
         }catch (RequestException $e){
+            $detail_berita = null;
+        }catch (ConnectException $e) {
             $detail_berita = null;
         }
 
@@ -165,6 +187,8 @@ class NewsController extends Controller
             
         }catch (RequestException $e){
             $highlight_c = null;
+        }catch (ConnectException $e) {
+            $highlight_c = null;
         }
 
         try{
@@ -175,6 +199,8 @@ class NewsController extends Controller
             $berita_satgas_c = $berita_satgas['data']['berita'];
             
         }catch (RequestException $e){
+            $berita_satgas_c = null;
+        }catch (ConnectException $e) {
             $berita_satgas_c = null;
         }
 
@@ -187,13 +213,25 @@ class NewsController extends Controller
             
         }catch (RequestException $e){
             $berita_daerah_c = null;
+        }catch (ConnectException $e) {
+            $berita_daerah_c = null;
         }
 
-        $getSocmed = Share::currentPage( $detail_berita['judul'])
+        if($detail_berita != null){
+            $getSocmed = Share::currentPage( $detail_berita['judul'])
                         ->facebook()
                         ->twitter()
                         ->whatsapp()
                         ->getRawLinks();
+        }else{
+            $getSocmed = Share::currentPage()
+                        ->facebook()
+                        ->twitter()
+                        ->whatsapp()
+                        ->getRawLinks();
+        }
+
+        
 
         //dd($getSocmed['facebook']);
 
@@ -218,9 +256,12 @@ class NewsController extends Controller
             
         }catch (RequestException $e){
             $galeri_c = null;
+        }catch (ConnectException $e) {
+            $galeri_c = null;
         }
 
         return view('news.galeriberita', ['galeris' => $galeri_c]);
+
     }
 
     public function detailGaleri(Request $request)
@@ -237,6 +278,8 @@ class NewsController extends Controller
             
         }catch (RequestException $e){
             $galeri_c = null;
+        }catch (ConnectException $e) {
+            $galeri_c = null;
         }
 
         try{
@@ -250,16 +293,38 @@ class NewsController extends Controller
             
         }catch (RequestException $e){
             $detail_galeri = null;
+        }catch (ConnectException $e) {
+            $detail_galeri = null;
         }
 
-        $getSocmed = Share::currentPage( $detail_galeri['judul'])
-                        ->facebook()
-                        ->twitter()
-                        ->whatsapp()
-                        ->getRawLinks();
+        if($detail_galeri != null){
+            $getSocmed = Share::currentPage( $detail_galeri['judul'])
+                            ->facebook()
+                            ->twitter()
+                            ->whatsapp()
+                            ->getRawLinks();
+        }else{
+            $getSocmed = Share::currentPage()
+            ->facebook()
+            ->twitter()
+            ->whatsapp()
+            ->getRawLinks();
+        }
 
+        $linkVideo = "https://www.youtube.com/watch?v=oHg5SJYRHA0";
 
-        return view('news.galeriberitadetail', ['galeris' => $galeri_c, 'detail_galeri' => $detail_galeri, 'socmed' => $getSocmed]);
+        // $linkVideo = "https://www.w3schools.com/html/movie.mp4";
+
+        
+        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $linkVideo, $match);
+
+        if (array_key_exists(1, $match)) {
+            $type = "youtube";
+        }else{
+            $type = "not youtube";
+        }
+
+        return view('news.galeriberitadetail', ['galeris' => $galeri_c, 'detail_galeri' => $detail_galeri, 'socmed' => $getSocmed, 'video' => $linkVideo, 'type' => $type]);
     }
 
     public function kategori()

@@ -94,37 +94,39 @@
     <section class="blog_area pt-10 mb-30">
         <div class="container">
             <!--Berita Terbaru-->
+            @if($berita_daerahs != null)
             <div class="row">
-            @foreach($berita_daerahs as $berita_daerah)
-                <div class="col-lg-4 col-md-6">
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img" src="{{$berita_daerah['gambar_utama']}}" alt="">
-                        </div>
+            
+                @foreach($berita_daerahs as $berita_daerah)
+                    <div class="col-lg-4 col-md-6">
+                        <article class="blog_item">
+                            <div class="blog_item_img">
+                                <img class="card-img" src="{{$berita_daerah['gambar_utama']}}" alt="">
+                            </div>
 
-                        <div class="blog_details">
-                            <div class="row">
-                                <div class="col">
-                                    <p>{{$berita_daerah['tanggal_publikasi']}}</p>
+                            <div class="blog_details">
+                                <div class="row">
+                                    <div class="col">
+                                        <p>{{$berita_daerah['tanggal_publikasi']}}</p>
+                                    </div>
+                                    <div class="col lokasi_alamat">
+                                        <h6>Jawa Tengah</h6>
+                                    </div>
                                 </div>
-                                <div class="col lokasi_alamat">
-                                    <h6>Jawa Tengah</h6>
+                                <a href="single-blog.html" class="deskripsi-galeri1">
+                                    <h2>{{$berita_daerah['judul']}}</h2>
+                                </a>
+                                <div class="row">
+                                    <div class="col daftar_berita_link">
+                                        <a href="{!! url('/detailberita?id=10')!!}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                            <a href="single-blog.html" class="deskripsi-galeri1">
-                                <h2>{{$berita_daerah['judul']}}</h2>
-                            </a>
-                            <div class="row">
-                                <div class="col daftar_berita_link">
-                                    <a href="{!! url('/detailberita?id=10')!!}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                        </article>
+                    </div>
                 @endforeach
+            
             </div>
-           
             <div class="row justify-content-center mb-50">
                 <nav class="blog-pagination">
                     <ul class="pagination">
@@ -147,6 +149,11 @@
                     </ul>
                 </nav>
             </div>
+            @else
+                <div class="row justify-content-center mb-50">
+                    Belum ada Data
+                </div>
+            @endif
         </div>
     </section>
     <!--================Blog Area =================-->

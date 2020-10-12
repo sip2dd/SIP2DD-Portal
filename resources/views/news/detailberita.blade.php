@@ -56,7 +56,13 @@
          <nav>
             <ol class="breadcrumb pl-0 sky-blue">
                <li class="breadcrumb-item"><a href="{!! url('/berita') !!}">Berita</a></li>
-               <li class="breadcrumb-item active"><a href="">{{ $detail_berita['judul']}}</a>
+               <li class="breadcrumb-item active"><a href="">
+                  @if($detail_berita != null)
+                     {{ $detail_berita['judul']}}
+                  @else
+                     404 : Tidak ditemukan
+                  @endif
+                  </a>
                </li>
             </ol>
          </nav>
@@ -72,6 +78,8 @@
                   <div class="blog_item_img">
                      <div id="contohCarousel" class="carousel slide w-100" data-ride="carousel">
                         <div class="carousel-inner w-100" role="listbox">
+                        @if($detail_berita != null)
+                           <!-- TO DO LIST API CAROUSEL DETAIL BERITA GAMBAR -->
                            <div class="carousel-item active">
                               <div class="col-lg-12">
                                  <img class="card-img" src="{{ $detail_berita['gambar_utama']}}" alt="slide1">
@@ -87,6 +95,13 @@
                                  <img class="card-img" src="{{ URL::asset('img/blog/single_blog_4.png') }}" alt="slide3">
                               </div>
                            </div>
+                        @else
+                           <div class="carousel-item active">
+                              <div class="col-lg-12">
+                                 <img class="card-img" src="{{ URL::asset('img/P2DD.png') }}" alt="slide3">
+                              </div>
+                           </div>
+                        @endif
                         </div>
                         <a class="carousel-control-prev w-auto" href="#contohCarousel" role="button" data-slide="prev">
                            <span class="carousel-control-prev-icon" aria-hidden="true"
@@ -101,26 +116,35 @@
                      </div>
                   </div>
                   <div class="blog_detailss">
-                     <h2>{{ $detail_berita['judul']}}
+                     <h2>
+                     @if($detail_berita != null)
+                        {{ $detail_berita['judul']}}
+                     @else
+                        Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah. 
+                     @endif
                      </h2>
+                     @if($detail_berita != null)
                      {!! $detail_berita['body'] !!}
+                     @endif
                   </div>
                   <div class="divider"></div>
                </div>
                <div class="navigation-top ">
                   <div class="d-sm-flex justify-content-between text-center">
                      <ul class="blog-info-link">
-                        <li><i class="fa fa-user"></i> {{ $detail_berita['dibuat_oleh']}}</li>
-                        <li><i class="fa fa-clock"></i>{{ $detail_berita['tanggal_publikasi']}}</li>
+                        <li><i class="fa fa-user"></i> @if($detail_berita != null){{ $detail_berita['dibuat_oleh']}} @endif</li>
+                        <li><i class="fa fa-clock"></i>@if($detail_berita != null){{ $detail_berita['tanggal_publikasi']}} @endif</li>
                      </ul>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                      </div>
+                     @if($detail_berita != null)
                      <ul class="social-icons">
                         <li><a href="{!! $socmed['facebook'] !!}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="{!! $socmed['whatsapp'] !!}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
                         <li><a href="{!! $socmed['twitter'] !!}" target="_blank"><i class="fab fa-twitter"></i></a></li>
                      </ul>
+                     @endif
                   </div>
                </div>
             </div>
@@ -139,22 +163,25 @@
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
-                  @foreach($highlights as $highlight)
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{$highlight['gambar_utama']}}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="{!! url('/detailberita?id=10')!!}">
-                                 <h3>{{$highlight['judul']}}</h3>
-                              </a>
-                              <p>{{$highlight['tanggal_publikasi']}}</p>
+                  @if($highlights != null)
+                     @foreach($highlights as $highlight)
+                        <div class="media post_item">
+                           <div class="col-lg-4 col-4">
+                              <img src="{{$highlight['gambar_utama']}}" alt="post">
+                           </div>
+                           <div class="col-lg-8 col-8">
+                              <div class="media-body">
+                                 <a href="{!! url('/detailberita?id=10')!!}">
+                                    <h3>{{$highlight['judul']}}</h3>
+                                 </a>
+                                 <p>{{$highlight['tanggal_publikasi']}}</p>
+                              </div>
                            </div>
                         </div>
-                     </div>
-                  @endforeach
-                     
+                     @endforeach
+                  @else
+                     Belum ada Data
+                  @endif   
                   </aside>
                   <div class="row pt-0">
                      <div class="col">
@@ -169,21 +196,25 @@
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
-                  @foreach($berita_satgases as $berita_satgas)
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{$berita_satgas['gambar_utama']}}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="{!! url('/detailberita?id=10')!!}">
-                                 <h3>{{$berita_satgas['judul']}}.</h3>
-                              </a>
-                              <p>{{$berita_satgas['tanggal_publikasi']}}</p>
+                  @if($berita_satgases != null)
+                     @foreach($berita_satgases as $berita_satgas)
+                        <div class="media post_item">
+                           <div class="col-lg-4 col-4">
+                              <img src="{{$berita_satgas['gambar_utama']}}" alt="post">
+                           </div>
+                           <div class="col-lg-8 col-8">
+                              <div class="media-body">
+                                 <a href="{!! url('/detailberita?id=10')!!}">
+                                    <h3>{{$berita_satgas['judul']}}.</h3>
+                                 </a>
+                                 <p>{{$berita_satgas['tanggal_publikasi']}}</p>
+                              </div>
                            </div>
                         </div>
-                     </div>
-                  @endforeach
+                     @endforeach
+                  @else
+                     Belum ada Data
+                  @endif
                      
                   </aside>
                   <div class="row pt-0">
@@ -199,21 +230,25 @@
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
-                  @foreach($berita_daerahes as $berita_daerah)
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4">
-                           <img src="{{$berita_daerah['gambar_utama']}}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="{!! url('/detailberita?id=10')!!}">
-                                 <h3>{{$berita_daerah['judul']}}</h3>
-                              </a>
-                              <p>{{$berita_daerah['tanggal_publikasi']}}</p>
+                  @if($berita_daerahes != null)
+                     @foreach($berita_daerahes as $berita_daerah)
+                        <div class="media post_item">
+                           <div class="col-lg-4 col-4">
+                              <img src="{{$berita_daerah['gambar_utama']}}" alt="post">
+                           </div>
+                           <div class="col-lg-8 col-8">
+                              <div class="media-body">
+                                 <a href="{!! url('/detailberita?id=10')!!}">
+                                    <h3>{{$berita_daerah['judul']}}</h3>
+                                 </a>
+                                 <p>{{$berita_daerah['tanggal_publikasi']}}</p>
+                              </div>
                            </div>
                         </div>
-                     </div>
-                  @endforeach
+                     @endforeach
+                  @else
+                     Belum ada Data
+                  @endif
                      
                   </aside>
                </div>

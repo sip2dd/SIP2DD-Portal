@@ -94,81 +94,61 @@
     <section class="blog_area pt-10 mb-30">
         <div class="container">
             <!--Galeri-->
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img" src="{{ URL::asset('img/blog/artikel_video_pajak2.jpg') }}" alt="">
-                        </div>
+            @if($galeris != null)
+                <div class="row">
+                    @foreach($galeris as $galeri)
+                        <div class="col-lg-4 col-md-6">
+                            <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img class="card-img" src="{{$galeri['gambar_utama']}}" alt="">
+                                </div>
 
-                        <div class="blog_details">
-                            <div class="row">
-                                <div class="col">
-                                    <p>02 Oktober 2020</p>
+                                <div class="blog_details">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p>{{$galeri['tanggal_publikasi']}}</p>
+                                        </div>
+                                    </div>
+                                    <a href="{!! url('/detailgaleri?id=10')!!}" class="deskripsi-galeri1">
+                                        <h2>{{$galeri['judul']}}</h2>
+                                    </a>
+                                    <div class="row">
+                                        <div class="col daftar_berita_link">
+                                            <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <a href="single-blog.html" class="deskripsi-galeri1">
-                                <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                    Digital
-                                    dan
-                                    Pertumbuhan Ekonomi</h2>
-                            </a>
-                            <div class="row">
-                                <div class="col daftar_berita_link">
-                                    <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
+                            </article>
                         </div>
-                    </article>
+                    @endforeach
                 </div>
-                @foreach($galeris as $galeri)
-                    <div class="col-lg-4 col-md-6">
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img" src="{{$galeri['gambar_utama']}}" alt="">
-                            </div>
-
-                            <div class="blog_details">
-                                <div class="row">
-                                    <div class="col">
-                                        <p>{{$galeri['tanggal_publikasi']}}</p>
-                                    </div>
-                                </div>
-                                <a href="single-blog.html" class="deskripsi-galeri1">
-                                    <h2>{{$galeri['judul']}}</h2>
+                <div class="row justify-content-center mb-50">
+                    <nav class="blog-pagination">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a href="#" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
                                 </a>
-                                <div class="row">
-                                    <div class="col daftar_berita_link">
-                                        <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                @endforeach
-            </div>
-            <div class="row justify-content-center mb-50">
-                <nav class="blog-pagination">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Previous">
-                                <i class="ti-angle-left"></i>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">1</a>
-                        </li>
-                        <li class="page-item active">
-                            <a href="#" class="page-link">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Next">
-                                <i class="ti-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">1</a>
+                            </li>
+                            <li class="page-item active">
+                                <a href="#" class="page-link">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            @else
+                <div class="row justify-content-center mb-50">
+                    Belum ada data
+                </div>
+            @endif
         </div>
     </section>
     <!--================Blog Area =================-->

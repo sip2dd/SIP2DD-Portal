@@ -102,61 +102,89 @@
                         </div>
                         <div id="BeritaTrCarousel" class="carousel slide w-100" data-ride="carousel">
                             <div class="carousel-inner w-100" role="listbox">
-                            <div class="carousel-item active">
+                            
+                            @if($highlights != null)
+                                @foreach($highlights as $index => $highlight)
+                                    @if ($index == 0) 
+                                        <div class="carousel-item active">
+                                            <div class="col-lg-12 pr-0 pl-0">
+                                                <article class="blog_item">
+                                                    <div class="blog_item_img">
+                                                        <img class="card-img" src="{{$highlight['gambar_utama']}}" alt="">
+                                                    </div>
+                                                    <div class="blog_details">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <p>{{$highlight['tanggal_publikasi']}}</p>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="lengkapnya_1">
+                                                                    <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
+                                                                            class="fas fa-chevron-right"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a href="{!! url('/detailberita?id=10')!!}">
+                                                            <h2>{{$highlight['judul']}}</h2>
+                                                        </a>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="carousel-item">
+                                            <div class="col-lg-12 pr-0 pl-0">
+                                                <article class="blog_item">
+                                                    <div class="blog_item_img">
+                                                        <img class="card-img" src="{{$highlight['gambar_utama']}}" alt="">
+                                                    </div>
+                                                    <div class="blog_details">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <p>{{$highlight['tanggal_publikasi']}}</p>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="lengkapnya_1">
+                                                                    <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
+                                                                            class="fas fa-chevron-right"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a href="{!! url('/detailberita?id=10')!!}">
+                                                            <h2>{{$highlight['judul']}}</h2>
+                                                        </a>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @else
+                                <div class="carousel-item active">
                                     <div class="col-lg-12 pr-0 pl-0">
                                         <article class="blog_item">
                                             <div class="blog_item_img">
-                                                <img class="card-img" src="{{ URL::asset('img/blog/single_blog_1.png') }}" alt="">
+                                                <img class="card-img" src="{{ URL::asset('img/P2DD.png') }}" alt="">
                                             </div>
                                             <div class="blog_details">
                                                 <div class="row">
                                                     <div class="col">
-                                                        <p>02 Oktober 2020</p>
+                                                        <p></p>
                                                     </div>
                                                     <div class="col">
                                                         <div class="lengkapnya_1">
-                                                            <a href="{!! url('/detailberita?id=10')!!}">Selengkapnya <i
-                                                                    class="fas fa-chevron-right"></i></a>
+                                                           
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <a href="{!! url('/detailberita?id=10')!!}">
-                                                    <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                                        Digital
-                                                        dan
-                                                        Pertumbuhan Ekonomi</h2>
+                                                    <h2>Selamat Datang di Portal Percepatan dan Perluasan Digitalisasi Daerah</h2>
                                                 </a>
                                             </div>
                                         </article>
                                     </div>
                                 </div>
-                            @foreach($highlights as $highlight)
-                                <div class="carousel-item">
-                                    <div class="col-lg-12 pr-0 pl-0">
-                                        <article class="blog_item">
-                                            <div class="blog_item_img">
-                                                <img class="card-img" src="{{$highlight['gambar_utama']}}" alt="">
-                                            </div>
-                                            <div class="blog_details">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p>{{$highlight['tanggal_publikasi']}}</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="lengkapnya_1">
-                                                            <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
-                                                                    class="fas fa-chevron-right"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a href="{!! url('/detailberita?id=10')!!}">
-                                                    <h2>{{$highlight['judul']}}</h2>
-                                                </a>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-                            @endforeach
+                            @endif
                                 
                             </div>
                             <a class="carousel-control-prev w-auto" href="#BeritaTrCarousel" role="button"
@@ -188,63 +216,65 @@
                         </div>
                         <div class="row">
                             <div id="GaleriCarousel" class="carousel slide w-100" data-ride="carousel">
+                            @if($galeris != null)
                                 <div class="carousel-inner w-100" role="listbox">
-                                    <div class="carousel-item active">
-                                        <div class="col-lg-6">
-                                            <article class="blog_item">
-                                                <div class="blog_item_img">
-                                                    <img class="card-img" src="{{ URL::asset('img/blog/single_blog_2.png') }}"
-                                                        alt="">
-                                                </div>
-                                                <div class="blog_details">
-                                                    <div class="row">
-                                                        <div class="col galeri-detail-tgl1">
-                                                            <p>02 Oktober 2020</p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="lengkapnya_2">
-                                                                <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
-                                                                        class="fas fa-chevron-right"></i></a>
+                                        @foreach($galeris as $index => $galeri)
+                                            @if ($index == 0)
+                                                <div class="carousel-item active">
+                                                    <div class="col-lg-6">
+                                                        <article class="blog_item">
+                                                            <div class="blog_item_img">
+                                                                <img class="card-img" src="{{$galeri['gambar_utama']}}"
+                                                                    alt="">
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <a href="{!! url('/detailgaleri?id=10')!!}" class="deskripsi-galeri1">
-                                                        <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                                            Digital dan
-                                                            Pertumbuhan Ekonomi</h2>
-                                                    </a>
-                                                </div>
-                                            </article>
-                                        </div>
-                                    </div>
-                                    @foreach($galeris as $galeri)
-                                    <div class="carousel-item">
-                                        <div class="col-lg-6">
-                                            <article class="blog_item">
-                                                <div class="blog_item_img">
-                                                    <img class="card-img" src="{{$galeri['gambar_utama']}}"
-                                                        alt="">
-                                                </div>
-                                                <div class="blog_details">
-                                                    <div class="row">
-                                                        <div class="col galeri-detail-tgl1">
-                                                            <p>{{$galeri['tanggal_publikasi']}}</p>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="lengkapnya_2">
-                                                                <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
-                                                                        class="fas fa-chevron-right"></i></a>
+                                                            <div class="blog_details">
+                                                                <div class="row">
+                                                                    <div class="col galeri-detail-tgl1">
+                                                                        <p>{{$galeri['tanggal_publikasi']}}</p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="lengkapnya_2">
+                                                                            <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
+                                                                                    class="fas fa-chevron-right"></i></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <a href="{!! url('/detailgaleri?id=10')!!}" class="deskripsi-galeri1">
+                                                                    <h2>{{$galeri['judul']}}</h2>
+                                                                </a>
                                                             </div>
-                                                        </div>
+                                                        </article>
                                                     </div>
-                                                    <a href="{!! url('/detailgaleri?id=10')!!}" class="deskripsi-galeri1">
-                                                        <h2>{{$galeri['judul']}}</h2>
-                                                    </a>
                                                 </div>
-                                            </article>
-                                        </div>
-                                    </div>
-                                    @endforeach
+                                            @else
+                                                <div class="carousel-item">
+                                                    <div class="col-lg-6">
+                                                        <article class="blog_item">
+                                                            <div class="blog_item_img">
+                                                                <img class="card-img" src="{{$galeri['gambar_utama']}}"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="blog_details">
+                                                                <div class="row">
+                                                                    <div class="col galeri-detail-tgl1">
+                                                                        <p>{{$galeri['tanggal_publikasi']}}</p>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="lengkapnya_2">
+                                                                            <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
+                                                                                    class="fas fa-chevron-right"></i></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <a href="{!! url('/detailgaleri?id=10')!!}" class="deskripsi-galeri1">
+                                                                    <h2>{{$galeri['judul']}}</h2>
+                                                                </a>
+                                                            </div>
+                                                        </article>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
                                 </div>
                                 <a class="carousel-control-prev w-auto" href="#GaleriCarousel" role="button"
                                     data-slide="prev">
@@ -252,12 +282,16 @@
                                         style="width: 35px; height: 35px;"></span>
                                     <span class="sr-only">Previous</span>
                                 </a>
+                        
                                 <a class="carousel-control-next w-auto" href="#GaleriCarousel" role="button"
                                     data-slide="next">
                                     <span class="carousel-control-next-icon bg-info rounded-circle" aria-hidden="true"
                                         style="width: 35px; height: 35px;"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
+                                @else
+                                <div class="col-lg-6"> Belum ada Data</div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -277,23 +311,28 @@
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
-                            
-                        @foreach($berita_satgases as $berita_satgas)
-                            <div class="media post_item">
-                                <div class="col-lg-4 col-4">
-                                    <img src="{{$berita_satgas['gambar_utama']}}" alt="post">
-                                </div>
-                                <div class="col-lg-8 col-8">
-                                    <div class="media-body">
-                                        <a href="{!! url('/detailberita?id=10')!!}">
-                                            <h3>{{$berita_satgas['judul']}}</h3>
-                                        </a>
-                                        <p>{{$berita_satgas['tanggal_publikasi']}}</p>
+
+                        @if($berita_satgases != null)    
+                            @foreach($berita_satgases as $berita_satgas)
+                                <div class="media post_item">
+                                    <div class="col-lg-4 col-4">
+                                        <img src="{{$berita_satgas['gambar_utama']}}" alt="post">
+                                    </div>
+                                    <div class="col-lg-8 col-8">
+                                        <div class="media-body">
+                                            <a href="{!! url('/detailberita?id=10')!!}">
+                                                <h3>{{$berita_satgas['judul']}}</h3>
+                                            </a>
+                                            <p>{{$berita_satgas['tanggal_publikasi']}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
-                            
+                            @endforeach
+                        @else
+                            <div>Belum ada Data</div>
+                        @endif
+
+                        <!-- <div>Belum ada Data</div> -->
                         </aside>
                         <div class="row">
                             <div class="col">
@@ -308,21 +347,25 @@
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
-                        @foreach($berita_daerahes as $berita_daerah)
-                            <div class="media post_item">
-                                <div class="col-lg-4 col-4">
-                                    <img src="{{$berita_daerah['gambar_utama']}}" alt="post">
-                                </div>
-                                <div class="col-lg-8 col-8">
-                                    <div class="media-body">
-                                        <a href="{!! url('/detailberita?id=10')!!}">
-                                            <h3>{{$berita_daerah['judul']}}</h3>
-                                        </a>
-                                        <p>{{$berita_daerah['tanggal_publikasi']}}</p>
+                        @if($berita_daerahes != null)    
+                            @foreach($berita_daerahes as $berita_daerah)
+                                <div class="media post_item">
+                                    <div class="col-lg-4 col-4">
+                                        <img src="{{$berita_daerah['gambar_utama']}}" alt="post">
+                                    </div>
+                                    <div class="col-lg-8 col-8">
+                                        <div class="media-body">
+                                            <a href="{!! url('/detailberita?id=10')!!}">
+                                                <h3>{{$berita_daerah['judul']}}</h3>
+                                            </a>
+                                            <p>{{$berita_daerah['tanggal_publikasi']}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <div>Belum ada Data</div>
+                        @endif
                             
                         </aside>
                     </div>

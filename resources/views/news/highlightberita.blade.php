@@ -94,6 +94,7 @@
     <!--================Berita Terbaru =================-->
     <section class="blog_area pt-10 mb-30">
         <div class="container">
+        @if($highlights != null)
             <!--Berita Terbaru-->
             <div class="row">
             @foreach($highlights as $highlight)
@@ -146,6 +147,11 @@
                 </nav>
             </div>
         </div>
+        @else
+            <div class="row justify-content-center mb-50">
+                Belum ada Data
+            </div>
+        @endif
     </section>
     <!--================Blog Area =================-->
 @endsection
