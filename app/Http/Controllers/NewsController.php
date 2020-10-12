@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\RequestException;
+use Share;
 
 class NewsController extends Controller
 {
@@ -62,7 +63,7 @@ class NewsController extends Controller
             $galeri = json_decode($response, true);
             $galeri_c = $galeri['data']['galeri'];
             
-        }catch (RequestException $e){
+        }catch (RuntimeException $e){
             $galeri_c = null;
         }
 
@@ -188,10 +189,21 @@ class NewsController extends Controller
             $berita_daerah_c = null;
         }
 
+        $getSocmed = Share::currentPage( $detail_berita['judul'])
+                        ->facebook()
+                        ->twitter()
+                        ->whatsapp()
+                        ->getRawLinks();
+
+        //dd($getSocmed['facebook']);
+
         return view('news.detailberita', ['detail_berita' => $detail_berita, 
                                             'highlights' => $highlight_c, 
                                             'berita_satgases' => $berita_satgas_c,
-                                            'berita_daerahes' => $berita_daerah_c,]);
+                                            'berita_daerahes' => $berita_daerah_c,
+                                            'socmed' => $getSocmed    
+                                            ],
+                                        );
     }
 
     public function galeri()
@@ -240,7 +252,14 @@ class NewsController extends Controller
             $detail_galeri = null;
         }
 
-        return view('news.galeriberitadetail', ['galeris' => $galeri_c, 'detail_galeri' => $detail_galeri]);
+        $getSocmed = Share::currentPage( $detail_galeri['judul'])
+                        ->facebook()
+                        ->twitter()
+                        ->whatsapp()
+                        ->getRawLinks();
+
+
+        return view('news.galeriberitadetail', ['galeris' => $galeri_c, 'detail_galeri' => $detail_galeri, 'socmed' => $getSocmed]);
     }
 
     public function kategori()

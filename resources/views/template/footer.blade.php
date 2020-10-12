@@ -158,3 +158,5 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="{{ URL::asset('js/plugins.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
+
+    <script src="{{ URL::asset('js/share.js') }}"></script>

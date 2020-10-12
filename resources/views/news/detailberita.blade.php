@@ -110,16 +110,16 @@
                <div class="navigation-top ">
                   <div class="d-sm-flex justify-content-between text-center">
                      <ul class="blog-info-link">
-                        <li><i class="fa fa-user"></i> {{ $detail_berita['dibuat_oleh']}}a</li>
+                        <li><i class="fa fa-user"></i> {{ $detail_berita['dibuat_oleh']}}</li>
                         <li><i class="fa fa-clock"></i>{{ $detail_berita['tanggal_publikasi']}}</li>
                      </ul>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                      </div>
                      <ul class="social-icons">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="{!! $socmed['facebook'] !!}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="{!! $socmed['whatsapp'] !!}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="{!! $socmed['twitter'] !!}" target="_blank"><i class="fab fa-twitter"></i></a></li>
                      </ul>
                   </div>
                </div>

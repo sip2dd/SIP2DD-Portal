@@ -72,9 +72,10 @@
             <div class="col-lg-8 mb-30">
                <div class="single-post">
                   <div class="blogs">
-                     <video controls>
+                     <!-- <video controls>
                         <source src="{{ URL::asset('videos/1.mp4') }}">
-                     </video>
+                     </video> -->
+                     <iframe width="420" height="315" src="https://www.youtube.com/embed?v=Yrd6JaTgN4w" frameborder="0" allowfullscreen></iframe>
                      <div class="blogs_details">
                         <h2>{{$detail_galeri['judul']}}
                         </h2>
@@ -91,9 +92,9 @@
                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                         </div>
                         <ul class="social-icons">
-                           <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                           <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                           <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                           <li><a href="{!! $socmed['facebook'] !!}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                           <li><a href="{!! $socmed['whatsapp'] !!}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                           <li><a href="{!! $socmed['twitter'] !!}" target="_blank"><i class="fab fa-twitter"></i></a></li>
                         </ul>
                      </div>
                   </div>
