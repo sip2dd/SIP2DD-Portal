@@ -15,7 +15,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.home');
+        $client = new Client();
+
+        try{
+            $request = $client->get('http://localhost:8000/api/v1/menu');
+            $response = $request->getBody()->getContents();
+    
+            $menu = json_decode($response, true);
+            //$menu_c = $menu['data']['menu'];
+            
+        }catch (RequestException $e){
+            $menu = null;
+        }catch (ConnectException $e) {
+            $menu = null;
+        }
+        return view('home.home', ['menus' => $menu]);
     }
 
     public function pencarian()
@@ -31,7 +45,9 @@ class HomeController extends Controller
 
      	$menu = json_decode($response, true);
 
-     	print("<pre>".print_r($menu, true)."</pre>");
+         print("<pre>".print_r($menu, true)."</pre>");
+         
+         
      
     }
 

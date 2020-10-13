@@ -113,7 +113,7 @@
                                         <h6>Jawa Tengah</h6>
                                     </div>
                                 </div>
-                                <a href="single-blog.html" class="deskripsi-galeri1">
+                                <a href="{!! url('/detailberita?id=10')!!}" class="deskripsi-galeri1">
                                     <h2>{{$berita_daerah['judul']}}</h2>
                                 </a>
                                 <div class="row">

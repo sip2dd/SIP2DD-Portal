@@ -21,19 +21,34 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
-                                        <li><a href="{!! url('/berita') !!}">Berita</a></li>
-                                        <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
-                                        <li><a href="#">Edukasi</a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Edukasi Artikel</a></li>
-                                                <li><a href="#">FAQ</a></li>
-                                                <li><a href="#">Daftar Istilah</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Regulasi</a></li>
-                                        <li><a href="#">Kolaborasi</a></li>
-                                        <li><a href="#">Kegiatan</a></li>
+                                    @if($menus != null)
+                                        @foreach($menus as $menu)
+                                            <li class="">
+                                                <a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                                @if(count($menu['child']) > 0)
+                                                    <ul class="submenu">
+                                                    @foreach($menu['child'] as $child)
+                                                        <li><a href="{!! url($child['link']) !!}">{{$child['nama']}}</a></li>
+                                                    @endforeach
+                                                    </ul>
+                                                @endif
+                                            </li>
+                                            <!-- <li><a href="{!! url('/berita') !!}">Berita</a></li>
+                                            <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
+                                            <li><a href="#">Edukasi</a>
+                                                <ul class="submenu">
+                                                    <li><a href="#">Edukasi Artikel</a></li>
+                                                    <li><a href="#">FAQ</a></li>
+                                                    <li><a href="#">Daftar Istilah</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Regulasi</a></li>
+                                            <li><a href="#">Kolaborasi</a></li>
+                                            <li><a href="#">Kegiatan</a></li> -->
+                                        @endforeach
+                                    @else
+                                        @include('template.menutemplate')
+                                    @endif
                                     </ul>
                                 </nav>
                             </div>
