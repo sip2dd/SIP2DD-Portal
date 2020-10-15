@@ -17,17 +17,9 @@ use GuzzleHttp\Promise;
 
 class NewsController extends Controller
 {
-    //
+
     public function index()
     {
-     	// $client = new Client();
-     	// $request = $client->get('http://localhost:8000/api/v1/berita');
-     	// $response = $request->getBody()->getContents();
-
-     	// $menu = json_decode($response, true);
-
-        // print("<pre>".print_r($menu, true)."</pre>");
-
         $client = new Client();
         try{
             $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1527.json');

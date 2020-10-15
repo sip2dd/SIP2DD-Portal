@@ -82,10 +82,10 @@
                            <!-- TO DO LIST API CAROUSEL DETAIL BERITA GAMBAR -->
                            <div class="carousel-item active">
                               <div class="col-lg-12">
-                                 <img class="card-img" src="{{ $detail_berita['gambar_utama']}}" alt="slide1">
+                                 <img class="card-img" src="{{ $detail_berita['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="slide1">
                               </div>
                            </div>
-                           <div class="carousel-item">
+                           <!-- <div class="carousel-item">
                               <div class="col-lg-12">
                                  <img class="card-img" src="{{ URL::asset('img/blog/single_blog_3.png') }}" alt="slide2">
                               </div>
@@ -94,7 +94,7 @@
                               <div class="col-lg-12">
                                  <img class="card-img" src="{{ URL::asset('img/blog/single_blog_4.png') }}" alt="slide3">
                               </div>
-                           </div>
+                           </div> -->
                         @else
                            <div class="carousel-item active">
                               <div class="col-lg-12">
@@ -167,7 +167,7 @@
                      @foreach($highlights as $highlight)
                         <div class="media post_item">
                            <div class="col-lg-4 col-4">
-                              <img src="{{$highlight['gambar_utama']}}" alt="post">
+                              <img src="{{$highlight['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                            </div>
                            <div class="col-lg-8 col-8">
                               <div class="media-body">
@@ -200,7 +200,7 @@
                      @foreach($berita_satgases as $berita_satgas)
                         <div class="media post_item">
                            <div class="col-lg-4 col-4">
-                              <img src="{{$berita_satgas['gambar_utama']}}" alt="post">
+                              <img src="{{$berita_satgas['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                            </div>
                            <div class="col-lg-8 col-8">
                               <div class="media-body">
@@ -234,7 +234,7 @@
                      @foreach($berita_daerahes as $berita_daerah)
                         <div class="media post_item">
                            <div class="col-lg-4 col-4">
-                              <img src="{{$berita_daerah['gambar_utama']}}" alt="post">
+                              <img src="{{$berita_daerah['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                            </div>
                            <div class="col-lg-8 col-8">
                               <div class="media-body">

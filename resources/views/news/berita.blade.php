@@ -110,7 +110,7 @@
                                             <div class="col-lg-12 pr-0 pl-0">
                                                 <article class="blog_item">
                                                     <div class="blog_item_img">
-                                                        <img class="card-img" src="{{$highlight['gambar_utama']}}" alt="">
+                                                        <img class="card-img" src="{{$highlight['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                                     </div>
                                                     <div class="blog_details">
                                                         <div class="row">
@@ -136,7 +136,7 @@
                                             <div class="col-lg-12 pr-0 pl-0">
                                                 <article class="blog_item">
                                                     <div class="blog_item_img">
-                                                        <img class="card-img" src="{{$highlight['gambar_utama']}}" alt="">
+                                                        <img class="card-img" src="{{$highlight['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                                     </div>
                                                     <div class="blog_details">
                                                         <div class="row">
@@ -225,7 +225,7 @@
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
                                                                 <img class="card-img" src="{{$galeri['gambar_utama']}}"
-                                                                    alt="">
+                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                                             </div>
                                                             <div class="blog_details">
                                                                 <div class="row">
@@ -251,7 +251,7 @@
                                                     <div class="col-lg-6">
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
-                                                                <img class="card-img" src="{{$galeri['gambar_utama']}}"
+                                                                <img class="card-img" src="{{$galeri['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'"
                                                                     alt="">
                                                             </div>
                                                             <div class="blog_details">
@@ -316,7 +316,7 @@
                             @foreach($berita_satgases as $berita_satgas)
                                 <div class="media post_item">
                                     <div class="col-lg-4 col-4">
-                                        <img src="{{$berita_satgas['gambar_utama']}}" alt="post">
+                                        <img src="{{$berita_satgas['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                                     </div>
                                     <div class="col-lg-8 col-8">
                                         <div class="media-body">
@@ -351,7 +351,7 @@
                             @foreach($berita_daerahes as $berita_daerah)
                                 <div class="media post_item">
                                     <div class="col-lg-4 col-4">
-                                        <img src="{{$berita_daerah['gambar_utama']}}" alt="post">
+                                        <img src="{{$berita_daerah['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                                     </div>
                                     <div class="col-lg-8 col-8">
                                         <div class="media-body">

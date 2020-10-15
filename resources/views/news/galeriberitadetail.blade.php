@@ -147,7 +147,7 @@
                      @foreach($galeris as $galeri)
                         <div class="media post_item">
                            <div class="col-lg-4 col-4">
-                              <img src="{{$galeri['gambar_utama']}}  " alt="post">
+                              <img src="{{$galeri['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                            </div>
                            <div class="col-lg-8 col-8">
                               <div class="media-body">

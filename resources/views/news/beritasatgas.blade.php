@@ -101,7 +101,7 @@
                     <div class="col-lg-4 col-md-6">
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img" src="{{$berita_satgas['gambar_utama']}}" alt="">
+                                <img class="card-img" src="{{$berita_satgas['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                             </div>
 
                             <div class="blog_details">
