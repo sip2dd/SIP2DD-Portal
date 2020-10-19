@@ -3,7 +3,7 @@
 @section('title', 'Berita | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
-    <header>
+<header>
         <!-- Header Start -->
         <div class="header-area header-transparrent ">
             <div class="main-header header-sticky">
@@ -33,6 +33,12 @@
                                         <li><a href="#">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
                                         <li><a href="#">Kegiatan</a></li>
+                                        <li><a href="{!! url('/galeri') !!}">Galeri</a>
+                                        <ul class="submenu">
+                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                        </ul>
+                                    </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -224,13 +230,13 @@
                                                     <div class="col-lg-6">
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
-                                                                <img class="card-img" src="{{$galeri['gambar_utama']}}"
+                                                                <img class="card-img" src="a"
                                                                     alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                                             </div>
                                                             <div class="blog_details">
                                                                 <div class="row">
                                                                     <div class="col galeri-detail-tgl1">
-                                                                        <p>{{$galeri['tanggal_publikasi']}}</p>
+                                                                        <p>{{$galeri['tgl_dibuat']}}</p>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="lengkapnya_2">
@@ -251,13 +257,13 @@
                                                     <div class="col-lg-6">
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
-                                                                <img class="card-img" src="{{$galeri['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'"
+                                                                <img class="card-img" src="a" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'"
                                                                     alt="">
                                                             </div>
                                                             <div class="blog_details">
                                                                 <div class="row">
                                                                     <div class="col galeri-detail-tgl1">
-                                                                        <p>{{$galeri['tanggal_publikasi']}}</p>
+                                                                        <p>{{$galeri['tgl_dibuat']}}</p>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="lengkapnya_2">

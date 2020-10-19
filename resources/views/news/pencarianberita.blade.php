@@ -3,7 +3,7 @@
 @section('title', 'Pencarian Berita | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
-    <header>
+<header>
         <!-- Header Start -->
         <div class="header-area header-transparrent ">
             <div class="main-header header-sticky">
@@ -21,7 +21,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="{!! url('/') !!}">Beranda</a></li>
-                                        <li><a href="{!! url('/berita') !!}">Berita</a></li>
+                                        <li class="active"><a href="{!! url('/berita') !!}">Berita</a></li>
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
@@ -33,6 +33,12 @@
                                         <li><a href="#">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
                                         <li><a href="#">Kegiatan</a></li>
+                                        <li><a href="{!! url('/galeri') !!}">Galeri</a>
+                                        <ul class="submenu">
+                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                        </ul>
+                                    </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -82,52 +88,38 @@
                 @if($cari != null)
                 <div class="row">
                     <div class="col-lg-12 col-md-6 ket-jumlah-cari">
-                        <p>Hasil pencarian <strong>{{$cari}}</strong>, 2 hasil ditemukan</p>
+                        <p>Hasil pencarian <strong>{{$cari}}</strong></p>
                     </div>
                 </div>
                 @endif
                 <!--Hasil Pencarian -->
                 <div class="row">
-                    <div class="card w-100 card-besar">
-                        <div class="row no-gutters berita_card">
-                            <div class="col-lg-4 berita_img">
-                                <img class="" src="{{ URL::asset('img/berita/coba1.jpg') }}">
-                            </div>
-                            <div class="col-lg-8 card_desk">
-                                <div class="card-body">
-                                    <h5>Kamis, 01 Oktober 2020</h5>
-                                    <h4><a href="{!! url('/detailberita?id=10')!!}">Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                            Digital dan Pertumbuhan Ekonomi</a></h4>
-                                    <p>Multiply sea night grass fourth day sea lesser rule open subdue female fill which
-                                        them
-                                        Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                    </p>
-                                    <p id="selengkapnya"><a href="{!! url('/detailberita?id=10')!!}">Selengkapnya <i
-                                                class="fas fa-chevron-right"></i></a></p>
+
+                    
+                         @if($pencarian != null)    
+                            @foreach($pencarian as $cari)
+                                <div class="card w-100 card-besar">
+                                    <div class="row no-gutters berita_card">
+                                        <div class="col-lg-4 berita_img">
+                                            <img class="" src="{{$cari['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
+                                        </div>
+                                        <div class="col-lg-8 card_desk">
+                                            <div class="card-body">
+                                                <h5>{{$cari['tanggal_publikasi']}}</h5>
+                                                <h4><a href="{!! url('/detailberita?id=')!!}{{$cari['berita_id']}}">{{$cari['judul']}}</a></h4>
+                                                <p>
+                                                </p>
+                                                <p id="selengkapnya"><a href="{!! url('/detailberita?id=')!!}{{$cari['berita_id']}}">Selengkapnya <i
+                                                            class="fas fa-chevron-right"></i></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card w-100 card-besar">
-                        <div class="row no-gutters berita_card">
-                            <div class="col-lg-4 berita_img">
-                                <img class="" src="{{ URL::asset('img/berita/coba1.jpg') }}">
-                            </div>
-                            <div class="col-lg-8 card_desk">
-                                <div class="card-body">
-                                    <h5>Kamis, 01 Oktober 2020</h5>
-                                    <h4><a href="{!! url('/detailberita?id=10')!!}">Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                            Digital dan Pertumbuhan Ekonomi</a></h4>
-                                    <p>Multiply sea night grass fourth day sea lesser rule open subdue female fill which
-                                        them
-                                        Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                    </p>
-                                    <p id="selengkapnya"><a href="{!! url('/detailberita?id=10')!!}">Selengkapnya <i
-                                                class="fas fa-chevron-right"></i></a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            @endforeach
+                        @else
+                            <div>Belum ada Data</div>
+                        @endif
+                    
                 </div>
                 <!--Bagian Pagination-->
                 <div class="row justify-content-center">

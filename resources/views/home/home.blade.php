@@ -474,5 +474,113 @@
             </div>
         </div>
         <!--Edukasi End-->
+        <!--Galeri Foto Start-->
+        <div id="galerifoto_section" class="our-customer section-paddingr edukasi-section">
+            <div class="container-fluid">
+                <div class="our-customer-wrapper">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="section-tittle text-center mb-90">
+                                <h2>Galeri Foto</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mx-auto my-auto">
+                        <div id="edukasiCarousel" class="carousel slide w-100" data-ride="carousel">
+                            <div class="carousel-inner w-100" role="listbox">
+                                <div class="carousel-item active">
+                                    <div class="col-xl-4 col-lg-4 col-md-6">
+                                        <div class="single-customer">
+                                            <div class="what-img">
+                                                <img src="{{ URL::asset('img/P2DD.png') }}" alt="">
+                                            </div>
+                                            <div class="what-cap">
+                                                <h6>28 September 2020</h6>
+                                                <h4><a href="{!! url('/galeri')!!}"> Welcome To The Best Model Winner
+                                                        Contest</a></h4>
+                                            </div>
+                                            <div class="tulisan-lengkapnya">
+                                                <a href="{!! url('/galeri')!!}">Selengkapnya <span
+                                                        class="fas fa-chevron-right mr-2"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="col-xl-4 col-lg-4 col-md-6">
+                                        <div class="single-customer">
+                                            <div class="what-img">
+                                                <img src="{{ URL::asset('img/P2DD.png') }}" alt="">
+                                            </div>
+                                            <div class="what-cap">
+                                                <h6>28 September 2020</h6>
+                                                <h4><a href="{!! url('/galeri')!!}">Welcome To The Best Model Winner Contest</a></h4>
+                                            </div>
+                                            <div class="tulisan-lengkapnya">
+                                                <a href="{!! url('/galeri')!!}">Selengkapnya <span
+                                                        class="fas fa-chevron-right mr-2"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="col-xl-4 col-lg-4 col-md-6">
+                                        <div class="single-customer">
+                                            <div class="what-img">
+                                                <img src="{{ URL::asset('img/P2DD.png') }}" alt="">
+                                            </div>
+                                            <div class="what-cap">
+                                                <h6>28 September 2020</h6>
+                                                <h4><a href="{!! url('/galeri')!!}">To The Best Model Winner
+                                                        Contest</a></h4>
+                                            </div>
+                                            <div class="tulisan-lengkapnya">
+                                                <a href="{!! url('/galeri')!!}">Selengkapnya <span
+                                                        class="fas fa-chevron-right mr-2"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="col-xl-4 col-lg-4 col-md-6">
+                                        <div class="single-customer">
+                                            <div class="what-img">
+                                                <img src="{{ URL::asset('img/P2DD.png') }}" alt="">
+                                            </div>
+                                            <div class="what-cap">
+                                                <h6>28 September 2020</h6>
+                                                <h4><a href="{!! url('/galeri')!!}">Welcome To The Best Model Winner
+                                                        Contest</a></h4>
+                                            </div>
+                                            <div class="tulisan-lengkapnya">
+                                                <a href="{!! url('/galeri')!!}">Selengkapnya <span
+                                                        class="fas fa-chevron-right mr-2"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev w-auto" href="#edukasiCarousel" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon bg-info rounded-circle" aria-hidden="true"
+                                    style="width: 35px; height: 35px;"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next w-auto" href="#edukasiCarousel" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon bg-info rounded-circle" aria-hidden="true"
+                                    style="width: 35px; height: 35px;"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-5 mb-5">
+                        <a href="Galeri_Foto.html" class="btn radius-btn"
+                            style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Galeri Foto End-->
     </main>
 @endsection

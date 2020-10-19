@@ -11,4 +11,20 @@ class PemdaController extends Controller
     {
          return view('pemda.pemda');
     }
+
+    public function detailPemda()
+    {
+        // get detail pemda 
+
+        // get berita terbaru(highlight) pemda
+
+        // get berita lainnya 
+
+        // get layanan terhangat
+
+        // get galeri foto
+
+        
+        return view('pemda.detailpemda');
+    }
 }

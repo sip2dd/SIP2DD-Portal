@@ -62,11 +62,11 @@ class NewsController extends Controller
         }
 
         try{
-            $request = $client->get('http://localhost:8000/api/v1/galeriberita');
+            $request = $client->get('http://103.18.117.44/sicantik-ws/api/TemplateData/keluaran/1523.json');
             $response = $request->getBody()->getContents();
     
             $galeri = json_decode($response, true);
-            $galeri_c = $galeri['data']['galeri'];
+            $galeri_c = $galeri['data']['galeri_video'];
             
         }catch (RequestException $e){
             $galeri_c = null;
@@ -87,9 +87,30 @@ class NewsController extends Controller
 
     public function pencarianBerita(Request $request)
     {
+    //      $form_search = [
+    //         'search' => $request->search,
+    //         'category' => $request->category,
+    //     ];
         $search = $request->cari != null ? $request->cari : null;
+
+        $client = new Client();
+        try{
+            $request = $client->get('http://103.18.117.44/sicantik-ws/api/TemplateData/keluaran/1532.json?judul='.$search.'&kata_kunci='.$search);
+            $response = $request->getBody()->getContents();
+            
+    
+            $pencarian = json_decode($response, true);
+            //dd($pencarian);
+            $pencarian_c = $pencarian['data']['berita_search'];
+            
+            
+        }catch (RequestException $e){
+            $highlight_c = null;
+        }catch (ConnectException $e) {
+            $highlight_c = null;
+        }
         
-        return view('news.pencarianberita', ['cari' => $search]);
+        return view('news.pencarianberita', ['cari' => $search, 'pencarian' => $pencarian_c]);
     }
 
     public function highlight()
@@ -156,12 +177,12 @@ class NewsController extends Controller
 
         $client = new Client();
         try{
-            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1528.json');
+            $request = $client->get('http://103.18.117.44/sicantik-ws/api/TemplateData/keluaran/1528.json?berita_id='.$search);
             $response = $request->getBody()->getContents();
     
             $detail = json_decode($response, true);
 
-            $detail_berita = $detail['data']['berita'][0]; 
+            $detail_berita = $detail['data']['berita_detail'][0]; 
             
         }catch (RequestException $e){
             $detail_berita = null;
@@ -240,7 +261,7 @@ class NewsController extends Controller
     {
         $client = new Client();
         try{
-            $request = $client->get('http://localhost:8000/api/v1/galeriberita');
+            $request = $client->get('http://103.18.117.44/sicantik-ws/api/TemplateData/keluaran/1523.json');
             $response = $request->getBody()->getContents();
     
             $galeri = json_decode($response, true);
@@ -262,7 +283,7 @@ class NewsController extends Controller
         $client = new Client();
 
         try{
-            $request = $client->get('http://localhost:8000/api/v1/galeriberita');
+            $request = $client->get('http://103.18.117.44/sicantik-ws/api/TemplateData/keluaran/1523.json');
             $response = $request->getBody()->getContents();
     
             $galeri = json_decode($response, true);
@@ -303,10 +324,11 @@ class NewsController extends Controller
             ->getRawLinks();
         }
 
-        $linkVideo = "https://www.youtube.com/watch?v=oHg5SJYRHA0";
+        //$linkVideo = "https://www.youtube.com/watch?v=oHg5SJYRHA0";
 
         // $linkVideo = "https://www.w3schools.com/html/movie.mp4";
 
+        $linkVideo = "https://20.detik.com/embed/201016053";
         
         preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $linkVideo, $match);
 
@@ -319,66 +341,4 @@ class NewsController extends Controller
         return view('news.galeriberitadetail', ['galeris' => $galeri_c, 'detail_galeri' => $detail_galeri, 'socmed' => $getSocmed, 'video' => $linkVideo, 'type' => $type]);
     }
 
-    public function kategori()
-    {
-     	$client = new Client();
-     	$id = "highlightdetail Testing";
-     	$request = $client->get('http://localhost:8000/api/v1/berita/kategori?id='.$id);
-     	$response = $request->getBody()->getContents();
-
-     	$menu = json_decode($response, true);
-
-     	print("<pre>".print_r($menu, true)."</pre>");
-     
-    }
-
-    // public function pencarianBerita(Request $request)
-    // {
-    //      $form_search = [
-    //         'search' => $request->search,
-    //         'category' => $request->category,
-    //     ];
-
-    //     return $form_search;
-    // }
-
-    public function beritaDetail()
-    {
-        $id = "beritaDetail Testing";
-        $client = new Client();
-        $request = $client->get('http://localhost:8000/api/v1/beritadetail?id='.$id);
-
-        $response = $request->getBody()->getContents();
-
-        $menu = json_decode($response, true);
-
-        print("<pre>".print_r($menu, true)."</pre>");
-    }
-
-    public function beritajson()
-    {
-        $client = new Client();
-        try{
-            $request = $client->get('http://103.18.117.44/api-sicantik-ws/aapi/TemplateData/keluaran/1527.json');
-            $response = $request->getBody()->getContents();
-    
-            $menu = json_decode($response, true);
-            dd($menu);
-        }catch (RequestException $e){
-            
-        }
-        
-    }
-
-    public function kategorijson()
-    {
-        $client = new Client();
-        $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1526.json');
-        $response = $request->getBody()->getContents();
-
-        $menu = json_decode($response, true);
-
-        print("<pre>".print_r($menu, true)."</pre>");
-     
-    }
 }

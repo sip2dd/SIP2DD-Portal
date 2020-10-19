@@ -15,20 +15,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $client = new Client();
+        // $client = new Client();
 
-        try{
-            $request = $client->get('http://localhost:8000/api/v1/menu');
-            $response = $request->getBody()->getContents();
+        // try{
+        //     $request = $client->get('http://localhost:8000/api/v1/menu');
+        //     $response = $request->getBody()->getContents();
     
-            $menu = json_decode($response, true);
-            //$menu_c = $menu['data']['menu'];
+        //     $menu = json_decode($response, true);
+        //     //$menu_c = $menu['data']['menu'];
             
-        }catch (RequestException $e){
-            $menu = null;
-        }catch (ConnectException $e) {
-            $menu = null;
-        }
+        // }catch (RequestException $e){
+        //     $menu = null;
+        // }catch (ConnectException $e) {
+        //     $menu = null;
+        // }
+
+        $menu = null;
         return view('home.home', ['menus' => $menu]);
     }
 

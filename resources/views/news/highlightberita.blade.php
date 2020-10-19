@@ -4,7 +4,7 @@
 
 @section('menu')
 
-    <header>
+<header>
         <!-- Header Start -->
         <div class="header-area header-transparrent ">
             <div class="main-header header-sticky">
@@ -13,7 +13,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="index.html"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                                <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
@@ -34,6 +34,12 @@
                                         <li><a href="#">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
                                         <li><a href="#">Kegiatan</a></li>
+                                        <li><a href="{!! url('/galeri') !!}">Galeri</a>
+                                        <ul class="submenu">
+                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                        </ul>
+                                    </li>
                                     </ul>
                                 </nav>
                             </div>

@@ -50,7 +50,7 @@
 @endsection
 
 @section('content')
-<main class="background-utama">
+    <main class="background-utama"> 
         <!-- Area untuk Pencarian TP2DD -->
         <section class="service-area section-padding">
             <div class="container">

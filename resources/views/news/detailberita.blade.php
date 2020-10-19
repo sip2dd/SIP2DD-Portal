@@ -3,50 +3,56 @@
 @section('title', 'Detail Berita | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
-   <header>
-      <!-- Header Start -->
-      <div class="header-area header-transparrent ">
-         <div class="main-header header-sticky">
-            <div class="container">
-               <div class="row align-items-center">
-                  <!-- Logo -->
-                  <div class="col-xl-2 col-lg-2 col-md-2">
-                     <div class="logo">
-                        <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
-                     </div>
-                  </div>
-                  <div class="col-xl-10 col-lg-10 col-md-10">
-                     <!-- Main-menu -->
-                     <div class="main-menu f-right d-none d-lg-block">
-                        <nav>
-                           <ul id="navigation">
-                              <li><a href="{!! url('/') !!}">Beranda</a></li>
-                              <li class="active"><a href="{!! url('/berita') !!}">Berita</a></li>
-                              <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
-                              <li><a href="#">Edukasi</a>
-                                 <ul class="submenu">
-                                    <li><a href="#">Edukasi Artikel</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                    <li><a href="#">Daftar Istilah</a></li>
-                                 </ul>
-                              </li>
-                              <li><a href="#">Regulasi</a></li>
-                              <li><a href="#">Kolaborasi</a></li>
-                              <li><a href="#">Kegiatan</a></li>
-                           </ul>
-                        </nav>
-                     </div>
-                  </div>
-                  <!-- Mobile Menu -->
-                  <div class="col-12">
-                     <div class="mobile_menu d-block d-md-none"></div>
-                  </div>
-               </div>
+<header>
+        <!-- Header Start -->
+        <div class="header-area header-transparrent ">
+            <div class="main-header header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-2">
+                            <div class="logo">
+                                <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <!-- Main-menu -->
+                            <div class="main-menu f-right d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="{!! url('/') !!}">Beranda</a></li>
+                                        <li class="active"><a href="{!! url('/berita') !!}">Berita</a></li>
+                                        <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
+                                        <li><a href="#">Edukasi</a>
+                                            <ul class="submenu">
+                                                <li><a href="#">Edukasi Artikel</a></li>
+                                                <li><a href="#">FAQ</a></li>
+                                                <li><a href="#">Daftar Istilah</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Regulasi</a></li>
+                                        <li><a href="#">Kolaborasi</a></li>
+                                        <li><a href="#">Kegiatan</a></li>
+                                        <li><a href="{!! url('/galeri') !!}">Galeri</a>
+                                        <ul class="submenu">
+                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                        </ul>
+                                    </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-md-none"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-      <!-- Header End -->
-   </header>
+        </div>
+        <!-- Header End -->
+    </header>
 @endsection
 
 @section('content')

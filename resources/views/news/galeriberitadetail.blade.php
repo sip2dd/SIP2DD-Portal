@@ -89,6 +89,13 @@
                         </video>
                         @endif
 
+                        <!-- <video controls>
+                           <source src="https://20.detik.com/embed/201016053">
+                           Your browser does not support the video tag.
+                        </video> -->
+
+                        <!-- <iframe src='https://20.detik.com/embed/201016053' frameborder='0' width='300' height='169' scrolling='no'></iframe> -->
+
                      @else
                            <div class="carousel-item active">
                               <div class="col-lg-12">
