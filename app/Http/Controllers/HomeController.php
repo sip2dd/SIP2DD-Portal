@@ -8,28 +8,13 @@ use GuzzleHttp\Exception\RequestException;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        // $client = new Client();
+        $menu = $this->getAPI();
 
-        // try{
-        //     $request = $client->get('http://localhost:8000/api/v1/menu');
-        //     $response = $request->getBody()->getContents();
-    
-        //     $menu = json_decode($response, true);
-        //     //$menu_c = $menu['data']['menu'];
-            
-        // }catch (RequestException $e){
-        //     $menu = null;
-        // }catch (ConnectException $e) {
-        //     $menu = null;
-        // }
-
+        dd($menu);
+        
         $menu = null;
         return view('home.home', ['menus' => $menu]);
     }
@@ -39,139 +24,41 @@ class HomeController extends Controller
         return view('home.pencarian');
     }
     
-    public function menu()
-    {
-     	$client = new Client();
-     	$request = $client->get('http://localhost:8000/api/v1/menu');
-     	$response = $request->getBody()->getContents();
-
-     	$menu = json_decode($response, true);
-
-         print("<pre>".print_r($menu, true)."</pre>");
-         
-         
-     
-    }
-
-    public function highlight()
+    public function getAPI()
     {
         $client = new Client();
-     	$request = $client->get('http://localhost:8000/api/v1/highlight');
-     	$response = $request->getBody()->getContents();
+        try{
+            $url = config('urlapi.url_api') . '1527.json';
+            $request = $client->get($url);
+            $response = $request->getBody()->getContents();
+            $data = json_decode($response, true);    
+        }catch (RequestException $e){
+            $data = null;
+        }catch (ConnectException $e) {
+            $data = null;
+        }
 
-     	$menu = json_decode($response, true);
-
-     	print("<pre>".print_r($menu, true)."</pre>");
+        return $data;
     }
 
-    public function highlightDetail()
+    public function getSearchAPI()
     {
-        $id = "highlightdetail Testing";
         $client = new Client();
-        $request = $client->get('http://localhost:8000/api/v1/highlightdetail?id='.$id);
+        try{
+            $url = config('urlapi.url_api') . '1530.json';
+            $request = $client->get($url);
+            $response = $request->getBody()->getContents();
+            $data = json_decode($response, true);    
+        }catch (RequestException $e){
+            $data = null;
+        }catch (ConnectException $e) {
+            $data = null;
+        }
 
-        $response = $request->getBody()->getContents();
-
-        $menu = json_decode($response, true);
-
-        print("<pre>".print_r($menu, true)."</pre>");
+        return $data;
     }
 
-    public function pojaknas()
-    {
-    	$client = new Client();
-     	$request = $client->get('http://localhost:8000/api/v1/pojaknas');
-     	$response = $request->getBody()->getContents();
-
-     	$menu = json_decode($response, true);
-
-     	print("<pre>".print_r($menu, true)."</pre>");
-        
-    }
-
-    public function pojaknasDetail()
-    {
-        $id = "Testing";
-        $client = new Client();
-        $request = $client->get('http://localhost:8000/api/v1/pojaknasdetail?id='.$id);
-
-        $response = $request->getBody()->getContents();
-
-        $menu = json_decode($response, true);
-
-        print("<pre>".print_r($menu, true)."</pre>");
-    }
-
-    public function layanan()
-    {
-    	$client = new Client();
-     	$request = $client->get('http://localhost:8000/api/v1/layanan');
-     	$response = $request->getBody()->getContents();
-
-     	$menu = json_decode($response, true);
-
-     	print("<pre>".print_r($menu, true)."</pre>");
-       
-    }
-
-    public function layananDetail()
-    {
-        $id = "Testing";
-        $client = new Client();
-        $request = $client->get('http://localhost:8000/api/v1/layanandetail?id='.$id);
-
-        $response = $request->getBody()->getContents();
-
-        $menu = json_decode($response, true);
-
-        print("<pre>".print_r($menu, true)."</pre>");
-    }
-
-    public function galeri()
-    {
-      	$client = new Client();
-     	$request = $client->get('http://localhost:8000/api/v1/galeri');
-     	$response = $request->getBody()->getContents();
-
-     	$menu = json_decode($response, true);
-
-     	print("<pre>".print_r($menu, true)."</pre>");
-    }
-
-    public function kegiatan()
-    {
-    	$client = new Client();
-     	$request = $client->get('http://localhost:8000/api/v1/kegiatan');
-     	$response = $request->getBody()->getContents();
-
-     	$menu = json_decode($response, true);
-
-     	print("<pre>".print_r($menu, true)."</pre>");
-       
-    }
-
-    public function kegiatanDetail()
-    {
-        $id = "Testing";
-        $client = new Client();
-        $request = $client->get('http://localhost:8000/api/v1/kegiatandetail?id='.$id);
-
-        $response = $request->getBody()->getContents();
-
-        $menu = json_decode($response, true);
-
-        print("<pre>".print_r($menu, true)."</pre>");
-    }
-
-    // public function pencarian(Request $request)
-    // {
-    //      $form_search = [
-    //         'search' => $request->search,
-    //         'category' => $request->category,
-    //     ];
-
-    //     return $form_search;
-    // }
+    
 
 
 }

@@ -22,7 +22,7 @@ class NewsController extends Controller
     {
         $client = new Client();
         try{
-            $request = $client->get('http://103.18.117.44/api-sicantik-ws/api/TemplateData/keluaran/1527.json');
+            $request = $client->get('http://103.18.117.44/aapi-sicantik-ws/api/TemplateData/keluaran/1527.json');
             $response = $request->getBody()->getContents();
     
             $highlight = json_decode($response, true);

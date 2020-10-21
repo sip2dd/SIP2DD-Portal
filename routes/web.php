@@ -41,7 +41,7 @@ Route::get('/detailgalerivideo', [GaleriController::class, 'detailGaleriVideo'])
 Route::get('/pencarianberita', [NewsController::class, 'pencarianBerita']);
 
 Route::get('/tp2dd', [PemdaController::class, 'index']);
-Route::get('/detailtp2dd', [PemdaController::class, 'detailPemda']);
+Route::get('/detailpemda', [PemdaController::class, 'detailPemda']);
 
 
 

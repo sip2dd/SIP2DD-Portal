@@ -89,9 +89,9 @@
                                     Provinsi
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <a class="dropdown-item" href="#">Jawa Barat</a>
-                                    <a class="dropdown-item" href="#">Jawa Tengah</a>
-                                    <a class="dropdown-item" href="#">Jawa Timur</a>
+                                    <a class="dropdown-item" href="{!! url('/detailpemda') !!}">Jawa Barat</a>
+                                    <a class="dropdown-item" href="{!! url('/detailpemda') !!}">Jawa Tengah</a>
+                                    <a class="dropdown-item" href="{!! url('/detailpemda') !!}">Jawa Timur</a>
                                 </div>
                             </div>
                             <div class="btn-group" role="group">
@@ -100,9 +100,9 @@
                                     Kabupaten/Kota
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                    <a class="dropdown-item" href="#">Kota Depok</a>
-                                    <a class="dropdown-item" href="#">Kota Bandung</a>
-                                    <a class="dropdown-item" href="#">Kabupaten Cilacap</a>
+                                    <a class="dropdown-item" href="{!! url('/detailpemda') !!}">Kota Depok</a>
+                                    <a class="dropdown-item" href="{!! url('/detailpemda') !!}">Kota Bandung</a>
+                                    <a class="dropdown-item" href="{!! url('/detailpemda') !!}">Kabupaten Cilacap</a>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                                 <span><img src="{{ URL::asset('img/logo_tp2dd/image 2.png') }}" style="width: 90px;"></span>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="">DKI Jakarta</a></h4>
+                                <h4><a href="{!! url('/detailpemda') !!}">DKI Jakarta</a></h4>
                                 <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
                                     laborea.</p>
                             </div>
@@ -131,7 +131,7 @@
                                 <span> <img src="{{ URL::asset('img/logo_tp2dd/image 3.png') }}" style="width:90px;"></span>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="">Jawa Barat</a></h4>
+                                <h4><a href="{!! url('/detailpemda') !!}">Jawa Barat</a></h4>
                                 <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
                                     laborea.</p>
                             </div>
@@ -143,7 +143,7 @@
                                 <span><img src="{{ URL::asset('img/logo_tp2dd/image 4.png') }}" style="width: 90px;"></span>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="">Jawa Timur</a></h4>
+                                <h4><a href="{!! url('/detailpemda') !!}">Jawa Timur</a></h4>
                                 <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
                                     laborea.</p>
                             </div>
@@ -155,7 +155,7 @@
                                 <span><img src="{{ URL::asset('img/logo_tp2dd/image 5.png') }}" style="width: 90px;"></span>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="">Ngawi</a></h4>
+                                <h4><a href="{!! url('/detailpemda') !!}">Ngawi</a></h4>
                                 <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
                                     laborea.</p>
                             </div>
@@ -167,7 +167,7 @@
                                 <span><img src="{{ URL::asset('img/logo_tp2dd/image 6.png') }}" style="width: 90px;"></span>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="">Jawa Tengah</a></h4>
+                                <h4><a href="{!! url('/detailpemda') !!}">Jawa Tengah</a></h4>
                                 <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
                                     laborea.</p>
                             </div>
@@ -179,7 +179,7 @@
                                 <span><img src="{{ URL::asset('img/logo_tp2dd/image 7.png') }}" style="width: 90px;"></span>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="">Kalimantan Selatan</a></h4>
+                                <h4><a href="{!! url('/detailpemda') !!}">Kalimantan Selatan</a></h4>
                                 <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut
                                     laborea.</p>
                             </div>
