@@ -36,9 +36,23 @@ class HomeController extends Controller
         ]);
     }
 
-    public function pencarian()
+    public function pencarian(Request $request)
     {
-        return view('home.pencarian');
+        $judul = "";
+        $count = 0;
+        if($request->has('keyword')) {
+            $judul = $request->keyword;
+        }
+        $searchNews = $this->homeRepo->searchNewsItems($judul);
+        if($searchNews != null){
+            $count = count($searchNews);
+        }
+        //dd($searchNews);
+        return view('home.searchPage', [
+            'count' => $count,
+            'keyword' => $judul,
+            'searchNews' => $searchNews,
+        ]);
     }
     
 }

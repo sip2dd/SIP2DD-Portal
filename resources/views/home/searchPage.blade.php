@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    </li>
+                                    
                                     </ul>
                                 </nav>
                             </div>
@@ -71,10 +71,10 @@
                 <!--Section Form input-->
                 <div class="form-row justify-content-center mb-50">
                     <div class="col-lg-8 col-md-4">
-                        <form action="" method="">
+                        <form action="{!! url('/pencarian')!!}" method="GET">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                    <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                     <div class="input-group-append">
                                         <button class="button1">
                                             <i class="fas fa-search"></i>
@@ -85,43 +85,33 @@
                         </form>
                     </div>
                 </div>
+                @if($keyword != "")
                 <div class="row">
                     <div class="col-lg-12 col-md-6 ket-jumlah-cari">
-                        <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p>
+                    <p>Hasil pencarian <strong>"{{$keyword}}"</strong>, {{$count}} hasil ditemukan</p>    
+                    <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
                     </div>
                 </div>
+                @endif
                 <!--Hasil Pencarian -->
+                @if($searchNews != null)
                 <div class="row">
-                    <div class="card w-100 card-besar">
-                        <div class="row no-gutters berita_card">
-                            <div class="col-lg-4">
-                                <img class="berita_img" src="{{ URL::asset('img/berita/coba1.jpg') }}"
-                                    style="width:100%; height: 250px;">
-                            </div>
-                            <div class="col-lg-8 card_desk">
-                                <div class="card-body">
-                                    <h6>Kamis, 01 Oktober 2020</h6>
-                                    <h4>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                        Digital dan Pertumbuhan Ekonomi</h4>
+                    @foreach($searchNews as $index => $newsItem)
+                        <div class="card w-100 card-besar">
+                            <div class="row no-gutters berita_card">
+                                <div class="col-lg-4">
+                                    <img class="berita_img" src="{{$newsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'"
+                                        style="width:100%; height: 250px;">
+                                </div>
+                                <div class="col-lg-8 card_desk">
+                                    <div class="card-body">
+                                        <h6>{{$newsItem['tanggal_publikasi']}}</h6>
+                                        <h4>{{$newsItem['judul']}}</h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card w-100 card-besar">
-                        <div class="row no-gutters berita_card">
-                            <div class="col-lg-4">
-                                <img class="berita_img" src="{{ URL::asset('img/berita/coba1.jpg') }}"
-                                    style="width:100%; height: 250px;">
-                            </div>
-                            <div class="col-lg-8 card_desk">
-                                <div class="card-body">
-                                    <h6>Kamis, 01 Oktober 2020</h6>
-                                    <h4>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                        Digital dan Pertumbuhan Ekonomi</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <!--Bagian Pagination-->
                 <div class="row justify-content-center">
@@ -146,6 +136,13 @@
                         </ul>
                     </nav>
                 </div>
+                @else
+                <div class="container">
+                    <div class="row mt-5 mb-5">
+                        <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                    </div>
+                </div>
+                @endif
             </div>
         </section>
         <!-- Akhir pagination-->

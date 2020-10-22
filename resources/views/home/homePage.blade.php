@@ -20,9 +20,9 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li class="active"><a href="index.html">Beranda</a></li>
-                                        <li><a href="Berita.html">Berita</a></li>
-                                        <li><a href="TP2DD.html">TP2DD</a></li>
+                                        <li><a href="{!! url('/') !!}">Beranda</a></li>
+                                        <li class="active"><a href="{!! url('/berita') !!}">Berita</a></li>
+                                        <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
                                                 <li><a href="#">Edukasi Artikel</a></li>
@@ -33,12 +33,12 @@
                                         <li><a href="#">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
                                         <li><a href="#">Kegiatan</a></li>
-                                        <li><a href="#">Galeri</a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Galeri Foto</a></li>
-                                                <li><a href="#">Galeri Video</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="{!! url('/galeri') !!}">Galeri</a>
+                                        <ul class="submenu">
+                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                        </ul>
+                                    
                                     </ul>
                                 </nav>
                             </div>
@@ -74,7 +74,7 @@
                                     </p>
                                 </div>
                                 <div class="slider-btns">
-                                    <a data-animation="fadeInLeft" data-delay=".8s" href="pencarian.html"
+                                    <a data-animation="fadeInLeft" data-delay=".8s" href="{!! url('pencarian') !!}"
                                         class="btn radius-btn">Cari
                                         Layanan & Berita</a>
                                 </div>

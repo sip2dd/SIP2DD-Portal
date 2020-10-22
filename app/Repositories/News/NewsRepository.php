@@ -48,7 +48,7 @@ Class NewsRepository implements NewsInterface{
     }
 
     public function searchNews($keyword){
-        $data = $this->getApiContents("1532.json?judul=".$keyword."&keyword=".$keyword);
+        $data = $this->getApiContents("1532.json?judul=".$keyword."&kata_kunci=".$keyword);
         return $data;
     }
 
