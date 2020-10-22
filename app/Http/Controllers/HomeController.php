@@ -36,17 +36,21 @@ class HomeController extends Controller
         ]);
     }
 
-    public function pencarian(Request $request)
+    public function searchNewsServices(Request $request)
     {
         $judul = "";
         $count = 0;
+        $searchNews = null;
         if($request->has('keyword')) {
-            $judul = $request->keyword;
+            if($request->keyword != ''){
+                $judul = $request->keyword;
+                $searchNews = $this->homeRepo->searchNewsItems($judul);
+                if($searchNews != null){
+                    $count = count($searchNews);
+                }
+            }
         }
-        $searchNews = $this->homeRepo->searchNewsItems($judul);
-        if($searchNews != null){
-            $count = count($searchNews);
-        }
+        
         //dd($searchNews);
         return view('home.searchPage', [
             'count' => $count,

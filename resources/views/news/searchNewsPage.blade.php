@@ -1,6 +1,6 @@
 @extends('template.main')
 
-@section('title', 'Pencarian Berita | Portal Percepatan Digitalisasi Daerah')
+@section('title', 'Pencarian | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
 <header>
@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    </li>
+                                    
                                     </ul>
                                 </nav>
                             </div>
@@ -71,10 +71,10 @@
                 <!--Section Form input-->
                 <div class="form-row justify-content-center mb-50">
                     <div class="col-lg-8 col-md-4">
-                        <form action="{!! url('/pencarianberita')!!}" method="GET">
+                        <form action="{!! url('/pencarian')!!}" method="GET">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input name="cari" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                    <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                     <div class="input-group-append">
                                         <button class="button1">
                                             <i class="fas fa-search"></i>
@@ -85,41 +85,33 @@
                         </form>
                     </div>
                 </div>
-                @if($cari != null)
+                @if($keyword != "")
                 <div class="row">
                     <div class="col-lg-12 col-md-6 ket-jumlah-cari">
-                        <p>Hasil pencarian <strong>{{$cari}}</strong></p>
+                    <p>Hasil pencarian <strong>"{{$keyword}}"</strong>, {{$count}} hasil ditemukan</p>    
+                    <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
                     </div>
                 </div>
                 @endif
                 <!--Hasil Pencarian -->
+                @if($searchNews != null)
                 <div class="row">
-
-                    
-                         @if($pencarian != null)    
-                            @foreach($pencarian as $cari)
-                                <div class="card w-100 card-besar">
-                                    <div class="row no-gutters berita_card">
-                                        <div class="col-lg-4 berita_img">
-                                            <img class="" src="{{$cari['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
-                                        </div>
-                                        <div class="col-lg-8 card_desk">
-                                            <div class="card-body">
-                                                <h5>{{$cari['tanggal_publikasi']}}</h5>
-                                                <h4><a href="{!! url('/detailberita?id=')!!}{{$cari['berita_id']}}">{{$cari['judul']}}</a></h4>
-                                                <p>
-                                                </p>
-                                                <p id="selengkapnya"><a href="{!! url('/detailberita?id=')!!}{{$cari['berita_id']}}">Selengkapnya <i
-                                                            class="fas fa-chevron-right"></i></a></p>
-                                            </div>
-                                        </div>
+                    @foreach($searchNews as $index => $newsItem)
+                        <div class="card w-100 card-besar">
+                            <div class="row no-gutters berita_card">
+                                <div class="col-lg-4">
+                                    <img class="berita_img" src="{{$newsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'"
+                                        style="width:100%; height: 250px;">
+                                </div>
+                                <div class="col-lg-8 card_desk">
+                                    <div class="card-body">
+                                        <h6>{{$newsItem['tanggal_publikasi']}}</h6>
+                                        <h4>{{$newsItem['judul']}}</h4>
                                     </div>
                                 </div>
-                            @endforeach
-                        @else
-                            <div>Belum ada Data</div>
-                        @endif
-                    
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
                 <!--Bagian Pagination-->
                 <div class="row justify-content-center">
@@ -144,6 +136,13 @@
                         </ul>
                     </nav>
                 </div>
+                @else
+                <div class="container">
+                    <div class="row mt-5 mb-5">
+                        <a style="margin:auto; text-align: center; display: block;">Belum ada Data, Silahkan ketik di kolom pencarian</a>
+                    </div>
+                </div>
+                @endif
             </div>
         </section>
         <!-- Akhir pagination-->

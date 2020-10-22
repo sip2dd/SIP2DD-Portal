@@ -20,10 +20,11 @@ use App\Http\Controllers\GaleriController;
 
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/pencarian', [HomeController::class, 'pencarian']);
+Route::get('/pencarian', [HomeController::class, 'searchNewsServices']);
 
 Route::get('/berita', [NewsController::class, 'index']);
-Route::get('/pencarianberita', [NewsController::class, 'pencarianBerita']);
+Route::get('/pencarianberita', [NewsController::class, 'searchNews']);
+
 Route::get('/beritaterbaru', [NewsController::class, 'highlight']);
 Route::get('/beritadaerah', [NewsController::class, 'beritaDaerah']);
 Route::get('/beritasatgas', [NewsController::class, 'beritaSatgas']);
@@ -37,8 +38,6 @@ Route::get('/detailgalerifoto', [GaleriController::class, 'detailGaleriFoto']);
 
 Route::get('/galerivideo', [GaleriController::class, 'galeriVideo']);
 Route::get('/detailgalerivideo', [GaleriController::class, 'detailGaleriVideo']);
-
-Route::get('/pencarianberita', [NewsController::class, 'pencarianBerita']);
 
 Route::get('/tp2dd', [PemdaController::class, 'index']);
 Route::get('/detailpemda', [PemdaController::class, 'detailPemda']);

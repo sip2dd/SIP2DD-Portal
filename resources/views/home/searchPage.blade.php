@@ -139,7 +139,7 @@
                 @else
                 <div class="container">
                     <div class="row mt-5 mb-5">
-                        <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                        <a style="margin:auto; text-align: center; display: block;">Belum ada Data, Silahkan ketik di kolom pencarian</a>
                     </div>
                 </div>
                 @endif

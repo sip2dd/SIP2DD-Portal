@@ -3,7 +3,7 @@
 @section('title', 'Berita | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
-<header>
+    <header>
         <!-- Header Start -->
         <div class="header-area header-transparrent ">
             <div class="main-header header-sticky">
@@ -12,7 +12,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                                <a href="index.html"><img src="assets/img/logo/log.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
@@ -73,7 +73,7 @@
                     <form action="{!! url('/pencarianberita')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
-                                <input name="cari" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input type="text" name="keyword" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>
@@ -88,7 +88,7 @@
     </div>
     <!-- Slider Area End-->
     <!--================Berita Area =================-->
-    <section class="blog_area">
+    <section class="blog_area background_1">
         <div class="container">
             <!--Berita Terbaru-->
             <div class="row">
@@ -102,13 +102,12 @@
                             </div>
                             <div class="col">
                                 <div class="section-judul-berita1">
-                                    <h6><a href="{!! url('/beritaterbaru') !!}">Lihat Semua</a>
+                                    <h6><a href="{!! url('/highlights') !!}">Lihat Semua</a>
                                 </div>
                             </div>
                         </div>
                         <div id="BeritaTrCarousel" class="carousel slide w-100" data-ride="carousel">
                             <div class="carousel-inner w-100" role="listbox">
-                            
                             @if($highlights != null)
                                 @foreach($highlights as $index => $highlight)
                                     @if ($index == 0) 
@@ -125,12 +124,12 @@
                                                             </div>
                                                             <div class="col">
                                                                 <div class="lengkapnya_1">
-                                                                    <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
+                                                                    <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}">Selengkapnya <i
                                                                             class="fas fa-chevron-right"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <a href="{!! url('/detailberita?id=10')!!}">
+                                                        <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}">
                                                             <h2>{{$highlight['judul']}}</h2>
                                                         </a>
                                                     </div>
@@ -151,12 +150,12 @@
                                                             </div>
                                                             <div class="col">
                                                                 <div class="lengkapnya_1">
-                                                                    <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
+                                                                    <a href="{!! url('/detailgaleri?id=')!!}{{$highlight['berita_id']}}">Selengkapnya <i
                                                                             class="fas fa-chevron-right"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <a href="{!! url('/detailberita?id=10')!!}">
+                                                        <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}">
                                                             <h2>{{$highlight['judul']}}</h2>
                                                         </a>
                                                     </div>
@@ -183,7 +182,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a href="{!! url('/detailberita?id=10')!!}">
+                                                <a href="#">
                                                     <h2>Selamat Datang di Portal Percepatan dan Perluasan Digitalisasi Daerah</h2>
                                                 </a>
                                             </div>
@@ -191,7 +190,6 @@
                                     </div>
                                 </div>
                             @endif
-                                
                             </div>
                             <a class="carousel-control-prev w-auto" href="#BeritaTrCarousel" role="button"
                                 data-slide="prev">
@@ -211,7 +209,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="section-judul-berita1">
-                                    <h4>Galeri</h4>
+                                    <h4>Galeri Video</h4>
                                 </div>
                             </div>
                             <div class="col">
@@ -222,31 +220,31 @@
                         </div>
                         <div class="row">
                             <div id="GaleriCarousel" class="carousel slide w-100" data-ride="carousel">
-                            @if($galeris != null)
+                            @if($galleryNews != null)
                                 <div class="carousel-inner w-100" role="listbox">
-                                        @foreach($galeris as $index => $galeri)
+                                        @foreach($galleryNews as $index => $gallery)
                                             @if ($index == 0)
                                                 <div class="carousel-item active">
                                                     <div class="col-lg-6">
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
-                                                                <img class="card-img" src="a"
+                                                                <img class="card-img" src=""
                                                                     alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                                             </div>
                                                             <div class="blog_details">
                                                                 <div class="row">
                                                                     <div class="col galeri-detail-tgl1">
-                                                                        <p>{{$galeri['tgl_dibuat']}}</p>
+                                                                        <p>{{$gallery['tgl_dibuat']}}</p>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="lengkapnya_2">
-                                                                            <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
+                                                                            <a href="{!! url('/detailgaleri?id=')!!}{{$gallery['galeri_id']}}">Selengkapnya <i
                                                                                     class="fas fa-chevron-right"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <a href="{!! url('/detailgaleri?id=10')!!}" class="deskripsi-galeri1">
-                                                                    <h2>{{$galeri['judul']}}</h2>
+                                                                <a href="{!! url('/detailgaleri?id=')!!}{{$gallery['galeri_id']}}" class="deskripsi-galeri1">
+                                                                    <h2>{{$gallery['judul']}}</h2>
                                                                 </a>
                                                             </div>
                                                         </article>
@@ -257,23 +255,23 @@
                                                     <div class="col-lg-6">
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
-                                                                <img class="card-img" src="a" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'"
+                                                                <img class="card-img" src="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'"
                                                                     alt="">
                                                             </div>
                                                             <div class="blog_details">
                                                                 <div class="row">
                                                                     <div class="col galeri-detail-tgl1">
-                                                                        <p>{{$galeri['tgl_dibuat']}}</p>
+                                                                        <p>{{$gallery['tgl_dibuat']}}</p>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="lengkapnya_2">
-                                                                            <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i
+                                                                            <a href="{!! url('/detailgaleri?id=')!!}{{$gallery['galeri_id']}}">Selengkapnya <i
                                                                                     class="fas fa-chevron-right"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <a href="{!! url('/detailgaleri?id=10')!!}" class="deskripsi-galeri1">
-                                                                    <h2>{{$galeri['judul']}}</h2>
+                                                                <a href="{!! url('/detailgaleri?id=')!!}{{$gallery['galeri_id']}}" class="deskripsi-galeri1">
+                                                                    <h2>{{$gallery['judul']}}</h2>
                                                                 </a>
                                                             </div>
                                                         </article>
@@ -317,28 +315,25 @@
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
-
-                        @if($berita_satgases != null)    
-                            @foreach($berita_satgases as $berita_satgas)
-                                <div class="media post_item">
-                                    <div class="col-lg-4 col-4">
-                                        <img src="{{$berita_satgas['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
-                                    </div>
-                                    <div class="col-lg-8 col-8">
-                                        <div class="media-body">
-                                            <a href="{!! url('/detailberita?id=10')!!}">
-                                                <h3>{{$berita_satgas['judul']}}</h3>
-                                            </a>
-                                            <p>{{$berita_satgas['tanggal_publikasi']}}</p>
-                                        </div>
+                        @if($govNews != null)    
+                            @foreach($govNews as $govNewsItem)
+                            <div class="media post_item">
+                                <div class="col-lg-4 col-4 pl-0 pr-0">
+                                    <img class="image" src="{{$govNewsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="{!! url('/detailberita?id=')!!}{{$govNewsItem['berita_id']}}">
+                                            <h3>{{$govNewsItem['judul']}}</h3>
+                                        </a>
+                                        <p>{{$govNewsItem['tanggal_publikasi']}}</p>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         @else
-                            <div>Belum ada Data</div>
+                            <div class="media post_item">Belum ada Data</div>
                         @endif
-
-                        <!-- <div>Belum ada Data</div> -->
                         </aside>
                         <div class="row">
                             <div class="col">
@@ -353,26 +348,26 @@
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
-                        @if($berita_daerahes != null)    
-                            @foreach($berita_daerahes as $berita_daerah)
-                                <div class="media post_item">
-                                    <div class="col-lg-4 col-4">
-                                        <img src="{{$berita_daerah['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
-                                    </div>
-                                    <div class="col-lg-8 col-8">
-                                        <div class="media-body">
-                                            <a href="{!! url('/detailberita?id=10')!!}">
-                                                <h3>{{$berita_daerah['judul']}}</h3>
-                                            </a>
-                                            <p>{{$berita_daerah['tanggal_publikasi']}}</p>
-                                        </div>
+                        @if($localgovNews != null)    
+                            @foreach($localgovNews as $localgovNewsItem)
+                            <div class="media post_item">
+                                <div class="col-lg-4 col-4 pl-0 pr-0">
+                                    <img class="image" src="{{$localgovNewsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="{!! url('/detailberita?id=')!!}{{$localgovNewsItem['berita_id']}}">
+                                            <h3>{{$localgovNewsItem['judul']}}</h3>
+                                        </a>
+                                        <p>{{$localgovNewsItem['tanggal_publikasi']}}</p>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         @else
-                            <div>Belum ada Data</div>
+                            <div class="media post_item">Belum ada Data</div>
                         @endif
-                            
+                           
                         </aside>
                     </div>
                 </div>
@@ -380,7 +375,43 @@
         </div>
     </section>
     <!--================Blog Area =================-->
-@endsection
+    <script>
+        jQuery(document).ready(function () {
+            $('#recipeCarousel').carousel({
+                interval: 2000
+            });
+            $('#beritaCarousel').carousel({
+                interval: 3000
+            });
+            $('#EdukasiCarousel').carousel({
+                interval: 2000
+            });
+            $('#BeritaTrCarousel').carousel({
+                interval: 2000
+            });
+            $('#GaleriCarousel').carousel({
+                interval: 3000
+            });
 
 
+            $('.carousel .carousel-item').each(function () {
+                var minPerSlide = 3;
+                var next = $(this).next();
+                if (!next.length) {
+                    next = $(this).siblings(':first');
+                }
+                next.children(':first-child').clone().appendTo($(this));
 
+                for (var i = 0; i < minPerSlide; i++) {
+                    next = next.next();
+                    if (!next.length) {
+                        next = $(this).siblings(':first');
+                    }
+
+                    next.children(':first-child').clone().appendTo($(this));
+                }
+            });
+
+        });
+    </script>
+@endsection('content')

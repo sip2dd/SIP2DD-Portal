@@ -10,9 +10,7 @@ interface NewsInterface{
     public function getLocalGovNews();
     public function getAllLocalGovNews();
     public function getGalleryVideos();
-
     public function getDetailNews($id);
-
     public function searchNews($keyword);
 
 }
