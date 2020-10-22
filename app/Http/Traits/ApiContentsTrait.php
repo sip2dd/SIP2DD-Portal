@@ -33,4 +33,14 @@ trait ApiContentsTrait{
 
         return $data;
     }
+
+    public function getApiMenu(){
+        $menu = $this->getApiContents('1520.json');
+        return $menu;
+    }
+
+    public function getApiP2DDInfo(){
+        $p2dd_info = $this->getApiContents('1547.json');
+        return $p2dd_info;
+    }
 }
