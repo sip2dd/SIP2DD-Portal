@@ -72,7 +72,7 @@
                                     </p>
                                 </div>
                                 <div class="slider-btns">
-                                    <a data-animation="fadeInLeft" data-delay=".8s" href="{!! url('/pencarian') !!}"
+                                    <a data-animation="fadeInLeft" data-delay=".8s" href="pencarian.html"
                                         class="btn radius-btn">Cari
                                         Layanan & Berita</a>
                                 </div>
@@ -80,7 +80,7 @@
                             <div class="col-lg-6">
                                 <div class="hero__img d-none d-lg-block f-right" data-animation="fadeInRight"
                                     data-delay=".8s">
-                                    <img style="width: 550px" src="{{ URL::asset('img/hero/Frame.png') }}" alt="">
+                                    <img style="width: 530px" src="assets/img/hero/Frame.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
         </div>
         <!-- Bagian Atas End -->
         <!-- Fitur Kami Start -->
-        <section id="fiturkami" class="best-features-area section-padd4 sky-blue ">
+        <section id="fiturkami" class="best-features-area section-paddingr sky-blue ">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-lg-12">
@@ -176,10 +176,9 @@
             </div>
         </section>
         <!-- Fitur Kami End -->
-        <!-- Layanan Terhangat Start -->
-        <section id="layananhangat" class="service-area sky-blue section-padd4">
+        <!--Layanan Terhangat start baru-->
+        <section class="service-area sky-blue section-paddingr">
             <div class="container">
-                <!-- Section Tittle -->
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center mb-90">
@@ -187,95 +186,107 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mx-auto my-auto">
-                    <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-                        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-                            <div class="carousel-inner w-100" role="listbox">
-                                <div class="carousel-item active">
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="services-caption text-center mb-30">
-                                            <div class="service-icon">
-                                                <span><img class="img-lay" src="{{ URL::asset('img/log_layanan/sakpole.png') }}"
-                                                        alt=""></span>
-                                            </div>
-                                            <div class="service-cap">
-                                                <h4><a href="">Sakpole Jateng</a></h4>
-                                                <p>Bayar pajak kendaraan bermotor dengan mudah , akses Sakpole Jateng
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="services-caption text-center mb-30">
-                                            <div class="service-icon">
-                                                <span><img class="img-lay" src="{{ URL::asset('img/log_layanan/sakpole.png') }}"
-                                                        alt=""></span>
-                                            </div>
-                                            <div class="service-cap">
-                                                <h4><a href="">Sakpole Jateng</a></h4>
-                                                <p>Bayar pajak kendaraan bermotor dengan mudah , akses Sakpole Jateng
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="services-caption text-center mb-30">
-                                            <div class="service-icon">
-                                                <span><img class="img-lay"
-                                                        src="{{ URL::asset('img/log_layanan/LOGO BAPENDA1.png') }}" alt=""></span>
-                                            </div>
-                                            <div class="service-cap">
-                                                <h4><a href="">Pajak Online</a></h4>
-                                                <p>Ngurus pajak tanpa ribet, silahkan daftar online saja di pajak online
-                                                    jakarta</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="services-caption text-center mb-30">
-                                            <div class="service-icon">
-                                                <span><img class="img-lay" src="{{ URL::asset('img/log_layanan/image 33.png') }}"
-                                                        alt=""></span>
-                                            </div>
-                                            <div class="service-cap">
-                                                <h4><a href="">Samsat J'bret</a></h4>
-                                                <p>Bayar pajak kendaraan bermotor dengan mudah, akses samsat jebret
-                                                    online</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+            </div>
+            <div id="mixedSlider">
+                <div class="MS-content">
+                    <div class="item">
+                        <div class="services-caption text-center mb-10">
+                            <div class="service-icon">
+                                <span><img class="img-lay" src="assets/img/log_layanan/LOGO BAPENDA1.png" alt=""></span>
                             </div>
-                            <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon bg-info rounded-circle" aria-hidden="true"
-                                    style="width: 35px; height: 35px;"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon bg-info rounded-circle" aria-hidden="true"
-                                    style="width: 35px; height: 35px;"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                            <div class="service-cap">
+                                <h4><a href="">Pajak Online</a></h4>
+                                <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor
+                                    incididunt ut
+                                    laborea.</p>
+                            </div>
+                            <div class="services-loc">
+                                <p>Jawa Barat</p>
+                            </div>
                         </div>
                     </div>
+                    <div class="item">
+                        <div class="services-caption text-center mb-10">
+                            <div class="service-icon">
+                                <span><img class="img-lay" src="assets/img/log_layanan/LOGO BAPENDA1.png" alt=""></span>
+                            </div>
+                            <div class="service-cap">
+                                <h4><a href="">Pajak Online</a></h4>
+                                <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor
+                                    incididunt ut
+                                    laborea.</p>
+                            </div>
+                            <div class="services-loc">
+                                <p>Jawa Barat</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="services-caption text-center mb-10">
+                            <div class="service-icon">
+                                <span><img class="img-lay" src="assets/img/log_layanan/LOGO BAPENDA1.png" alt=""></span>
+                            </div>
+                            <div class="service-cap">
+                                <h4><a href="">Pajak Online</a></h4>
+                                <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor
+                                    incididunt ut
+                                    laborea.</p>
+                            </div>
+                            <div class="services-loc">
+                                <p>Jawa Barat</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="services-caption text-center mb-10">
+                            <div class="service-icon">
+                                <span><img class="img-lay" src="assets/img/log_layanan/LOGO BAPENDA1.png" alt=""></span>
+                            </div>
+                            <div class="service-cap">
+                                <h4><a href="">Pajak Online</a></h4>
+                                <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor
+                                    incididunt ut
+                                    laborea.</p>
+                            </div>
+                            <div class="services-loc">
+                                <p>Jawa Barat</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="services-caption text-center mb-10">
+                            <div class="service-icon">
+                                <span><img class="img-lay" src="assets/img/log_layanan/LOGO BAPENDA1.png" alt=""></span>
+                            </div>
+                            <div class="service-cap">
+                                <h4><a href="">Pajak Online</a></h4>
+                                <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor
+                                    incididunt ut
+                                    laborea.</p>
+                            </div>
+                            <div class="services-loc">
+                                <p>Jawa Barat</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="row mt-3 mb-5">
-                    <a href="" class="btn radius-btn"
+                <div class="MS-controls">
+                    <button class="MS-left"><span class="carousel-control-prev-icon bg-info rounded-circle"
+                            style="width: 35px; height: 35px;" aria-hidden="true"></span></button>
+                    <button class="MS-right"><span class="carousel-control-next-icon bg-info rounded-circle"
+                            style="width: 35px; height: 35px;" aria-hidden="true"></span></button>
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="row mt-5 mb-5">
+                    <a href="layanan_lengkap_nasional.html" class="btn radius-btn"
                         style="margin:auto; text-align: center; display: block;">Selengkapnya</a>
                 </div>
             </div>
-            </div>
         </section>
-        <!-- Layanan Terhangat End -->
+        <!--Layanan Terhangat end baru-->
         <!--Berita-->
         <div id="berita_section" class="our-customer section-padd4 sky-blue">
             <div class="container-fluid">

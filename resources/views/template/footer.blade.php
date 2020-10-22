@@ -1,14 +1,14 @@
-<footer>
+    <footer>
         <!-- Footer Start-->
         <div class="footer-main">
-            <div class="footer-area section-padd4">
+            <div class="footer-area section-paddingr">
                 <div class="container">
                     <div class="row  justify-content-between">
                         <div class="col-lg-3 col-md-4 col-sm-8">
                             <div class="single-footer-caption mb-30">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                                    <a href="index.html"><img src="assets/img/logo/log.png" alt=""></a>
                                 </div>
                                 <div id="icon-footer" class="footer-tittle">
                                     <ul>
@@ -88,20 +88,25 @@
 
     </footer>
 
+
     <script src="{{ URL::asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
     <!-- All JS Custom Plugins Link Here here -->
     <!-- JS here -->
     <script>
         jQuery(document).ready(function () {
-            $('#recipeCarousel').carousel({
-                interval: 2000
-            });
-            $('#beritaCarousel').carousel({
+            $('#layananCarousel').carousel({
                 interval: 3000
-            });
-            $('#EdukasiCarousel').carousel({
+            })
+            $('#beritaCarousel').carousel({
                 interval: 2000
-            });
+            })
+            $('#edukasiCarousel').carousel({
+                interval: 2000
+            })
+
+            $('#galeriCarousel').carousel({
+                interval: 2000
+            })
 
             $('.carousel .carousel-item').each(function () {
                 var minPerSlide = 3;
@@ -123,7 +128,6 @@
 
         });
     </script>
-
     <script src="{{ URL::asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
 
     <!-- Jquery, Popper, Bootstrap -->
@@ -132,7 +136,14 @@
     <!-- <script src="./assets/js/scripts.js"></script>-->
     <!-- Jquery Mobile Menu -->
     <script src="{{ URL::asset('js/jquery.slicknav.min.js') }}"></script>
-
+    <script src="{{ URL::asset('js/multislider.js') }}"></script>
+    <script src="{{ URL::asset('js/multislider.min.js') }}"></script>
+    <script>
+        $('#mixedSlider').multislider({
+            duration: 650,
+            interval: 3000
+        });
+    </script>
     <!-- Jquery Slick , Owl-Carousel Plugins -->
     <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ URL::asset('js/slick.min.js') }}"></script>
@@ -156,7 +167,5 @@
     <script src="{{ URL::asset('js/jquery.ajaxchimp.min.js') }}"></script>
 
     <!-- Jquery Plugins, main Jquery -->
-    <script src="{{ URL::asset('js/plugins.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery.ajaxchimp.min.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
-
-    <script src="{{ URL::asset('js/share.js') }}"></script>

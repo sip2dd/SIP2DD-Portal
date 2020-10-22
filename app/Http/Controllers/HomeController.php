@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Home\HomeInterface;
+use App\Http\Traits\ApiContentsTrait;
 
 class HomeController extends Controller
 {
 
-    private $newsRepo;
+    use ApiContentsTrait;
 
     public function __construct(HomeInterface $homeRepo){
         $this->homeRepo = $homeRepo;
@@ -16,15 +17,23 @@ class HomeController extends Controller
     
     public function index()
     {
-        // get menu : bisa pake traits mungkin ?
-
-        $govServices = $this->homeRepo->getGovServices();    
+        //$menu = $this->getApiMenu();
+        $menu = null;
+        $govServices = $this->homeRepo->getGovServices(); 
         $newsItems = $this->homeRepo->getNewsItems();
         $eduNewsItems = $this->homeRepo->getEducationNewsItems();
         $galleryNewsItems = $this->homeRepo->getGalleryNewsItems();
-        dd($galleryNewsItems);
-
-        // return view('home.home', ['menus' => $menu]);
+        // $p2dd_info = $this->getApiP2DDInfo();
+        $p2dd_info = null;
+        
+        return view('home.homePage', [
+            'menus' => $menu,
+            'govServices' => $govServices,
+            'newsItems' => $newsItems,
+            'eduNewsItems' => $eduNewsItems,
+            'galleryNewsItems' => $galleryNewsItems,
+            'p2dd_info' => $p2dd_info
+        ]);
     }
 
     public function pencarian()

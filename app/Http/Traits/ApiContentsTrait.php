@@ -36,6 +36,9 @@ trait ApiContentsTrait{
 
     public function getApiMenu(){
         $menu = $this->getApiContents('1520.json');
+        if($menu != null){
+            $menu = $menu['data']['menu'];
+        }
         return $menu;
     }
 
