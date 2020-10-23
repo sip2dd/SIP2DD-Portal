@@ -56,5 +56,51 @@ class NewsController extends Controller
         ]);
     }
 
+    public function getDetailNews(Request $request){
+        
+
+        $detailNews = null;
+        if($request->has('id')) {
+            if($request->id != ''){
+                $id = $request->id;
+                $detailNews = $this->newsRepo->getDetailNews($id);
+                if($detailNews != null){
+                    $getSocmed = $this->getSocmed($detailNews['judul']);
+                }else{
+                    $getSocmed = $this->getSocmed();
+                }
+                
+            }else{
+                return redirect('');
+            }
+        }else{
+            return redirect('');
+        }
+
+        
+        $highlights = $this->newsRepo->getHighlight();
+        $govNews = $this->newsRepo->getNationalGovNews();
+        $localgovNews = $this->newsRepo->getLocalGovNews(); 
+        
+        
+        return view('news.detailNewsPage', [
+            'detailNews' => $detailNews, 
+            'highlights' => $highlights, 
+            'govNews' => $govNews,
+            'localgovNews' => $localgovNews,
+            'socmed' => $getSocmed    
+        ],
+        );
+    }
+
+    public function getSocmed($title = ""){
+        $socmed = Share::currentPage($title)
+        ->facebook()
+        ->twitter()
+        ->whatsapp()
+        ->getRawLinks();
+        return $socmed;
+    }
+
 
 }

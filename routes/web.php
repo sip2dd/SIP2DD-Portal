@@ -28,7 +28,7 @@ Route::get('/pencarianberita', [NewsController::class, 'searchNews']);
 Route::get('/beritaterbaru', [NewsController::class, 'highlight']);
 Route::get('/beritadaerah', [NewsController::class, 'beritaDaerah']);
 Route::get('/beritasatgas', [NewsController::class, 'beritaSatgas']);
-Route::get('/detailberita', [NewsController::class, 'detailBerita']);
+Route::get('/detailberita', [NewsController::class, 'getDetailNews']);
 
 Route::get('/galeri', [NewsController::class, 'galeri']);
 Route::get('/detailgaleri', [NewsController::class, 'detailGaleri']);

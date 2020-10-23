@@ -68,7 +68,11 @@ Class NewsRepository implements NewsInterface{
     public function getDetailNews($id = "0"){
         $detailNews = $this->getApiContents("1528.json?berita_id=".$id);
         if($detailNews != null){
-            $detailNews = $detailNews['data']['berita_detail'];
+            if(count($detailNews['data']['berita_detail']) < 1){
+                $detailNews = null;
+            }else{
+                $detailNews = $detailNews['data']['berita_detail'][0];
+            }  
         }
         return $detailNews;
     }
