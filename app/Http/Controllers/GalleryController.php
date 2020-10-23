@@ -22,10 +22,11 @@ class GalleryController extends Controller
     //     return view('news.detailgalerifoto');
     // }
 
-    // public function galleryVideo()
-    // {
-    //     return view('news.galerivideo');
-    // }
+    public function galleryVideo()
+    {
+        $galleryVideos = $this->galleryRepo->getGalleryVideos();
+        return view('gallery.galleryVideoPage', ['galleryVideos' => $galleryVideos]);
+    }
 
     public function detailGalleryVideo(Request $request)
     {
@@ -48,7 +49,7 @@ class GalleryController extends Controller
 
         $galleryVideos = $this->galleryRepo->getGalleryVideos();
 
-        return view('gallery.detailGalleryVideo', [
+        return view('gallery.detailGalleryVideoPage', [
             'detailGalleryVideo' => $detailGalleryVideo, 
             'galleryVideos' => $galleryVideos,
             'socmed' => $getSocmed 

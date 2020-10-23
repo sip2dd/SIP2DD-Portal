@@ -33,7 +33,7 @@ Route::get('/beritadaerah', [NewsController::class, 'getLocalGovNews']);
 Route::get('/detailgalerivideo', [GalleryController::class, 'detailGalleryVideo']);
 
 
-// Route::get('/galerivideo', [GaleriController::class, 'galleryVideo']);
+Route::get('/galerivideo', [GalleryController::class, 'galleryVideo']);
 
 
 // Route::get('/galerifoto', [GaleriController::class, 'galeriFoto']);
