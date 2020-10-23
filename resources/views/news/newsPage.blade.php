@@ -238,12 +238,12 @@
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="lengkapnya_2">
-                                                                            <a href="{!! url('/detailgaleri?id=')!!}{{$gallery['galeri_id']}}">Selengkapnya <i
+                                                                            <a href="{!! url('/detailgalerivideo?id=')!!}{{$gallery['galeri_id']}}">Selengkapnya <i
                                                                                     class="fas fa-chevron-right"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <a href="{!! url('/detailgaleri?id=')!!}{{$gallery['galeri_id']}}" class="deskripsi-galeri1">
+                                                                <a href="{!! url('/detailgalerivideo?id=')!!}{{$gallery['galeri_id']}}" class="deskripsi-galeri1">
                                                                     <h2>{{$gallery['judul']}}</h2>
                                                                 </a>
                                                             </div>
@@ -265,12 +265,12 @@
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="lengkapnya_2">
-                                                                            <a href="{!! url('/detailgaleri?id=')!!}{{$gallery['galeri_id']}}">Selengkapnya <i
+                                                                            <a href="{!! url('/detailgalerivideo?id=')!!}{{$gallery['galeri_id']}}">Selengkapnya <i
                                                                                     class="fas fa-chevron-right"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <a href="{!! url('/detailgaleri?id=')!!}{{$gallery['galeri_id']}}" class="deskripsi-galeri1">
+                                                                <a href="{!! url('/detailgalerivideo?id=')!!}{{$gallery['galeri_id']}}" class="deskripsi-galeri1">
                                                                     <h2>{{$gallery['judul']}}</h2>
                                                                 </a>
                                                             </div>

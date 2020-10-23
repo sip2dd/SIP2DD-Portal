@@ -8,8 +8,11 @@ Class GalleryRepository implements GalleryInterface{
     use ApiContentsTrait;
 
     public function getGalleryVideos(){
-        $govServices = $this->getApiContents("1523.json");
-        return $govServices;
+        $galleryVideos = $this->getApiContents("1523.json");
+        if($galleryVideos != null){
+            $galleryVideos = $galleryVideos['data']['galeri_video'];
+        }
+        return $galleryVideos;
     }
 
     public function getGalleryPhotos(){
@@ -17,9 +20,16 @@ Class GalleryRepository implements GalleryInterface{
         return $govServices;
     }
 
-    public function getDetailGalleryVideo($id){
-        $govServices = $this->getApiContents("1534.json?galeri_id=".$id);
-        return $govServices;
+    public function getDetailGalleryVideo($id = "0"){
+        $detailGalleryVideo = $this->getApiContents("1534.json?galeri_id=".$id);
+        if($detailGalleryVideo != null){
+            if(count($detailGalleryVideo['data']['galeri_detail']) < 1){
+                $detailGalleryVideo = null;
+            }else{
+                $detailGalleryVideo = $detailGalleryVideo['data']['galeri_detail'][0];
+            }  
+        }
+        return $detailGalleryVideo;
     }
 
     public function getDetailGalleryPhoto($id){

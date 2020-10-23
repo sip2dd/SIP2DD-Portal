@@ -61,9 +61,14 @@
       <div class="container nav-bread mt-30">
          <nav>
             <ol class="breadcrumb pl-0 pr-0 sky-blue">
-               <li class="breadcrumb-item"><a href="Berita.html">Berita</a></li>
-               <li class="breadcrumb-item"><a href="Galeri.html">Galeri</a></li>
-               <li class="breadcrumb-item active"><a href="#">Mulai 20..dkjajdkakdjkajdkjkjadkjakd</a>
+               <li class="breadcrumb-item"><a href="{!! url('/berita') !!}">Berita</a></li>
+               <li class="breadcrumb-item"><a href="{!! url('/galeri') !!}">Galeri</a></li>
+               <li class="breadcrumb-item active"><a href="">
+                  @if($detailGalleryVideo != null)
+                     {{$detailGalleryVideo['judul']}} 
+                  @else 
+                     404 : Tidak ditemukan 
+                  @endif</a>
                </li>
             </ol>
          </nav>
@@ -77,12 +82,39 @@
             <div class="col-lg-8 mb-30">
                <div class="single-post">
                   <div class="blogs">
-                     <video controls>
-                        <source src="https://www.youtube.com/watch?v=A0IM-2zdNhY.mp4">
-                     </video>
+                     @if($detailGalleryVideo != null)
+                        @if($detailGalleryVideo['tipe'] == "Youtube")
+                           <x-embed url="{{$detailGalleryVideo['link']}}"/>
+                        @else
+                           <?php
+                              preg_match('/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $detailGalleryVideo['link'], $match);
+                           ?>
+                           @if(array_key_exists(1, $match))
+                           <div class="col-lg-12">
+                           {!! $detailGalleryVideo['link'] !!}
+                           </div>    
+                           @else
+                              <video controls>
+                                 <source src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{ $detailGalleryVideo['file'] }}">
+                                 Your browser does not support the video tag.
+                              </video>
+                           @endif
+                           
+                        @endif
+                     @else
+                           <div class="carousel-item active">
+                              <div class="col-lg-12">
+                                 <img class="card-img" src="{{ URL::asset('img/P2DD.png') }}" alt="slide3">
+                              </div>
+                           </div>
+                     @endif
                      <div class="blogs_details">
-                        <h2>Second divided from form fish beast made every of seas
-                           all gathered us saying he our
+                        <h2>
+                        @if($detailGalleryVideo != null)
+                           {{$detailGalleryVideo['judul']}}
+                        @else
+                           Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah. 
+                        @endif
                         </h2>
                      </div>
                   </div>
@@ -96,11 +128,13 @@
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                         </div>
+                        @if($detailGalleryVideo != null)
                         <ul class="social-icons">
-                           <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                           <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                           <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                           <li><a href="{!! $socmed['facebook'] !!}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                           <li><a href="{!! $socmed['whatsapp'] !!}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                           <li><a href="{!! $socmed['twitter'] !!}" target="_blank"><i class="fab fa-twitter"></i></a></li>
                         </ul>
+                        @endif
                      </div>
                   </div>
                </div>
@@ -120,71 +154,25 @@
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4 pl-0 pr-0">
-                           <img class="image" src="{{ URL::asset('img/P2DD.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="Detail_Berita.html">
-                                 <h3>Elektronfikasi Transaksi..</h3>
-                              </a>
-                              <p>01 Oktober 2020</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4 pl-0 pr-0">
-                           <img class="image" src="{{ URL::asset('img/P2DD.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="Detail_Berita.html">
-                                 <h3>Elektronfikasi Transaksi..</h3>
-                              </a>
-                              <p>01 Oktober 2020</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4 pl-0 pr-0">
-                           <img class="image" src="{{ URL::asset('img/P2DD.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="Detail_Berita.html">
-                                 <h3>Elektronfikasi Transaksi..</h3>
-                              </a>
-                              <p>01 Oktober 2020</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4 pl-0 pr-0">
-                           <img class="image" src="{{ URL::asset('img/P2DD.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="Detail_Berita.html">
-                                 <h3>Elektronfikasi Transaksi..</h3>
-                              </a>
-                              <p>01 Oktober 2020</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4 pl-0 pr-0">
-                           <img class="image" src="{{ URL::asset('img/P2DD.png') }}" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8">
-                           <div class="media-body">
-                              <a href="Detail_Berita.html">
-                                 <h3>Elektronfikasi Transaksi..</h3>
-                              </a>
-                              <p>01 Oktober 2020</p>
-                           </div>
-                        </div>
-                     </div>
+                        @if($galleryVideos != null)    
+                            @foreach($galleryVideos as $videoItem)
+                            <div class="media post_item">
+                                <div class="col-lg-4 col-4 pl-0 pr-0">
+                                    <img class="image" src="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="{!! url('/detailgalerivideo?id=')!!}{{$videoItem['galeri_id']}}">
+                                            <h3>{{$videoItem['judul']}}</h3>
+                                        </a>
+                                        <p>{{$videoItem['tgl_dibuat']}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        @else
+                            <div class="media post_item">Belum ada Data</div>
+                        @endif
                   </aside>
                </div>
             </div>

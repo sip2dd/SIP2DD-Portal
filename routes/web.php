@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\GalleryController;
+
 use App\Http\Controllers\PemdaController;
-use App\Http\Controllers\GaleriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,17 +30,18 @@ Route::get('/beritaterbaru', [NewsController::class, 'getHighlights']);
 Route::get('/beritasatgas', [NewsController::class, 'getGovNews']);
 Route::get('/beritadaerah', [NewsController::class, 'getLocalGovNews']);
 
-Route::get('/galeri', [NewsController::class, 'galeri']);
-Route::get('/detailgaleri', [NewsController::class, 'detailGaleri']);
+Route::get('/detailgalerivideo', [GalleryController::class, 'detailGalleryVideo']);
 
-Route::get('/galerifoto', [GaleriController::class, 'galeriFoto']);
-Route::get('/detailgalerifoto', [GaleriController::class, 'detailGaleriFoto']);
 
-Route::get('/galerivideo', [GaleriController::class, 'galeriVideo']);
-Route::get('/detailgalerivideo', [GaleriController::class, 'detailGaleriVideo']);
+// Route::get('/galerivideo', [GaleriController::class, 'galleryVideo']);
 
-Route::get('/tp2dd', [PemdaController::class, 'index']);
-Route::get('/detailpemda', [PemdaController::class, 'detailPemda']);
+
+// Route::get('/galerifoto', [GaleriController::class, 'galeriFoto']);
+// Route::get('/detailgalerifoto', [GaleriController::class, 'detailGaleriFoto']);
+
+
+// Route::get('/tp2dd', [PemdaController::class, 'index']);
+// Route::get('/detailpemda', [PemdaController::class, 'detailPemda']);
 
 
 

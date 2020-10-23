@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
 use Share;
-
 use BenSampo\Embed\Services\YouTube;
 use BenSampo\Embed\Rules\EmbeddableUrl;
 use App\Repositories\News\NewsInterface;
