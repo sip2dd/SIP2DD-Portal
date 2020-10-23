@@ -1,6 +1,6 @@
 @extends('template.main')
 
-@section('title', 'Berita Satgas | Portal Percepatan Digitalisasi Daerah')
+@section('title', 'Berita Daerah | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
 <header>
@@ -62,7 +62,7 @@
             <nav>
                 <ol class="breadcrumb pl-0 sky-blue">
                     <li class="breadcrumb-item"><a href="{!! url('/berita') !!}">Berita</a></li>
-                    <li class="breadcrumb-item active"><a href="{!! url('/beritasatgas') !!}">Berita Satgas</a>
+                    <li class="breadcrumb-item active"><a href="{!! url('/beritadaerah') !!}">Berita Daerah</a>
                     </li>
                 </ol>
             </nav>
@@ -72,7 +72,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-tittle text-center mb-30">
-                        <h2>Berita​ Satgas</h2>
+                        <h2>Berita​ Daerah</h2>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     <form action="{!! url('/pencarianberita')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
-                                <input name="cari" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>
@@ -100,64 +100,68 @@
     <section class="blog_area pt-10 mb-30">
         <div class="container">
             <!--Berita Terbaru-->
-            @if($berita_satgases != null)
-                <div class="row">
-                
-                @foreach($berita_satgases as $berita_satgas)
+            @if($localgovNews != null)
+            <div class="row">
+            
+                @foreach($localgovNews as $berita_daerah)
                     <div class="col-lg-4 col-md-6">
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img" src="{{$berita_satgas['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                <img class="card-img" src="{{$berita_daerah['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                             </div>
 
                             <div class="blog_details">
                                 <div class="row">
                                     <div class="col">
-                                        <p>{{$berita_satgas['tanggal_publikasi']}}</p>
+                                        <p>{{$berita_daerah['tanggal_publikasi']}}</p>
+                                    </div>
+                                    <div class="col lokasi_alamat">
+                                        <h6>Jawa Tengah</h6>
                                     </div>
                                 </div>
-                                <a href="{!! url('/detailberita?id=10')!!}" class="deskripsi-galeri1">
-                                    <h2>{{$berita_satgas['judul']}}</h2>
+                                <a href="{!! url('/detailberita?id=')!!}{{$berita_daerah['berita_id']}}" class="deskripsi-galeri1">
+                                    <h2>{{$berita_daerah['judul']}}</h2>
                                 </a>
                                 <div class="row">
                                     <div class="col daftar_berita_link">
-                                        <a href="{!! url('/detailberita?id=10')!!}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
+                                        <a href="{!! url('/detailberita?id=')!!}{{$berita_daerah['berita_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </article>
                     </div>
                 @endforeach
-                
-                </div>
-                <div class="row justify-content-center mb-50">
-                    <nav class="blog-pagination">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Previous">
-                                    <i class="ti-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Next">
-                                    <i class="ti-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+            
+            </div>
+            <div class="row justify-content-center mb-50">
+                <nav class="blog-pagination">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a href="#" class="page-link" aria-label="Previous">
+                                <i class="ti-angle-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a href="#" class="page-link">1</a>
+                        </li>
+                        <li class="page-item active">
+                            <a href="#" class="page-link">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a href="#" class="page-link" aria-label="Next">
+                                <i class="ti-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             @else
                 <div class="row justify-content-center mb-50">
-                    Belum Ada Data
+                    Belum ada Data
                 </div>
             @endif
         </div>
     </section>
     <!--================Blog Area =================-->
 @endsection
+

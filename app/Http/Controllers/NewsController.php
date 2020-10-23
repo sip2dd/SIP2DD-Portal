@@ -93,6 +93,21 @@ class NewsController extends Controller
         );
     }
 
+    public function getHighlights(){
+        $highlights = $this->newsRepo->getHighlight(); 
+        return view('news.highlightNewsPage', ['highlights' => $highlights]);
+    }
+
+    public function getGovNews(){
+        $govNews = $this->newsRepo->getNationalGovNews();
+        return view('news.govNewsPage', ['govNews' => $govNews]);
+    }
+
+    public function getLocalGovNews(){
+        $localgovNews = $this->newsRepo->getLocalGovNews();
+        return view('news.localgovNewsPage', ['localgovNews' => $localgovNews]);
+    }
+
     public function getSocmed($title = ""){
         $socmed = Share::currentPage($title)
         ->facebook()

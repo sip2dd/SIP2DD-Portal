@@ -102,7 +102,7 @@
                             </div>
                             <div class="col">
                                 <div class="section-judul-berita1">
-                                    <h6><a href="{!! url('/highlights') !!}">Lihat Semua</a>
+                                    <h6><a href="{!! url('/beritaterbaru') !!}">Lihat Semua</a>
                                 </div>
                             </div>
                         </div>

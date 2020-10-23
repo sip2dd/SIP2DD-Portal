@@ -1,9 +1,8 @@
 @extends('template.main')
 
-@section('title', 'Highlight Berita | Portal Percepatan Digitalisasi Daerah')
+@section('title', 'Berita Satgas | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
-
 <header>
         <!-- Header Start -->
         <div class="header-area header-transparrent ">
@@ -63,7 +62,7 @@
             <nav>
                 <ol class="breadcrumb pl-0 sky-blue">
                     <li class="breadcrumb-item"><a href="{!! url('/berita') !!}">Berita</a></li>
-                    <li class="breadcrumb-item active"><a href="{!! url('/beritaterbaru') !!}">Berita Terbaru</a>
+                    <li class="breadcrumb-item active"><a href="{!! url('/beritasatgas') !!}">Berita Satgas</a>
                     </li>
                 </ol>
             </nav>
@@ -73,7 +72,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-tittle text-center mb-30">
-                        <h2>Berita​ Terbaru</h2>
+                        <h2>Berita​ Satgas</h2>
                     </div>
                 </div>
             </div>
@@ -83,7 +82,7 @@
                     <form action="{!! url('/pencarianberita')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
-                                <input name="cari" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>
@@ -100,64 +99,65 @@
     <!--================Berita Terbaru =================-->
     <section class="blog_area pt-10 mb-30">
         <div class="container">
-        @if($highlights != null)
             <!--Berita Terbaru-->
-            <div class="row">
-            @foreach($highlights as $highlight)
-                <div class="col-lg-4 col-md-6">
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img" src="{{$highlight['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                        </div>
+            @if($govNews != null)
+                <div class="row">
+                
+                @foreach($govNews as $berita_satgas)
+                    <div class="col-lg-4 col-md-6">
+                        <article class="blog_item">
+                            <div class="blog_item_img">
+                                <img class="card-img" src="{{$berita_satgas['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                            </div>
 
-                        <div class="blog_details">
-                            <div class="row">
-                                <div class="col">
-                                    <p>{{$highlight['tanggal_publikasi']}}</p>
+                            <div class="blog_details">
+                                <div class="row">
+                                    <div class="col">
+                                        <p>{{$berita_satgas['tanggal_publikasi']}}</p>
+                                    </div>
+                                </div>
+                                <a href="{!! url('/detailberita?id=')!!}{{$berita_satgas['berita_id']}}" class="deskripsi-galeri1">
+                                    <h2>{{$berita_satgas['judul']}}</h2>
+                                </a>
+                                <div class="row">
+                                    <div class="col daftar_berita_link">
+                                        <a href="{!! url('/detailberita?id=')!!}{{$berita_satgas['berita_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                            <a href="{!! url('/detailberita?id=10')!!}" class="deskripsi-galeri1">
-                                <h2>{{$highlight['judul']}}</h2>
-                            </a>
-                            <div class="row">
-                                <div class="col daftar_berita_link">
-                                    <a href="{!! url('/detailberita?id=10')!!}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                        </article>
+                    </div>
+                @endforeach
+                
                 </div>
-            @endforeach
-               
-            </div>
-            <div class="row justify-content-center mb-50">
-                <nav class="blog-pagination">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Previous">
-                                <i class="ti-angle-left"></i>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">1</a>
-                        </li>
-                        <li class="page-item active">
-                            <a href="#" class="page-link">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Next">
-                                <i class="ti-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+                <div class="row justify-content-center mb-50">
+                    <nav class="blog-pagination">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a href="#" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">1</a>
+                            </li>
+                            <li class="page-item active">
+                                <a href="#" class="page-link">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            @else
+                <div class="row justify-content-center mb-50">
+                    Belum Ada Data
+                </div>
+            @endif
         </div>
-        @else
-            <div class="row justify-content-center mb-50">
-                Belum ada Data
-            </div>
-        @endif
     </section>
     <!--================Blog Area =================-->
 @endsection

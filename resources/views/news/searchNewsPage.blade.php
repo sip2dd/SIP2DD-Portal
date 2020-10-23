@@ -106,7 +106,7 @@
                                 <div class="col-lg-8 card_desk">
                                     <div class="card-body">
                                         <h6>{{$newsItem['tanggal_publikasi']}}</h6>
-                                        <h4>{{$newsItem['judul']}}</h4>
+                                        <a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}"><h4>{{$newsItem['judul']}}</h4></a>
                                     </div>
                                 </div>
                             </div>
