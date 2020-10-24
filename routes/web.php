@@ -31,13 +31,9 @@ Route::get('/beritasatgas', [NewsController::class, 'getGovNews']);
 Route::get('/beritadaerah', [NewsController::class, 'getLocalGovNews']);
 
 Route::get('/detailgalerivideo', [GalleryController::class, 'detailGalleryVideo']);
-
-
 Route::get('/galerivideo', [GalleryController::class, 'galleryVideo']);
-
-
-// Route::get('/galerifoto', [GaleriController::class, 'galeriFoto']);
-// Route::get('/detailgalerifoto', [GaleriController::class, 'detailGaleriFoto']);
+Route::get('/galerifoto', [GalleryController::class, 'galleryPhoto']);
+Route::get('/detailgalerifoto', [GalleryController::class, 'detailGalleryPhoto']);
 
 
 // Route::get('/tp2dd', [PemdaController::class, 'index']);

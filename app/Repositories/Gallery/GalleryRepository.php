@@ -16,8 +16,11 @@ Class GalleryRepository implements GalleryInterface{
     }
 
     public function getGalleryPhotos(){
-        $govServices = $this->getApiContents("1533.json");
-        return $govServices;
+        $galleryPhotos = $this->getApiContents("1533.json");
+        if($galleryPhotos != null){
+            $galleryPhotos = $galleryPhotos['data']['galeri_gambar'];
+        }
+        return $galleryPhotos;
     }
 
     public function getDetailGalleryVideo($id = "0"){
@@ -33,8 +36,15 @@ Class GalleryRepository implements GalleryInterface{
     }
 
     public function getDetailGalleryPhoto($id){
-        $govServices = $this->getApiContents("1534.json?galeri_id=".$id);
-        return $govServices;
+        $detailGalleryPhoto = $this->getApiContents("1534.json?galeri_id=".$id);
+        if($detailGalleryPhoto != null){
+            if(count($detailGalleryPhoto['data']['galeri_detail']) < 1){
+                $detailGalleryPhoto = null;
+            }else{
+                $detailGalleryPhoto = $detailGalleryPhoto['data']['galeri_detail'][0];
+            }  
+        }
+        return $detailGalleryPhoto;
     }
 
     public function getGalleryVideosbyLocalGov(){

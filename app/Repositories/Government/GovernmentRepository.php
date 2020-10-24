@@ -9,6 +9,9 @@ Class GovernmentRepository implements GovernmentInterface{
 
     public function getGoverment(){
         $gov = $this->getApiContents("1535.json");
+        if($gov != null){
+            $gov = $gov['data']['galeri_video'];
+        }
         return $gov;
     }
 

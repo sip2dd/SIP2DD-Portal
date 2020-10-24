@@ -62,7 +62,7 @@
          <nav>
             <ol class="breadcrumb pl-0 pr-0 sky-blue">
                <li class="breadcrumb-item"><a href="{!! url('/berita') !!}">Berita</a></li>
-               <li class="breadcrumb-item"><a href="{!! url('/galeri') !!}">Galeri</a></li>
+               <li class="breadcrumb-item"><a href="{!! url('/galerivideo') !!}">Galeri</a></li>
                <li class="breadcrumb-item active"><a href="">
                   @if($detailGalleryVideo != null)
                      {{$detailGalleryVideo['judul']}} 
@@ -122,8 +122,11 @@
                   <div class="navigationss-top ">
                      <div class="d-sm-flex justify-content-between text-center">
                         <ul class="blog-info-link">
-                           <li><i class="fa fa-user"></i> Admin Pemda</li>
-                           <li><i class="fa fa-clock"></i>03 Oktober 2020</li>
+                           @if($detailGalleryVideo != null)
+                              <li><i class="fa fa-user"></i> {{$detailGalleryVideo['dibuat_oleh']}}</li>
+                              <li><i class="fa fa-clock"></i>{{$detailGalleryVideo['tgl_dibuat']}}</li>
+                           @endif
+                           
                         </ul>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -149,7 +152,7 @@
                      </div>
                      <div class="col">
                         <div class="section-judul-berita">
-                           <h6><a href="Galeri.html">Lihat Semua</a></h6>
+                           <h6><a href="{!! url('/galerivideo') !!}">Lihat Semua</a></h6>
                         </div>
                      </div>
                   </div>

@@ -108,12 +108,12 @@
                                         <p>{{$galleryVideo['tgl_dibuat']}}</p>
                                     </div>
                                 </div>
-                                <a href="single-blog.html" class="deskripsi-galeri1">
+                                <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryVideo['galeri_id']}}" class="deskripsi-galeri1">
                                     <h2>{{$galleryVideo['judul']}}</h2>
                                 </a>
                                 <div class="row">
                                     <div class="col daftar_berita_link">
-                                        <a href="">Selengkapnya <i class="fas fa-chevron-right"></i></a>
+                                        <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryVideo['galeri_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
                                     </div>
                                 </div>
                             </div>

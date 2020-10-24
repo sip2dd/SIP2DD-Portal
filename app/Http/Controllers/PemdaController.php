@@ -9,7 +9,7 @@ class PemdaController extends Controller
     //
     public function index()
     {
-         return view('pemda.pemda');
+         return view('government.governmentPage');
     }
 
     public function detailPemda()
@@ -25,6 +25,6 @@ class PemdaController extends Controller
         // get galeri foto
 
         
-        return view('pemda.detailpemda');
+        return view('government.detailGovernmentPage');
     }
 }

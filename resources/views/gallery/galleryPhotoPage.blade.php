@@ -1,6 +1,6 @@
 @extends('template.main')
 
-@section('title', 'Galeri Berita | Portal Percepatan Digitalisasi Daerah')
+@section('title', 'Galeri Foto | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
 <header>
@@ -53,36 +53,30 @@
         </div>
         <!-- Header End -->
     </header>
+   
 @endsection
 
 @section('content')
     <!-- Area Header dan judul Start-->
     <div class="section-padd4 sky-blue">
         <div class="container nav-bread mt-30">
-            <nav>
-                <ol class="breadcrumb pl-0 sky-blue">
-                    <li class="breadcrumb-item"><a href="{!! url('/berita') !!}">Berita</a></li>
-                    <li class="breadcrumb-item active"><a href="{!! url('/galeri') !!}">Galeri</a>
-                    </li>
-                </ol>
-            </nav>
         </div>
-        <div class="container mt-70">
+        <div class="container mt-50">
             <!-- Section-tittle -->
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-tittle text-center mb-30">
-                        <h2>Galeri</h2>
+                        <h2>Galeri Foto</h2>
                     </div>
                 </div>
             </div>
             <!--Section Form input Cari-->
             <div class="form-row justify-content-center">
                 <div class="col-lg-8 col-md-4">
-                    <form action="{!! url('/pencarianberita')!!}" method="GET">
+                    <form action="" method="">
                         <div class="form-group">
                             <div class="input-group">
-                                <input name="cari" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>
@@ -97,62 +91,69 @@
     </div>
     <!-- Slider Area End-->
     <!--================Galeri=================-->
-    <section class="blog_area pt-10 mb-30">
+    <section class="blog_area pt-10 mb-30 background_2">
         <div class="container">
             <!--Galeri-->
-            @if($galeris != null)
-                <div class="row">
-                    @foreach($galeris as $galeri)
-                        <div class="col-lg-4 col-md-6">
-                            <article class="blog_item">
-                                <div class="blog_item_img">
-                                    <img class="card-img" src="{{$galeri['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                                </div>
+            @if($galleryPhotos != null)
+            <div class="row">
+            @foreach($galleryPhotos as $galleryPhoto)
+                <div class="col-lg-4 col-md-6">
+                    
+                        <article class="blog_item">
+                            <div class="blog_item_img">
+                                @if($galleryPhoto['link'] != null)
+                                <img class="card-img" src="{{$galleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                @else
+                                <img class="card-img" src="{{$galleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                @endif
+                            </div>
 
-                                <div class="blog_details">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>{{$galeri['tanggal_publikasi']}}</p>
-                                        </div>
-                                    </div>
-                                    <a href="{!! url('/detailgaleri?id=10')!!}" class="deskripsi-galeri1">
-                                        <h2>{{$galeri['judul']}}</h2>
-                                    </a>
-                                    <div class="row">
-                                        <div class="col daftar_berita_link">
-                                            <a href="{!! url('/detailgaleri?id=10')!!}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                        </div>
+                            <div class="blog_details">
+                                <div class="row">
+                                    <div class="col">
+                                        <p>{{$galleryPhoto['tgl_dibuat']}}</p>
                                     </div>
                                 </div>
-                            </article>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="row justify-content-center mb-50">
-                    <nav class="blog-pagination">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Previous">
-                                    <i class="ti-angle-left"></i>
+                                <a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryPhoto['galeri_id']}}" class="deskripsi-galeri1">
+                                    <h2>{{$galleryPhoto['judul']}}</h2>
                                 </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Next">
-                                    <i class="ti-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                                <div class="row">
+                                    <div class="col daftar_berita_link">
+                                        <a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryPhoto['galeri_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    
                 </div>
+            @endforeach
+            
+            </div>
+            <div class="row justify-content-center mb-50">
+                <nav class="blog-pagination">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a href="#" class="page-link" aria-label="Previous">
+                                <i class="ti-angle-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a href="#" class="page-link">1</a>
+                        </li>
+                        <li class="page-item active">
+                            <a href="#" class="page-link">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a href="#" class="page-link" aria-label="Next">
+                                <i class="ti-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             @else
                 <div class="row justify-content-center mb-50">
-                    Belum ada data
+                    Belum ada Data
                 </div>
             @endif
         </div>

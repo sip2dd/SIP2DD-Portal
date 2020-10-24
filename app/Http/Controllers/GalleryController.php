@@ -12,15 +12,40 @@ class GalleryController extends Controller
         $this->galleryRepo = $galleryRepo;
     }
 
-    // public function galeriFoto()
-    // {
-    //     return view('news.galerifoto');
-    // }
+    public function galleryPhoto()
+    {
+        $galleryPhotos = $this->galleryRepo->getGalleryPhotos();
+        return view('gallery.galleryPhotoPage', ['galleryPhotos' => $galleryPhotos]);
+    }
 
-    // public function detailGaleriFoto(Request $request)
-    // {
-    //     return view('news.detailgalerifoto');
-    // }
+    public function detailGalleryPhoto(Request $request)
+    {
+        $detailGalleryPhoto = null;
+        if($request->has('id')) {
+            if($request->id != ''){
+                $id = $request->id;
+                $detailGalleryPhoto = $this->galleryRepo->getDetailGalleryPhoto($id); 
+                if($detailGalleryPhoto != null){
+                    $getSocmed = $this->getSocmed($detailGalleryPhoto['judul']);
+                }else{
+                    $getSocmed = $this->getSocmed();
+                }               
+            }else{
+                return redirect('');
+            }
+        }else{
+            return redirect('');
+        }
+
+        $galleryPhotos = $this->galleryRepo->getGalleryPhotos();
+
+        return view('gallery.detailGalleryPhotoPage', [
+            'detailGalleryPhoto' => $detailGalleryPhoto, 
+            'galleryPhotos' => $galleryPhotos,
+            'socmed' => $getSocmed 
+        ],);
+
+    }
 
     public function galleryVideo()
     {
@@ -31,6 +56,7 @@ class GalleryController extends Controller
     public function detailGalleryVideo(Request $request)
     {
         $galleryVideo = null;
+        $getSocmed = null;
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
@@ -55,6 +81,8 @@ class GalleryController extends Controller
             'socmed' => $getSocmed 
         ],);
     }
+
+    public function searchGallery(){}
 
     public function getSocmed($title = ""){
         $socmed = Share::currentPage($title)

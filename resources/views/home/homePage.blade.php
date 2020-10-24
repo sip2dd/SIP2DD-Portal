@@ -411,7 +411,7 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
                             <div class="section-tittle text-center mb-90">
-                                <h2>Galeri Foto</h2>
+                                <h2>Galeri Video</h2>
                             </div>
                         </div>
                     </div>
@@ -429,10 +429,10 @@
                                                 </div>
                                                 <div class="what-cap">
                                                     <h6>{{$galleryNewsItem['tgl_dibuat']}}</h6>
-                                                    <h4><a href="{!! url('/detailgaleri?id=')!!}{{$galleryNewsItem['galeri_id']}}">{{$galleryNewsItem['judul']}}</a></h4>
+                                                    <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">{{$galleryNewsItem['judul']}}</a></h4>
                                                 </div>
                                                 <div class="tulisan-lengkapnya">
-                                                    <a href="{!! url('/detailgaleri?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
+                                                    <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
                                                             class="fas fa-chevron-right mr-2"></span></a>
                                                 </div>
                                             </div>
@@ -447,10 +447,10 @@
                                                 </div>
                                                 <div class="what-cap">
                                                     <h6>{{$galleryNewsItem['tgl_dibuat']}}</h6>
-                                                    <h4><a href="{!! url('/detailgaleri?id=')!!}{{$galleryNewsItem['galeri_id']}}">{{$galleryNewsItem['judul']}}</a></h4>
+                                                    <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">{{$galleryNewsItem['judul']}}</a></h4>
                                                 </div>
                                                 <div class="tulisan-lengkapnya">
-                                                    <a href="{!! url('/detailgaleri?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
+                                                    <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
                                                             class="fas fa-chevron-right mr-2"></span></a>
                                                 </div>
                                             </div>
@@ -482,7 +482,7 @@
                         @endif
                     </div>
                     <div class="row mt-5 mb-5">
-                        <a href="{!! url('galeri') !!}" class="btn radius-btn"
+                        <a href="{!! url('/galerivideo') !!}" class="btn radius-btn"
                             style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
                     </div>
                 </div>
