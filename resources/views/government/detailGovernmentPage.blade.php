@@ -60,7 +60,7 @@
                 <ol class="breadcrumb pl-0 pr-0 sky-blue">
                     <li class="breadcrumb-item"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                     @if($govDetail != null)
-                    <li class="breadcrumb-item active"><a href="#">{{$govDetail['nama']}}</a>
+                    <li class="breadcrumb-item active"><a href="">{{$govDetail['nama']}}</a>
                     @endif
                     </li>
                 </ol>
@@ -143,11 +143,11 @@
                                     <h4>Berita Terbaru</h4>
                                 </div>
                             </div>
-                            <div class="col">
+                            <!-- <div class="col">
                                 <div class="section-judul-berita1">
                                     <h6><a href="{!! url('/berita')!!}">Lihat Semua</a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div id="BeritaTrCarousel" class="carousel slide w-100" data-ride="carousel">
                             <div class="carousel-inner w-100" role="listbox">
@@ -260,7 +260,10 @@
                             </div>
                             <div class="col">
                                 <div class="section-judul-berita2">
-                                    <h6><a href="{!! url('/beritadaerah')!!}">Lihat Semua</a></h6>
+                                @if($govDetail != null)
+                                <h6><a href="{!! url('/beritatp2dd?id=')!!}{{$govDetail['unit_profile_id']}}">Lihat Semua</a></h6>
+                                @endif
+                                    
                                 </div>
                             </div>
                         </div>

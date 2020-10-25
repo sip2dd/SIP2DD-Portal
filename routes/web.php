@@ -39,8 +39,8 @@ Route::get('/detailgalerifoto', [GalleryController::class, 'detailGalleryPhoto']
 Route::get('/tp2dd', [GovernmentController::class, 'index']);
 Route::get('/detailtp2dd', [GovernmentController::class, 'detailGov']);
 // TODO : Search Pemda
-// TODO : All highlight pemda
 // TODO : All + Detail News pemda
+Route::get('/beritatp2dd', [GovernmentController::class, 'newsGov']);
 // TODO : All + Detail layanan pemda
 // TODO : All + Detail galeri pemda
 

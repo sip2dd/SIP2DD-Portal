@@ -46,4 +46,25 @@ class GovernmentController extends Controller
         ]);
     }
 
+    public function newsGov(Request $request)
+    {
+        $govDetail = null;
+        $govNews = null;
+        if($request->has('id')) {
+            if($request->id != ''){
+                $id = $request->id;
+                $govDetail = $this->govRepo->getGovermentDetail($id);
+                $govNews = $this->govRepo->getGovNews($id);    
+            }else{
+                return redirect('');
+            }
+        }else{
+            return redirect('');
+        }
+         return view('government.governmentNewsPage', [
+             'govNews' => $govNews,
+             'govDetail' => $govDetail,
+             ]);
+    }
+
 }
