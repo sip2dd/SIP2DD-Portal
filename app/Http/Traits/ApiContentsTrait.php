@@ -13,8 +13,8 @@ trait ApiContentsTrait{
         try{
             $url = config('url.base_api') . $url;
             //$url = "http://103.18.117.44/sicantik-ws/api/TemplateData/keluaran/1527.json";
-            //$request = $client->get($url);
-            $request = $client->request('GET', $url,['timeout' => 5, 'connect_timeout' => 5]);
+            $request = $client->get($url);
+            //$request = $client->request('GET', $url,['timeout' => 5, 'connect_timeout' => 5]);
             $response = $request->getBody()->getContents();
             $data = json_decode($response, true);    
         }catch (ConnectException $e) {
