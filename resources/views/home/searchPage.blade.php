@@ -20,8 +20,8 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="{!! url('/') !!}">Beranda</a></li>
-                                        <li class="active"><a href="{!! url('/berita') !!}">Berita</a></li>
+                                        <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
+                                        <li><a href="{!! url('/berita') !!}">Berita</a></li>
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">

@@ -33,6 +33,12 @@
                                         <li><a href="#">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
                                         <li><a href="#">Kegiatan</a></li>
+                                        <li><a href="{!! url('/galeri') !!}">Galeri</a>
+                                        <ul class="submenu">
+                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                        </ul>
+                                    </li>
                                     </ul>
                                 </nav>
                             </div>

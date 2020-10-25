@@ -12,7 +12,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="index.html"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                                <a href=""><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
@@ -20,8 +20,8 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="{!! url('/') !!}">Beranda</a></li>
-                                        <li class="active"><a href="{!! url('/berita') !!}">Berita</a></li>
+                                        <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
+                                        <li><a href="{!! url('/berita') !!}">Berita</a></li>
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
@@ -203,7 +203,7 @@
                                     <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}.</p>
                                 </div>
                                 <div class="services-loc">
-                                    <p>NAMA INSTANSI</p>
+                                <a href="{{$govService['link_layanan']}}" target="_blank"><p>Link Layanan</p></a>
                                 </div>
                             </div>
                         </div>
