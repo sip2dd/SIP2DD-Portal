@@ -56,8 +56,8 @@
             <div class="container nav-bread mt-30">
                 <nav>
                     <ol class="breadcrumb pl-0 pr-0 sky-blue">
-                        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
-                        <li class="breadcrumb-item active"><a href="#">Layanan TP2DD</a>
+                        <li class="breadcrumb-item"><a href="{{url('')}}">Beranda</a></li>
+                        <li class="breadcrumb-item active"><a href="">Layanan TP2DD</a>
                         </li>
                     </ol>
                 </nav>
@@ -129,7 +129,7 @@
                                 <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}.</p>
                             </div>
                             <div class="services-loc">
-                                <p>Link Layanan</p>
+                                <p><a href="{{$govService['link_layanan']}}" target="_blank">Link Layanan</a></p>
                             </div>
                         </div>
                     </div>

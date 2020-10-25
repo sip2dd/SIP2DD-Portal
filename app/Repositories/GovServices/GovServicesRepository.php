@@ -22,6 +22,13 @@ Class GovServicesRepository implements GovServicesInterface{
 
     public function getDetailService($id){
         $govServices = $this->getApiContents("1536.json?layanan_id=".$id);
+        if($govServices != null){
+            if(count($govServices['data']['layanan_detail']) < 1){
+                $govServices = null;
+            }else{
+                $govServices = $govServices['data']['layanan_detail'][0];
+            }  
+        }
         return $govServices;
 
     }
