@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
-
-use App\Http\Controllers\PemdaController;
+use App\Http\Controllers\GovernmentController;
+use App\Http\Controllers\GovernmentServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +34,20 @@ Route::get('/detailgalerivideo', [GalleryController::class, 'detailGalleryVideo'
 Route::get('/galerivideo', [GalleryController::class, 'galleryVideo']);
 Route::get('/galerifoto', [GalleryController::class, 'galleryPhoto']);
 Route::get('/detailgalerifoto', [GalleryController::class, 'detailGalleryPhoto']);
+// TODO : Search Galeri Belum
+
+Route::get('/tp2dd', [GovernmentController::class, 'index']);
+Route::get('/detailtp2dd', [GovernmentController::class, 'detailGov']);
+// TODO : Search Pemda
+// TODO : All highlight pemda
+// TODO : All + Detail News pemda
+// TODO : All + Detail layanan pemda
+// TODO : All + Detail galeri pemda
+
+Route::get('/layanan', [GovernmentServiceController::class, 'index']);
+Route::get('/detaillayanan', [GovernmentServiceController::class, 'detailServiceGov']);
 
 
-// Route::get('/tp2dd', [PemdaController::class, 'index']);
-// Route::get('/detailpemda', [PemdaController::class, 'detailPemda']);
 
 
 

@@ -1,14 +1,17 @@
 <?php 
 
-namespace App\Repositories\Gallery;
-use App\Repositories\Gallery\GalleryInterface;
+namespace App\Repositories\GovServices;
+use App\Repositories\GovServices\GovServicesInterface;
 use App\Http\Traits\ApiContentsTrait;
 
 Class GovServicesRepository implements GovServicesInterface{
     use ApiContentsTrait;
 
-    public function getServices(){
+    public function getGovServices(){
         $govServices = $this->getApiContents("1535.json");
+        if($govServices != null){
+            $govServices = $govServices['data']['layanan'];
+        }
         return $govServices;
     }
 

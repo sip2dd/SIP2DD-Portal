@@ -3,8 +3,8 @@
 namespace App\Repositories\GovServices;
 
 interface GovServicesInterface{
-    public function getServices();
+    public function getGovServices();
     public function getLocalGovServices();
-    public function getDetailService();
+    public function getDetailService($id);
     public function searchServices();
 }

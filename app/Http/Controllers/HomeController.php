@@ -4,12 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Home\HomeInterface;
-use App\Http\Traits\ApiContentsTrait;
 
 class HomeController extends Controller
 {
-
-    use ApiContentsTrait;
 
     public function __construct(HomeInterface $homeRepo){
         $this->homeRepo = $homeRepo;

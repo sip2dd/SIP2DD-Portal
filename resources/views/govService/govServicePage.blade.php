@@ -1,6 +1,6 @@
 @extends('template.main')
 
-@section('title', 'TP2DD | Portal Percepatan Digitalisasi Daerah')
+@section('title', 'Layanan TP2DD | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
     <header>
@@ -50,16 +50,28 @@
 @endsection
 
 @section('content')
-    <main class="background-utama"> 
+    <main class="background-utama">
+        <!-- navgation link Start-->
+        <div class="section-padd4">
+            <div class="container nav-bread mt-30">
+                <nav>
+                    <ol class="breadcrumb pl-0 pr-0 sky-blue">
+                        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Layanan TP2DD</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- navigation link End-->
         <!-- Area untuk Pencarian TP2DD -->
-        <section class="service-area section-padding">
+        <section class="service-area section-paddingr">
             <div class="container">
                 <!-- Section Judul -->
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6">
-                        <div class="section-tittle pt-25 text-center mb-30">
-                            <h2>TP2DD</h2>
-                            <p>Tim Percepatan dan Perluasan Digitalisasi Daerah</p>
+                        <div class="section-tittle pt-25 text-center mb-50">
+                            <h2>Layanan TP2DD</h2>
                         </div>
                     </div>
                 </div>
@@ -80,55 +92,50 @@
                         </form>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="dropdown">
                             <div class="btn-group" role="group">
-                                <button class="button2 btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Provinsi
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Jawa Barat</a>
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Jawa Tengah</a>
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Jawa Timur</a>
-                                </div>
-                            </div>
-                            <div class="btn-group" role="group">
-                                <button class="button2 btn-light dropdown-toggle" type="button" id="dropdownMenuButton2"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Kabupaten/Kota
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Kota Depok</a>
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Kota Bandung</a>
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Kabupaten Cilacap</a>
-                                </div>
+                                <select class="select_prov" style="width: 250px; padding: 10px 5px;">
+                                    <option class="l1">Silahkan Pilih</option>
+                                    <option class="l1">DKI Jakarta</option>
+                                    <option class="l2">Jakarta Barat</option>
+                                    <option class="l2">Jakarta Timur</option>
+                                    <option class="l2">Jakarta Selatan</option>
+                                    <option class="l2">Jakarta Utara</option>
+                                    <option class="l2">Jakarta Pusat</option>
+                                    <option class="l2" value="Kepulauan Seribu">Kep. Seribu</option>
+                                    <option class="l1">Option 2</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 ket-jumlah">
-                        <p>menunjukkan hasil 1-30 Kabupaten/Kota</p>
+                        <!-- <p>menunjukkan hasil 0 Layanan</p> -->
                     </div>
                 </div>
                 <!-- Section caption -->
-                @if($governments != null)
+                @if($govServices != null)
                 <div class="row">
-                    @foreach($governments as $government)
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="services-caption text-center mb-30">
-                                <div class="service-icon">
-                                    <span><img src="{{$government['logo']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'" style="width: 90px;"></span>
-                                </div>
-                                <div class="service-cap">
-                                    <h4><a href="{!! url('/detailtp2dd?id=')!!}{{$government['unit_profile_id']}}">{{$government['nama']}}</a></h4>
-                                    <p>{{ Str::limit(strip_tags($government['deskripsi']), 120) }}</p>
-                                </div>
+                    @foreach($govServices as $govService)
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="services-caption text-center mb-30">
+                            <div class="service-icon">
+                                <span><img src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'"></span>
+                            </div>
+                            <div class="service-cap">
+                                <h4><a href="{!! url('/detaillayanan?id=')!!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
+                                <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}.</p>
+                            </div>
+                            <div class="services-loc">
+                                <p>Link Layanan</p>
                             </div>
                         </div>
+                    </div>
                     @endforeach
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mb-50">
                     <nav class="blog-pagination">
                         <ul class="pagination">
                             <li class="page-item">
@@ -158,11 +165,5 @@
             </div>
         </section>
         <!-- Akhir area TP2DD -->
-
     </main>
-
 @endsection
-
-
-
-
