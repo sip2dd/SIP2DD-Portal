@@ -30,6 +30,7 @@ Route::get('/beritaterbaru', [NewsController::class, 'getHighlights']);
 Route::get('/beritasatgas', [NewsController::class, 'getGovNews']);
 Route::get('/beritadaerah', [NewsController::class, 'getLocalGovNews']);
 
+Route::get('/galeri', [GalleryController::class, 'galleryVideo']);
 Route::get('/detailgalerivideo', [GalleryController::class, 'detailGalleryVideo']);
 Route::get('/galerivideo', [GalleryController::class, 'galleryVideo']);
 Route::get('/galerifoto', [GalleryController::class, 'galleryPhoto']);
