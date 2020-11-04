@@ -26,7 +26,7 @@
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
                                                 <li><a href="#">Edukasi Artikel</a></li>
-                                                <li><a href="#">FAQ</a></li>
+                                                <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="#">Daftar Istilah</a></li>
                                             </ul>
                                         </li>

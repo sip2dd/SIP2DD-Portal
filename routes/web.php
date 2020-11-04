@@ -8,6 +8,8 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GovernmentController;
 use App\Http\Controllers\GovernmentServiceController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\GlossaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,13 @@ Route::get('/layanan', [GovernmentServiceController::class, 'index']);
 Route::get('/detaillayanan', [GovernmentServiceController::class, 'detailServiceGov']);
 
 Route::get('/faq', [FAQController::class, 'index']);
+
+Route::get('/edukasi', [EducationController::class, 'index']);
+Route::get('/detailedukasi', [EducationController::class, 'detailEducation']);
+
+Route::get('/daftaristilah', [GlossaryController::class, 'index']);
+
+
 
 
 
