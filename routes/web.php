@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GovernmentController;
 use App\Http\Controllers\GovernmentServiceController;
+use App\Http\Controllers\FAQController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::get('/beritatp2dd', [GovernmentController::class, 'newsGov']);
 
 Route::get('/layanan', [GovernmentServiceController::class, 'index']);
 Route::get('/detaillayanan', [GovernmentServiceController::class, 'detailServiceGov']);
+
+Route::get('/faq', [FAQController::class, 'index']);
 
 
 

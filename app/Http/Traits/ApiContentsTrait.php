@@ -12,7 +12,7 @@ trait ApiContentsTrait{
         $client = new Client(); 
         try{
             $url = config('url.base_api') . $url;
-            //$url = "http://103.18.117.44/sicantik-ws/api/TemplateData/keluaran/1527.json";
+            //$url = "http://103.18.117.44/sicantik-wsa/api/TemplateData/keluaran/1527.json";
             $request = $client->get($url);
             //$request = $client->request('GET', $url,['timeout' => 5, 'connect_timeout' => 5]);
             $response = $request->getBody()->getContents();

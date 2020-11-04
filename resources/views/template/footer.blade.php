@@ -136,14 +136,14 @@
     <!-- <script src="./assets/js/scripts.js"></script>-->
     <!-- Jquery Mobile Menu -->
     <script src="{{ URL::asset('js/jquery.slicknav.min.js') }}"></script>
-    <script src="{{ URL::asset('js/multislider.js') }}"></script>
+    <!-- <script src="{{ URL::asset('js/multislider.js') }}"></script>
     <script src="{{ URL::asset('js/multislider.min.js') }}"></script>
     <script>
         $('#mixedSlider').multislider({
             duration: 650,
             interval: 3000
         });
-    </script>
+    </script> -->
     <!-- Jquery Slick , Owl-Carousel Plugins -->
     <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ URL::asset('js/slick.min.js') }}"></script>

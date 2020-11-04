@@ -490,6 +490,15 @@
         </div>
         <!--Galeri Foto End-->
     </main>
+
+    <script src="{{ URL::asset('js/multislider.js') }}"></script>
+    <script src="{{ URL::asset('js/multislider.min.js') }}"></script>
+    <script>
+        $('#mixedSlider').multislider({
+            duration: 650,
+            interval: 3000
+        });
+    </script>
 @endsection
 
 

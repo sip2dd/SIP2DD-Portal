@@ -14,6 +14,8 @@ use App\Repositories\Government\GovernmentInterface;
 use App\Repositories\Government\GovernmentRepository;
 use App\Repositories\GovServices\GovServicesInterface;
 use App\Repositories\GovServices\GovServicesRepository;
+use App\Repositories\FAQ\FaqInterface;
+use App\Repositories\FAQ\FaqRepository;
 
 class RepositoryServicesProvider extends ServiceProvider
 {
@@ -30,6 +32,7 @@ class RepositoryServicesProvider extends ServiceProvider
         $this->app->bind(GalleryInterface::class, GalleryRepository::class);
         $this->app->bind(GovernmentInterface::class, GovernmentRepository::class);
         $this->app->bind(GovServicesInterface::class, GovServicesRepository::class);
+        $this->app->bind(FaqInterface::class, FaqRepository::class);
 
         
     }

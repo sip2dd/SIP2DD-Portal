@@ -12,7 +12,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/log.png" alt=""></a>
+                                <a href=""><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
@@ -150,7 +150,7 @@
                                                             </div>
                                                             <div class="col">
                                                                 <div class="lengkapnya_1">
-                                                                    <a href="{!! url('/detailgaleri?id=')!!}{{$highlight['berita_id']}}">Selengkapnya <i
+                                                                    <a href="{!! url('/detailgalerivideo?id=')!!}{{$highlight['berita_id']}}">Selengkapnya <i
                                                                             class="fas fa-chevron-right"></i></a>
                                                                 </div>
                                                             </div>
@@ -375,43 +375,5 @@
         </div>
     </section>
     <!--================Blog Area =================-->
-    <script>
-        jQuery(document).ready(function () {
-            $('#recipeCarousel').carousel({
-                interval: 2000
-            });
-            $('#beritaCarousel').carousel({
-                interval: 3000
-            });
-            $('#EdukasiCarousel').carousel({
-                interval: 2000
-            });
-            $('#BeritaTrCarousel').carousel({
-                interval: 2000
-            });
-            $('#GaleriCarousel').carousel({
-                interval: 3000
-            });
-
-
-            $('.carousel .carousel-item').each(function () {
-                var minPerSlide = 3;
-                var next = $(this).next();
-                if (!next.length) {
-                    next = $(this).siblings(':first');
-                }
-                next.children(':first-child').clone().appendTo($(this));
-
-                for (var i = 0; i < minPerSlide; i++) {
-                    next = next.next();
-                    if (!next.length) {
-                        next = $(this).siblings(':first');
-                    }
-
-                    next.children(':first-child').clone().appendTo($(this));
-                }
-            });
-
-        });
-    </script>
+    
 @endsection('content')
