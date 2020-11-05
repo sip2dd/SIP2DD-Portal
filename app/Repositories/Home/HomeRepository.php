@@ -17,23 +17,23 @@ Class HomeRepository implements HomeInterface{
     }
 
     public function getNewsItems(){
-        $newsItems = $this->getApiContents("1527.json");
+        $newsItems = $this->getApiContents("1554.json?offset=1&limit=5");
         if($newsItems != null){
-            $newsItems = $newsItems['data']['highlight'];
+            $newsItems = $newsItems['data']['berita_highlight_page'];
         }
         return $newsItems;
     }
 
     public function getEducationNewsItems(){
-        $eduNewsItems = $this->getApiContents("1527.json");
+        $eduNewsItems = $this->getApiContents("1554.json?offset=1&limit=5");
         if($eduNewsItems != null){
-            $eduNewsItems = $eduNewsItems['data']['highlight'];
+            $eduNewsItems = $eduNewsItems['data']['berita_highlight_page'];
         }
         return $eduNewsItems;
     }
 
     public function getGalleryNewsItems(){
-        $galleryNewsItems = $this->getApiContents("1523.json");
+        $galleryNewsItems = $this->getApiContents("1523.json?offset=1&limit=5");
         if($galleryNewsItems != null){
             $galleryNewsItems = $galleryNewsItems['data']['galeri_video'];
         }
