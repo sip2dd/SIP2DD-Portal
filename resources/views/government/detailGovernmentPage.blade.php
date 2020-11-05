@@ -100,14 +100,12 @@
                 <div class="col-lg-6 visi_misi">
                     <div class="visi">
                         <h5>Visi :</h5>
-                        <p>"Aorem psum olorsit amet ectetur adipiscing elit, sed dov."</p>
+                        <p>{{$govDetail['visi']}}</p>
                     </div>
                     <div class="misi">
                         <h5>Misi:</h5>
                         <ul class="misi_list">
-                            <li>Aorem psum olorsit amet ectetur adipiscing elit, sed dov..</li>
-                            <li>Aorem psum olorsit amet ectetur adipiscing elit, sed dov..</li>
-                            <li>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.. </li>
+                            {!! $govDetail['misi'] !!}
                         </ul>
                     </div>
                 </div>
