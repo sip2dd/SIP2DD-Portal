@@ -8,7 +8,7 @@ Class GalleryRepository implements GalleryInterface{
     use ApiContentsTrait;
 
     public function getGalleryVideos(){
-        $galleryVideos = $this->getApiContents("1523.json");
+        $galleryVideos = $this->getApiContents("1523.json?offset=1&limit=5");
         if($galleryVideos != null){
             $galleryVideos = $galleryVideos['data']['galeri_video'];
         }
@@ -16,7 +16,7 @@ Class GalleryRepository implements GalleryInterface{
     }
 
     public function getGalleryPhotos(){
-        $galleryPhotos = $this->getApiContents("1533.json");
+        $galleryPhotos = $this->getApiContents("1533.json?offset=1&limit=5");
         if($galleryPhotos != null){
             $galleryPhotos = $galleryPhotos['data']['galeri_gambar'];
         }
