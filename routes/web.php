@@ -10,6 +10,7 @@ use App\Http\Controllers\GovernmentServiceController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\GlossaryController;
+use App\Http\Controllers\RegulationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,8 @@ Route::get('/edukasi', [EducationController::class, 'index']);
 Route::get('/detailedukasi', [EducationController::class, 'detailEducation']);
 
 Route::get('/daftaristilah', [GlossaryController::class, 'index']);
+
+Route::get('/regulasi', [RegulationController::class, 'index']);
 
 
 
