@@ -25,15 +25,15 @@
                                         <li class="active"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="#">Edukasi Artikel</a></li>
-                                                <li><a href="#">FAQ</a></li>
-                                                <li><a href="#">Daftar Istilah</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/faq') !!}">FAQ</a></li>
+                                                <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Regulasi</a></li>
+                                        <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
-                                        <li><a href="#">Kegiatan</a></li>
-                                        <li><a href="{!! url('/galeri') !!}">Galeri</a>
+                                        <li><a href="{!! url('/kegiatan') !!}">Kegiatan</a></li>
+                                        <li><a href="#">Galeri</a>
                                         <ul class="submenu">
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
@@ -85,7 +85,7 @@
                         @if($detailGovServices != null)
                         <h2>{{$detailGovServices['judul']}}</h2>
                         @endif
-                        <h5>Layanan TP2DD</h5>
+                        <h5>{{$detailGovServices['dibuat_oleh']}}</h5>
                     </div>
                     <div class="deskripsi_layanan">
                         @if($detailGovServices != null)
@@ -96,24 +96,134 @@
                     <div class="icon_layanan">
                         <div class="icon_list_layanan">
                             <i class="fa fa-phone-square" style="transform: rotate(90deg);"></i>
-                            <p style="display: inline;">(0351) 4477121</p>
+                            <p style="display: inline;">{{$detailGovServices['kontak']}}</p>
                         </div>
                         <div class="icon_list_layanan">
                             <i class="fa fa-map-marker-alt"></i>
-                            <p style="display:inline;">Jl. Teuku Umar No. Kec. Ngawi, Kab. Ngawi,
-                                Jawa Timur</p>
+                            <p style="display:inline;">{{$detailGovServices['alamat']}}</p>
                         </div>
                     </div>
-                    <div class="tombol_masuk">
-                        @if($detailGovServices != null)
-                        <a class="btn radius-btn" href="{{$detailGovServices['link_layanan']}}" style="padding: 25px 30px;">Masuk</a>
-                        @else
-                        <a class="btn radius-btn" href="" style="padding: 25px 30px;">Masuk</a>
-                        @endif
-                        
+                    <div class="row">
+                        <div class="col col-12 col-sm-12 col-md-6">
+                            <div class="tombol_download">
+                                <a class="btn-pdf" href="#" style="padding: 15px 20px; font-size: 18px;"> <i
+                                        class="fa fa-file-pdf"></i> Unduh Tutorial</a>
+                            </div>
+                        </div>
+                        <div class="col col-12 col-sm-12 col-md-6">
+                            <div class="tombol_masuk">
+                                @if($detailGovServices != null)
+                                <a class="btn radius-btn" href="{{$detailGovServices['link_layanan']}}" style="padding: 25px 30px;">Masuk</a>
+                                @else
+                                <a class="btn radius-btn" href="" style="padding: 25px 30px;">Masuk</a>
+                                @endif
+                                
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
     </div>
+    <!-- Fitur Kami Start -->
+    <section id="fiturlayanankami" class="best-features-area section-paddingr sky-blue " style="padding-bottom: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-lg-12">
+                    <!-- Section Tittle -->
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12">
+                            <div class="section-tittle mb-90">
+                                <h2>Fitur Layanan</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Section caption -->
+                    <div class="row justify-content-center">
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-features mb-70">
+                                <div class="features-icon">
+                                    <span class="fa fa-info-circle"></span>
+                                </div>
+                                <div class="features-caption">
+                                    <h3>PPID</h3>
+                                    <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-features mb-70">
+                                <div class="features-icon">
+                                    <span class="fa fa-comment"></span>
+                                </div>
+                                <div class="features-caption">
+                                    <h3>Kanal Pemkab Ngawi</h3>
+                                    <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-features mb-70">
+                                <div class="features-icon">
+                                    <span class="fa fa-users"></span>
+                                </div>
+                                <div class="features-caption">
+                                    <h3>Layanan Publik</h3>
+                                    <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-features mb-70">
+                                <div class="features-icon">
+                                    <span class="fa fa-microphone"></span>
+                                </div>
+                                <div class="features-caption">
+                                    <h3>Pengaduan Masyarakat</h3>
+                                    <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-features mb-70">
+                                <div class="features-icon">
+                                    <span class="fa fa-search"></span>
+                                </div>
+                                <div class="features-caption">
+                                    <h3>Portal Data</h3>
+                                    <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single-features mb-70">
+                                <div class="features-icon">
+                                    <span class="fa fa-list-alt"></span>
+                                </div>
+                                <div class="features-caption">
+                                    <h3>E-LKHPN</h3>
+                                    <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-paddingr background_2">
+        <div class="container">
+            <div class="tutorial_vid">
+                <div class="vid_judul">
+                    <h3>Tutorial Penggunaan fitur fitur {{$detailGovServices['judul']}}</h3>
+                </div>
+                <div class="vid_layanan">
+                    <video controls>
+                        <source src="https://www.youtube.com/watch?v=A0IM-2zdNhY.mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection

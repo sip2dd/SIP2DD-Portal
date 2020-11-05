@@ -26,15 +26,15 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="#">Edukasi Artikel</a></li>
-                                                <li><a href="#">FAQ</a></li>
-                                                <li><a href="#">Daftar Istilah</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/faq') !!}">FAQ</a></li>
+                                                <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Regulasi</a></li>
+                                        <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
-                                        <li><a href="#">Kegiatan</a></li>
-                                        <li><a href="{!! url('/galeri') !!}">Galeri</a>
+                                        <li><a href="{!! url('/kegiatan') !!}">Kegiatan</a></li>
+                                        <li><a href="#">Galeri</a>
                                         <ul class="submenu">
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>

@@ -3,6 +3,8 @@
 @section('title', 'TP2DD | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+  
     <header>
         <!-- Header Start -->
         <div class="header-area header-transparrent ">
@@ -25,15 +27,15 @@
                                         <li class="active"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="#">Edukasi Artikel</a></li>
-                                                <li><a href="#">FAQ</a></li>
-                                                <li><a href="#">Daftar Istilah</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/faq') !!}">FAQ</a></li>
+                                                <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Regulasi</a></li>
+                                        <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
-                                        <li><a href="#">Kegiatan</a></li>
-                                        <li><a href="{!! url('/galeri') !!}">Galeri</a>
+                                        <li><a href="{!! url('/kegiatan') !!}">Kegiatan</a></li>
+                                        <li><a href="#">Galeri</a>
                                         <ul class="submenu">
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
@@ -87,28 +89,28 @@
                     </div>
                 </div>
                 <div class="row">
+                    <!--Edit menggunakan plugin select 2 .js-->
                     <div class="col-lg-6 col-md-6">
                         <div class="dropdown">
                             <div class="btn-group" role="group">
-                                <button class="button2 btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Provinsi
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Jawa Barat</a>
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Jawa Tengah</a>
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Jawa Timur</a>
-                                </div>
+                                <select class="select_prov_tok" style="width: 200px;">
+                                    <option class="l1"></option>
+                                    @foreach($list_gov as $item)
+                                        <option class="l1">{{$item['nama_daerah']}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="btn-group" role="group">
-                                <button class="button2 btn-light dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                <button class="button2 btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Kabupaten/Kota
+                                    Urutkan
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Kota Depok</a>
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Kota Bandung</a>
-                                    <a class="dropdown-item" href="{!! url('/detailtp2dd') !!}">Kabupaten Cilacap</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <a class="dropdown-item" href="#">Dari Huruf Awal <i class="fa fa-sort-alpha-down"
+                                            style="margin-left: 1.5em;"></i></a>
+                                    <a class="dropdown-item" href="#">Dari Huruf Terakhir<img
+                                            src="assets/fonts/sort-alpha-down-alt-solid.svg"
+                                            style="width: 13px; margin-left: .3em;"></a>
                                 </div>
                             </div>
                         </div>
@@ -166,6 +168,30 @@
         <!-- Akhir area TP2DD -->
 
     </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <!--Edit penambahan Select2 .js-->
+    <script type="text/javascript">
+        $('.select_prov_tok').select2({
+            templateResult: function (data) {
+                // We only really care if there is an element to pull classes from
+                if (!data.element) {
+                    return data.text;
+                }
+
+                var $element = $(data.element);
+
+                var $wrapper = $('<span></span>');
+                $wrapper.addClass($element[0].className);
+
+                $wrapper.text(data.text);
+
+                return $wrapper;
+            },
+            placeholder: "Pilih Provinsi"
+        });
+    </script>
 
 @endsection
 

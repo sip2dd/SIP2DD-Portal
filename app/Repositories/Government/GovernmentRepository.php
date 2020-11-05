@@ -15,6 +15,14 @@ Class GovernmentRepository implements GovernmentInterface{
         return $gov;
     }
 
+    public function getListGoverment(){
+        $gov = $this->getApiContents("1563.json");
+        if($gov != null){
+            $gov = $gov['data']['list_daerah'];
+        }
+        return $gov;
+    }
+
     public function getGovermentDetail($id){
         
         $detailGov = $this->getApiContents("1542.json?unit_profile_id=".$id);

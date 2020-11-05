@@ -88,6 +88,9 @@
 
     </footer>
 
+   
+
+
 
     <script src="{{ URL::asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
     <!-- All JS Custom Plugins Link Here here -->

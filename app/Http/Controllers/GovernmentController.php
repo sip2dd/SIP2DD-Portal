@@ -14,7 +14,8 @@ class GovernmentController extends Controller
     public function index()
     {
         $governments = $this->govRepo->getGoverment(); 
-         return view('government.governmentPage', ['governments' => $governments]);
+        $list_gov = $this->govRepo->getListGoverment(); 
+         return view('government.governmentPage', ['governments' => $governments, 'list_gov' => $list_gov]);
     }
 
     public function detailGov(Request $request)
