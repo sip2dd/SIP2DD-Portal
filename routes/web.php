@@ -11,6 +11,7 @@ use App\Http\Controllers\FAQController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\GlossaryController;
 use App\Http\Controllers\RegulationController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,8 @@ Route::get('/detailedukasi', [EducationController::class, 'detailEducation']);
 Route::get('/daftaristilah', [GlossaryController::class, 'index']);
 
 Route::get('/regulasi', [RegulationController::class, 'index']);
+
+Route::get('/kegiatan', [EventController::class, 'index']);
 
 
 

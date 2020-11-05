@@ -18,7 +18,8 @@ use App\Repositories\FAQ\FaqInterface;
 use App\Repositories\FAQ\FaqRepository;
 use App\Repositories\Regulation\RegulationInterface;
 use App\Repositories\Regulation\RegulationRepository;
-
+use App\Repositories\Event\EventInterface;
+use App\Repositories\Event\EventRepository;
 
 class RepositoryServicesProvider extends ServiceProvider
 {
@@ -37,6 +38,7 @@ class RepositoryServicesProvider extends ServiceProvider
         $this->app->bind(GovServicesInterface::class, GovServicesRepository::class);
         $this->app->bind(FaqInterface::class, FaqRepository::class);
         $this->app->bind(RegulationInterface::class, RegulationRepository::class);
+        $this->app->bind(EventInterface::class, EventRepository::class);
 
     }
 
