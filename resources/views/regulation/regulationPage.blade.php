@@ -134,7 +134,7 @@
                             <p>{!! $item['deskripsi'] !!}</p>
                             <div class="button_card">
                                 <a href="{{$item['file']}}" target="_blank" class="button_card_d"><i class="fa fa-file-pdf"></i> Unduh Materi</a>
-                                <a href="" class="button_card_v" data-toggle="modal" data-target="#tampilRegulasi"><i
+                                <a href="" class="button_card_v" data-toggle="modal" data-target="#tampilRegulasi{{$index}}"><i
                                         class="fa fa-search"></i>
                                     Pratinjau</a>
                             </div>
@@ -171,30 +171,33 @@
         </section>
         <!-- Akhir pagination-->
         <!-- Modal Tampil Detail Regulasi -->
-        <div class="modal fade" data-backdrop="static" data-keyboard="false" id="tampilRegulasi" tabindex="-1"
-            role="dialog" aria-labelledby="tampilRegulasi" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="tampilRegulasi">
-                            Peraturan Presiden
-                            Nomor 40/Pres/0322/0321021 Tahun 2009
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                            id="btnbatalbarang1">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <embed src="http://103.18.117.44/sicantik-ws/webroot/files/upload/1327-20201018112722_719_instruksigubernurdaerahkhususibukotajakartanomor55tahun2020.pdf" frameborder="0" width="100%" height="380px">
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <a href="" class="button_card_d"><i class="fa fa-file-pdf"></i> Unduh Materi</a>
-                        <button type="button" class="button_card_v" data-dismiss="modal">Batal</button>
+        @if($regItems != null)
+            @foreach($regItems as $index => $item)
+            <div class="modal fade" data-backdrop="static" data-keyboard="false" id="tampilRegulasi{{$index}}" tabindex="-1"
+                role="dialog" aria-labelledby="tampilRegulasi" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tampilRegulasi">
+                                {{$item['judul']}}
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                id="btnbatalbarang1">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <embed src="{{$item['file']}}" frameborder="0" width="100%" height="380px">
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <a href="{{$item['file']}}" target="_blank" class="button_card_d"><i class="fa fa-file-pdf"></i> Unduh Materi</a>
+                            <button type="button" class="button_card_v" data-dismiss="modal">Batal</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            @endforeach
+        @endif
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
