@@ -223,13 +223,19 @@
                             @if($galleryNews != null)
                                 <div class="carousel-inner w-100" role="listbox">
                                         @foreach($galleryNews as $index => $gallery)
+                                            
                                             @if ($index == 0)
                                                 <div class="carousel-item active">
                                                     <div class="col-lg-6">
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
+                                                               @if($gallery['tipe'] == "Youtube")
+                                                                <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($gallery['link']) }}/mqdefault.jpg"
+                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                                @else
                                                                 <img class="card-img" src=""
                                                                     alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                                @endif
                                                             </div>
                                                             <div class="blog_details">
                                                                 <div class="row">
@@ -255,8 +261,13 @@
                                                     <div class="col-lg-6">
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
-                                                                <img class="card-img" src="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'"
-                                                                    alt="">
+                                                                @if($gallery['tipe'] == "Youtube")
+                                                                <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($gallery['link']) }}/mqdefault.jpg"
+                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                                @else
+                                                                <img class="card-img" src=""
+                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                                @endif
                                                             </div>
                                                             <div class="blog_details">
                                                                 <div class="row">

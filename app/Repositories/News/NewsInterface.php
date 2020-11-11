@@ -11,7 +11,14 @@ interface NewsInterface{
     public function getAllLocalGovNews();
     public function getGalleryVideos();
     public function getDetailNews($id);
+    public function getDetailNewsAttachment($id);
     public function searchNews($keyword);
+    public function getLocalGovNewsbyId($id);
+    
+    public function getCountLocalGovNews();
+    public function getCountNationalGovNews();
+    public function getCountHighlight();
+    public function getCountsearchNews($keyword);
 
 }
 

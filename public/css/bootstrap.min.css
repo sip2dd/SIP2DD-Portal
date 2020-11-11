@@ -174,16 +174,18 @@ sup {
     top: -.5em
 }
 
+/*Edit Perbaikan tag a*/
 a {
-    color: #007bff;
+    color: #00ABE9;
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects
 }
 
+/*Edit Perbaikan tag a hover*/
 a:hover {
-    color: #0056b3;
-    text-decoration: underline
+    color: #00ABE9;
+    text-decoration: underline;
 }
 
 a:not([href]):not([tabindex]) {
@@ -6447,11 +6449,11 @@ button.close {
 }
 
 .carousel-control-prev {
-    left: 0
+    left: 0;
 }
 
 .carousel-control-next {
-    right: 0
+    right: 0;
 }
 
 .carousel-control-next-icon,
@@ -9996,3 +9998,5 @@ a.text-dark:hover {
         border-color: #dee2e6
     }
 }
+
+/*# sourceMappingURL=bootstrap.min.css.map */

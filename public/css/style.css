@@ -3040,7 +3040,7 @@ hr {
 }
 
 .blog_details h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 8px;
     color: #2c2c2c;
@@ -3052,10 +3052,20 @@ hr {
     font-weight: 400;
 }
 
-@media (min-width: 768px) {
+.blog_details h6 img {
+    height: 16px;
+    vertical-align: -1px;
+    margin-right: .3rem;
+}
+
+@media (min-width: 1100px) {
     .blog_details h2 {
         font-size: 24px;
         margin-bottom: 15px
+    }
+
+    .blog_details h6 img {
+        height: 18px;
     }
 
     .blog_details h6 {
@@ -3117,7 +3127,7 @@ hr {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     width: 100%;
-    height: 240px;
+    height: 280px;
     object-fit: cover;
     object-position: 50% 40%;
 }
@@ -3138,12 +3148,19 @@ hr {
     max-height: 360px;
 }
 
+.blogs iframe {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 360px;
+
+}
+
 .blogs img {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     width: 100%;
-    height: auto;
-    max-height: 360px;
+    height: 300px;
 }
 
 .rata_tengah {
@@ -3162,10 +3179,18 @@ hr {
     font-size: 24px;
 }
 
+/*Edit ganti size*/
 .blogs_details h3 {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     margin: 10px 0px;
+}
+
+.blogs .blogs_details h3 img.logo_gov {
+    vertical-align: -1px;
+    margin-right: .5rem;
+    width: 18px !important;
+    height: auto !important;
 }
 
 .blogs_details .desk_edukasi {
@@ -3194,6 +3219,10 @@ hr {
 
     .blogs_details h3 {
         font-size: 14px;
+    }
+
+    .blogs .blogs_details h3 img.logo_gov {
+        width: 14px !important;
     }
 
     .blogs_details .desk_edukasi {
@@ -3536,6 +3565,12 @@ hr {
     margin-bottom: 20px;
 }
 
+.single-post-area .blog_detailss h3 img {
+    height: 20px;
+    vertical-align: -1px;
+    margin-right: .5rem;
+}
+
 @media (max-width:900px) {
     .single-post-area .blog_detailss h2 {
         font-size: 18px;
@@ -3543,6 +3578,10 @@ hr {
 
     .single-post-area .blog_detailss h3 {
         font-size: 15px;
+    }
+
+    .single-post-area .blog_detailss h3 img {
+        height: 17px;
     }
 
     .single-post-area .blog_detailss p {
@@ -6231,6 +6270,12 @@ z .slider-area .hero-cap h2 {
     font-weight: 600;
 }
 
+.services-caption .services-loc h6 img {
+    height: 18px;
+    vertical-align: -1px;
+    margin-right: .3rem;
+}
+
 .services-caption .link_layanan {
     margin-top: 25px;
     margin-bottom: 10px;
@@ -6245,7 +6290,7 @@ z .slider-area .hero-cap h2 {
 
 .services-caption .link_layanan a {
     padding: 13px 30px;
-    border-radius: 20px;
+    border-radius: 50px;
     background-color: #00ABE9;
     color: #fff !important;
     font-size: 15px !important;
@@ -7395,11 +7440,11 @@ z .slider-area .hero-cap h2 {
     color: #00ABE9;
     font-size: 35px;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .desk_video p {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 @media (max-width: 1000px) {
@@ -7422,7 +7467,7 @@ z .slider-area .hero-cap h2 {
     }
 
     .desk_video p {
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
 }
 
@@ -7557,8 +7602,7 @@ z .slider-area .hero-cap h2 {
 .berita_card .berita_img img {
     border-radius: 5px;
     width: 100%;
-    height: auto;
-    max-height: 250px;
+    height: 280px;
 }
 
 @media(max-width:800px) {
@@ -7581,6 +7625,12 @@ z .slider-area .hero-cap h2 {
 
 .card-body h6 {
     font-weight: 400;
+}
+
+.card-body h6 img {
+    height: 18px;
+    vertical-align: -1px;
+    margin-right: .5px;
 }
 
 .card-body h4 a:hover {
@@ -7637,6 +7687,7 @@ z .slider-area .hero-cap h2 {
 
 .section-judul-berita h6 a:hover {
     color: #00ABE9;
+    text-decoration: underline;
 }
 
 .section-judul-berita2 {
@@ -7681,7 +7732,8 @@ z .slider-area .hero-cap h2 {
 }
 
 .deskripsi-galeri1 h2 {
-    font-size: 19px;
+    height: 100px;
+    overflow: hidden;
 }
 
 h6.deskripsi {
@@ -7745,6 +7797,7 @@ h6.deskripsi {
 }
 
 .breadcrumb-item a {
+    margin-top: 10px;
     padding: 10px 15px;
     background-color: #fff;
     color: #16161a;
@@ -7754,6 +7807,7 @@ h6.deskripsi {
 }
 
 .breadcrumb-item.active a {
+    margin-top: 10px;
     display: inline-block;
     background-color: #00ABE9;
     color: #fff;
@@ -7777,13 +7831,14 @@ h6.deskripsi {
 
     .breadcrumb li.breadcrumb-item a {
         font-size: 11px;
+        vertical-align: -5px;
     }
 
     .breadcrumb-item a {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 10ch;
+        max-width: 100px;
     }
 
     .breadcrumb-item.active a {
@@ -7792,7 +7847,7 @@ h6.deskripsi {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 9ch;
+        max-width: 120px;
     }
 
     .lokasi_alamat h6 {
@@ -8136,7 +8191,7 @@ img.image {
 
 .overlay .kotak img {
     width: 100%;
-    max-height: 400px;
+    height: 350px;
     object-fit: cover;
     object-position: 70% 0;
 }
@@ -8628,6 +8683,7 @@ span.select2-container--focus {
     box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     margin: 0px 10px;
+    margin-bottom: 20px;
 }
 
 .panel-default>.panel-heading {
@@ -8795,16 +8851,33 @@ span.select2-container--focus {
 }
 
 .button_card_v {
-    padding: 10px 13px;
+    padding: 13px 20px;
     background-color: #00ABE9;
     border: 2px solid #00ABE9;
-    border-radius: 5px;
+    border-radius: 50px;
+    font-size: 16px;
     box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
     color: #fff;
 }
 
 .button_card_v:hover,
 .button_card_v:focus {
+    background-color: #fff;
+    color: #00ABE9;
+}
+
+.button_card_x {
+    padding: 10px 13px;
+    background-color: #00ABE9;
+    border: 2px solid #00ABE9;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+.button_card_x:hover,
+.button_card_x:focus {
     background-color: #fff;
     color: #00ABE9;
 }
@@ -8851,7 +8924,7 @@ span.select2-container--focus {
 
     .button_card_d,
     .button_card_v {
-        font-size: 13px;
+        font-size: 15px;
     }
 }
 
@@ -8901,8 +8974,8 @@ p.desk_kegiatan {
 }
 
 h6.cap_daerah {
-    margin-top: 7px;
-    margin-bottom: 17px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     color: #00ABE9;
     font-size: 20px;
 }
@@ -8915,6 +8988,7 @@ h6.cap_daerah {
 
 h4.ds_kegiatan {
     margin-bottom: 0px !important;
+    height: 70px !important;
 }
 
 h6.cap_masuk {
@@ -8962,8 +9036,104 @@ h6.cap_masuk:hover {
     color: #606060;
 }
 
+.what-cap h6.cap_deskripsi img {
+    height: 18px;
+    margin-right: .3rem;
+    vertical-align: -1px;
+}
+
+
 @media(min-width:768px) and (max-width:1200px) {
     .what-cap h6.cap_deskripsi {
-        font-size: 12px;
+        font-size: 13px;
     }
+
+    .what-cap h6.cap_deskripsi img {
+        height: 15px;
+    }
+}
+
+
+/*Tampilan keterangan Di halaman kegiatan*/
+.ket_webinar {
+    margin-bottom: 20px;
+}
+
+.ket_webinar p.ket_tempat {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #fff;
+    border: 2px solid #00ABE9;
+    border-radius: 50px;
+    color: #00ABE9;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.ket_webinar p.ket_tempat img {
+    height: 16px;
+    vertical-align: -1px;
+    margin-right: .4rem;
+}
+
+.ket_webinar p.ket_waktu {
+    padding: 10px 10px;
+    font-size: 14px;
+    border: 2px solid #00ABE9;
+    background-color: #fff;
+    color: #00ABE9;
+    border-radius: 50px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.col_webinar {
+    margin: 0px auto;
+}
+
+@media(max-width:992px) {
+    .ket_webinar p.ket_tempat {
+        margin: 0px 70px 20px 70px;
+        font-size: 15px;
+    }
+
+    .ket_webinar p.ket_waktu {
+        margin: 0px 90px 25px 90px;
+        font-size: 15px;
+    }
+}
+
+@media(max-width:768px) {
+    .ket_webinar p.ket_tempat {
+        margin: 0px 20px 20px 20px;
+        font-size: 15px;
+    }
+
+    .ket_webinar p.ket_waktu {
+        margin: 0px 40px 25px 40px;
+        font-size: 15px;
+    }
+}
+
+@media(max-width:576px) {
+    .ket_webinar p.ket_tempat {
+        margin: 0px 0px 20px 0px;
+        font-size: 15px;
+    }
+
+    .ket_webinar p.ket_waktu {
+        margin: 0px 20px 25px 20px;
+        font-size: 15px;
+    }
+}
+
+
+.carousel-control-next {
+    right: -6px;
+}
+
+.carousel-control-prev {
+    left: -6px;
 }

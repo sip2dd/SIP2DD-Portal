@@ -8,7 +8,7 @@ Class NewsRepository implements NewsInterface{
     use ApiContentsTrait;
 
     public function getHighlight(){
-        $highlightItems = $this->getApiContents("1554.json?offset=1&limit=5");
+        $highlightItems = $this->getApiContents("1554.json?offset='5'&limit=3");
         if($highlightItems != null){
             $highlightItems = $highlightItems['data']['berita_highlight_page'];
         }
@@ -57,6 +57,14 @@ Class NewsRepository implements NewsInterface{
         return $localGovNews;
     }
 
+    public function getLocalGovNewsbyId($id){
+        $localGovNews = $this->getApiContents("1561.json?instansi_id?".$id."?offset=1&limit=10");
+        if($localGovNews != null){
+            $localGovNews = $localGovNews['data']['berita_instansi'];
+        }
+        return $localGovNews;
+    }
+
     public function getGalleryVideos(){
         $galleryVideos = $this->getApiContents("1523.json?offset=1&limit=5");
         if($galleryVideos != null){
@@ -77,8 +85,20 @@ Class NewsRepository implements NewsInterface{
         return $detailNews;
     }
 
+    public function getDetailNewsAttachment($id  = "0"){
+        $attchmentNews = $this->getApiContents("1564.json?berita_id=".$id);
+        if($attchmentNews != null){
+            if(count($attchmentNews['data']['lampiran_berita']) < 1){
+                $attchmentNews = null;
+            }else{
+                $attchmentNews = $attchmentNews['data']['lampiran_berita'][0];
+            }  
+        }
+        return $attchmentNews;
+    }
+
     public function searchNews($keyword){
-        $newsItems = $this->getApiContents("1532.json?judul=".$keyword."&kata_kunci=".$keyword);
+        $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=1&limit=10");
         if($newsItems != null){
             $newsItems = $newsItems['data']['berita_search'];
             if(count($newsItems) == 0){
@@ -87,5 +107,43 @@ Class NewsRepository implements NewsInterface{
         }
         return $newsItems;
     }
+
+    public function getCountHighlight(){
+        $newsItems = $this->getApiContents("1550.json");
+        if($newsItems != null){
+            $newsItems = $newsItems['data']['cnt_highlight'][0]['cnt'];
+          
+        }
+        return $newsItems;
+    }
+
+    public function getCountLocalGovNews(){
+        
+        $newsItems = $this->getApiContents("1551.json");
+        if($newsItems != null){
+            $newsItems = $newsItems['data']['cnt_pemda'][0]['cnt'];
+        }
+        return $newsItems;
+
+    }
+
+    public function getCountNationalGovNews(){
+        $newsItems = $this->getApiContents("1552.json");
+        if($newsItems != null){
+            $newsItems = $newsItems['data']['cnt_satgas'][0]['cnt'];
+        }
+        return $newsItems;
+
+    }
+
+    public function getCountsearchNews($keyword){
+        $newsItems = $this->getApiContents("1553.json?input=".$keyword);
+        if($newsItems != null){
+            $newsItems = $newsItems['data']['cnt_search'][0]['cnt'];
+        }
+        return $newsItems;
+    }
+
+    
 
 }
