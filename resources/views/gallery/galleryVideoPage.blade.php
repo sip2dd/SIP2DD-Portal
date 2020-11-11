@@ -99,7 +99,12 @@
                     
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img" src="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                            @if($galleryVideo['tipe'] == "Youtube")
+                                <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($galleryVideo['link']) }}/mqdefault.jpg"
+                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                            @else
+                                <img class="card-img" src="" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                            @endif
                             </div>
 
                             <div class="blog_details">
