@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Home\HomeInterface;
+use App\Http\Traits\ApiContentsTrait;
 
 class HomeController extends Controller
 {
+    use ApiContentsTrait;
 
     public function __construct(HomeInterface $homeRepo){
         $this->homeRepo = $homeRepo;
@@ -14,8 +16,8 @@ class HomeController extends Controller
     
     public function index()
     {
-        //$menu = $this->getApiMenu();
-        $menu = null;
+        $menu = $this->getApiMenu();
+        // $menu = null;
         $govServices = $this->homeRepo->getGovServices(); 
         $newsItems = $this->homeRepo->getNewsItems();
         $eduNewsItems = $this->homeRepo->getEducationNewsItems();

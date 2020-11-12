@@ -8,4 +8,5 @@ interface HomeInterface{
     public function getEducationNewsItems();
     public function getGalleryNewsItems();
     public function searchNewsItems($keyword);
+    public function getCountsearchNews($keyword);
 }

@@ -34,10 +34,17 @@
                                         <li><a href="#">Kolaborasi</a></li>
                                         <li><a href="{!! url('/kegiatan') !!}">Kegiatan</a></li>
                                         <li><a href="#">Galeri</a>
-                                        <ul class="submenu">
-                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
-                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
-                                        </ul>
+                                            <ul class="submenu">
+                                                <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                                <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                            </ul>
+                                        </li>
+
+                                        @foreach($menus as $index => $menu)
+                                        <!-- <li><a href="{!! url($menu['parentlink']) !!}">{!! $menu['parentmenu'] !!}</a></li> -->
+                                        @endforeach
+
+
                                     
                                     </ul>
                                 </nav>
@@ -268,7 +275,7 @@
                                                     <img src="{{ $newsItem['gambar_utama'] }}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                                 </div>
                                                 <div class="what-cap">
-                                                    <h6>{{ date_format(date_create($newsItem['tanggal_publikasi']), "d M Y") }}</h6>
+                                                    <h6>{{ tanggal_indonesia($newsItem['tanggal_publikasi']) }}</h6>
                                                     <!--Edit PEnamabhan instansi-->
                                                     <h6 class="cap_deskripsi"><img
                                                             src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
@@ -293,7 +300,8 @@
                                                     <img src="{{ $newsItem['gambar_utama'] }}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                                 </div>
                                                 <div class="what-cap">
-                                                    <h6>{{ date_format(date_create($newsItem['tanggal_publikasi']), "d M Y") }}</h6>
+                                                    
+                                                    <h6>{{ tanggal_indonesia($newsItem['tanggal_publikasi']) }}</h6>
                                                     <!--Edit Penambahan nama instansi-->
                                                     <h6 class="cap_deskripsi"><img
                                                             src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
@@ -334,7 +342,7 @@
                         @endif
                     </div>
                     <div class="row mt-5 mb-5">
-                        <a href="" class="btn radius-btn"
+                        <a href="{!! url('berita') !!}" class="btn radius-btn"
                             style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
                     </div>
                 </div>
@@ -364,7 +372,7 @@
                                                 <img src="{{$eduNewsItem['gambar_utama']}}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                             </div>
                                             <div class="what-cap">
-                                                <h6>{{ date_format(date_create($eduNewsItem['tanggal_publikasi']), "d M Y") }}</h6>
+                                                <h6>{{ tanggal_indonesia($eduNewsItem['tanggal_publikasi']) }}</h6>
                                                 <!--Edit penmabahan instansi-->
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov2_grey.svg') }}"
                                                         alt="logo">Pemerintah Kalimantan Barat
@@ -386,7 +394,7 @@
                                                 <img src="{{$eduNewsItem['gambar_utama']}}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                             </div>
                                             <div class="what-cap">
-                                                <h6>{{ date_format(date_create($eduNewsItem['tanggal_publikasi']), "d M Y") }}</h6>
+                                                <h6>{{ tanggal_indonesia($eduNewsItem['tanggal_publikasi']) }}</h6>
                                                 <!--Edit penmabahan instansi-->
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov2_grey.svg') }}"
                                                         alt="logo">Pemerintah Kalimantan Barat
@@ -425,7 +433,7 @@
                         @endif
                     </div>
                     <div class="row mt-5 mb-5">
-                        <a href="" class="btn radius-btn"
+                        <a href="{!! url('edukasi') !!}" class="btn radius-btn"
                             style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
                     </div>
                 </div>
@@ -460,7 +468,7 @@
                                                 @endif
                                             </div>
                                             <div class="what-cap">
-                                                <h6>{{ date_format(date_create($galleryNewsItem['tgl_dibuat']), "d M Y") }}</h6>
+                                                <h6>{{ tanggal_indonesia($galleryNewsItem['tgl_dibuat']) }}</h6>
                                                 <!--Edit penmabahna Instansi-->
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
                                                         alt="logo">Pemerintah Kalimantan Barat
@@ -487,7 +495,7 @@
                                                 
                                             </div>
                                             <div class="what-cap">
-                                                <h6>{{ date_format(date_create($galleryNewsItem['tgl_dibuat']), "d M Y") }}</h6>
+                                                <h6>{{ tanggal_indonesia($galleryNewsItem['tgl_dibuat']) }}</h6>
                                                 <!--Edit penmabahna Instansi-->
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
                                                         alt="logo">Pemerintah Kalimantan Barat
