@@ -44,13 +44,13 @@ class HomeController extends Controller
             if($request->keyword != ''){
                 $judul = $request->keyword;
                 $searchNews = $this->homeRepo->searchNewsItems($judul);
+                //$count = $this->homeRepo->getCountsearchNews($judul);
                 if($searchNews != null){
                     $count = count($searchNews);
                 }
             }
         }
         
-        //dd($searchNews);
         return view('home.searchPage', [
             'count' => $count,
             'keyword' => $judul,

@@ -99,14 +99,20 @@
                     @foreach($searchNews as $index => $newsItem)
                         <div class="card w-100 card-besar">
                             <div class="row no-gutters berita_card">
-                                <div class="col-lg-4">
-                                    <img class="berita_img" src="{{$newsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'"
-                                        style="width:100%; height: 250px;">
+                                <div class="col-lg-4 berita_img">
+                                    <img class="" src="{{$newsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                 </div>
                                 <div class="col-lg-8 card_desk">
                                     <div class="card-body">
-                                        <h6>{{$newsItem['tanggal_publikasi']}}</h6>
-                                        <h4>{{$newsItem['judul']}}</h4>
+                                        <h5>{{tanggal_indonesia($newsItem['tanggal_publikasi'])}}</h5>
+                                        <h4><a href="{!! url('detailberita?id=')!!}{{$newsItem['berita_id']}}">{{$newsItem['judul']}}</a></h4>
+                                        <!--Edit penambahan nama instansi-->
+                                        <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" onerror="this.src='{{ URL::asset('img/P2DD.png') }} alt="logo"> Pemerintah Jawa Tengah
+                                        </h6>
+                                        <p>{{ Str::limit(strip_tags($newsItem['body']), 250) }}
+                                        </p>
+                                        <p id="selengkapnya"><a href="{!! url('detailberita?id=')!!}{{$newsItem['berita_id']}}">Selengkapnya <i
+                                                    class="fas fa-chevron-right"></i></a></p>
                                     </div>
                                 </div>
                             </div>
