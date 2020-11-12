@@ -95,19 +95,67 @@
     <script src="{{ URL::asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
     <!-- All JS Custom Plugins Link Here here -->
     <!-- JS here -->
+    
+    <script src="{{ URL::asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
+
+    <script>
+        $("#galeriCarousel").on("touchstart", function (event) {
+            var xClick = event.originalEvent.touches[0].pageX;
+            $(this).one("touchmove", function (event) {
+                var xMove = event.originalEvent.touches[0].pageX;
+                if (Math.floor(xClick - xMove) > 5) {
+                    $(this).carousel('next');
+                } else if (Math.floor(xClick - xMove) < -5) {
+                    $(this).carousel('prev');
+                }
+            });
+            $(".carousel").on("touchend", function () {
+                $(this).off("touchmove");
+            });
+        });
+        $("#edukasiCarousel").on("touchstart", function (event) {
+            var xClick = event.originalEvent.touches[0].pageX;
+            $(this).one("touchmove", function (event) {
+                var xMove = event.originalEvent.touches[0].pageX;
+                if (Math.floor(xClick - xMove) > 5) {
+                    $(this).carousel('next');
+                } else if (Math.floor(xClick - xMove) < -5) {
+                    $(this).carousel('prev');
+                }
+            });
+            $(".carousel").on("touchend", function () {
+                $(this).off("touchmove");
+            });
+        });
+        $("#beritaCarousel").on("touchstart", function (event) {
+            var xClick = event.originalEvent.touches[0].pageX;
+            $(this).one("touchmove", function (event) {
+                var xMove = event.originalEvent.touches[0].pageX;
+                if (Math.floor(xClick - xMove) > 5) {
+                    $(this).carousel('next');
+                } else if (Math.floor(xClick - xMove) < -5) {
+                    $(this).carousel('prev');
+                }
+            });
+            $(".carousel").on("touchend", function () {
+                $(this).off("touchmove");
+            });
+        });
+    </script>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{{ URL::asset('js/popper.min.js') }}"></script>
+    <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+    <!-- <script src="./assets/js/scripts.js"></script>-->
     <script>
         jQuery(document).ready(function () {
-            $('#layananCarousel').carousel({
-                interval: 3000
+            $('#galeriCarousel').carousel({
+                interval: 2500
             })
             $('#beritaCarousel').carousel({
                 interval: 2000
             })
             $('#edukasiCarousel').carousel({
-                interval: 2000
-            })
-
-            $('#galeriCarousel').carousel({
                 interval: 2000
             })
 
@@ -131,22 +179,16 @@
 
         });
     </script>
-    <script src="{{ URL::asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
-
-    <!-- Jquery, Popper, Bootstrap -->
-    <script src="{{ URL::asset('js/popper.min.js') }}"></script>
-    <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-    <!-- <script src="./assets/js/scripts.js"></script>-->
     <!-- Jquery Mobile Menu -->
     <script src="{{ URL::asset('js/jquery.slicknav.min.js') }}"></script>
-    <!-- <script src="{{ URL::asset('js/multislider.js') }}"></script>
+    <script src="{{ URL::asset('js/multislider.js') }}"></script>
     <script src="{{ URL::asset('js/multislider.min.js') }}"></script>
     <script>
         $('#mixedSlider').multislider({
             duration: 650,
             interval: 3000
         });
-    </script> -->
+    </script>
     <!-- Jquery Slick , Owl-Carousel Plugins -->
     <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ URL::asset('js/slick.min.js') }}"></script>
@@ -170,5 +212,5 @@
     <script src="{{ URL::asset('js/jquery.ajaxchimp.min.js') }}"></script>
 
     <!-- Jquery Plugins, main Jquery -->
-    <script src="{{ URL::asset('js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ URL::asset('js/plugins.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>

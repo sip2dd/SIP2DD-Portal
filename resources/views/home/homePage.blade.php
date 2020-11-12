@@ -92,24 +92,25 @@
         </div>
         <!-- Bagian Atas End -->
         <!-- Fitur Kami Start -->
+        <!--Edit semua icon pada fitur kami-->
         <section id="fiturkami" class="best-features-area section-paddingr sky-blue ">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-lg-12">
                         <!-- Section Tittle -->
                         <div class="row">
-                            <div class="col-lg-12 col-md-12">
+                            <div class="col-lg-12 col-md-12 col-xs-12">
                                 <div class="section-tittle mb-90">
-                                    <h2>Fitur Kami</h2>
+                                    <h2 class="fitur_index"><span>Fitur Kami</span></h2>
                                 </div>
                             </div>
                         </div>
                         <!-- Section caption -->
                         <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4">
+                            <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-features mb-70">
                                     <div class="features-icon">
-                                        <span class="flaticon-support"></span>
+                                        <span><i class="fa fa-newspaper"></i></span>
                                     </div>
                                     <div class="features-caption">
                                         <h3>Kanal Berita</h3>
@@ -117,10 +118,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4">
+                            <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-features mb-70">
                                     <div class="features-icon">
-                                        <span class="flaticon-support"></span>
+                                        <span> <i class="fa fa-chalkboard-teacher"></i>
+                                        </span>
                                     </div>
                                     <div class="features-caption">
                                         <h3>Kanal Layanan</h3>
@@ -128,10 +130,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4">
+                            <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-features mb-70">
                                     <div class="features-icon">
-                                        <span class="flaticon-support"></span>
+                                        <span> <i class="fa fa-info-circle"></i></span>
                                     </div>
                                     <div class="features-caption">
                                         <h3>Data & Informasi</h3>
@@ -139,10 +141,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4">
+                            <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-features mb-70">
                                     <div class="features-icon">
-                                        <span class="flaticon-support"></span>
+                                        <span><i class="fa fa-users"></i></span>
                                     </div>
                                     <div class="features-caption">
                                         <h3>Kolaborasi</h3>
@@ -150,10 +152,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4">
+                            <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-features mb-70">
                                     <div class="features-icon">
-                                        <span class="flaticon-support"></span>
+                                        <span><i class="fa fa-list-alt"></i></span>
                                     </div>
                                     <div class="features-caption">
                                         <h3>Regulasi</h3>
@@ -161,10 +163,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4">
+                            <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-features mb-70">
                                     <div class="features-icon">
-                                        <span class="flaticon-support"></span>
+                                        <span><i class="fa fa-th-list"></i></span>
                                     </div>
                                     <div class="features-caption">
                                         <h3>Edukasi</h3>
@@ -184,47 +186,55 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center mb-90">
-                            <h2>Layanan Terhangat</h2>
+                            <h2 class="layanan_index"><span>Layanan Terhangat</span></h2>
                         </div>
                     </div>
                 </div>
-            </div>
-            @if($govServices != null)
-                <div id="mixedSlider">
-                    <div class="MS-content">
-                        @foreach($govServices as $index => $govService)
-                        <div class="item">
-                            <div class="services-caption text-center mb-10">
-                                <div class="service-icon">
-                                    <span><img class="img-lay" src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'" alt=""></span>
-                                </div>
-                                <div class="service-cap">
-                                    <h4><a href="{!! url('layanan?id=') !!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
-                                    <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}.</p>
-                                </div>
-                                <div class="services-loc">
-                                <a href="{{$govService['link_layanan']}}" target="_blank"><p>Link Layanan</p></a>
+                @if($govServices != null)
+                    <div id="mixedSlider" class="carousel slide" data-ride="carousel">
+                        <div class="MS-content">
+                            @foreach($govServices as $index => $govService)
+                            <div class="item">
+                                <div class="services-caption text-center mb-10">
+                                    <div class="service-icon">
+                                        <span><img class="img-lay" src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'" alt=""></span>
+                                    </div>
+                                    <div class="service-cap">
+                                        <!--Edit Penambahan kelas judul-->
+                                        <h4 class="service-judul"><a href="{!! url('layanan?id=') !!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
+                                        <!--Edit Penambahan nama pemda-->
+                                        <div class="services-loc">
+                                            <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"> Pemerintah
+                                                Jawa Barat
+                                            </h6>
+                                        </div>
+                                        <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}.</p>
+                                        <!--Edit Penambahan tombol pemda-->
+                                        <div class="link_layanan">
+                                            <a href="{{$govService['link_layanan']}}">Link Layanan</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
-                        @endforeach
-                    </div>
-                    <div class="MS-controls">
-                        <button class="MS-left"><span class="carousel-control-prev-icon bg-info rounded-circle"
-                                style="width: 35px; height: 35px;" aria-hidden="true"></span></button>
-                        <button class="MS-right"><span class="carousel-control-next-icon bg-info rounded-circle"
-                                style="width: 35px; height: 35px;" aria-hidden="true"></span></button>
-                    </div>
+                        <div class="MS-controls">
+                            <button class="MS-left" data-slide="prev"><span
+                                    class="carousel-control-prev-icon bg-info rounded-circle"
+                                    style="width: 35px; height: 35px;" aria-hidden="true"></span></button>
+                            <button class="MS-right" data-slide="next"><span
+                                    class="carousel-control-next-icon bg-info rounded-circle"
+                                    style="width: 35px; height: 35px;" aria-hidden="true"></span></button>
+                        </div>
 
+                    </div>
+                @else
+                <div class="container">
+                    <div class="row mt-5 mb-5">
+                        <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                    </div>
                 </div>
-            @else
-            <div class="container">
-                <div class="row mt-5 mb-5">
-                    <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
-                </div>
-            </div>
-            @endif
-            <div class="container">
+                @endif
                 <div class="row mt-5 mb-5">
                     <a href="{!! url('layanan') !!}" class="btn radius-btn"
                         style="margin:auto; text-align: center; display: block;">Selengkapnya</a>
@@ -234,7 +244,7 @@
         <!--Layanan Terhangat end baru-->
         <!--Berita-->
         <div id="berita_section" class="our-customer section-paddingr sky-blue">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="our-customer-wrapper">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
@@ -243,31 +253,37 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mx-auto">
+                    <div class="row mx-auto my-auto">
                         @if($newsItems != null)
                         <div id="beritaCarousel" class="carousel slide w-100" data-ride="carousel">
                             <div class="carousel-inner w-100" role="listbox">
                             @foreach($newsItems as $index => $newsItem)
                                 @if ($index == 0)
-                                    <div class="carousel-item active">
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <div class="">
-                                                <div class="single-customer">
-                                                    <div class="what-img">
-                                                        <img src="{{ $newsItem['gambar_utama'] }}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <h6>{{ $newsItem['tanggal_publikasi'] }}</h6>
-                                                        <h4><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">{{ $newsItem['judul'] }}</a></h4>
-                                                    </div>
-                                                    <div class="tulisan-lengkapnya">
-                                                        <a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">Selengkapnya <span
-                                                                class="fas fa-chevron-right mr-2"></span></a>
-                                                    </div>
+                                <div class="carousel-item active">
+                                    <div class="col-xl-4 col-lg-4 col-md-6">
+                                        <div class="">
+                                            <div class="single-customer">
+                                                <!--Edit css bagian gambar image-->
+                                                <div class="what-img">
+                                                    <img src="{{ $newsItem['gambar_utama'] }}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                                </div>
+                                                <div class="what-cap">
+                                                    <h6>{{ date_format(date_create($newsItem['tanggal_publikasi']), "d M Y") }}</h6>
+                                                    <!--Edit PEnamabhan instansi-->
+                                                    <h6 class="cap_deskripsi"><img
+                                                            src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                            alt="logo">Pemerintah Kalimantan Barat
+                                                    </h6>
+                                                    <h4><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">{{ Str::limit($newsItem['judul'], 60) }}.</a></h4>
+                                                </div>
+                                                <div class="tulisan-lengkapnya">
+                                                    <a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">Selengkapnya <span
+                                                            class="fas fa-chevron-right mr-2"></span></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 @else
                                 <div class="carousel-item">
                                     <div class="col-xl-4 col-lg-4 col-md-6">
@@ -277,8 +293,13 @@
                                                     <img src="{{ $newsItem['gambar_utama'] }}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                                 </div>
                                                 <div class="what-cap">
-                                                    <h6>{{ $newsItem['tanggal_publikasi'] }}</h6>
-                                                    <h4><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">{{ $newsItem['judul'] }}</a></h4>
+                                                    <h6>{{ date_format(date_create($newsItem['tanggal_publikasi']), "d M Y") }}</h6>
+                                                    <!--Edit Penambahan nama instansi-->
+                                                    <h6 class="cap_deskripsi"><img
+                                                            src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                            alt="logo">Pemerintah Kalimantan Barat
+                                                    </h6>
+                                                    <h4><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">{{ Str::limit($newsItem['judul'], 60) }}.</a></h4>
                                                 </div>
                                                 <div class="tulisan-lengkapnya">
                                                     <a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">Selengkapnya <span
@@ -311,10 +332,9 @@
                             </div>
                         </div>
                         @endif
-
                     </div>
                     <div class="row mt-5 mb-5">
-                        <a href="{!! url('berita') !!}" class="btn radius-btn"
+                        <a href="" class="btn radius-btn"
                             style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
                     </div>
                 </div>
@@ -322,7 +342,7 @@
         </div>
         <!--Edukasi Start-->
         <div id="edukasi_section" class="our-customer section-paddingr sky-blue">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="our-customer-wrapper">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
@@ -337,23 +357,27 @@
                             <div class="carousel-inner w-100" role="listbox">
                             @foreach($eduNewsItems as $index => $eduNewsItem)
                                 @if ($index == 0)
-                                    <div class="carousel-item active">
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <div class="single-customer">
-                                                <div class="what-img">
-                                                    <img src="{{$eduNewsItem['gambar_utama']}}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                                                </div>
-                                                <div class="what-cap">
-                                                    <h6>{{$eduNewsItem['tanggal_publikasi']}}</h6>
-                                                    <h4><a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}"> {{$eduNewsItem['judul']}}</a></h4>
-                                                </div>
-                                                <div class="tulisan-lengkapnya">
-                                                    <a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">Selengkapnya <span
-                                                            class="fas fa-chevron-right mr-2"></span></a>
-                                                </div>
+                                <div class="carousel-item active">
+                                    <div class="col-xl-4 col-lg-4 col-md-6">
+                                        <div class="single-customer">
+                                            <div class="what-img">
+                                                <img src="{{$eduNewsItem['gambar_utama']}}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                            </div>
+                                            <div class="what-cap">
+                                                <h6>{{ date_format(date_create($eduNewsItem['tanggal_publikasi']), "d M Y") }}</h6>
+                                                <!--Edit penmabahan instansi-->
+                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov2_grey.svg') }}"
+                                                        alt="logo">Pemerintah Kalimantan Barat
+                                                </h6>
+                                                <h4><a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">{{ Str::limit($eduNewsItem['judul'], 60) }}</a></h4>
+                                            </div>
+                                            <div class="tulisan-lengkapnya">
+                                                <a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">Selengkapnya <span
+                                                        class="fas fa-chevron-right mr-2"></span></a>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 @else
                                 <div class="carousel-item">
                                     <div class="col-xl-4 col-lg-4 col-md-6">
@@ -362,8 +386,12 @@
                                                 <img src="{{$eduNewsItem['gambar_utama']}}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                             </div>
                                             <div class="what-cap">
-                                                <h6>{{$eduNewsItem['tanggal_publikasi']}}</h6>
-                                                <h4><a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">{{$eduNewsItem['judul']}}</a></h4>
+                                                <h6>{{ date_format(date_create($eduNewsItem['tanggal_publikasi']), "d M Y") }}</h6>
+                                                <!--Edit penmabahan instansi-->
+                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov2_grey.svg') }}"
+                                                        alt="logo">Pemerintah Kalimantan Barat
+                                                </h6>
+                                                <h4><a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">{{ Str::limit($eduNewsItem['judul'], 60) }}</a></h4>
                                             </div>
                                             <div class="tulisan-lengkapnya">
                                                 <a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">Selengkapnya <span
@@ -397,7 +425,7 @@
                         @endif
                     </div>
                     <div class="row mt-5 mb-5">
-                        <a href="{!! url('berita') !!}" class="btn radius-btn"
+                        <a href="" class="btn radius-btn"
                             style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
                     </div>
                 </div>
@@ -406,12 +434,12 @@
         <!--Edukasi End-->
         <!--Galeri Foto Start-->
         <div id="galerifoto_section" class="our-customer section-paddingr edukasi-section">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="our-customer-wrapper">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
                             <div class="section-tittle text-center mb-90">
-                                <h2>Galeri Video</h2>
+                                <h2>Galeri Foto</h2>
                             </div>
                         </div>
                     </div>
@@ -421,43 +449,59 @@
                             <div class="carousel-inner w-100" role="listbox">
                             @foreach($galleryNewsItems as $index => $galleryNewsItem)
                                 @if($index == 0)
-                                    <div class="carousel-item active">
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <div class="single-customer">
-                                                <div class="what-img">
-                                                    <img src="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                                                </div>
-                                                <div class="what-cap">
-                                                    <h6>{{$galleryNewsItem['tgl_dibuat']}}</h6>
-                                                    <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">{{$galleryNewsItem['judul']}}</a></h4>
-                                                </div>
-                                                <div class="tulisan-lengkapnya">
-                                                    <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
-                                                            class="fas fa-chevron-right mr-2"></span></a>
-                                                </div>
+                                <div class="carousel-item active">
+                                    <div class="col-xl-4 col-lg-4 col-md-6">
+                                        <div class="single-customer">
+                                            <div class="what-img">
+                                                @if($galleryNewsItem['tipe'] == "Youtube")
+                                                    <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($galleryNewsItem['link']) }}/maxresdefault.jpg" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                @else
+                                                    <img class="card-img" src="" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                @endif
+                                            </div>
+                                            <div class="what-cap">
+                                                <h6>{{ date_format(date_create($galleryNewsItem['tgl_dibuat']), "d M Y") }}</h6>
+                                                <!--Edit penmabahna Instansi-->
+                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                        alt="logo">Pemerintah Kalimantan Barat
+                                                </h6>
+                                                <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}"> {{ Str::limit($galleryNewsItem['judul'], 60) }}</a></h4>
+                                            </div>
+                                            <div class="tulisan-lengkapnya">
+                                                <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
+                                                        class="fas fa-chevron-right mr-2"></span></a>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 @else
-                                    <div class="carousel-item">
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <div class="single-customer">
-                                                <div class="what-img">
-                                                    <img src="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                                                </div>
-                                                <div class="what-cap">
-                                                    <h6>{{$galleryNewsItem['tgl_dibuat']}}</h6>
-                                                    <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">{{$galleryNewsItem['judul']}}</a></h4>
-                                                </div>
-                                                <div class="tulisan-lengkapnya">
-                                                    <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
-                                                            class="fas fa-chevron-right mr-2"></span></a>
-                                                </div>
+                                <div class="carousel-item">
+                                    <div class="col-xl-4 col-lg-4 col-md-6">
+                                        <div class="single-customer">
+                                            <div class="what-img">
+                                                @if($galleryNewsItem['tipe'] == "Youtube")
+                                                    <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($galleryNewsItem['link']) }}/maxresdefault.jpg" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                @else
+                                                    <img class="card-img" src="" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                @endif
+                                                
+                                            </div>
+                                            <div class="what-cap">
+                                                <h6>{{ date_format(date_create($galleryNewsItem['tgl_dibuat']), "d M Y") }}</h6>
+                                                <!--Edit penmabahna Instansi-->
+                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                        alt="logo">Pemerintah Kalimantan Barat
+                                                </h6>
+                                                <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">{{ Str::limit($galleryNewsItem['judul'], 60) }}</a></h4>
+                                            </div>
+                                            <div class="tulisan-lengkapnya">
+                                                <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
+                                                        class="fas fa-chevron-right mr-2"></span></a>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 @endif
-                            
                             @endforeach
                             </div>
                             <a class="carousel-control-prev w-auto" href="#galeriCarousel" role="button"
@@ -489,16 +533,7 @@
             </div>
         </div>
         <!--Galeri Foto End-->
-    </main>
-
-    <script src="{{ URL::asset('js/multislider.js') }}"></script>
-    <script src="{{ URL::asset('js/multislider.min.js') }}"></script>
-    <script>
-        $('#mixedSlider').multislider({
-            duration: 650,
-            interval: 3000
-        });
-    </script>
+    </main>    
 @endsection
 
 
