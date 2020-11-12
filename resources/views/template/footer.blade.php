@@ -87,14 +87,64 @@
         <!-- Footer End-->
 
     </footer>
-
    
-
-
-
     <script src="{{ URL::asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
+
+    <script src="{{ URL::asset('datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ URL::asset('datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tb_daftar_istilah').DataTable({
+                "columns": [null,
+                    null,
+                    {
+                        "orderable": false
+                    }
+                ],
+                "language": {
+                    "infoEmpty": "Data tidak ditemukan",
+                    "lengthMenu": "Tampil _MENU_ Data, Per Halaman",
+                    "zeroRecords": "Maaf Data Tidak Ditemukan",
+                    "search": "Cari :",
+                    "info": "Tampil _TOTAL_ Data",
+                    "infoFiltered": "(Filter Dari _MAX_ Total Data)",
+                    "paginate": {
+                        "first": "Awal",
+                        "last": "Akhir",
+                        "next": "Selanjutnya",
+                        "previous": "Sebelumnya"
+                    }
+                },
+                "scrollY": '40vh',
+                "scrollX": true,
+                "scrollCollapse": true
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <!-- All JS Custom Plugins Link Here here -->
     <!-- JS here -->
+    <script type="text/javascript">
+        $('.select_prov').select2({
+            templateResult: function (data) {
+                // We only really care if there is an element to pull classes from
+                if (!data.element) {
+                    return data.text;
+                }
+
+                var $element = $(data.element);
+
+                var $wrapper = $('<span></span>');
+                $wrapper.addClass($element[0].className);
+
+                $wrapper.text(data.text);
+
+                return $wrapper;
+            },
+            placeholder: "Pilih Provinsi/Kabupaten"
+        });
+    </script>
     
     <script src="{{ URL::asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
 
@@ -183,12 +233,12 @@
     <script src="{{ URL::asset('js/jquery.slicknav.min.js') }}"></script>
     <script src="{{ URL::asset('js/multislider.js') }}"></script>
     <script src="{{ URL::asset('js/multislider.min.js') }}"></script>
-    <script>
+    <!-- <script>
         $('#mixedSlider').multislider({
             duration: 650,
             interval: 3000
         });
-    </script>
+    </script> -->
     <!-- Jquery Slick , Owl-Carousel Plugins -->
     <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ URL::asset('js/slick.min.js') }}"></script>

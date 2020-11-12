@@ -83,7 +83,8 @@
                 </div>
                 <!--Section Form input-->
                 <div class="form-row justify-content-center mb-50">
-                    <div class="col-lg-8 col-md-4">
+                    <!--Edit untuk responsive form input bebeerapa ada edit di css-->
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                         <form action="" method="">
                             <div class="form-group">
                                 <div class="input-group">
@@ -101,29 +102,29 @@
                 
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
+                        <!--Edit Memakai plugin select 2-->
                         <div class="dropdown">
                             <div class="btn-group" role="group">
                                 <select class="select_prov" style="width: 250px; padding: 10px 5px;">
-                                    <option class="l1">Silahkan Pilih</option>
-                                    <option class="l1">DKI Jakarta</option>
-                                    <option class="l2">Jakarta Barat</option>
-                                    <option class="l2">Jakarta Timur</option>
-                                    <option class="l2">Jakarta Selatan</option>
-                                    <option class="l2">Jakarta Utara</option>
-                                    <option class="l2">Jakarta Pusat</option>
-                                    <option class="l2" value="Kepulauan Seribu">Kep. Seribu</option>
-                                    <option class="l1">Option 2</option>
+                                <option class="l1"></option>
+                                @foreach($listGovs as $gov)
+                                    @if(strlen($gov['kode_daerah']) < 3)
+                                        <option class="l1">{{$gov['nama_daerah']}}</option>
+                                    @else
+                                        <option class="l2">{{$gov['nama_daerah']}}</option>
+                                    @endif
+                                @endforeach
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 ket-jumlah">
-                        <!-- <p>menunjukkan hasil 0 Layanan</p> -->
+                        <!-- <p>menunjukkan hasil 10 Layanan</p> -->
                     </div>
                 </div>
                 <!-- Section caption -->
                 @if($govServices != null)
-                <div class="row">
+                <div class="row justify-content-center">
                     @foreach($govServices as $govService)
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="services-caption text-center mb-30">
@@ -131,11 +132,17 @@
                                 <span><img src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'"></span>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="{!! url('/detaillayanan?id=')!!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
+                                <h4 class="service-judul"><a href="{!! url('/detaillayanan?id=')!!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
+                                <div class="services-loc">
+                                    <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"> Pemerintah
+                                        Jawa Barat
+                                    </h6>
+                                </div>
                                 <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}.</p>
+                                
                             </div>
-                            <div class="services-loc">
-                                <p><a href="{{$govService['link_layanan']}}" target="_blank">Link Layanan</a></p>
+                            <div class="link_layanan">
+                                <a href="{{$govService['link_layanan']}}" target="_blank">Link Layanan</a>
                             </div>
                         </div>
                     </div>
@@ -172,4 +179,6 @@
         </section>
         <!-- Akhir area TP2DD -->
     </main>
+
+    
 @endsection

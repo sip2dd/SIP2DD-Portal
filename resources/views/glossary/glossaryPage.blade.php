@@ -57,6 +57,8 @@
 
 @section('content')
 
+
+
     <main>
         <!-- Area untuk Pencarian TP2DD -->
         <section class="service-area section-padd4 background_3">
@@ -69,194 +71,60 @@
                         </div>
                     </div>
                 </div>
-                <!--Section Form input-->
-                <div class="form-row justify-content-center mb-50">
-                    <!--Edit untuk responsive kolom pencarian dan ada edit di css-->
-                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                        <form action="" method="">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
-                                    <div class="input-group-append">
-                                        <button class="button1">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 justify-content-center">
-                        <div class="dropdown">
-                            <div class="btn-group" role="group">
-                                <button class="button2 btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Urutkan
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <a class="dropdown-item" href="#">Dari Huruf Awal <i class="fa fa-sort-alpha-down"
-                                            style="margin-left: 1.5em;"></i></a>
-                                    <a class="dropdown-item" href="#">Dari Huruf Terakhir<img
-                                            src="assets/fonts/sort-alpha-down-alt-solid.svg"
-                                            style="width: 13px; margin-left: .3em;"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card table_istilah">
+                <div class="card table_istilah pt-3 pb-3 pl-3 pr-3">
                     <div class="table-responsive pb-0">
-                        <table class="table table-hover table-bordered" width="100%" cellspacing="0">
+                        <table class="table table-hover" id="tb_daftar_istilah" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th scope="col" width="6%">No</th>
                                     <th scope="col" width="35%">Nama Istilah</th>
-                                    <th scope="col" width="60%">Deskripsi Istilah </th>
+                                    <th scope="col" width="50%">Deskripsi Istilah </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
+                                    <td width="35%">Mark1 </td>
+                                    <td width="50%">Otto1</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
+                                    <th scope="row" width="6%">2</th>
+                                    <td width="35%">Mark2 </td>
+                                    <td width="50%">Otto2</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
+                                    <th scope="row" width="6%">3</th>
+                                    <td width="35%">Mark3 </td>
+                                    <td width="50%">Otto3</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
+                                    <th scope="row" width="6%">4</th>
+                                    <td width="35%">Mark4 </td>
+                                    <td width="50%">Otto4</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
+                                    <th scope="row" width="6%">5</th>
+                                    <td width="35%">Mark5 </td>
+                                    <td width="50%">Otto5</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
+                                    <th scope="row" width="6%">6</th>
+                                    <td width="35%">Mark6 </td>
+                                    <td width="50%">Otto6</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark </td>
-                                    <td width="60%">Otto</td>
+                                    <th scope="row" width="6%">7</th>
+                                    <td width="35%">Mark7 </td>
+                                    <td width="50%">Otto7</td>
                                 </tr>
                             </tbody>
                         </table>
-                        </table>
                     </div>
-                </div>
-                <div class="row justify-content-center mb-50">
-                    <nav class="blog-pagination">
-                        <!-- <ul class="pagination">
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Previous">
-                                    <i class="ti-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Next">
-                                    <i class="ti-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul> -->
-                    </nav>
                 </div>
             </div>
         </section>
         <!-- Akhir area TP2DD -->
     </main>
+
+    
 @endsection

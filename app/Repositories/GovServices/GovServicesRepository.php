@@ -38,4 +38,12 @@ Class GovServicesRepository implements GovServicesInterface{
         return $govServices;
     }
 
+    public function getListGov(){
+        $govServices = $this->getApiContents("1563.json");
+        if($govServices != null){
+            $govServices = $govServices['data']['list_daerah'];
+        }
+        return $govServices;
+    }
+
 }

@@ -12,8 +12,12 @@ class GovernmentServiceController extends Controller
     }
 
     public function index(){
-        $govServices = $this->govService->getGovServices();   
-        return view('govService.govServicePage', ['govServices' => $govServices]);
+        $govServices = $this->govService->getGovServices();  
+        $listGovs = $this->govService->getListGov(); 
+        return view('govService.govServicePage', [
+            'govServices' => $govServices,
+            'listGovs' => $listGovs,
+        ]);
     }
 
     public function detailServiceGov(Request $request){
