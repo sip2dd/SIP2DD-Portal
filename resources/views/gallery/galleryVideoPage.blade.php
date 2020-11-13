@@ -99,7 +99,7 @@
                         <article class="blog_item">
                             <div class="blog_item_img">
                             @if($galleryVideo['tipe'] == "Youtube")
-                                <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($galleryVideo['link']) }}/mqdefault.jpg"
+                                <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($galleryVideo['link']) }}/maxresdefault.jpg"
                                                                     alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                             @else
                                 <img class="card-img" src="" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">

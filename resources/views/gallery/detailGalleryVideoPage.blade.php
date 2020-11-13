@@ -161,8 +161,13 @@
                             @foreach($galleryVideos as $videoItem)
                             <div class="media post_item">
                                 <div class="col-lg-4 col-4 pl-0 pr-0">
-                                    <img class="image" src="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
-                                </div>
+                                    @if($videoItem['tipe'] == "Youtube")
+                                       <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($videoItem['link']) }}/mqdefault.jpg"
+                                                                           alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                    @else
+                                       <img class="card-img" src="" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                    @endif
+                                 </div>
                                 <div class="col-lg-8 col-8">
                                     <div class="media-body">
                                         <a href="{!! url('/detailgalerivideo?id=')!!}{{$videoItem['galeri_id']}}">
