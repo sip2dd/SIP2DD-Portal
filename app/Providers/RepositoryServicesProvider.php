@@ -20,6 +20,8 @@ use App\Repositories\Regulation\RegulationInterface;
 use App\Repositories\Regulation\RegulationRepository;
 use App\Repositories\Event\EventInterface;
 use App\Repositories\Event\EventRepository;
+use App\Repositories\Glossary\GlossaryInterface;
+use App\Repositories\Glossary\GlossaryRepository;
 
 class RepositoryServicesProvider extends ServiceProvider
 {
@@ -39,6 +41,7 @@ class RepositoryServicesProvider extends ServiceProvider
         $this->app->bind(FaqInterface::class, FaqRepository::class);
         $this->app->bind(RegulationInterface::class, RegulationRepository::class);
         $this->app->bind(EventInterface::class, EventRepository::class);
+        $this->app->bind(GlossaryInterface::class, GlossaryRepository::class);
 
     }
 

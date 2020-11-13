@@ -82,41 +82,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @if($gloItems != null)
+                                @foreach($gloItems as $index => $item)
                                 <tr>
-                                    <th scope="row" width="6%">1</th>
-                                    <td width="35%">Mark1 </td>
-                                    <td width="50%">Otto1</td>
+                                    <th scope="row" width="6%">{{$index+1}}</th>
+                                    <td width="35%">{{$item['nama']}} </td>
+                                    <td width="50%">{{$item['deskripsi']}}</td>
                                 </tr>
-                                <tr>
-                                    <th scope="row" width="6%">2</th>
-                                    <td width="35%">Mark2 </td>
-                                    <td width="50%">Otto2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">3</th>
-                                    <td width="35%">Mark3 </td>
-                                    <td width="50%">Otto3</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">4</th>
-                                    <td width="35%">Mark4 </td>
-                                    <td width="50%">Otto4</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">5</th>
-                                    <td width="35%">Mark5 </td>
-                                    <td width="50%">Otto5</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">6</th>
-                                    <td width="35%">Mark6 </td>
-                                    <td width="50%">Otto6</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" width="6%">7</th>
-                                    <td width="35%">Mark7 </td>
-                                    <td width="50%">Otto7</td>
-                                </tr>
+                                @endforeach
+                            @endif
+                                
                             </tbody>
                         </table>
                     </div>
