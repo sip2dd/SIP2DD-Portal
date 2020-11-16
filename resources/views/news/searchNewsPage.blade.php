@@ -45,7 +45,7 @@
                         </div>
                         <!-- Mobile Menu -->
                         <div class="col-12">
-                            <div class="mobile_menu d-block d-md-none"></div>
+                            <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                         </div>
                     </div>
                 </div>
@@ -69,19 +69,20 @@
                     </div>
                 </div>
                 <!--Section Form input-->
-                <div class="form-row justify-content-center mb-50">
-                    <div class="col-lg-8 col-md-4">
+                <div class="form-row justify-content-center">
+                    <!--*Edit* tambahan class col untuk responsive-->
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                         <form action="{!! url('/pencarian')!!}" method="GET">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
-                                    <div class="input-group-append">
-                                        <button class="button1">
-                                            <i class="fas fa-search"></i>
-                                        </button>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                        <div class="input-group-append">
+                                            <button class="button1">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -105,8 +106,15 @@
                                 </div>
                                 <div class="col-lg-8 card_desk">
                                     <div class="card-body">
-                                        <h6>{{$newsItem['tanggal_publikasi']}}</h6>
-                                        <a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}"><h4>{{$newsItem['judul']}}</h4></a>
+                                        <h6>{{tanggal_indonesia($newsItem['tanggal_publikasi'])}}</h6>
+                                        <h4><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">
+                                        {{ Str::limit($newsItem['judul'], 60) }}</a></h4>
+                                        <h6> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
+                                            Pemerintah Jawa Barat
+                                        </h6>
+                                        <p>{{ Str::limit(strip_tags($newsItem['body']), 250) }}
+                                        <p id="selengkapnya"><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">Selengkapnya <i
+                                                    class="fas fa-chevron-right"></i></a></p>
                                     </div>
                                 </div>
                             </div>

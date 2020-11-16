@@ -45,7 +45,7 @@
                         </div>
                         <!-- Mobile Menu -->
                         <div class="col-12">
-                            <div class="mobile_menu d-block d-md-none"></div>
+                            <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                         </div>
                     </div>
                 </div>

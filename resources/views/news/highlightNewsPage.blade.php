@@ -26,7 +26,7 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -46,7 +46,7 @@
                         </div>
                         <!-- Mobile Menu -->
                         <div class="col-12">
-                            <div class="mobile_menu d-block d-md-none"></div>
+                            <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                         </div>
                     </div>
                 </div>
@@ -79,8 +79,8 @@
             </div>
             <!--Section Form input-->
             <div class="form-row justify-content-center">
-                <div class="col-lg-8 col-md-4">
-                    <form action="{!! url('/pencarianberita')!!}" method="GET">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <form action="{!! url('/pencarian')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
                                 <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
@@ -113,12 +113,15 @@
                         <div class="blog_details">
                             <div class="row">
                                 <div class="col">
-                                    <p>{{$highlight['tanggal_publikasi']}}</p>
+                                    <p>{{tanggal_indonesia($highlight['tanggal_publikasi'])}}</p>
                                 </div>
                             </div>
                             <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}" class="deskripsi-galeri1">
-                                <h2>{{$highlight['judul']}}</h2>
+                                <h2>{{ Str::limit($highlight['judul'], 60) }}</h2>
                             </a>
+                            <h6> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
+                                    Pemerintah Jawa Barat
+                            </h6>
                             <div class="row">
                                 <div class="col daftar_berita_link">
                                     <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
