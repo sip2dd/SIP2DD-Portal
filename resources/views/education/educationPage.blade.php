@@ -25,7 +25,7 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li class="active"><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -45,7 +45,7 @@
                         </div>
                         <!-- Mobile Menu -->
                         <div class="col-12">
-                            <div class="mobile_menu d-block d-md-none"></div>
+                            <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                         </div>
                     </div>
                 </div>
@@ -63,24 +63,25 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-tittle text-center mb-30">
-                        <h2>Edukasi</h2>
+                        <h2>Materi Edukasi</h2>
                     </div>
                 </div>
             </div>
             <!--Section Form input Cari-->
             <div class="form-row justify-content-center">
+                <!--*Edit* tambahan class col untuk responsive-->
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <form action="" method="">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
-                                <div class="input-group-append">
-                                    <button class="button1">
-                                        <i class="fas fa-search"></i>
-                                    </button>
+                    <form action="{!! url('/pencarian')!!}" method="GET">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                    <div class="input-group-append">
+                                        <button class="button1">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>

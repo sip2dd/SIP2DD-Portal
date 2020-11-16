@@ -47,7 +47,7 @@
                         </div>
                         <!-- Mobile Menu -->
                         <div class="col-12">
-                            <div class="mobile_menu d-block d-md-none"></div>
+                            <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,8 @@
                 </div>
                 <!--Section Form input-->
                 <div class="form-row justify-content-center mb-50">
-                    <div class="col-lg-8 col-md-4">
+                    <!--Edit untuk penambahan class col dan ada beberapa edit di css-->
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                         <form action="" method="">
                             <div class="form-group">
                                 <div class="input-group">
@@ -109,7 +110,7 @@
                                     <a class="dropdown-item" href="#">Dari Huruf Awal <i class="fa fa-sort-alpha-down"
                                             style="margin-left: 1.5em;"></i></a>
                                     <a class="dropdown-item" href="#">Dari Huruf Terakhir<img
-                                            src="assets/fonts/sort-alpha-down-alt-solid.svg"
+                                            src="{{ URL::asset('fonts/sort-alpha-down-alt-solid.svg') }}"
                                             style="width: 13px; margin-left: .3em;"></a>
                                 </div>
                             </div>
@@ -170,28 +171,8 @@
     </main>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-    <!--Edit penambahan Select2 .js-->
-    <script type="text/javascript">
-        $('.select_prov_tok').select2({
-            templateResult: function (data) {
-                // We only really care if there is an element to pull classes from
-                if (!data.element) {
-                    return data.text;
-                }
-
-                var $element = $(data.element);
-
-                var $wrapper = $('<span></span>');
-                $wrapper.addClass($element[0].className);
-
-                $wrapper.text(data.text);
-
-                return $wrapper;
-            },
-            placeholder: "Pilih Provinsi"
-        });
-    </script>
+    
+   
 
 @endsection
 

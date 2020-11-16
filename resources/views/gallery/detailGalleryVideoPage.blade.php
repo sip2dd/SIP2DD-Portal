@@ -45,7 +45,7 @@
                         </div>
                         <!-- Mobile Menu -->
                         <div class="col-12">
-                            <div class="mobile_menu d-block d-md-none"></div>
+                            <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,9 @@
                      <div class="blogs_details">
                         <h2>
                         @if($detailGalleryVideo != null)
-                           {{$detailGalleryVideo['judul']}}
+                           <h3><img class="logo_gov" src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">Pemerintah Jawa
+                              Barat</h3>
+                           <h2>{{$detailGalleryVideo['judul']}}</h2>
                         @else
                            Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah. 
                         @endif
@@ -124,7 +126,7 @@
                         <ul class="blog-info-link">
                            @if($detailGalleryVideo != null)
                               <li><i class="fa fa-user"></i> {{$detailGalleryVideo['dibuat_oleh']}}</li>
-                              <li><i class="fa fa-clock"></i>{{$detailGalleryVideo['tgl_dibuat']}}</li>
+                              <li><i class="fa fa-clock"></i>{{tanggal_indonesia($detailGalleryVideo['tgl_dibuat'])}}</li>
                            @endif
                            
                         </ul>
@@ -171,9 +173,14 @@
                                 <div class="col-lg-8 col-8">
                                     <div class="media-body">
                                         <a href="{!! url('/detailgalerivideo?id=')!!}{{$videoItem['galeri_id']}}">
-                                            <h3>{{$videoItem['judul']}}</h3>
+                                            <h3>{{ Str::limit($videoItem['judul'], 60) }}</h3>
                                         </a>
-                                        <p>{{$videoItem['tgl_dibuat']}}</p>
+                                        <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                             src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"
+                                             style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                                             {{$videoItem['dibuat_oleh']}}
+                                       </p>
+                                        <p>{{tanggal_indonesia($videoItem['tgl_dibuat'])}}</p>
                                     </div>
                                 </div>
                             </div>

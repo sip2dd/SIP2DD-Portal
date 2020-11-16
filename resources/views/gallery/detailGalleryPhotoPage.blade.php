@@ -45,7 +45,7 @@
                         </div>
                         <!-- Mobile Menu -->
                         <div class="col-12">
-                            <div class="mobile_menu d-block d-md-none"></div>
+                            <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                         </div>
                     </div>
                 </div>
@@ -83,13 +83,14 @@
                   <div class="blogs">
                      <div class="blogs_details">
                      @if($detailGalleryPhoto != null)
-                        {{$detailGalleryPhoto['judul']}} 
+                        <h2>{{$detailGalleryPhoto['judul']}}</h2> 
+                        <h3><img class="logo_gov" src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">{{$detailGalleryPhoto['dibuat_oleh']}}</h3>
                      @else 
                         404 : Tidak ditemukan 
                      @endif</a>
                      </div>
                      <div class="row blogs-item">
-                        <div class="item_gallery col-lg-4">
+                        <div class="item_gallery col-lg-4 col-md-6">
                            <a href="#gambar1">
                                  @if($detailGalleryPhoto['link'] != null)
                                 <img class="card-img" src="{{$detailGalleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
@@ -123,7 +124,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="item_gallery col-lg-4">
+                        <div class="item_gallery col-lg-4 col-md-6">
                            <a href="#gambar2">
                            @if($detailGalleryPhoto['link'] != null)
                                 <img class="card-img" src="{{$detailGalleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
@@ -156,7 +157,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="item_gallery col-lg-4">
+                        <div class="item_gallery col-lg-4 col-md-6">
                            <a href="#gambar3">
                               <img class="gallery-foto" src="{{ URL::asset('img/P2DD.png') }}" alt="Foto_1">
                               <div class="overly">
@@ -180,7 +181,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="item_gallery col-lg-4">
+                        <div class="item_gallery col-lg-4 col-md-6">
                            <a href="#gambar4">
                               <img class="gallery-foto" src="{{ URL::asset('img/P2DD.png') }}" alt="Foto_1">
                               <div class="overly">
@@ -212,7 +213,7 @@
                         <ul class="blog-info-link">
                            @if($detailGalleryPhoto != null)
                               <li><i class="fa fa-user"></i> {{$detailGalleryPhoto['dibuat_oleh']}}</li>
-                              <li><i class="fa fa-clock"></i>{{$detailGalleryPhoto['tgl_dibuat']}}</li>
+                              <li><i class="fa fa-clock"></i>{{tanggal_indonesia($detailGalleryPhoto['tgl_dibuat'])}}</li>
                            @endif
                         </ul>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
@@ -256,9 +257,14 @@
                                 <div class="col-lg-8 col-8">
                                     <div class="media-body">
                                         <a href="{!! url('/detailgalerifoto?id=')!!}{{$photoItem['galeri_id']}}">
-                                            <h3>{{$photoItem['judul']}}</h3>
+                                            <h3>{{ Str::limit($photoItem['judul'], 60) }}</h3>
                                         </a>
-                                        <p>{{$photoItem['tgl_dibuat']}}</p>
+                                        <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                             src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"
+                                             style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                                             {{$photoItem['dibuat_oleh']}}
+                                       </p>
+                                        <p>{{tanggal_indonesia($photoItem['tgl_dibuat'])}}</p>
                                     </div>
                                 </div>
                             </div>

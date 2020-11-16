@@ -45,7 +45,7 @@
                         </div>
                         <!-- Mobile Menu -->
                         <div class="col-12">
-                            <div class="mobile_menu d-block d-md-none"></div>
+                            <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                         </div>
                     </div>
                 </div>
@@ -117,6 +117,30 @@
                                 </div>
                             </div>
                         </div>
+
+                         <!--Edit jikalau yang di cari adalaah layanan tampilannya ini mas-->
+                        <!-- <div class="card w-100 card-besar">
+                            <div class="row no-gutters berita_card">
+                                <div class="col-lg-4 layanan_img">
+                                    <img class="" src="assets/img/log_layanan/LOGO BAPENDA1.png">
+                                </div>
+                                <div class="col-lg-8 card_desk">
+                                    <div class="card-body">
+                                        <h4 class="mb-3"><a href="#">Bapenda Jabar</a></h4>
+                                        <!--Edit penambahan nama instansi-->
+                                        <h6><img src="assets/img/logo_list/gov4_blue.svg" alt="logo"> Pemerintah Jawa Barat
+                                        </h6>
+                                        <p>Multiply sea night grass fourth day sea lesser rule open subdue female fill which
+                                            them
+                                            Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                        </p>
+                                        <p id="selengkapnya"><a href="">Link Layanan <i
+                                                    class="fas fa-chevron-right"></i></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
                     @endforeach
                 </div>
                 <!--Bagian Pagination-->

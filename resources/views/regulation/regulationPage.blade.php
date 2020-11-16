@@ -45,7 +45,7 @@
                         </div>
                         <!-- Mobile Menu -->
                         <div class="col-12">
-                            <div class="mobile_menu d-block d-md-none"></div>
+                            <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
 @endsection
 
 @section('content')
-    <main class="background-utama">
+    <main class="background_1">
         <!-- Area untuk Pencarian TP2DD -->
         <section class="service-area section-padding">
             <div class="container">
@@ -94,9 +94,10 @@
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 col_search">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <label for="tentangRegulasi" class="label_inputan">Tentang Peraturan</label>
-                                    <textarea class="search_inputan" id="tentangRegulasi" rows="1"
-                                        placeholder="Input Regulasi"></textarea>
+                                    <!--Edit judul dan perubahan tag menjadi input-->
+                                    <label for="tentangRegulasi" class="label_inputan">Tentang</label>
+                                    <input class="search_inputan" id="tentangRegulasi" type="text"
+                                        placeholder="Cari.."></input>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +133,7 @@
                             <p>{!! $item['deskripsi'] !!}</p>
                             <div class="button_card">
                                 <a href="{{$item['file']}}" target="_blank" class="button_card_d"><i class="fa fa-file-pdf"></i> Unduh Materi</a>
-                                <a href="" class="button_card_v" data-toggle="modal" data-target="#tampilRegulasi{{$index}}"><i
+                                <a href="" class="button_card_x" data-toggle="modal" data-target="#tampilRegulasi{{$index}}"><i
                                         class="fa fa-search"></i>
                                     Pratinjau</a>
                             </div>
@@ -189,7 +190,7 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <a href="{{$item['file']}}" target="_blank" class="button_card_d"><i class="fa fa-file-pdf"></i> Unduh Materi</a>
-                            <button type="button" class="button_card_v" data-dismiss="modal">Batal</button>
+                            <button type="button" class="button_card_x" data-dismiss="modal">Batal</button>
                         </div>
                     </div>
                 </div>
@@ -198,5 +199,44 @@
         @endif
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    
+
+    <script>
+        $('#tahunRegulasi').each(function () {
+            var currentYear = new Date().getFullYear()
+            var oldyears = 1999;
+            for (i = oldyears; i <= currentYear; i++) {
+                $(this).append('<option value="' + (i) + '">' + (i) + '</option>');
+            }
+        });
+    </script>
+
+     <!--Edit Penambahan tombol scroll up-->
+    <!--Tambah Tombol scroll up dan js nya-->
+    <button id="scrollUp" onclick="topFunction()" style="position: fixed; z-index: 2147483647; display: block;"><i
+            class="ti-arrow-up"></i></button>
+    <script>
+        var mybutton = document.getElementById("scrollUp");
+
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+
+    
  @endsection

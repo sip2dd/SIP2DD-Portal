@@ -1,14 +1,14 @@
-    <footer>
+<footer>
         <!-- Footer Start-->
         <div class="footer-main">
-            <div class="footer-area section-paddingr">
+            <div class="footer-area section-padd-footer">
                 <div class="container">
                     <div class="row  justify-content-between">
-                        <div class="col-lg-3 col-md-4 col-sm-8">
-                            <div class="single-footer-caption mb-30">
+                        <div class="col-lg-3 col-md-12 col-sm-12">
+                            <div class="single-footer-caption mb-40">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href=""><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                                    <a href="index.html"><img src="assets/img/logo/log.png" alt=""></a>
                                 </div>
                                 <div id="icon-footer" class="footer-tittle">
                                     <ul>
@@ -16,62 +16,107 @@
                                             <a href="" class="fab fa-facebook-f"></a>
                                         </li>
                                         <li>
-                                            <a href="" class="fab fa-youtube ml-5"></a>
+                                            <a href="" class="fab fa-youtube ml-4"></a>
                                         </li>
                                         <li>
-                                            <a href="" class="fab fab fa-vimeo-v ml-5"></a>
+                                            <a href="" class="fab fab fa-vimeo-v ml-4"></a>
                                         </li>
                                         <li>
-                                            <a href="" class="fab fa-twitter  ml-5"></a>
+                                            <a href="" class="fab fa-twitter  ml-4"></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Beranda</h4>
-                                    <ul>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Features</a></li>
-                                        <li><a href="#">Pricing</a></li>
-                                        <li><a href="#">Download</a></li>
-                                        <li><a href="#">Reviews</a></li>
-                                    </ul>
+                        <div class="col-lg-2 col-md-4 col-sm-12 pl-0">
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Beranda</h4>
+                                        <ul>
+                                            <li><a href="#">Fitur Kami</a></li>
+                                            <li><a href="#">Layanan Terhangat</a></li>
+                                            <li><a href="#">Berita</a></li>
+                                            <li><a href="#">Edukasi</a></li>
+                                            <li><a href="#">Galeri Foto</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Berita</h4>
+                                        <ul>
+                                            <li><a href="#">Berita</a></li>
+                                            <li><a href="#">Berita Terbaru</a></li>
+                                            <li><a href="#">Berita Satgas</a></li>
+                                            <li><a href="#">Berita Daerah</a></li>
+                                            <li><a href="#">Galeri Video</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-sm-7">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>TP2DD</h4>
-                                    <ul>
-                                        <li><a href="#">Report a bug</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms & Conditions</a></li>
-                                        <li><a href="#">Sitemap</a></li>
-                                        <li><a href="#">FAQs</a></li>
-                                    </ul>
+                        <div class="col-lg-2 col-md-4 col-sm-12 pl-0">
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Edukasi</h4>
+                                        <ul class="list_tiga">
+                                            <li><a href="#">Materi</a></li>
+                                            <li><a href="#">FAQ</a></li>
+                                            <li><a href="#">Daftar Istilah</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>TP2DD</h4>
+                                        <ul class="list_tiga">
+                                            <li><a href="#">TP2DD</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Regulasi</h4>
+                                        <ul class="list_tiga">
+                                            <li><a href="#">Regulasi</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-4 col-sm-7">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Regulasi</h4>
-                                    <ul>
-                                        <li><a href="#">Report a bug</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms & Conditions</a></li>
-                                        <li><a href="#">Sitemap</a></li>
-                                        <li><a href="#">FAQs</a></li>
-                                    </ul>
+                        <div class="col-lg-2 col-md-4 col-sm-12 pl-0">
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Galeri</h4>
+                                        <ul>
+                                            <li><a href="#">Galeri Foto</a></li>
+                                            <li><a href="#">Galeri Video</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Kegiatan</h4>
+                                        <ul>
+                                            <li><a href="#">Webinar Terbaru</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-8">
-                            <div class="single-footer-caption mb-50">
+                        <div class="col-lg-3 col-md-12 col-sm-12">
+                            <div class="single-footer-caption mb-40">
                                 <div class="footer-tittle">
                                     <h4>Sekretariat Pokjanas P2DD</h4>
                                     <div class="footer-pera footer-pera2">
@@ -81,6 +126,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <!-- Copy-Right -->
+            <div class="row mr-0 ml-0">
+                <div class="col-md-12 footer-copy">
+                    <p>
+                        Copyright &copy;<script>
+                            document.write(new Date().getFullYear());
+                        </script> P2DD
+                    </p>
                 </div>
             </div>
         </div>
@@ -143,6 +198,28 @@
                 return $wrapper;
             },
             placeholder: "Pilih Provinsi/Kabupaten"
+        });
+    </script>
+
+     <!--Edit penambahan Select2 .js-->
+     <script type="text/javascript">
+        $('.select_prov_tok').select2({
+            templateResult: function (data) {
+                // We only really care if there is an element to pull classes from
+                if (!data.element) {
+                    return data.text;
+                }
+
+                var $element = $(data.element);
+
+                var $wrapper = $('<span></span>');
+                $wrapper.addClass($element[0].className);
+
+                $wrapper.text(data.text);
+
+                return $wrapper;
+            },
+            placeholder: "Pilih Provinsi"
         });
     </script>
     

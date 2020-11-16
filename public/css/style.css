@@ -227,7 +227,12 @@ a:hover,
     text-decoration: none
 }
 
-a,
+/*Perbaikan*/
+a {
+    color: #00ABE9;
+    outline: medium none
+}
+
 button {
     color: #fff;
     outline: medium none
@@ -5917,7 +5922,7 @@ del {
 
 .slider-area .hero__img img {
     position: relative;
-    right: -63px
+    right: -20px
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -7252,40 +7257,65 @@ z .slider-area .hero-cap h2 {
 
 .footer-area .footer-pera .info1 {
     margin-bottom: 10px;
-    line-height: 1.8
+    line-height: 1.5
 }
 
 .footer-area .footer-pera .info2 {
     margin-bottom: 50px;
-    line-height: 1.8
+    line-height: 1.5
 }
 
 .footer-area .footer-pera.footer-pera2 p {
-    padding: 0;
+    padding: 0px 0px;
     color: #868c98;
     font-weight: 300;
+    line-height: normal;
 }
 
 .footer-area .footer-tittle h4 {
     color: #00ABE9;
     font-size: 18px;
-    margin-bottom: 48px;
-    font-weight: 700
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.footer-area #icon-footer.footer-tittle ul {
+    height: auto;
+}
+
+.footer-area .footer-tittle ul {
+    width: 100%;
+    height: 140px;
+}
+
+.footer-area .footer-tittle ul.list_tiga {
+    height: auto;
 }
 
 .footer-area .footer-tittle ul li {
-    color: #012f5f;
-    margin-bottom: 15px
+    margin-bottom: 5px
 }
 
 .footer-area .footer-tittle ul li a {
     color: #868c98;
-    font-weight: 300
+    font-weight: 300;
+    font-size: 16px;
 }
 
 .footer-area .footer-tittle ul li a:hover {
     color: #00ABE9;
-    padding-left: 5px
+}
+
+@media (max-width:992px) {
+    .row.baris_footer {
+        margin-left: 15px;
+    }
+}
+
+@media(max-width:768px) {
+    .footer-area .footer-tittle ul {
+        height: auto;
+    }
 }
 
 .footer-area .footer-form {
@@ -8488,6 +8518,11 @@ img.image {
     font-weight: 800;
 }
 
+.misi p.misi_list {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
 .misi ul.misi_list {
     text-indent: -23px;
     /* key property */
@@ -8516,6 +8551,10 @@ img.image {
     }
 
     .visi p {
+        font-size: 14px;
+    }
+
+    .misi p.misi_list {
         font-size: 14px;
     }
 
@@ -8588,7 +8627,7 @@ img.image {
     padding-left: 1.5em;
 }
 
-.select2-container--classic .select2-selection--single {}
+
 
 .select2-container--default .select2-selection--single {
     border: none !important;
@@ -8743,16 +8782,13 @@ span.select2-container--focus {
     box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
-.table-bordered {
-    border-color: #00ABE9;
-}
 
 .table_istilah table thead {
-    background-color: #00ABE9;
+    background-color: #fff;
 }
 
 .table_istilah table thead tr th {
-    color: #fff;
+    color: #00ABE9;
     text-align: center;
 }
 
@@ -9055,15 +9091,13 @@ h6.cap_masuk:hover {
 
 
 /*Tampilan keterangan Di halaman kegiatan*/
-.ket_webinar {
-    margin-bottom: 20px;
+.ket_webinar p {
+    margin-bottom: 5px;
 }
 
 .ket_webinar p.ket_tempat {
-    padding: 10px 15px;
+    padding: 0px 0px;
     font-size: 14px;
-    background-color: #fff;
-    border: 2px solid #00ABE9;
     border-radius: 50px;
     color: #00ABE9;
     text-overflow: ellipsis;
@@ -9078,12 +9112,9 @@ h6.cap_masuk:hover {
 }
 
 .ket_webinar p.ket_waktu {
-    padding: 10px 10px;
+    padding: 0px 0px;
     font-size: 14px;
-    border: 2px solid #00ABE9;
-    background-color: #fff;
     color: #00ABE9;
-    border-radius: 50px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -9095,36 +9126,36 @@ h6.cap_masuk:hover {
 
 @media(max-width:992px) {
     .ket_webinar p.ket_tempat {
-        margin: 0px 70px 20px 70px;
+        margin: 0px 70px 15px 70px;
         font-size: 15px;
     }
 
     .ket_webinar p.ket_waktu {
-        margin: 0px 90px 25px 90px;
+        margin: 0px 90px 0px 90px;
         font-size: 15px;
     }
 }
 
 @media(max-width:768px) {
     .ket_webinar p.ket_tempat {
-        margin: 0px 20px 20px 20px;
+        margin: 0px 20px 15px 20px;
         font-size: 15px;
     }
 
     .ket_webinar p.ket_waktu {
-        margin: 0px 40px 25px 40px;
+        margin: 0px 40px 0px 40px;
         font-size: 15px;
     }
 }
 
 @media(max-width:576px) {
     .ket_webinar p.ket_tempat {
-        margin: 0px 0px 20px 0px;
+        margin: 0px 0px 15px 0px;
         font-size: 15px;
     }
 
     .ket_webinar p.ket_waktu {
-        margin: 0px 20px 25px 20px;
+        margin: 0px 20px 0px 20px;
         font-size: 15px;
     }
 }
@@ -9136,4 +9167,50 @@ h6.cap_masuk:hover {
 
 .carousel-control-prev {
     left: -6px;
+}
+
+
+/*penambahan class */
+.layanan_img {
+    margin: 30px 0px 20px 0px;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    object-fit: none;
+}
+
+.layanan_img img {
+    width: 130px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/*penambahn section-padding untuk footer*/
+.section-padd-footer {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+/*penambahan class footer copy*/
+.footer-copy {
+    background-color: #fafafa;
+}
+
+.footer-copy p {
+    margin: 0px 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: #868c98;
+}
+
+@media(max-width:768px) {
+    .footer-copy p {
+        text-align: left;
+    }
 }

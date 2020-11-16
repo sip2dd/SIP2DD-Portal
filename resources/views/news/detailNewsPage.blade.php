@@ -25,7 +25,7 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -45,7 +45,7 @@
                         </div>
                         <!-- Mobile Menu -->
                         <div class="col-12">
-                            <div class="mobile_menu d-block d-md-none"></div>
+                            <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
    <section class="blog_area single-post-area">
       <div class="container">
          <div class="row">
-            <div class="col-lg-8 posts-list" style="padding-top: 10px; padding-bottom: 50px;">
+            <div class="col-lg-8 col-md-12 col-sm-12 posts-list pl-0 pr-0" style="padding-top: 10px; padding-bottom: 50px;">
                <div class="single-post">
                   <div class="blog_item_img">
                      <div id="contohCarousel" class="carousel slide w-100" data-ride="carousel">
@@ -87,7 +87,7 @@
                         @if($detailNews != null)
                            <!-- TO DO LIST API CAROUSEL DETAIL BERITA GAMBAR -->
                            <div class="carousel-item active">
-                              <div class="col-lg-12">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                  <img class="card-img" src="{{ $detailNews['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="slide1">
                               </div>
                            </div>
@@ -103,7 +103,7 @@
                            </div> -->
                         @else
                            <div class="carousel-item active">
-                              <div class="col-lg-12">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                  <img class="card-img" src="{{ URL::asset('img/P2DD.png') }}" alt="slide3">
                               </div>
                            </div>
@@ -125,6 +125,9 @@
                      <h2>
                      @if($detailNews != null)
                         {{ $detailNews['judul']}}
+                        <h3> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
+                        {{ $detailNews['dibuat_oleh']}}
+                        </h3>
                      @else
                         Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah. 
                      @endif
@@ -139,7 +142,7 @@
                   <div class="d-sm-flex justify-content-between text-center">
                      <ul class="blog-info-link">
                         <li><i class="fa fa-user"></i> @if($detailNews != null){{ $detailNews['dibuat_oleh']}} @endif</li>
-                        <li><i class="fa fa-clock"></i>@if($detailNews != null){{ $detailNews['tanggal_publikasi']}} @endif</li>
+                        <li><i class="fa fa-clock"></i>@if($detailNews != null){{tanggal_indonesia( $detailNews['tanggal_publikasi'])}} @endif</li>
                      </ul>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -154,9 +157,48 @@
                   </div>
                </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="blog_right_sidebar">
-                        <div class="row">
+                        <div class="row pt-0">
+                            <div class="col">
+                                <div class="section-judul-berita">
+                                <h4>Berita Terbaru</h4>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="section-judul-berita">
+                                <h6><a href="Berita_terbaru.html">Lihat Semua</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <aside class="single_sidebar_widget popular_post_widget">
+                        @if($govNews != null)    
+                            @foreach($govNews as $govNewsItem)
+                            <div class="media post_item">
+                                <div class="col-lg-4 col-4 pl-0 pr-0">
+                                    <img class="image" src="{{$govNewsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
+                                </div>
+                                <div class="col-lg-8 col-8">
+                                    <div class="media-body">
+                                        <a href="{!! url('/detailberita?id=')!!}{{$govNewsItem['berita_id']}}">
+                                            <h3>{{ Str::limit($govNewsItem['judul'], 60) }}</h3>
+                                        </a>
+                                        <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
+                                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                                            Pemerintah
+                                            Jawa Barat
+                                        </p>
+                                        <p>{{tanggal_indonesia($govNewsItem['tanggal_publikasi'], false)}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        @else
+                            <div class="media post_item">Belum ada Data</div>
+                        @endif
+                        </aside>
+                        <div class="row pt-0">
                             <div class="col">
                                 <div class="section-judul-berita2">
                                     <h4>Berita Satgas</h4>
@@ -178,9 +220,15 @@
                                 <div class="col-lg-8 col-8">
                                     <div class="media-body">
                                         <a href="{!! url('/detailberita?id=')!!}{{$govNewsItem['berita_id']}}">
-                                            <h3>{{$govNewsItem['judul']}}</h3>
+                                            <h3>{{ Str::limit($govNewsItem['judul'], 60) }}</h3>
                                         </a>
-                                        <p>{{$govNewsItem['tanggal_publikasi']}}</p>
+                                        <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
+                                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                                            Pemerintah
+                                            Jawa Barat
+                                        </p>
+                                        <p>{{tanggal_indonesia($govNewsItem['tanggal_publikasi'], false)}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +237,7 @@
                             <div class="media post_item">Belum ada Data</div>
                         @endif
                         </aside>
-                        <div class="row">
+                        <div class="row pt-0">
                             <div class="col">
                                 <div class="section-judul-berita2">
                                     <h4>Berita Daerah</h4>
@@ -211,9 +259,15 @@
                                 <div class="col-lg-8 col-8">
                                     <div class="media-body">
                                         <a href="{!! url('/detailberita?id=')!!}{{$localgovNewsItem['berita_id']}}">
-                                            <h3>{{$localgovNewsItem['judul']}}</h3>
+                                            <h3>{{ Str::limit($localgovNewsItem['judul'], 60) }}</h3>
                                         </a>
-                                        <p>{{$localgovNewsItem['tanggal_publikasi']}}</p>
+                                        <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
+                                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                                            Pemerintah
+                                            Jawa Barat
+                                        </p>
+                                        <p>{{tanggal_indonesia($localgovNewsItem['tanggal_publikasi'], false)}}</p>
                                     </div>
                                 </div>
                             </div>

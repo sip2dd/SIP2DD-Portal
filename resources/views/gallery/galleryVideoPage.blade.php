@@ -45,7 +45,7 @@
                             </div>
                             <!-- Mobile Menu -->
                             <div class="col-12">
-                                <div class="mobile_menu d-block d-md-none"></div>
+                                <div class="mobile_menu d-xs-block d-sm-block d-md-block d-lg-none d-xl-none"></div>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
             </div>
             <!--Section Form input Cari-->
             <div class="form-row justify-content-center">
-                <div class="col-lg-8 col-md-4">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                     <form action="" method="">
                         <div class="form-group">
                             <div class="input-group">
@@ -109,12 +109,17 @@
                             <div class="blog_details">
                                 <div class="row">
                                     <div class="col">
-                                        <p>{{$galleryVideo['tgl_dibuat']}}</p>
+                                        <p>{{tanggal_indonesia($galleryVideo['tgl_dibuat'])}}</p>
                                     </div>
                                 </div>
                                 <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryVideo['galeri_id']}}" class="deskripsi-galeri1">
-                                    <h2>{{$galleryVideo['judul']}}</h2>
+                                    <h2>{{ Str::limit($galleryVideo['judul'], 60) }}</h2>
                                 </a>
+                                <h6 style="color: #00ABE9;"> 
+                                                        <img
+                                                            src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
+                                                       {{$galleryVideo['dibuat_oleh']}}
+                                                        </h6>
                                 <div class="row">
                                     <div class="col daftar_berita_link">
                                         <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryVideo['galeri_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
