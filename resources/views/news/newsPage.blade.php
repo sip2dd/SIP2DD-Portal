@@ -162,7 +162,7 @@
                                                             </div>
                                                         </div>
                                                         <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}">
-                                                            <h2>{{$highlight['judul']}}</h2>
+                                                            <h2>{{ Str::limit($highlight['judul'], 60) }}</h2>
                                                         </a>
                                                         <h6 style="color: #00ABE9;"> 
                                                         <img

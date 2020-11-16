@@ -78,8 +78,8 @@
             </div>
             <!--Section Form input-->
             <div class="form-row justify-content-center">
-                <div class="col-lg-8 col-md-4">
-                    <form action="{!! url('/pencarianberita')!!}" method="GET">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <form action="{!! url('/pencarian')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
                                 <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
@@ -113,15 +113,15 @@
                             <div class="blog_details">
                                 <div class="row">
                                     <div class="col">
-                                        <p>{{$berita_daerah['tanggal_publikasi']}}</p>
-                                    </div>
-                                    <div class="col lokasi_alamat">
-                                        <h6>Jawa Tengah</h6>
+                                        <p>{{tanggal_indonesia($berita_daerah['tanggal_publikasi'])}}</p>
                                     </div>
                                 </div>
                                 <a href="{!! url('/detailberita?id=')!!}{{$berita_daerah['berita_id']}}" class="deskripsi-galeri1">
-                                    <h2>{{$berita_daerah['judul']}}</h2>
+                                    <h2>{{ Str::limit($berita_daerah['judul'], 60) }}</h2>
                                 </a>
+                                <h6> <img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
+                                    Pemerintah Jawa Barat
+                                </h6>
                                 <div class="row">
                                     <div class="col daftar_berita_link">
                                         <a href="{!! url('/detailberita?id=')!!}{{$berita_daerah['berita_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>

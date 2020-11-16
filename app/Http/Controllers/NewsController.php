@@ -105,7 +105,8 @@ class NewsController extends Controller
     }
 
     public function getLocalGovNews(){
-        $localgovNews = $this->newsRepo->getLocalGovNews();
+        // $localgovNews = $this->newsRepo->getLocalGovNews();
+        $localgovNews = $this->newsRepo->getNationalGovNews();
         return view('news.localgovNewsPage', ['localgovNews' => $localgovNews]);
     }
 
