@@ -98,7 +98,7 @@ Class NewsRepository implements NewsInterface{
     }
 
     public function searchNews($keyword){
-        $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=1&limit=10");
+        $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=null&limit=10");
         if($newsItems != null){
             $newsItems = $newsItems['data']['berita_search'];
             if(count($newsItems) == 0){

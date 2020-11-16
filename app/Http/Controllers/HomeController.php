@@ -18,8 +18,11 @@ class HomeController extends Controller
     {
         $menu = $this->getApiMenu();
         // $menu = null;
-        $govServices = $this->homeRepo->getGovServices(); 
+        
         $newsItems = $this->homeRepo->getNewsItems();
+        //dd($newsItems);
+        $govServices = $this->homeRepo->getGovServices(); 
+
         $eduNewsItems = $this->homeRepo->getEducationNewsItems();
         $galleryNewsItems = $this->homeRepo->getGalleryNewsItems();
         // $p2dd_info = $this->getApiP2DDInfo();
@@ -44,10 +47,13 @@ class HomeController extends Controller
             if($request->keyword != ''){
                 $judul = $request->keyword;
                 $searchNews = $this->homeRepo->searchNewsItems($judul);
-                //$count = $this->homeRepo->getCountsearchNews($judul);
-                if($searchNews != null){
-                    $count = count($searchNews);
-                }
+                
+                $count = $this->homeRepo->getCountsearchNews($judul);
+                
+                
+                // if($searchNews != null){
+                //     $count = count($searchNews);
+                // }
             }
         }
         

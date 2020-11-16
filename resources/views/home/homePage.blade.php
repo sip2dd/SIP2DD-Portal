@@ -211,8 +211,7 @@
                                         <h4 class="service-judul"><a href="{!! url('layanan?id=') !!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
                                         <!--Edit Penambahan nama pemda-->
                                         <div class="services-loc">
-                                            <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"> Pemerintah
-                                                Jawa Barat
+                                            <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"> {{ $govService['dibuat_oleh'] }}
                                             </h6>
                                         </div>
                                         <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}.</p>
@@ -279,7 +278,7 @@
                                                     <!--Edit PEnamabhan instansi-->
                                                     <h6 class="cap_deskripsi"><img
                                                             src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                            alt="logo">Pemerintah Kalimantan Barat
+                                                            alt="logo">{{ $newsItem['dibuat_oleh'] }}
                                                     </h6>
                                                     <h4><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">{{ Str::limit($newsItem['judul'], 60) }}.</a></h4>
                                                 </div>
@@ -305,7 +304,7 @@
                                                     <!--Edit Penambahan nama instansi-->
                                                     <h6 class="cap_deskripsi"><img
                                                             src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                            alt="logo">Pemerintah Kalimantan Barat
+                                                            alt="logo">{{ $newsItem['dibuat_oleh'] }}
                                                     </h6>
                                                     <h4><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">{{ Str::limit($newsItem['judul'], 60) }}.</a></h4>
                                                 </div>
@@ -375,9 +374,9 @@
                                                 <h6>{{ tanggal_indonesia($eduNewsItem['tanggal_publikasi']) }}</h6>
                                                 <!--Edit penmabahan instansi-->
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov2_grey.svg') }}"
-                                                        alt="logo">Pemerintah Kalimantan Barat
+                                                        alt="logo">{{ $eduNewsItem['dibuat_oleh'] }}
                                                 </h6>
-                                                <h4><a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">{{ Str::limit($eduNewsItem['judul'], 60) }}</a></h4>
+                                                <h4><a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">{{ Str::limit($eduNewsItem['judul'], 70) }}</a></h4>
                                             </div>
                                             <div class="tulisan-lengkapnya">
                                                 <a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">Selengkapnya <span
@@ -397,9 +396,9 @@
                                                 <h6>{{ tanggal_indonesia($eduNewsItem['tanggal_publikasi']) }}</h6>
                                                 <!--Edit penmabahan instansi-->
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov2_grey.svg') }}"
-                                                        alt="logo">Pemerintah Kalimantan Barat
+                                                        alt="logo">{{ $eduNewsItem['dibuat_oleh'] }}
                                                 </h6>
-                                                <h4><a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">{{ Str::limit($eduNewsItem['judul'], 60) }}</a></h4>
+                                                <h4><a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">{{ Str::limit($eduNewsItem['judul'], 70) }}</a></h4>
                                             </div>
                                             <div class="tulisan-lengkapnya">
                                                 <a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">Selengkapnya <span
@@ -471,7 +470,7 @@
                                                 <h6>{{ tanggal_indonesia($galleryNewsItem['tgl_dibuat']) }}</h6>
                                                 <!--Edit penmabahna Instansi-->
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                        alt="logo">Pemerintah Kalimantan Barat
+                                                        alt="logo">{{ $galleryNewsItem['dibuat_oleh'] }}
                                                 </h6>
                                                 <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}"> {{ Str::limit($galleryNewsItem['judul'], 60) }}</a></h4>
                                             </div>
@@ -498,7 +497,7 @@
                                                 <h6>{{ tanggal_indonesia($galleryNewsItem['tgl_dibuat']) }}</h6>
                                                 <!--Edit penmabahna Instansi-->
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                        alt="logo">Pemerintah Kalimantan Barat
+                                                        alt="logo">{{ $galleryNewsItem['dibuat_oleh'] }}
                                                 </h6>
                                                 <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">{{ Str::limit($galleryNewsItem['judul'], 60) }}</a></h4>
                                             </div>

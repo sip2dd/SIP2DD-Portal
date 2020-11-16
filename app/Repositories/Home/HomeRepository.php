@@ -42,7 +42,7 @@ Class HomeRepository implements HomeInterface{
 
     public function searchNewsItems($keyword){
         // $newsItems = $this->getApiContents("1532.json?judul=".$keyword."&kata_kunci=".$keyword);
-        $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=1&limit=10");
+        $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=null&limit=10");
         if($newsItems != null){
             $newsItems = $newsItems['data']['berita_search'];
             if(count($newsItems) == 0){

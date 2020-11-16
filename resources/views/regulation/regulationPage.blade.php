@@ -74,22 +74,8 @@
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 col_search">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <label for="jenisRegulasi" class="label_inputan">Regulasi</label>
-                                    <select id="jenisRegulasi" class="search_inputan">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 col_search">
-                            <div class="form-group">
-                                <div class="input-group">
                                     <label for="nomorRegulasi" class="label_inputan">Nomor</label>
-                                    <input id="nomorRegulasi" class="search_inputan" type="number" autocomplete="off"
+                                    <input id="nomorRegulasi" class="search_inputan" type="text" autocomplete="off"
                                         placeholder="Input Nomor">
                                 </div>
                             </div>
@@ -101,10 +87,6 @@
                                     <select id="tahunRegulasi" class="search_inputan">
                                         <option selected hidden>Input Tahun</option>
                                         <option>Semua Tahun</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
                                     </select>
                                 </div>
                             </div>
@@ -113,7 +95,23 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <label for="tentangRegulasi" class="label_inputan">Tentang Peraturan</label>
-                                    <textarea class="search_inputan tentangr" id="tentangRegulasi" rows="1"></textarea>
+                                    <textarea class="search_inputan" id="tentangRegulasi" rows="1"
+                                        placeholder="Input Regulasi"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 col_search">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <label for="statusRegulasi" class="label_inputan">Status</label>
+                                    <select class="search_inputan tentangr" id="statusRegulasi" class="search_inputan">
+                                        <option selected hidden>Pilih Status</option>
+                                        <option>Diubah</option>
+                                        <option>Mengubah</option>
+                                        <option>Dicabut</option>
+                                        <option>Mencabut</option>
+                                        <option>Tidak Berlaku</option>
+                                    </select>
                                     <div class="input-group-append">
                                         <button class="button_searchr">
                                             <i class="fas fa-search"></i>
