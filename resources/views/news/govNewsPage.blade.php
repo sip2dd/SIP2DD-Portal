@@ -3,7 +3,7 @@
 @section('title', 'Berita Satgas | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
-<header>
+    <header>
         <!-- Header Start -->
         <div class="header-area header-transparrent ">
             <div class="main-header header-sticky">
@@ -25,7 +25,7 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -78,8 +78,8 @@
             </div>
             <!--Section Form input-->
             <div class="form-row justify-content-center">
-                <div class="col-lg-8 col-md-4">
-                    <form action="{!! url('/pencarianberita')!!}" method="GET">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <form action="{!! url('/pencarian')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
                                 <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
@@ -113,12 +113,15 @@
                             <div class="blog_details">
                                 <div class="row">
                                     <div class="col">
-                                        <p>{{$berita_satgas['tanggal_publikasi']}}</p>
+                                        <p>{{tanggal_indonesia($berita_satgas['tanggal_publikasi'])}}</p>
                                     </div>
                                 </div>
                                 <a href="{!! url('/detailberita?id=')!!}{{$berita_satgas['berita_id']}}" class="deskripsi-galeri1">
-                                    <h2>{{$berita_satgas['judul']}}</h2>
+                                    <h2>{{ Str::limit($berita_satgas['judul'], 60) }}</h2>
                                 </a>
+                                <h6> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
+                                    Pemerintah Jawa Barat
+                                </h6>
                                 <div class="row">
                                     <div class="col daftar_berita_link">
                                         <a href="{!! url('/detailberita?id=')!!}{{$berita_satgas['berita_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
