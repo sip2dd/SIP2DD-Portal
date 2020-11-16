@@ -25,7 +25,7 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -69,18 +69,19 @@
             </div>
             <!--Section Form input-->
             <div class="form-row justify-content-center">
-                <div class="col-lg-8 col-md-4">
-                    <form action="{!! url('/pencarianberita')!!}" method="GET">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" name="keyword" autocomplete="off" class="inputan-cari" placeholder="Cari">
-                                <div class="input-group-append">
-                                    <button class="button1">
-                                        <i class="fas fa-search"></i>
-                                    </button>
+                <!--*Edit* tambahan class col untuk responsive-->
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <form action="{!! url('/pencarian')!!}" method="GET">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                    <div class="input-group-append">
+                                        <button class="button1">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -92,7 +93,7 @@
         <div class="container">
             <!--Berita Terbaru-->
             <div class="row">
-                <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
                         <div class="row">
                             <div class="col">
@@ -112,7 +113,7 @@
                                 @foreach($highlights as $index => $highlight)
                                     @if ($index == 0) 
                                         <div class="carousel-item active">
-                                            <div class="col-lg-12 pr-0 pl-0">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
                                                 <article class="blog_item">
                                                     <div class="blog_item_img">
                                                         <img class="card-img" src="{{$highlight['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
@@ -120,7 +121,7 @@
                                                     <div class="blog_details">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <p>{{$highlight['tanggal_publikasi']}}</p>
+                                                                <p>{{tanggal_indonesia($highlight['tanggal_publikasi'])}}</p>
                                                             </div>
                                                             <div class="col">
                                                                 <div class="lengkapnya_1">
@@ -132,13 +133,18 @@
                                                         <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}">
                                                             <h2>{{$highlight['judul']}}</h2>
                                                         </a>
+                                                        <h6 style="color: #00ABE9;"> 
+                                                        <img
+                                                            src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
+                                                        Pemerintah Jawa Barat
+                                                        </h6>
                                                     </div>
                                                 </article>
                                             </div>
                                         </div>
                                     @else
                                         <div class="carousel-item">
-                                            <div class="col-lg-12 pr-0 pl-0">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
                                                 <article class="blog_item">
                                                     <div class="blog_item_img">
                                                         <img class="card-img" src="{{$highlight['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
@@ -146,7 +152,7 @@
                                                     <div class="blog_details">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <p>{{$highlight['tanggal_publikasi']}}</p>
+                                                                <p>{{tanggal_indonesia($highlight['tanggal_publikasi'])}}</p>
                                                             </div>
                                                             <div class="col">
                                                                 <div class="lengkapnya_1">
@@ -158,6 +164,11 @@
                                                         <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}">
                                                             <h2>{{$highlight['judul']}}</h2>
                                                         </a>
+                                                        <h6 style="color: #00ABE9;"> 
+                                                        <img
+                                                            src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
+                                                        Pemerintah Jawa Barat
+                                                        </h6>
                                                     </div>
                                                 </article>
                                             </div>
@@ -226,7 +237,7 @@
                                             
                                             @if ($index == 0)
                                                 <div class="carousel-item active">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
                                                                @if($gallery['tipe'] == "Youtube")
@@ -240,7 +251,7 @@
                                                             <div class="blog_details">
                                                                 <div class="row">
                                                                     <div class="col galeri-detail-tgl1">
-                                                                        <p>{{$gallery['tgl_dibuat']}}</p>
+                                                                        <p>{{tanggal_indonesia($gallery['tgl_dibuat'], false)}}</p>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="lengkapnya_2">
@@ -252,13 +263,18 @@
                                                                 <a href="{!! url('/detailgalerivideo?id=')!!}{{$gallery['galeri_id']}}" class="deskripsi-galeri1">
                                                                     <h2>{{$gallery['judul']}}</h2>
                                                                 </a>
+                                                                <h6 style="color: #00ABE9;"> 
+                                                                <img
+                                                                    src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
+                                                                Pemerintah Jawa Barat
+                                                                </h6>
                                                             </div>
                                                         </article>
                                                     </div>
                                                 </div>
                                             @else
                                                 <div class="carousel-item">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
                                                                 @if($gallery['tipe'] == "Youtube")
@@ -272,7 +288,7 @@
                                                             <div class="blog_details">
                                                                 <div class="row">
                                                                     <div class="col galeri-detail-tgl1">
-                                                                        <p>{{$gallery['tgl_dibuat']}}</p>
+                                                                        <p>{{tanggal_indonesia($gallery['tgl_dibuat'], false)}}</p>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="lengkapnya_2">
@@ -282,8 +298,13 @@
                                                                     </div>
                                                                 </div>
                                                                 <a href="{!! url('/detailgalerivideo?id=')!!}{{$gallery['galeri_id']}}" class="deskripsi-galeri1">
-                                                                    <h2>{{$gallery['judul']}}</h2>
+                                                                    <h2>{{ Str::limit($gallery['judul'], 70) }}</h2>
                                                                 </a>
+                                                                <h6 style="color: #00ABE9;"> 
+                                                                <img
+                                                                    src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
+                                                                Pemerintah Jawa Barat
+                                                                </h6>
                                                             </div>
                                                         </article>
                                                     </div>
@@ -332,12 +353,18 @@
                                 <div class="col-lg-4 col-4 pl-0 pr-0">
                                     <img class="image" src="{{$govNewsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                                 </div>
-                                <div class="col-lg-8 col-8">
+                                <div class="col-lg-8 col-8 samping_berita">
                                     <div class="media-body">
                                         <a href="{!! url('/detailberita?id=')!!}{{$govNewsItem['berita_id']}}">
-                                            <h3>{{$govNewsItem['judul']}}</h3>
+                                            <h3>{{ Str::limit($govNewsItem['judul'], 70) }}</h3>
                                         </a>
-                                        <p>{{$govNewsItem['tanggal_publikasi']}}</p>
+                                        <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                                src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"
+                                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                                            Pemerintah
+                                            Jawa Barat
+                                        </p>
+                                        <p>{{tanggal_indonesia($govNewsItem['tanggal_publikasi'])}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -365,12 +392,18 @@
                                 <div class="col-lg-4 col-4 pl-0 pr-0">
                                     <img class="image" src="{{$localgovNewsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                                 </div>
-                                <div class="col-lg-8 col-8">
+                                <div class="col-lg-8 col-8 samping_berita">
                                     <div class="media-body">
                                         <a href="{!! url('/detailberita?id=')!!}{{$localgovNewsItem['berita_id']}}">
-                                            <h3>{{$localgovNewsItem['judul']}}</h3>
+                                            <h3>{{ Str::limit($localgovNewsItem['judul'], 70) }}</h3>
                                         </a>
-                                        <p>{{$localgovNewsItem['tanggal_publikasi']}}</p>
+                                        <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                                src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"
+                                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                                            Pemerintah
+                                            Jawa Barat
+                                        </p>
+                                        <p>{{tanggal_indonesia($localgovNewsItem['tanggal_publikasi'])}}</p>
                                     </div>
                                 </div>
                             </div>

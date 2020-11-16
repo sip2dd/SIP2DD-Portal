@@ -19,7 +19,8 @@ class NewsController extends Controller
         $menu = null;
         $highlights = $this->newsRepo->getHighlight(); 
         $govNews = $this->newsRepo->getNationalGovNews();
-        $localgovNews = $this->newsRepo->getLocalGovNews();
+        // $localgovNews = $this->newsRepo->getLocalGovNews();
+        $localgovNews = $this->newsRepo->getNationalGovNews();
         $galleryNews = $this->newsRepo->getGalleryVideos();
         $p2dd_info = null;
 
