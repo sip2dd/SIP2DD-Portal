@@ -25,7 +25,7 @@
                                         <li class="active"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -87,11 +87,11 @@
             </div>
             <!--Section Form input-->
             <div class="form-row justify-content-center">
-                <div class="col-lg-8 col-md-4">
-                    <form action="" method="">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <form action="{!! url('/pencarian')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>
@@ -121,12 +121,17 @@
                         <div class="blog_details">
                             <div class="row">
                                 <div class="col">
-                                    <p>{{$newsItem['tanggal_publikasi']}}</p>
+                                    <p>{{tanggal_indonesia($newsItem['tanggal_publikasi'])}}</p>
                                 </div>
                             </div>
                             <a href="{{url('/detailberita?id=')}}{{$newsItem['berita_id']}}" class="deskripsi-galeri1">
-                                <h2>{{$newsItem['judul']}}</h2>
+                                <h2>{{ Str::limit($newsItem['judul'], 60) }}</h2>
                             </a>
+                            <h6> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
+                                @if($govDetail != null)
+                                    {{$govDetail['nama']}}
+                                @endif
+                            </h6>
                             <div class="row">
                                 <div class="col daftar_berita_link">
                                     <a href="{{url('/detailberita?id=')}}{{$newsItem['berita_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>

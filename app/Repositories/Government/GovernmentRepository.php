@@ -37,17 +37,17 @@ Class GovernmentRepository implements GovernmentInterface{
     }
 
     public function getGovHighlight($id){
-        $newsItems = $this->getApiContents("1527.json");
+        $newsItems = $this->getApiContents("1561.json?instansi_id=1328&offset=null&limit=5");
         if($newsItems != null){
-            $newsItems = $newsItems['data']['highlight'];
+            $newsItems = $newsItems['data']['berita_instansi'];
         }
         return $newsItems;
     }
 
     public function getGovNews($id){
-        $newsItems = $this->getApiContents("1527.json");
+        $newsItems = $this->getApiContents("1561.json?instansi_id=1328&offset=null&limit=5");
         if($newsItems != null){
-            $newsItems = $newsItems['data']['highlight'];
+            $newsItems = $newsItems['data']['berita_instansi'];
         }
         return $newsItems;
     }
