@@ -93,6 +93,7 @@
         <div class="container">
             <!--Galeri-->
             <div class="row">
+            @for($i=0; $i < 6; $i++)
                 <div class="col-lg-4 col-md-6">
                     <article class="blog_item">
                         <div class="blog_item_img">
@@ -107,9 +108,7 @@
                             </div>
                             <a href="{{ url('detailedukasi') }}" class="deskripsi-galeri1">
                                 <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                    Digital
-                                    dan
-                                    Pertumbuhan Ekonomi</h2>
+                                    Digital</h2>
                             </a>
                             <div class="row">
                                 <div class="col daftar_berita_link">
@@ -119,133 +118,8 @@
                         </div>
                     </article>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img" src="assets/img/edukasi/image3.png"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                        </div>
-
-                        <div class="blog_details">
-                            <div class="row">
-                                <div class="col">
-                                    <p>02 Oktober 2020</p>
-                                </div>
-                            </div>
-                            <a href="#" class="deskripsi-galeri1">
-                                <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                    Digital
-                                    dan
-                                    Pertumbuhan Ekonomi</h2>
-                            </a>
-                            <div class="row">
-                                <div class="col daftar_berita_link">
-                                    <a href="#">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img" src="assets/img/edukasi/image3.png"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                        </div>
-
-                        <div class="blog_details">
-                            <div class="row">
-                                <div class="col">
-                                    <p>02 Oktober 2020</p>
-                                </div>
-                            </div>
-                            <a href="#" class="deskripsi-galeri1">
-                                <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                    Digital
-                                    dan
-                                    Pertumbuhan Ekonomi</h2>
-                            </a>
-                            <div class="row">
-                                <div class="col daftar_berita_link">
-                                    <a href="#">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img" src="assets/img/edukasi/image3.png"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                        </div>
-
-                        <div class="blog_details">
-                            <div class="row">
-                                <div class="col">
-                                    <p>02 Oktober 2020</p>
-                                </div>
-                            </div>
-                            <a href="#" class="deskripsi-galeri1">
-                                <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                    Digital
-                                    dan
-                                    Pertumbuhan Ekonomi</h2>
-                            </a>
-                            <div class="row">
-                                <div class="col daftar_berita_link">
-                                    <a href="#">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img" src="assets/img/edukasi/image3.png"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                        </div>
-
-                        <div class="blog_details">
-                            <div class="row">
-                                <div class="col">
-                                    <p>02 Oktober 2020</p>
-                                </div>
-                            </div>
-                            <a href="#" class="deskripsi-galeri1">
-                                <h2>Elektronifikasi Transaksi Pemda Untuk Mendorong Transformasi
-                                    Digital
-                                    dan
-                                    Pertumbuhan Ekonomi</h2>
-                            </a>
-                            <div class="row">
-                                <div class="col daftar_berita_link">
-                                    <a href="#">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img" src="assets/img/edukasi/image2.jpg"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                        </div>
-
-                        <div class="blog_details">
-                            <div class="row">
-                                <div class="col">
-                                    <p>02 Oktober 2020</p>
-                                </div>
-                            </div>
-                            <a href="#" class="deskripsi-galeri1">
-                                <h2>Penggunaan aplikasi sistem pembayaran pajak online di provinsi Jawa Barat</h2>
-                            </a>
-                            <div class="row">
-                                <div class="col daftar_berita_link">
-                                    <a href="#">Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+            @endfor
+                
             </div>
             <div class="row justify-content-center mb-50">
                 <nav class="blog-pagination">
