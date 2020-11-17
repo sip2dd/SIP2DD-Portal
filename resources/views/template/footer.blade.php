@@ -147,6 +147,9 @@
 
     <script src="{{ URL::asset('datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+  
+
     <script>
         $(document).ready(function () {
             $('#tb_daftar_istilah').DataTable({

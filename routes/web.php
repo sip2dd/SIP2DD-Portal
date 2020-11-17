@@ -62,7 +62,9 @@ Route::get('/daftaristilah', [GlossaryController::class, 'index']);
 
 Route::get('/regulasi', [RegulationController::class, 'index']);
 
-Route::get('/kegiatan', [EventController::class, 'index']);
+Route::get('/dashboardkegiatan', [EventController::class, 'index']);
+Route::get('/kegiatan', [EventController::class, 'allEvent']);
+Route::get('/detailkegiatan', [EventController::class, 'getDetailEvent']);
 
 
 
