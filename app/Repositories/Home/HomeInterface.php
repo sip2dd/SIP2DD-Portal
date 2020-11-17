@@ -7,6 +7,6 @@ interface HomeInterface{
     public function getNewsItems();
     public function getEducationNewsItems();
     public function getGalleryNewsItems();
-    public function searchNewsItems($keyword);
+    public function searchNewsItems($keyword, $offset);
     public function getCountsearchNews($keyword);
 }

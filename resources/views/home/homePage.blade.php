@@ -460,11 +460,11 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single-customer">
                                             <div class="what-img">
-                                                @if($galleryNewsItem['tipe'] == "Youtube")
-                                                    <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($galleryNewsItem['link']) }}/maxresdefault.jpg" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                @if($galleryNewsItem['file'] != null)
+                                                    <img class="card-img" src="{{$galleryNewsItem['file']}}" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                                 @else
-                                                    <img class="card-img" src="" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
-                                                @endif
+                                                    <img class="card-img" src="{{$galleryNewsItem['link']}}" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                @endif 
                                             </div>
                                             <div class="what-cap">
                                                 <h6>{{ tanggal_indonesia($galleryNewsItem['tgl_dibuat']) }}</h6>
@@ -486,11 +486,11 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6">
                                         <div class="single-customer">
                                             <div class="what-img">
-                                                @if($galleryNewsItem['tipe'] == "Youtube")
-                                                    <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($galleryNewsItem['link']) }}/maxresdefault.jpg" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                @if($galleryNewsItem['file'] != null)
+                                                    <img class="card-img" src="{{$galleryNewsItem['file']}}" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                                 @else
-                                                    <img class="card-img" src="" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
-                                                @endif
+                                                    <img class="card-img" src="{{$galleryNewsItem['link']}}" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                                @endif 
                                                 
                                             </div>
                                             <div class="what-cap">

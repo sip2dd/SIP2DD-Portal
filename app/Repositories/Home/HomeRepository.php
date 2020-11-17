@@ -33,16 +33,22 @@ Class HomeRepository implements HomeInterface{
     }
 
     public function getGalleryNewsItems(){
-        $galleryNewsItems = $this->getApiContents("1523.json?offset=1&limit=5");
+        $galleryNewsItems = $this->getApiContents("1533.json?offset=null&limit=5");
         if($galleryNewsItems != null){
-            $galleryNewsItems = $galleryNewsItems['data']['galeri_video'];
+            $galleryNewsItems = $galleryNewsItems['data']['galeri_gambar'];
         }
         return $galleryNewsItems;
     }
 
-    public function searchNewsItems($keyword){
+    public function searchNewsItems($keyword, $offset=null){
         // $newsItems = $this->getApiContents("1532.json?judul=".$keyword."&kata_kunci=".$keyword);
-        $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=null&limit=10");
+        if($offset == null){
+            $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=null&limit=10");
+        }else{
+            $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=".$offset."&limit=10");
+        }
+        
+        //$newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=null&limit=10");
         if($newsItems != null){
             $newsItems = $newsItems['data']['berita_search'];
             if(count($newsItems) == 0){
