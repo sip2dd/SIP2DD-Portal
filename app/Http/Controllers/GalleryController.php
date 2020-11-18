@@ -36,8 +36,8 @@ class GalleryController extends Controller
         $galleryPhotos = $this->galleryRepo->getGalleryPhotos($offset, $limit);
         $count = $this->galleryRepo->getCountGalleryPhotos();
                 
-        if($count > 3){
-            $pagination = ceil($count / 3);
+        if($count > $limit){
+            $pagination = ceil($count / $limit);
         } 
         
         return view('gallery.galleryPhotoPage', [
@@ -88,6 +88,7 @@ class GalleryController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
+        $limit = 3;
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -102,12 +103,12 @@ class GalleryController extends Controller
             $pages = 1;
         }
 
-        $galleryVideos = $this->galleryRepo->getGalleryVideos($offset);
+        $galleryVideos = $this->galleryRepo->getGalleryVideos($offset, $limit);
         $count = $this->galleryRepo->getCountGalleryVideos();
         
                 
-        if($count > 3){
-            $pagination = ceil($count / 3);
+        if($count > $limit){
+            $pagination = ceil($count / $limit);
         } 
         
         return view('gallery.galleryVideoPage', [
@@ -123,6 +124,8 @@ class GalleryController extends Controller
         $galleryVideo = null;
         $getSocmed = null;
         $offset = null;
+        $limit = 3;
+
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
@@ -139,7 +142,7 @@ class GalleryController extends Controller
             return redirect('');
         }
 
-        $galleryVideos = $this->galleryRepo->getGalleryVideos($offset);
+        $galleryVideos = $this->galleryRepo->getGalleryVideos($offset, $limit);
 
         return view('gallery.detailGalleryVideoPage', [
             'detailGalleryVideo' => $detailGalleryVideo, 

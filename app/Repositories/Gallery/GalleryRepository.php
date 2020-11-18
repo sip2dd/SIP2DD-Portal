@@ -7,12 +7,12 @@ use App\Http\Traits\ApiContentsTrait;
 Class GalleryRepository implements GalleryInterface{
     use ApiContentsTrait;
 
-    public function getGalleryVideos($offset){
+    public function getGalleryVideos($offset, $limit=3){
         
         if($offset != null){
-            $galleryVideos = $this->getApiContents("1523.json?offset=".$offset."&limit=3");
+            $galleryVideos = $this->getApiContents("1523.json?offset=".$offset."&limit=".$limit);
         }else{
-            $galleryVideos = $this->getApiContents("1523.json?offset=null&limit=3");
+            $galleryVideos = $this->getApiContents("1523.json?offset=null&limit=".$limit);
         }
         if($galleryVideos != null){
             $galleryVideos = $galleryVideos['data']['galeri_video'];

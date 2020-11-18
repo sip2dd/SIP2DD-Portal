@@ -111,8 +111,7 @@
                      <div class="blogs_details">
                         <h2>
                         @if($detailGalleryVideo != null)
-                           <h3><img class="logo_gov" src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">Pemerintah Jawa
-                              Barat</h3>
+                           <h3><img class="logo_gov" src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">{{$detailGalleryVideo['dibuat_oleh']}}</h3>
                            <h2>{{$detailGalleryVideo['judul']}}</h2>
                         @else
                            Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah. 
@@ -180,7 +179,7 @@
                                              style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
                                              {{$videoItem['dibuat_oleh']}}
                                        </p>
-                                        <p>{{tanggal_indonesia($videoItem['tgl_dibuat'])}}</p>
+                                        <p>{{tanggal_indonesia($videoItem['tgl_dibuat'], false)}}</p>
                                     </div>
                                 </div>
                             </div>
