@@ -20,11 +20,11 @@ Class GalleryRepository implements GalleryInterface{
         return $galleryVideos;
     }
 
-    public function getGalleryPhotos($offset=null){
+    public function getGalleryPhotos($offset=null, $limit=3){
         if($offset != null){
-            $galleryPhotos = $this->getApiContents("1533.json?offset=".$offset."&limit=3");
+            $galleryPhotos = $this->getApiContents("1533.json?offset=".$offset."&limit=".$limit);
         }else{
-            $galleryPhotos = $this->getApiContents("1533.json?offset=null&limit=3");
+            $galleryPhotos = $this->getApiContents("1533.json?offset=null&limit=".$limit);
         }
 
         if($galleryPhotos != null){
@@ -37,6 +37,14 @@ Class GalleryRepository implements GalleryInterface{
         $photoItems = $this->getApiContents("1570.json");
         if($photoItems != null){
             $photoItems = $photoItems['data']['cnt_photo'][0]['cnt'];
+        }
+        return $photoItems;
+    }
+
+    public function getGalleryPhotosAtt($id){
+        $photoItems = $this->getApiContents("1565.json?galeri_id=".$id);
+        if($photoItems != null){
+            $photoItems = $photoItems['data']['lampiran_galeri'];
         }
         return $photoItems;
     }

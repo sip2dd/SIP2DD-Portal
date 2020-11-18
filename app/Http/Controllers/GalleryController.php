@@ -18,6 +18,7 @@ class GalleryController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
+        $limit = 3;
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -32,7 +33,7 @@ class GalleryController extends Controller
             $pages = 1;
         }
 
-        $galleryPhotos = $this->galleryRepo->getGalleryPhotos($offset);
+        $galleryPhotos = $this->galleryRepo->getGalleryPhotos($offset, $limit);
         $count = $this->galleryRepo->getCountGalleryPhotos();
                 
         if($count > 3){
@@ -50,11 +51,15 @@ class GalleryController extends Controller
     public function detailGalleryPhoto(Request $request)
     {
         $offset =null;
+        $limit = 3;
         $detailGalleryPhoto = null;
+        $attachments = null;
+
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
                 $detailGalleryPhoto = $this->galleryRepo->getDetailGalleryPhoto($id); 
+                $attachments = $this->galleryRepo->getGalleryPhotosAtt($id);
                 if($detailGalleryPhoto != null){
                     $getSocmed = $this->getSocmed($detailGalleryPhoto['judul']);
                 }else{
@@ -67,10 +72,11 @@ class GalleryController extends Controller
             return redirect('');
         }
 
-        $galleryPhotos = $this->galleryRepo->getGalleryPhotos($offset);
+        $galleryPhotos = $this->galleryRepo->getGalleryPhotos($offset, $limit);
 
         return view('gallery.detailGalleryPhotoPage', [
-            'detailGalleryPhoto' => $detailGalleryPhoto, 
+            'detailGalleryPhoto' => $detailGalleryPhoto,
+             'attachments' => $attachments,
             'galleryPhotos' => $galleryPhotos,
             'socmed' => $getSocmed 
         ],);

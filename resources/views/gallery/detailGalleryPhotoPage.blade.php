@@ -90,7 +90,7 @@
                      @endif</a>
                      </div>
                      <div class="row blogs-item">
-                        <div class="item_gallery col-lg-4 col-md-6">
+                        <!-- <div class="item_gallery col-lg-4 col-md-6">
                            <a href="#gambar1">
                            @if($detailGalleryPhoto != null)
                                  @if($detailGalleryPhoto['link'] != null)
@@ -125,88 +125,40 @@
                                  </a>
                               </div>
                            </div>
-                        </div>
+                        </div> -->
+                        @foreach($attachments as $index => $attachment)
                         <div class="item_gallery col-lg-4 col-md-6">
-                           <a href="#gambar2">
-                           @if($detailGalleryPhoto['link'] != null)
-                                <img class="card-img" src="{{$detailGalleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                           <a href="#gambar{{$index+1}}">
+                                @if($attachment['link'] != null)
+                                <img class="card-img" src="{{$attachment['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                 @else
-                                <img class="card-img" src="{{$detailGalleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                <img class="card-img" src="{{$attachment['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                 @endif
                               <div class="overly">
                                  <div class="text"><i class="fas fa-search-plus"></i></div>
                               </div>
                            </a>
-                           <div class="overlay" id="gambar2">
+                           <div class="overlay" id="gambar{{$index+1}}">
                               <a href="#" class="tutup">X Tutup</a>
                               <div class="kotak">
-                                 @if($detailGalleryPhoto['link'] != null)
-                                <img class="card-img" src="{{$detailGalleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                @if($attachment['link'] != null)
+                                <img class="card-img" src="{{$attachment['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                 @else
-                                <img class="card-img" src="{{$detailGalleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                <img class="card-img" src="{{$attachment['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                 @endif
-                                @if($detailGalleryPhoto != null)
-                                <p>{{$detailGalleryPhoto['judul']}} </p>
-                                 @endif
+                                 <p>{{$detailGalleryPhoto['judul']}}</p>
                               </div>
                               <div class="nav-overlay">
-                                 <a href="#gambar1" class="sebelumnya">
+                                 <a href="#gambar{{$index-1}}" class="sebelumnya">
                                     <p class="fas fa-chevron-left"></p>
                                  </a>
-                                 <a href="#gambar3" class="lanjut">
+                                 <a href="#gambar{{$index+2}}" class="lanjut">
                                     <p class="fas fa-chevron-right"></p>
                                  </a>
                               </div>
                            </div>
                         </div>
-                        <div class="item_gallery col-lg-4 col-md-6">
-                           <a href="#gambar3">
-                              <img class="gallery-foto" src="{{ URL::asset('img/P2DD.png') }}" alt="Foto_1">
-                              <div class="overly">
-                                 <div class="text"><i class="fas fa-search-plus"></i></div>
-                              </div>
-                           </a>
-                           <div class="overlay" id="gambar3">
-                              <a href="#" class="tutup">X Tutup</a>
-                              <div class="kotak">
-                                 <img src="{{ URL::asset('img/P2DD.png') }}" alt="Foto_1">
-                                 <p>Seminar Elektronifikasi Transaksi Pemerintah Daerah Pertama Kali diselenggarakan di
-                                    kota terdekat</p>
-                              </div>
-                              <div class="nav-overlay">
-                                 <a href="#gambar2" class="sebelumnya">
-                                    <p class="fas fa-chevron-left"></p>
-                                 </a>
-                                 <a href="#gambar4" class="lanjut">
-                                    <p class="fas fa-chevron-right"></p>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="item_gallery col-lg-4 col-md-6">
-                           <a href="#gambar4">
-                              <img class="gallery-foto" src="{{ URL::asset('img/P2DD.png') }}" alt="Foto_1">
-                              <div class="overly">
-                                 <div class="text"><i class="fas fa-search-plus"></i></div>
-                              </div>
-                           </a>
-                           <div class="overlay" id="gambar4">
-                              <a href="#" class="tutup">X Tutup</a>
-                              <div class="kotak">
-                                 <img src="{{ URL::asset('img/P2DD.png') }}" alt="Foto_1">
-                                 <p>Seminar Elektronifikasi Transaksi Pemerintah Daerah Pertama Kali diselenggarakan di
-                                    kota terdekat</p>
-                              </div>
-                              <div class="nav-overlay">
-                                 <a href="#gambar3" class="sebelumnya">
-                                    <p class="fas fa-chevron-left"></p>
-                                 </a>
-                                 <a href="#gambar1" class="lanjut">
-                                    <p class="fas fa-chevron-right"></p>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
+                        @endforeach
                      </div>
                   </div>
                   <div class="divider1"></div>
@@ -259,14 +211,14 @@
                                 <div class="col-lg-8 col-8">
                                     <div class="media-body">
                                         <a href="{!! url('/detailgalerifoto?id=')!!}{{$photoItem['galeri_id']}}">
-                                            <h3>{{ Str::limit($photoItem['judul'], 60) }}</h3>
+                                            <h3>{{ Str::limit($photoItem['judul'], 50) }}</h3>
                                         </a>
                                         <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
                                              src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"
                                              style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
                                              {{$photoItem['dibuat_oleh']}}
                                        </p>
-                                        <p>{{tanggal_indonesia($photoItem['tgl_dibuat'])}}</p>
+                                        <p>{{tanggal_indonesia($photoItem['tgl_dibuat'], false)}}</p>
                                     </div>
                                 </div>
                             </div>
