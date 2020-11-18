@@ -137,22 +137,43 @@
             <div class="row justify-content-center mb-50">
                 <nav class="blog-pagination">
                     <ul class="pagination">
+                        @if($page > 1)
+                        <li class="page-item">
+                            <a href="{!! url('/galerifoto?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                <i class="ti-angle-left"></i>
+                            </a>
+                        </li>
+                        @else
                         <li class="page-item">
                             <a href="#" class="page-link" aria-label="Previous">
                                 <i class="ti-angle-left"></i>
                             </a>
                         </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">1</a>
-                        </li>
-                        <li class="page-item active">
-                            <a href="#" class="page-link">2</a>
-                        </li>
+                        @endif
+                        @for($i =1; $i<=$pagination; $i++)
+                                @if($page == $i)
+                                <li class="page-item active">
+                                    <a href="{!! url('/galerifoto?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                </li>
+                                @else
+                                <li class="page-item">
+                                    <a href="{!! url('/galerifoto?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                </li>
+                                @endif    
+                        @endfor
+                        @if($page == $pagination)
                         <li class="page-item">
                             <a href="#" class="page-link" aria-label="Next">
                                 <i class="ti-angle-right"></i>
                             </a>
                         </li>
+                        @else
+                        <li class="page-item">
+                            <a href="{!! url('/galerifoto?page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                <i class="ti-angle-right"></i>
+                            </a>
+                        </li>
+                        @endif
                     </ul>
                 </nav>
             </div>

@@ -92,6 +92,7 @@
                      <div class="row blogs-item">
                         <div class="item_gallery col-lg-4 col-md-6">
                            <a href="#gambar1">
+                           @if($detailGalleryPhoto != null)
                                  @if($detailGalleryPhoto['link'] != null)
                                 <img class="card-img" src="{{$detailGalleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                 @else
@@ -100,6 +101,7 @@
                               <div class="overly">
                                  <div class="text"><i class="fas fa-search-plus"></i></div>
                               </div>
+                           @endif
                            </a>
                            <div class="overlay" id="gambar1">
                               <a href="#" class="tutup">X Tutup</a>
