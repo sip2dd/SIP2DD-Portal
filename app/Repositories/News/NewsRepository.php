@@ -8,7 +8,7 @@ Class NewsRepository implements NewsInterface{
     use ApiContentsTrait;
 
     public function getHighlight(){
-        $highlightItems = $this->getApiContents("1554.json?offset='5'&limit=3");
+        $highlightItems = $this->getApiContents("1554.json?offset=null&limit=3");
         if($highlightItems != null){
             $highlightItems = $highlightItems['data']['berita_highlight_page'];
         }

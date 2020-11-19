@@ -136,7 +136,7 @@
                                                         <h6 style="color: #00ABE9;"> 
                                                         <img
                                                             src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
-                                                        Pemerintah Jawa Barat
+                                                            {{$highlight['dibuat_oleh']}}
                                                         </h6>
                                                     </div>
                                                 </article>
@@ -152,7 +152,7 @@
                                                     <div class="blog_details">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <p>{{tanggal_indonesia($highlight['tanggal_publikasi'])}}</p>
+                                                                <p>{{tanggal_indonesia($highlight['tanggal_publikasi'], false)}}</p>
                                                             </div>
                                                             <div class="col">
                                                                 <div class="lengkapnya_1">
@@ -167,7 +167,7 @@
                                                         <h6 style="color: #00ABE9;"> 
                                                         <img
                                                             src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
-                                                        Pemerintah Jawa Barat
+                                                        {{$highlight['dibuat_oleh']}}
                                                         </h6>
                                                     </div>
                                                 </article>
@@ -266,7 +266,7 @@
                                                                 <h6 style="color: #00ABE9;"> 
                                                                 <img
                                                                     src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
-                                                                Pemerintah Jawa Barat
+                                                                    {{$gallery['dibuat_oleh']}}
                                                                 </h6>
                                                             </div>
                                                         </article>
@@ -303,7 +303,7 @@
                                                                 <h6 style="color: #00ABE9;"> 
                                                                 <img
                                                                     src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
-                                                                Pemerintah Jawa Barat
+                                                                    {{$gallery['dibuat_oleh']}}
                                                                 </h6>
                                                             </div>
                                                         </article>
@@ -361,10 +361,9 @@
                                         <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
                                                 src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"
                                                 style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                                            Pemerintah
-                                            Jawa Barat
+                                                {{$govNewsItem['dibuat_oleh']}}
                                         </p>
-                                        <p>{{tanggal_indonesia($govNewsItem['tanggal_publikasi'])}}</p>
+                                        <p>{{tanggal_indonesia($govNewsItem['tanggal_publikasi'], false)}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -400,10 +399,10 @@
                                         <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
                                                 src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"
                                                 style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                                            Pemerintah
-                                            Jawa Barat
+                                            {{$localgovNewsItem['dibuat_oleh']}}
+                                            
                                         </p>
-                                        <p>{{tanggal_indonesia($localgovNewsItem['tanggal_publikasi'])}}</p>
+                                        <p>{{tanggal_indonesia($localgovNewsItem['tanggal_publikasi'], false)}}</p>
                                     </div>
                                 </div>
                             </div>
