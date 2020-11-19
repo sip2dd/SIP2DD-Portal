@@ -14,14 +14,18 @@ class EventController extends Controller
 
     public function index()
     {
+        $offset=null;
+        $limit = 6;
         //$menu = $this->getApiMenu();
         $menu = null;
-        $eventItems = $this->eventRepo->getEvent();
+        $highlightevent = $this->eventRepo->getEvent($offset, 1); 
+        $eventItems = $this->eventRepo->getEvent($offset, $limit);
         // $p2dd_info = $this->getApiP2DDInfo();
         $p2dd_info = null;
 
         return view('event.dashboardEventPage', [
             'menus' => $menu,
+            'highlightevent' => $highlightevent,
             'eventItems' => $eventItems,
             'p2dd_info' => $p2dd_info
         ]);
@@ -29,9 +33,11 @@ class EventController extends Controller
 
     public function allEvent()
     {
+        $offset=null;
+        $limit = 6;
         //$menu = $this->getApiMenu();
         $menu = null;
-        $eventItems = $this->eventRepo->getAllEvent();
+        $eventItems = $this->eventRepo->getEvent($offset, $limit);
         // $p2dd_info = $this->getApiP2DDInfo();
         $p2dd_info = null;
 
@@ -42,9 +48,10 @@ class EventController extends Controller
         ]);
     }
 
-    public function getDetailEvent(Request $request){
-        
-
+    public function getDetailEvent(Request $request)
+    {
+        $offset=null;
+        $limit = 6;
         $detailEvent = null;
         if($request->has('id')) {
             if($request->id != ''){
@@ -64,7 +71,7 @@ class EventController extends Controller
         }
 
         
-        $events = $this->eventRepo->getAllEvent();
+        $events = $this->eventRepo->getEvent($offset, $limit);
         
         return view('event.detailEventPage', [
             'detailEvent' => $detailEvent, 

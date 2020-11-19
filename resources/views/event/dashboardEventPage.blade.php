@@ -57,40 +57,43 @@
 
 @section('content')
     <!--Bagian Video-->
-    <div id="video_kegiatan" class="section-padd4 webinar-wrapper sky-blue">
-        <div class="container webinar-tmp">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-5 col-md-12 desk_video">
-                    <h2>Webinar Percepatan Perluasan Digitalisasi Daerah</h2>
-                    <p>Wireframes are generally created by business analysts, user experience designers, developers,
-                        visual designers, and by those with expertise</p>
-                    <!--Edit penamabahan margin mb-35 sama ada beberapa edit class di css-->
-                    <div class="row ket_webinar justify-content-center mb-35">
-                        <div class="col-lg-7 col-md-12 col_webinar">
-                            <p class="ket_tempat"> <img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="">Pemerintah
-                                Kalimantan
-                                Barat</p>
+    @if($highlightevent != null)
+        @foreach($highlightevent as $index => $item)
+        <div id="video_kegiatan" class="section-padd4 webinar-wrapper sky-blue">
+            <div class="container webinar-tmp">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-5 col-md-12 desk_video">
+                        <h2>{{ Str::limit($item['judul'], 60) }}</h2>
+                        <p>Wireframes are generally created by business analysts, user experience designers, developers,
+                            visual designers, and by those with expertise</p>
+                        <!--Edit penamabahan margin mb-35 sama ada beberapa edit class di css-->
+                        <div class="row ket_webinar justify-content-center mb-35">
+                            <div class="col-lg-7 col-md-12 col_webinar">
+                                <p class="ket_tempat"> <img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="">
+                                {{ $item['dibuat_oleh'] }}</p>
+                            </div>
+                            <div class="col-lg-5 col-md-12 col-webinar">
+                                <p class="ket_waktu"><i class="fa fa-clock"></i> {{tanggal_indonesia($item['tgl_dibuat'])}}</p>
+                            </div>
                         </div>
-                        <div class="col-lg-5 col-md-12 col-webinar">
-                            <p class="ket_waktu"><i class="fa fa-clock"></i> 18 November 2020</p>
+                        <div class="button_webinar">
+                            <ul>
+                                <li>
+                                    <a href="{!! url('/detailkegiatan?id=')!!}{{$item['kegiatan_id']}}" class="button_card_v">Selengkapnya</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="button_webinar">
-                        <ul>
-                            <li>
-                                <a href="" class="button_card_v">Selengkapnya</a>
-                            </li>
-                        </ul>
+                    <div class="col-lg-7 col-md-12 video-conf">
+                        <video height="380px" style="width: 100%;" controls>
+                            <source src="">
+                        </video>
                     </div>
-                </div>
-                <div class="col-lg-7 col-md-12 video-conf">
-                    <video height="380px" style="width: 100%;" controls>
-                        <source src="">
-                    </video>
                 </div>
             </div>
         </div>
-    </div>
+        @endforeach
+    @endif
     <!--Galeri Foto Start-->
     <div class="our-customer section-paddingr pt-50 background_2">
         <div class="container">
@@ -143,7 +146,11 @@
                                             <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
                                                     alt="logo">{{ $item['dibuat_oleh'] }}
                                             </h6>
-                                            <h4><a href=""> {{ Str::limit($item['judul'], 60) }}</a></h4>
+                                            <h4><a href="{!! url('/detailkegiatan?id=')!!}{{$item['kegiatan_id']}}"> {{ Str::limit($item['judul'], 60) }}</a></h4>
+                                        </div>
+                                        <div class="tulisan-lengkapnya">
+                                            <a href="{!! url('/detailkegiatan?id=')!!}{{$item['kegiatan_id']}}">Selengkapnya <span
+                                                    class="fas fa-chevron-right mr-2"></span></a>
                                         </div>
                                     </div>
                                 </div>
