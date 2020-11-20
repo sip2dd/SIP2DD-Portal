@@ -61,7 +61,7 @@
         <div class="container nav-bread mt-30">
             <nav>
                 <ol class="breadcrumb pl-0 sky-blue">
-                    <li class="breadcrumb-item"><a href="Berita.html">Kegiatan</a></li>
+                    <li class="breadcrumb-item"><a href="#">Kegiatan</a></li>
                     <li class="breadcrumb-item active"><a href="#">List Webinar</a>
                     </li>
                 </ol>
@@ -132,7 +132,7 @@
                 </div>
                 @endforeach
             </div>
-            <div class="row justify-content-center mb-50">
+            <div class="row justify-content-center mb-30">
                 <nav class="blog-pagination">
                     <ul class="pagination">
                         @if($page > 1)
@@ -157,7 +157,7 @@
                                 <li class="page-item">
                                     <a href="{!! url('/kegiatan?page='.$i) !!}" class="page-link">{{$i}}</a>
                                 </li>
-                                @endif    
+                                @endif
                         @endfor
                         @if($page == $pagination)
                         <li class="page-item">

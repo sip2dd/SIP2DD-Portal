@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    
+
                                     </ul>
                                 </nav>
                             </div>
@@ -76,7 +76,7 @@
    </div>
    <!-- navigation link End-->
    <!--================Blog Area =================-->
-   <section class="detail_page single-post-area background_2">
+   <section class="detail_page single-post-area background_2 mb-30">
       <div class="container">
          <div class="row">
             <div class="col-lg-8 mb-30">
@@ -118,18 +118,18 @@
                         </a>
                      </div>
                      <div class="blogs_details">
-                        
+
                         @if($detailEvent != null)
                             <h2>{{ $detailEvent['judul']}}</h2>
                             <h3> <img class="logo_gov" src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
                             {{ $detailEvent['dibuat_oleh']}}
                             </h3>
                         @else
-                            Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah. 
+                            Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah.
                         @endif
                         </h2>
                         @if($detailEvent != null)
-                        <p class="desk_edukasi">{!! $detailEvent['deskripsi'] !!}</p>
+                        <p>{!! $detailEvent['deskripsi'] !!}</p>
                         @endif
                         <!--Edit judul menjadi materi-->
                         <div class="materi_edukasi">
@@ -146,7 +146,7 @@
                      <div class="d-sm-flex justify-content-between text-center">
                         <ul class="blog-info-link">
                         <li><i class="fa fa-user"></i> @if($detailEvent != null){{ $detailEvent['dibuat_oleh']}} @endif</li>
-                        <li><i class="fa fa-clock"></i>@if($detailEvent != null){{tanggal_indonesia( $detailEvent['tanggal_publikasi'])}} @endif</li>
+                        <li><i class="fa fa-clock"></i>@if($detailEvent != null){{tanggal_indonesia( $detailEvent['tanggal_publikasi'],false)}} @endif</li>
                         </ul>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -172,14 +172,14 @@
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
-                    @if($events != null)    
+                    @if($events != null)
                         @foreach($events as $event)
                         <div class="media post_item">
                             <div class="col-lg-4 col-4 pl-0 pr-0">
                             <img class="image" src="{{$event['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                             </div>
                             <!--Edit penambahana kelas samping berita-->
-                            <div class="col-lg-8 col-8 samping_berita">
+                            <div class="col-lg-8 col-8 pr-0">
                             <div class="media-body">
                                 <a href="">
                                     <h3>{{ Str::limit($event['judul'], 60) }}</h3>

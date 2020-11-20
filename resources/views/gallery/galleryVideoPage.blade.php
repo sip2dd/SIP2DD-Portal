@@ -88,7 +88,7 @@
     </div>
     <!-- Slider Area End-->
     <!--================Galeri=================-->
-    <section class="blog_area pt-10 mb-30 background_2">
+    <section class="blog_area pt-10 mb-10 background_3">
         <div class="container">
             <!--Galeri-->
             @if($galleryVideos != null)
@@ -131,7 +131,7 @@
                 </div>
             @endforeach
             </div>
-            <div class="row justify-content-center mb-50">
+            <div class="row justify-content-center mb-30">
                 <nav class="blog-pagination">
                     <ul class="pagination">
                         @if($page > 1)
@@ -156,7 +156,7 @@
                                 <li class="page-item">
                                     <a href="{!! url('/galerivideo?page='.$i) !!}" class="page-link">{{$i}}</a>
                                 </li>
-                                @endif    
+                                @endif
                         @endfor
                         @if($page == $pagination)
                         <li class="page-item">
@@ -175,7 +175,7 @@
                 </nav>
             </div>
             @else
-                <div class="row justify-content-center mb-50">
+                <div class="row justify-content-center mb-30">
                     Belum ada Data
                 </div>
             @endif

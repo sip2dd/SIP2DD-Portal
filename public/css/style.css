@@ -3209,6 +3209,7 @@ hr {
 
 .btn.btn_materi_edukasi:hover {
     color: #fff !important;
+    text-decoration: none !important;
 }
 
 @media(max-width:992px) {
@@ -3310,7 +3311,7 @@ hr {
 
 .blog_right_sidebar .single_sidebar_widget {
     background-color: #fff;
-    padding: 20px 15px;
+    padding: 15px 15px;
     margin-bottom: 20px;
     box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -3503,7 +3504,7 @@ hr {
     text-align: center;
     margin-left: -1px;
     line-height: 45px;
-    border-radius: 50px;
+    border-radius:50px !important;
     width: 45px;
     height: 45px;
     color: #16161a;
@@ -7492,8 +7493,8 @@ z .slider-area .hero-cap h2 {
     }
 
     .desk_video {
-        padding-right: 30px;
-        padding-left: 30px;
+        padding-right: 30px !important;
+        padding-left: 30px !important;
     }
 
     .desk_video p {
@@ -9216,5 +9217,21 @@ h6.cap_masuk:hover {
 @media(max-width:768px) {
     .footer-copy p {
         text-align: left;
+    }
+}
+
+@media(max-width:768px){
+    .video_iframe{
+        height:360px;
+    }
+}
+@media(max-width:765px){
+    .video_iframe{
+        height:290px;
+    }
+}
+@media(max-width:576px){
+    .video_iframe{
+        height: 190px;
     }
 }

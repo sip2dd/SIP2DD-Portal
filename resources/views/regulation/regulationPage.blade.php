@@ -58,7 +58,7 @@
 @section('content')
     <main class="background_1">
         <!-- Area untuk Pencarian TP2DD -->
-        <section class="service-area section-padding">
+        <section class="service-area section-padding mb-30">
             <div class="container">
                 <!-- Section Judul -->
                 <div class="row d-flex justify-content-center">
@@ -144,9 +144,10 @@
 
                 </div>
                 <!--Bagian Pagination-->
+                <!--
                 <div class="row justify-content-center">
                     <nav class="blog-pagination">
-                        <!-- <ul class="pagination">
+                         <ul class="pagination">
                             <li class="page-item">
                                 <a href="#" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
@@ -163,9 +164,9 @@
                                     <i class="ti-angle-right"></i>
                                 </a>
                             </li>
-                        </ul> -->
+                        </ul>
                     </nav>
-                </div>
+                </div>-->
             </div>
         </section>
         <!-- Akhir pagination-->

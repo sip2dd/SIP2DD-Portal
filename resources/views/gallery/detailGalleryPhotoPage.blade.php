@@ -75,7 +75,7 @@
    </div>
    <!-- navigation link End-->
    <!--================Blog Area =================-->
-   <section class="detail_page single-post-area background_2">
+   <section class="detail_page single-post-area mb-30 background_2">
       <div class="container">
          <div class="row">
             <div class="col-lg-8 mb-30">

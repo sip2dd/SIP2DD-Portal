@@ -76,7 +76,7 @@
    </div>
    <!-- navigation link End-->
    <!--================Blog Area =================-->
-   <section class="detail_page single-post-area background_3">
+   <section class="detail_page single-post-area background_3 mb-30">
       <div class="container">
          <div class="row">
             <div class="col-lg-8 mb-30">
@@ -90,9 +90,9 @@
                               preg_match('/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $detailGalleryVideo['link'], $match);
                            ?>
                            @if(array_key_exists(1, $match))
-                           <div class="col-lg-12">
-                           {!! $detailGalleryVideo['link'] !!}
-                           </div>
+                           <div class="col-lg-12 pr-0 pl-0 video_iframe">
+                                   {!! $detailGalleryVideo['link'] !!}
+                               </div>
                            @else
                               <video controls>
                                  <source src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{ $detailGalleryVideo['file'] }}">

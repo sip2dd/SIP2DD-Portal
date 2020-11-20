@@ -62,7 +62,7 @@
         <div id="video_kegiatan" class="section-padd4 webinar-wrapper sky-blue">
             <div class="container webinar-tmp">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-5 col-md-12 desk_video">
+                    <div class="col-lg-5 col-md-12 desk_video pr-0 pl-0">
                         <h2>{{ Str::limit($item['judul'], 60) }}</h2>
                         <p>Wireframes are generally created by business analysts, user experience designers, developers,
                             visual designers, and by those with expertise</p>
@@ -73,7 +73,7 @@
                                 {{ $item['dibuat_oleh'] }}</p>
                             </div>
                             <div class="col-lg-5 col-md-12 col-webinar">
-                                <p class="ket_waktu"><i class="fa fa-clock"></i> {{tanggal_indonesia($item['tgl_dibuat'])}}</p>
+                                <p class="ket_waktu"><i class="fa fa-clock"></i> {{tanggal_indonesia($item['tgl_dibuat'],false)}}</p>
                             </div>
                         </div>
                         <div class="button_webinar">
@@ -107,7 +107,7 @@
     </div>
     @endif
     <!--Galeri Foto Start-->
-    <div class="our-customer section-paddingr pt-50 background_2">
+    <div class="our-customer pb-30 section-paddingr pt-50 background_2">
         <div class="container">
             <div class="our-customer-wrapper">
                 <div class="row d-flex justify-content-center">
