@@ -72,7 +72,7 @@
                 <div class="form-row justify-content-center">
                     <!--*Edit* tambahan class col untuk responsive-->
                     <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                        <form action="{!! url('/pencarian')!!}" method="GET">
+                        <form action="{!! url('/pencarianberita')!!}" method="GET">
                                 <div class="form-group">
                                     <div class="input-group">
                                         <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
@@ -110,7 +110,7 @@
                                         <h4><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">
                                         {{ Str::limit($newsItem['judul'], 60) }}</a></h4>
                                         <h6> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
-                                            Pemerintah Jawa Barat
+                                            {{$newsItem['dibuat_oleh']}}
                                         </h6>
                                         <p>{{ Str::limit(strip_tags($newsItem['body']), 250) }}
                                         <p id="selengkapnya"><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">Selengkapnya <i
@@ -125,22 +125,43 @@
                 <div class="row justify-content-center">
                     <nav class="blog-pagination">
                         <ul class="pagination">
+                            @if($page > 1)
+                            <li class="page-item">
+                                <a href="{!! url('/pencarianberita?&keyword='.$keyword.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            @else
                             <li class="page-item">
                                 <a href="#" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
                             </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
+                            @endif
+                            @for($i =1; $i<=$pagination; $i++)
+                                    @if($page == $i)
+                                    <li class="page-item active">
+                                        <a href="{!! url('/pencarianberita?&keyword='.$keyword.'&page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    </li>
+                                    @else
+                                    <li class="page-item">
+                                        <a href="{!! url('/pencarianberita?&keyword='.$keyword.'&page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    </li>
+                                    @endif    
+                            @endfor
+                            @if($page == $pagination)
                             <li class="page-item">
                                 <a href="#" class="page-link" aria-label="Next">
                                     <i class="ti-angle-right"></i>
                                 </a>
                             </li>
+                            @else
+                            <li class="page-item">
+                                <a href="{!! url('/pencarianberita?&keyword='.$keyword.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                            @endif
                         </ul>
                     </nav>
                 </div>

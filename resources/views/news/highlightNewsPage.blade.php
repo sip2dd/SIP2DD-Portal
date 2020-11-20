@@ -80,7 +80,7 @@
             <!--Section Form input-->
             <div class="form-row justify-content-center">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <form action="{!! url('/pencarian')!!}" method="GET">
+                    <form action="{!! url('/pencarianberita')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
                                 <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">

@@ -16,6 +16,7 @@ class EventController extends Controller
     {
         $offset=null;
         $limit = 6;
+        
         //$menu = $this->getApiMenu();
         $menu = null;
         $highlightevent = $this->eventRepo->getEvent($offset, 1); 
@@ -27,7 +28,8 @@ class EventController extends Controller
             'menus' => $menu,
             'highlightevent' => $highlightevent,
             'eventItems' => $eventItems,
-            'p2dd_info' => $p2dd_info
+            'p2dd_info' => $p2dd_info,
+            
         ]);
     }
 
@@ -35,6 +37,8 @@ class EventController extends Controller
     {
         $offset=null;
         $limit = 6;
+        $pagination = 1;
+        $pages = 1;
         //$menu = $this->getApiMenu();
         $menu = null;
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
@@ -44,7 +48,9 @@ class EventController extends Controller
         return view('event.eventPage', [
             'menus' => $menu,
             'eventItems' => $eventItems,
-            'p2dd_info' => $p2dd_info
+            'p2dd_info' => $p2dd_info,
+            'page' => $pages ?? 1,
+            'pagination' => $pagination,
         ]);
     }
 

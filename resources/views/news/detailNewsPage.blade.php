@@ -142,7 +142,7 @@
                   <div class="d-sm-flex justify-content-between text-center">
                      <ul class="blog-info-link">
                         <li><i class="fa fa-user"></i> @if($detailNews != null){{ $detailNews['dibuat_oleh']}} @endif</li>
-                        <li><i class="fa fa-clock"></i>@if($detailNews != null){{tanggal_indonesia( $detailNews['tanggal_publikasi'],false)}} @endif</li>
+                        <li><i class="fa fa-clock"></i>@if($detailNews != null){{tanggal_indonesia( $detailNews['tanggal_publikasi'])}} @endif</li>
                      </ul>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -186,8 +186,7 @@
                                         <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
                                                 src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
                                                 style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                                            Pemerintah
-                                            Jawa Barat
+                                            {{$govNewsItem['dibuat_oleh']}}
                                         </p>
                                         <p>{{tanggal_indonesia($govNewsItem['tanggal_publikasi'], false)}}</p>
                                     </div>
@@ -225,8 +224,7 @@
                                         <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
                                                 src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
                                                 style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                                            Pemerintah
-                                            Jawa Barat
+                                                {{$govNewsItem['dibuat_oleh']}}
                                         </p>
                                         <p>{{tanggal_indonesia($govNewsItem['tanggal_publikasi'], false)}}</p>
                                     </div>
@@ -264,8 +262,7 @@
                                         <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
                                                 src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
                                                 style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                                            Pemerintah
-                                            Jawa Barat
+                                                {{$govNewsItem['dibuat_oleh']}}
                                         </p>
                                         <p>{{tanggal_indonesia($localgovNewsItem['tanggal_publikasi'], false)}}</p>
                                     </div>

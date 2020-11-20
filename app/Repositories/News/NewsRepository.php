@@ -7,9 +7,7 @@ use App\Http\Traits\ApiContentsTrait;
 Class NewsRepository implements NewsInterface{
     use ApiContentsTrait;
 
-    public function getHighlight($offset, $limit){
-        //$highlightItems = $this->getApiContents("1554.json?offset=null&limit=3");
-        
+    public function getHighlight($offset=null, $limit=6){
         if($offset != null){
             $highlightItems = $this->getApiContents("1554.json?offset=".$offset."&limit=".$limit);
         }else{
@@ -21,34 +19,27 @@ Class NewsRepository implements NewsInterface{
         return $highlightItems;
     }
 
-    //duplicate
-    public function getAllHighlight(){
-        $highlightItems = $this->getApiContents("1554.json?offset=1&limit=10");
-        if($highlightItems != null){
-            $highlightItems = $highlightItems['data']['berita_highlight_page'];
+    public function getNationalGovNews($offset=null, $limit=6){
+        
+        if($offset != null){
+            $nationalGovNews = $this->getApiContents("1555.json?offset=".$offset."&limit=".$limit);
+        }else{
+            $nationalGovNews = $this->getApiContents("1555.json?offset=null&limit=".$limit);
         }
-        return $highlightItems;
-    }
-
-    public function getNationalGovNews(){
-        $nationalGovNews = $this->getApiContents("1555.json?offset=1&limit=5");
+        
         if($nationalGovNews != null){
             $nationalGovNews = $nationalGovNews['data']['berita_satgas_page'];
         }
         return $nationalGovNews;
     }
 
-    // duplicate
-    public function getAllNationalGovNews(){
-        $nationalGovNews = $this->getApiContents("1555.json?offset=1&limit=10");
-        if($nationalGovNews != null){
-            $nationalGovNews = $nationalGovNews['data']['berita_satgas_page'];
+    public function getLocalGovNews($offset=null, $limit=6){
+        if($offset != null){
+            $localGovNews = $this->getApiContents("1556.json?offset=".$offset."&limit=".$limit);
+        }else{
+            $localGovNews = $this->getApiContents("1556.json?offset=null&limit=".$limit);
         }
-        return $nationalGovNews;
-    }
 
-    public function getLocalGovNews(){
-        $localGovNews = $this->getApiContents("1556.json?offset=1&limit=5");
         if($localGovNews != null){
             $localGovNews = $localGovNews['data']['berita_pemda_page'];
         }
@@ -71,8 +62,13 @@ Class NewsRepository implements NewsInterface{
         return $localGovNews;
     }
 
-    public function getGalleryVideos(){
-        $galleryVideos = $this->getApiContents("1523.json?offset=1&limit=5");
+    public function getGalleryVideos($offset=null, $limit=6){
+        if($offset != null){
+            $galleryVideos = $this->getApiContents("1523.json?offset=".$offset."&limit=".$limit);
+        }else{
+            $galleryVideos = $this->getApiContents("1523.json?offset=null&limit=".$limit);
+        }
+
         if($galleryVideos != null){
             $galleryVideos = $galleryVideos['data']['galeri_video'];
         }
@@ -103,8 +99,14 @@ Class NewsRepository implements NewsInterface{
         return $attchmentNews;
     }
 
-    public function searchNews($keyword){
-        $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=null&limit=10");
+    public function searchNews($keyword, $offset=null, $limit=6){
+
+        if($offset == null){
+            $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=null&limit=".$limit);
+        }else{
+            $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=".$offset."&limit=".$limit);
+        }
+
         if($newsItems != null){
             $newsItems = $newsItems['data']['berita_search'];
             if(count($newsItems) == 0){

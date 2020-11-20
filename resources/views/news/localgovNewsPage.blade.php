@@ -79,7 +79,7 @@
             <!--Section Form input-->
             <div class="form-row justify-content-center">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <form action="{!! url('/pencarian')!!}" method="GET">
+                    <form action="{!! url('/pencarianberita')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
                                 <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
@@ -117,7 +117,7 @@
                                     </div>
                                 </div>
                                 <h6> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
-                                    Pemerintah Jawa Barat
+                                    {{$berita_daerah['dibuat_oleh']}}
                                 </h6>
                                 <a href="{!! url('/detailberita?id=')!!}{{$berita_daerah['berita_id']}}" class="deskripsi-galeri1">
                                     <h2>{{ Str::limit($berita_daerah['judul'], 60) }}</h2>
@@ -135,24 +135,45 @@
             </div>
             <div class="row justify-content-center mb-50">
                 <nav class="blog-pagination">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Previous">
-                                <i class="ti-angle-left"></i>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">1</a>
-                        </li>
-                        <li class="page-item active">
-                            <a href="#" class="page-link">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Next">
-                                <i class="ti-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
+                        <ul class="pagination">
+                            @if($page > 1)
+                            <li class="page-item">
+                                <a href="{!! url('/beritadaerah?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            @else
+                            <li class="page-item">
+                                <a href="#" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            @endif
+                            @for($i =1; $i<=$pagination; $i++)
+                                    @if($page == $i)
+                                    <li class="page-item active">
+                                        <a href="{!! url('/beritadaerah?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    </li>
+                                    @else
+                                    <li class="page-item">
+                                        <a href="{!! url('/beritadaerah?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    </li>
+                                    @endif    
+                            @endfor
+                            @if($page == $pagination)
+                            <li class="page-item">
+                                <a href="#" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                            @else
+                            <li class="page-item">
+                                <a href="{!! url('/beritadaerah?page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                            @endif
+                        </ul>
                 </nav>
             </div>
             @else
