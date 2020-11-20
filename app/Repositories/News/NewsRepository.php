@@ -46,14 +46,6 @@ Class NewsRepository implements NewsInterface{
         return $localGovNews;
     }
 
-    public function getAllLocalGovNews(){
-        $localGovNews = $this->getApiContents("1556.json?offset=1&limit=10");
-        if($localGovNews != null){
-            $localGovNews = $localGovNews['data']['berita_pemda_page'];
-        }
-        return $localGovNews;
-    }
-
     public function getLocalGovNewsbyId($id){
         $localGovNews = $this->getApiContents("1561.json?instansi_id?".$id."?offset=1&limit=10");
         if($localGovNews != null){
@@ -93,7 +85,7 @@ Class NewsRepository implements NewsInterface{
             if(count($attchmentNews['data']['lampiran_berita']) < 1){
                 $attchmentNews = null;
             }else{
-                $attchmentNews = $attchmentNews['data']['lampiran_berita'][0];
+                $attchmentNews = $attchmentNews['data']['lampiran_berita'];
             }  
         }
         return $attchmentNews;

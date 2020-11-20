@@ -32,7 +32,7 @@
                                         </li>
                                         <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
-                                        <li><a href="{!! url('/kegiatan') !!}">Kegiatan</a></li>
+                                        <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
                                         <li><a href="#">Galeri</a>
                                         <ul class="submenu">
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
@@ -91,16 +91,15 @@
                                  <img class="card-img" src="{{ $detailNews['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="slide1">
                               </div>
                            </div>
-                           <!-- <div class="carousel-item">
-                              <div class="col-lg-12">
-                                 <img class="card-img" src="{{ URL::asset('img/blog/single_blog_3.png') }}" alt="slide2">
-                              </div>
-                           </div>
-                           <div class="carousel-item">
-                              <div class="col-lg-12">
-                                 <img class="card-img" src="{{ URL::asset('img/blog/single_blog_4.png') }}" alt="slide3">
-                              </div>
-                           </div> -->
+                           @if($attachments != null)
+                                @foreach($attachments as $index => $att)
+                                    <div class="carousel-item">
+                                        <div class="col-lg-12">
+                                            <img class="card-img" src="{{ $att['file'] }}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="slide{{$index}}">
+                                        </div>
+                                    </div>
+                                @endforeach
+                           @endif
                         @else
                            <div class="carousel-item active">
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -129,7 +128,7 @@
                         {{ $detailNews['dibuat_oleh']}}
                         </h3>
                      @else
-                        Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah.
+                        Oops! Mohon Maaf, Silahkan cek koneksi anda atau halaman tidak tersedia atau URL yang Anda inputkan salah.
                      @endif
                      </h2>
                      @if($detailNews != null)
@@ -167,7 +166,7 @@
                             </div>
                             <div class="col">
                                 <div class="section-judul-berita">
-                                <h6><a href="Berita_terbaru.html">Lihat Semua</a></h6>
+                                <h6><a href="{!! url('/beritaterbaru')!!}">Lihat Semua</a></h6>
                                 </div>
                             </div>
                         </div>

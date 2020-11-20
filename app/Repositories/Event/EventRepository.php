@@ -34,6 +34,14 @@ Class EventRepository implements EventInterface{
         return $detailEvent;
     }
 
+    public function getCountEvent(){
+        $eventItems = $this->getApiContents("1572.json");
+        if($eventItems != null){
+            $eventItems = $eventItems['data']['cnt_kegiatan'][0]['cnt'];
+        }
+        return $eventItems;
+    }
+
     public function searchNewsItems($keyword, $offset=null){
         // $newsItems = $this->getApiContents("1532.json?judul=".$keyword."&kata_kunci=".$keyword);
         if($offset == null){

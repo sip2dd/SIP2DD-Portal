@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Event\EventInterface;
 use Share;
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
@@ -33,17 +34,37 @@ class EventController extends Controller
         ]);
     }
 
-    public function allEvent()
+    public function allEvent(Request $request)
     {
         $offset=null;
         $limit = 6;
         $pagination = 1;
         $pages = 1;
+
+        $validator = Validator::make($request->all(), [
+            'page' => 'integer'
+        ]);
+
+        if (!$validator->fails()) {
+            $pages = $request->page;
+            if($pages > 1){
+                $offset = ($pages - 1) * $limit; 
+            } 
+        }else{
+            $pages = 1;
+        }
+
         //$menu = $this->getApiMenu();
         $menu = null;
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
         // $p2dd_info = $this->getApiP2DDInfo();
         $p2dd_info = null;
+
+        $count = $this->eventRepo->getCountEvent();
+
+        if($count > $limit){
+            $pagination = ceil($count / $limit);
+        } 
 
         return view('event.eventPage', [
             'menus' => $menu,

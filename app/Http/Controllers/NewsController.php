@@ -84,10 +84,14 @@ class NewsController extends Controller
         
 
         $detailNews = null;
+        $attachments = null;
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
                 $detailNews = $this->newsRepo->getDetailNews($id);
+                $attachments  = $this->newsRepo->getDetailNewsAttachment($id);
+
+                //dd($attachments);
                 if($detailNews != null){
                     $getSocmed = $this->getSocmed($detailNews['judul']);
                 }else{
@@ -111,7 +115,8 @@ class NewsController extends Controller
         
         
         return view('news.detailNewsPage', [
-            'detailNews' => $detailNews, 
+            'detailNews' => $detailNews,
+            'attachments' => $attachments, 
             'highlights' => $highlights, 
             'govNews' => $govNews,
             'localgovNews' => $localgovNews,

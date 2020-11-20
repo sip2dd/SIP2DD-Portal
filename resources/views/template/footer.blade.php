@@ -8,7 +8,7 @@
                             <div class="single-footer-caption mb-40">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                                    <a href=""><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
                                 </div>
                                 <div id="icon-footer" class="footer-tittle">
                                     <ul>
