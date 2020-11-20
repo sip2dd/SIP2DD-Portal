@@ -7,6 +7,7 @@ use Share;
 use BenSampo\Embed\Services\YouTube;
 use BenSampo\Embed\Rules\EmbeddableUrl;
 use App\Repositories\News\NewsInterface;
+use Illuminate\Support\Facades\Validator;
 
 class NewsController extends Controller
 {
@@ -95,9 +96,39 @@ class NewsController extends Controller
         );
     }
 
-    public function getHighlights(){
-        $highlights = $this->newsRepo->getHighlight(); 
-        return view('news.highlightNewsPage', ['highlights' => $highlights]);
+    public function getHighlights(Request $request){
+        $pages = 1;
+        $offset = null;
+        $pagination = 1;
+        $limit = 6;
+
+        $validator = Validator::make($request->all(), [
+            'page' => 'integer'
+        ]);
+
+        if (!$validator->fails()) {
+            $pages = $request->page;
+            if($pages > 1){
+                $offset = ($pages - 1) * $limit; 
+            } 
+        }else{
+            $pages = 1;
+        }
+
+        $highlights = $this->newsRepo->getHighlight($offset, $limit);
+        $count = $this->newsRepo->getCountHighlight();
+
+      
+        if($count > $limit){
+            $pagination = ceil($count / $limit);
+        } 
+
+        return view('news.highlightNewsPage', [
+            'highlights' => $highlights,
+            'count' => $count,
+            'page' => $pages ?? 1,
+            'pagination' => $pagination,
+            ]);
     }
 
     public function getGovNews(){

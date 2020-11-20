@@ -25,8 +25,8 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li class="active"><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
-                                                <li><a href="{!! url('/faq') !!}">FAQ</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
+                                                <li class="active"><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
                                         </li>
@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    
+
                                     </ul>
                                 </nav>
                             </div>
@@ -118,7 +118,7 @@
                 </div>
             @endif
 
-                
+
             </div>
 
             <div class="row justify-content-center pb-50">

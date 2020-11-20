@@ -4,7 +4,7 @@
 
 @section('menu')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-  
+
     <header>
         <!-- Header Start -->
         <div class="header-area header-transparrent ">
@@ -27,7 +27,7 @@
                                         <li class="active"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -58,7 +58,7 @@
 @endsection
 
 @section('content')
-    <main class="background-utama"> 
+    <main class="background-utama">
         <!-- Area untuk Pencarian TP2DD -->
         <section class="service-area section-padding">
             <div class="container">
@@ -171,8 +171,31 @@
     </main>
 
 
-    
-   
+    <!--Edit Penambahan tombol scroll up-->
+    <!--Tambah Tombol scroll up dan js nya-->
+    <button id="scrollUp" onclick="topFunction()" style="position: fixed; z-index: 2147483647; display: block;"><i
+        class="ti-arrow-up"></i></button>
+<script>
+    var mybutton = document.getElementById("scrollUp");
+
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
 
 @endsection
 

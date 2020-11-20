@@ -7812,6 +7812,10 @@ h6.deskripsi {
 .blog_area a :hover {
     text-decoration: underline;
 }
+.detail_page a:hover,
+.detail_page a :hover {
+    text-decoration: underline;
+}
 
 .section-judul-berita1 h6 {
     color: #00ABE9;
@@ -7908,7 +7912,7 @@ img.image {
     height: 80px;
     border-radius: 5px;
     object-fit: cover;
-    object-position: 100% 0%;
+    object-position: 50% 0%;
 }
 
 
@@ -8720,7 +8724,7 @@ span.select2-container--focus {
 .panel-group .panel {
     border-radius: 10px;
     box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
+    background-color: #fafafa;
     margin: 0px 10px;
     margin-bottom: 20px;
 }
@@ -8728,7 +8732,7 @@ span.select2-container--focus {
 .panel-default>.panel-heading {
     border-radius: 10px;
     color: #212121;
-    background-color: #fafafa;
+    background-color: #fff;
 }
 
 .panel-title {

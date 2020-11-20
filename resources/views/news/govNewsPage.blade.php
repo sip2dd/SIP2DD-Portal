@@ -102,7 +102,7 @@
             <!--Berita Terbaru-->
             @if($govNews != null)
                 <div class="row">
-                
+
                 @foreach($govNews as $berita_satgas)
                     <div class="col-lg-4 col-md-6">
                         <article class="blog_item">
@@ -116,12 +116,12 @@
                                         <p>{{tanggal_indonesia($berita_satgas['tanggal_publikasi'])}}</p>
                                     </div>
                                 </div>
-                                <a href="{!! url('/detailberita?id=')!!}{{$berita_satgas['berita_id']}}" class="deskripsi-galeri1">
-                                    <h2>{{ Str::limit($berita_satgas['judul'], 60) }}</h2>
-                                </a>
                                 <h6> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
                                     Pemerintah Jawa Barat
                                 </h6>
+                                <a href="{!! url('/detailberita?id=')!!}{{$berita_satgas['berita_id']}}" class="deskripsi-galeri1">
+                                    <h2>{{ Str::limit($berita_satgas['judul'], 60) }}</h2>
+                                </a>
                                 <div class="row">
                                     <div class="col daftar_berita_link">
                                         <a href="{!! url('/detailberita?id=')!!}{{$berita_satgas['berita_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
@@ -131,7 +131,7 @@
                         </article>
                     </div>
                 @endforeach
-                
+
                 </div>
                 <div class="row justify-content-center mb-50">
                     <nav class="blog-pagination">

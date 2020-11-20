@@ -25,7 +25,7 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    
+
                                     </ul>
                                 </nav>
                             </div>
@@ -88,7 +88,7 @@
                 @if($keyword != "")
                 <div class="row">
                     <div class="col-lg-12 col-md-6 ket-jumlah-cari">
-                    <p>Hasil pencarian <strong>"{{$keyword}}"</strong>, {{$count}} hasil ditemukan</p>    
+                    <p>Hasil pencarian <strong>"{{$keyword}}"</strong>, {{$count}} hasil ditemukan</p>
                     <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
                     </div>
                 </div>
@@ -162,7 +162,7 @@
                                     <a href="{!! url('/pencarian?keyword='.$title.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                 </li>
                                 @endif
-                            
+
                             @endfor
                             <li class="page-item">
                                 <a href="{!! url('/pencarian?keyword='.$title.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">

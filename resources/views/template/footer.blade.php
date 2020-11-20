@@ -1,6 +1,6 @@
 <footer>
         <!-- Footer Start-->
-        <div class="footer-main">
+        <div class="footer-main pt-4">
             <div class="footer-area section-padd-footer">
                 <div class="container">
                     <div class="row  justify-content-between">
@@ -8,7 +8,7 @@
                             <div class="single-footer-caption mb-40">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="assets/img/logo/log.png" alt=""></a>
+                                    <a href="index.html"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
                                 </div>
                                 <div id="icon-footer" class="footer-tittle">
                                     <ul>
@@ -142,13 +142,22 @@
         <!-- Footer End-->
 
     </footer>
-   
+
     <script src="{{ URL::asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script>
+        $('#tahunRegulasi').each(function () {
+            var currentYear = new Date().getFullYear()
+            var oldyears = 1999;
+            for (i = currentYear; i >= oldyears; i--) {
+                $(this).append('<option value="' + (i) + '">' + (i) + '</option>');
+            }
+        });
+    </script>
 
     <script src="{{ URL::asset('datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('datatables/dataTables.bootstrap4.min.js') }}"></script>
 
-  
+
 
     <script>
         $(document).ready(function () {
@@ -225,7 +234,7 @@
             placeholder: "Pilih Provinsi"
         });
     </script>
-    
+
     <script src="{{ URL::asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
 
     <script>
@@ -331,7 +340,7 @@
 
     <!-- Scrollup, nice-select, sticky -->
     <script src="{{ URL::asset('js/jquery.scrollUp.min.js') }}"></script>
-    <script src="{{ URL::asset('js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery.nice-select.js') }}"></script>
     <script src="{{ URL::asset('js/jquery.sticky.js') }}"></script>
 
     <!-- contact js -->

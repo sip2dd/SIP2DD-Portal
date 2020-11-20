@@ -25,7 +25,7 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -45,7 +45,7 @@
                                         @endforeach
 
 
-                                    
+
                                     </ul>
                                 </nav>
                             </div>
@@ -299,7 +299,7 @@
                                                     <img src="{{ $newsItem['gambar_utama'] }}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                                 </div>
                                                 <div class="what-cap">
-                                                    
+
                                                     <h6>{{ tanggal_indonesia($newsItem['tanggal_publikasi']) }}</h6>
                                                     <!--Edit Penambahan nama instansi-->
                                                     <h6 class="cap_deskripsi"><img
@@ -464,7 +464,7 @@
                                                     <img class="card-img" src="{{$galleryNewsItem['file']}}" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                                 @else
                                                     <img class="card-img" src="{{$galleryNewsItem['link']}}" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
-                                                @endif 
+                                                @endif
                                             </div>
                                             <div class="what-cap">
                                                 <h6>{{ tanggal_indonesia($galleryNewsItem['tgl_dibuat']) }}</h6>
@@ -490,8 +490,8 @@
                                                     <img class="card-img" src="{{$galleryNewsItem['file']}}" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                                 @else
                                                     <img class="card-img" src="{{$galleryNewsItem['link']}}" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
-                                                @endif 
-                                                
+                                                @endif
+
                                             </div>
                                             <div class="what-cap">
                                                 <h6>{{ tanggal_indonesia($galleryNewsItem['tgl_dibuat']) }}</h6>
@@ -499,10 +499,10 @@
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
                                                         alt="logo">{{ $galleryNewsItem['dibuat_oleh'] }}
                                                 </h6>
-                                                <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">{{ Str::limit($galleryNewsItem['judul'], 60) }}</a></h4>
+                                                <h4><a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryNewsItem['galeri_id']}}">{{ Str::limit($galleryNewsItem['judul'], 60) }}</a></h4>
                                             </div>
                                             <div class="tulisan-lengkapnya">
-                                                <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
+                                                <a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
                                                         class="fas fa-chevron-right mr-2"></span></a>
                                             </div>
                                         </div>
@@ -533,14 +533,14 @@
                         @endif
                     </div>
                     <div class="row mt-5 mb-5">
-                        <a href="{!! url('/galerivideo') !!}" class="btn radius-btn"
+                        <a href="{!! url('/galerifoto') !!}" class="btn radius-btn"
                             style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
                     </div>
                 </div>
             </div>
         </div>
         <!--Galeri Foto End-->
-    </main>    
+    </main>
 @endsection
 
 

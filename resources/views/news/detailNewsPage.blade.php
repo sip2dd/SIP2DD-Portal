@@ -76,7 +76,7 @@
    </div>
    <!-- navigation link End-->
    <!--================Blog Area =================-->
-   <section class="blog_area single-post-area">
+   <section class="detail_page single-post-area background_1">
       <div class="container">
          <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12 posts-list pl-0 pr-0" style="padding-top: 10px; padding-bottom: 50px;">
@@ -125,11 +125,11 @@
                      <h2>
                      @if($detailNews != null)
                         {{ $detailNews['judul']}}
-                        <h3> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
+                        <h3> <img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
                         {{ $detailNews['dibuat_oleh']}}
                         </h3>
                      @else
-                        Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah. 
+                        Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah.
                      @endif
                      </h2>
                      @if($detailNews != null)
@@ -142,7 +142,7 @@
                   <div class="d-sm-flex justify-content-between text-center">
                      <ul class="blog-info-link">
                         <li><i class="fa fa-user"></i> @if($detailNews != null){{ $detailNews['dibuat_oleh']}} @endif</li>
-                        <li><i class="fa fa-clock"></i>@if($detailNews != null){{tanggal_indonesia( $detailNews['tanggal_publikasi'])}} @endif</li>
+                        <li><i class="fa fa-clock"></i>@if($detailNews != null){{tanggal_indonesia( $detailNews['tanggal_publikasi'],false)}} @endif</li>
                      </ul>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -172,13 +172,13 @@
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
-                        @if($govNews != null)    
+                        @if($govNews != null)
                             @foreach($govNews as $govNewsItem)
                             <div class="media post_item">
                                 <div class="col-lg-4 col-4 pl-0 pr-0">
                                     <img class="image" src="{{$govNewsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                                 </div>
-                                <div class="col-lg-8 col-8">
+                                <div class="col-lg-8 col-8 pr-0">
                                     <div class="media-body">
                                         <a href="{!! url('/detailberita?id=')!!}{{$govNewsItem['berita_id']}}">
                                             <h3>{{ Str::limit($govNewsItem['judul'], 60) }}</h3>
@@ -211,13 +211,13 @@
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
-                        @if($govNews != null)    
+                        @if($govNews != null)
                             @foreach($govNews as $govNewsItem)
                             <div class="media post_item">
                                 <div class="col-lg-4 col-4 pl-0 pr-0">
                                     <img class="image" src="{{$govNewsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                                 </div>
-                                <div class="col-lg-8 col-8">
+                                <div class="col-lg-8 col-8 pr-0">
                                     <div class="media-body">
                                         <a href="{!! url('/detailberita?id=')!!}{{$govNewsItem['berita_id']}}">
                                             <h3>{{ Str::limit($govNewsItem['judul'], 60) }}</h3>
@@ -250,13 +250,13 @@
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
-                        @if($localgovNews != null)    
+                        @if($localgovNews != null)
                             @foreach($localgovNews as $localgovNewsItem)
                             <div class="media post_item">
                                 <div class="col-lg-4 col-4 pl-0 pr-0">
                                     <img class="image" src="{{$localgovNewsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                                 </div>
-                                <div class="col-lg-8 col-8">
+                                <div class="col-lg-8 col-8 pr-0">
                                     <div class="media-body">
                                         <a href="{!! url('/detailberita?id=')!!}{{$localgovNewsItem['berita_id']}}">
                                             <h3>{{ Str::limit($localgovNewsItem['judul'], 60) }}</h3>
@@ -275,7 +275,7 @@
                         @else
                             <div class="media post_item">Belum ada Data</div>
                         @endif
-                           
+
                         </aside>
                     </div>
                 </div>

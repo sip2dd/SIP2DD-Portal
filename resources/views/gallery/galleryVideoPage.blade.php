@@ -36,7 +36,7 @@
                                             <li class="active"><a href="#">Galeri</a>
                                             <ul class="submenu">
                                                 <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
-                                                <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                                <li class="active"><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                             </ul>
                                         </li>
                                         </ul>
@@ -95,7 +95,7 @@
             <div class="row">
             @foreach($galleryVideos as $galleryVideo)
                 <div class="col-lg-4 col-md-6">
-                    
+
                         <article class="blog_item">
                             <div class="blog_item_img">
                             @if($galleryVideo['tipe'] == "Youtube")
@@ -112,14 +112,14 @@
                                         <p>{{tanggal_indonesia($galleryVideo['tgl_dibuat'])}}</p>
                                     </div>
                                 </div>
+                                <h6 style="color: #606060;">
+                                <img
+                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
+                                {{$galleryVideo['dibuat_oleh']}}
+                                </h6>
                                 <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryVideo['galeri_id']}}" class="deskripsi-galeri1">
                                     <h2>{{ Str::limit($galleryVideo['judul'], 60) }}</h2>
                                 </a>
-                                <h6 style="color: #00ABE9;"> 
-                                                        <img
-                                                            src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
-                                                       {{$galleryVideo['dibuat_oleh']}}
-                                                        </h6>
                                 <div class="row">
                                     <div class="col daftar_berita_link">
                                         <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryVideo['galeri_id']}}">Selengkapnya <i class="fas fa-chevron-right"></i></a>
@@ -127,7 +127,7 @@
                                 </div>
                             </div>
                         </article>
-                    
+
                 </div>
             @endforeach
             </div>

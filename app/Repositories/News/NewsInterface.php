@@ -3,7 +3,7 @@
 namespace App\Repositories\News;
 
 interface NewsInterface{
-    public function getHighlight();
+    public function getHighlight($offset, $limit);
     public function getAllHighlight();
     public function getNationalGovNews();
     public function getAllNationalGovNews();

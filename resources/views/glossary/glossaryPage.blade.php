@@ -27,7 +27,7 @@
                                             <ul class="submenu">
                                                 <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
-                                                <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
+                                                <li class="active"><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    
+
                                     </ul>
                                 </nav>
                             </div>
@@ -91,7 +91,7 @@
                                 </tr>
                                 @endforeach
                             @endif
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -101,5 +101,5 @@
         <!-- Akhir area TP2DD -->
     </main>
 
-    
+
 @endsection

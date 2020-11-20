@@ -64,9 +64,9 @@
                <li class="breadcrumb-item"><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                <li class="breadcrumb-item active"><a href="">
                   @if($detailGalleryPhoto != null)
-                     {{$detailGalleryPhoto['judul']}} 
-                  @else 
-                     404 : Tidak ditemukan 
+                     {{$detailGalleryPhoto['judul']}}
+                  @else
+                     404 : Tidak ditemukan
                   @endif</a>
                </li>
             </ol>
@@ -75,7 +75,7 @@
    </div>
    <!-- navigation link End-->
    <!--================Blog Area =================-->
-   <section class="blog_area single-post-area background_2"> 
+   <section class="detail_page single-post-area background_2">
       <div class="container">
          <div class="row">
             <div class="col-lg-8 mb-30">
@@ -83,10 +83,10 @@
                   <div class="blogs">
                      <div class="blogs_details">
                      @if($detailGalleryPhoto != null)
-                        <h2>{{$detailGalleryPhoto['judul']}}</h2> 
+                        <h2>{{$detailGalleryPhoto['judul']}}</h2>
                         <h3><img class="logo_gov" src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">{{$detailGalleryPhoto['dibuat_oleh']}}</h3>
-                     @else 
-                        404 : Tidak ditemukan 
+                     @else
+                        404 : Tidak ditemukan
                      @endif</a>
                      </div>
                      <div class="row blogs-item">
@@ -114,7 +114,7 @@
                                 @if($detailGalleryPhoto != null)
                                 <p>{{$detailGalleryPhoto['judul']}} </p>
                                  @endif
-                                 
+
                               </div>
                               <div class="nav-overlay">
                                  <a href="#gambar4" class="sebelumnya">
@@ -167,7 +167,7 @@
                         <ul class="blog-info-link">
                            @if($detailGalleryPhoto != null)
                               <li><i class="fa fa-user"></i> {{$detailGalleryPhoto['dibuat_oleh']}}</li>
-                              <li><i class="fa fa-clock"></i>{{tanggal_indonesia($detailGalleryPhoto['tgl_dibuat'])}}</li>
+                              <li><i class="fa fa-clock"></i>{{tanggal_indonesia($detailGalleryPhoto['tgl_dibuat'],false)}}</li>
                            @endif
                         </ul>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
@@ -201,20 +201,20 @@
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
-                     
-                        @if($galleryPhotos != null)    
+
+                        @if($galleryPhotos != null)
                             @foreach($galleryPhotos as $photoItem)
                             <div class="media post_item">
                                 <div class="col-lg-4 col-4 pl-0 pr-0">
                                     <img class="image" src="{{$photoItem['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                                 </div>
-                                <div class="col-lg-8 col-8">
+                                <div class="col-lg-8 col-8 pr-0">
                                     <div class="media-body">
                                         <a href="{!! url('/detailgalerifoto?id=')!!}{{$photoItem['galeri_id']}}">
                                             <h3>{{ Str::limit($photoItem['judul'], 50) }}</h3>
                                         </a>
                                         <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
-                                             src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"
+                                             src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
                                              style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
                                              {{$photoItem['dibuat_oleh']}}
                                        </p>
@@ -226,7 +226,7 @@
                         @else
                             <div class="media post_item">Belum ada Data</div>
                         @endif
-                     
+
                   </aside>
                </div>
             </div>

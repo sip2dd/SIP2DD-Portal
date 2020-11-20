@@ -25,7 +25,7 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    
+
                                     </ul>
                                 </nav>
                             </div>
@@ -93,6 +93,18 @@
             </div>
         </div>
         @endforeach
+    @else
+    <div class="section-padd4 sky-blue">
+        <div class="container nav-bread mt-30">
+            <nav>
+                <ol class="breadcrumb pl-0 sky-blue">
+                    <!-- <li class="breadcrumb-item"><a href="Berita.html">Kegiatan</a></li>
+                    <li class="breadcrumb-item active"><a href="#">List Webinar</a>
+                    </li> -->
+                </ol>
+            </nav>
+        </div>
+    </div>
     @endif
     <!--Galeri Foto Start-->
     <div class="our-customer section-paddingr pt-50 background_2">
@@ -108,7 +120,7 @@
                 @if($eventItems != null)
                 <div class="row mx-auto my-auto">
                     <div id="galerifotoCarousel" class="carousel slide w-100" data-ride="carousel">
-                    
+
                         <div class="carousel-inner w-100" role="listbox">
                         @foreach($eventItems as $index => $item)
                             @if ($index == 0)
@@ -173,7 +185,7 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                    
+
                 </div>
                 <div class="row mt-5 mb-5">
                     <a href="{!! url('kegiatan') !!}" class="btn radius-btn"
@@ -192,6 +204,6 @@
     </div>
     <!--Galeri Foto End-->
 
-    
+
 @endsection
 

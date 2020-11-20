@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    
+
                                     </ul>
                                 </nav>
                             </div>
@@ -61,7 +61,7 @@
       <div class="container nav-bread mt-30">
          <nav>
             <ol class="breadcrumb pl-0 pr-0 sky-blue">
-               <li class="breadcrumb-item"><a href="Edukasi.html">Edukasi</a></li>
+               <li class="breadcrumb-item"><a href="#">Edukasi</a></li>
                <li class="breadcrumb-item active"><a href="#">Pembayaran online pajak di Provinsi Jawa Barat</a>
                </li>
             </ol>
@@ -80,7 +80,9 @@
                      <div class="blogs_details">
                         <h2>Edukasi Terkait Pembayaran Online Pajak diProvinsi Jawa Barat
                         </h2>
-                        <h3><i class="fa fa-map-marker-alt" style="margin-right:.7rem;"></i>Pemerintah Jawa Barat</h3>
+                        <h3> <img class="logo_gov" src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
+                            Pemerintah Jawa Barat
+                            </h3>
                         <p class="desk_edukasi">
                            Tutorial aplikasi elektronifikasi pemerintah daerah Provinsi Jawa Barat terkait pembayaran
                            pajak secara online melalui aplikasi Samsat J’bret. Aplikasi tersebut digunakan untuk
@@ -88,7 +90,7 @@
                            melakukan transaksi.
                         </p>
                         <div class="materi_edukasi">
-                           <p>Materi Tutorial :</p>
+                           <p>Materi :</p>
                            <a href="#" class="btn btn_materi_edukasi"><i class="fa fa-file-pdf"
                                  style="margin-right: .5em;"></i> Unduh
                               Disini</a>
@@ -130,16 +132,18 @@
                            <img class="image" src="assets/img/post/post_4.png" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                         </div>
                         <!--Edit penambahana kelas samping berita-->
-                        <div class="col-lg-8 col-8 samping_berita">
+                        <div class="col-lg-8 col-8 pr-0">
                            <div class="media-body">
                               <a href="#">
                                  <h3>Elektronfikasi Transaksi..</h3>
                               </a>
                               <!--Edit penambahan nama pemda-->
-                              <p style="color: #606060; font-weight: 300; font-size: 12px;"><i
-                                    class="fa fa-map-marker-alt" style="margin-right: .2rem;"></i>Pemerintah
-                                 Jawa Barat
-                              </p>
+                              <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
+                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                            Pemerintah
+                            Jawa Barat
+                        </p>
                               <p>01 Oktober 2020</p>
                            </div>
                         </div>
@@ -148,15 +152,17 @@
                         <div class="col-lg-4 col-4 pl-0 pr-0">
                            <img class="image" src="assets/img/post/post_4.png" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                         </div>
-                        <div class="col-lg-8 col-8 samping_berita">
+                        <div class="col-lg-8 col-8 pr-0">
                            <div class="media-body">
                               <a href="#">
                                  <h3>Elektronfikasi Transaksi..</h3>
                               </a>
-                              <p style="color: #606060; font-weight: 300; font-size: 12px;"><i
-                                    class="fa fa-map-marker-alt" style="margin-right: .2rem;"></i>Pemerintah
-                                 Jawa Barat
-                              </p>
+                              <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
+                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                            Pemerintah
+                            Jawa Barat
+                        </p>
                               <p>01 Oktober 2020</p>
                            </div>
                         </div>
@@ -165,15 +171,17 @@
                         <div class="col-lg-4 col-4 pl-0 pr-0">
                            <img class="image" src="assets/img/post/post_4.png" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                         </div>
-                        <div class="col-lg-8 col-8 samping_berita">
+                        <div class="col-lg-8 col-8 pr-0">
                            <div class="media-body">
                               <a href="#">
                                  <h3>Elektronfikasi Transaksi..</h3>
                               </a>
-                              <p style="color: #606060; font-weight: 300; font-size: 12px;"><i
-                                    class="fa fa-map-marker-alt" style="margin-right: .2rem;"></i>Pemerintah
-                                 Jawa Barat
-                              </p>
+                              <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
+                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                            Pemerintah
+                            Jawa Barat
+                        </p>
                               <p>01 Oktober 2020</p>
                            </div>
                         </div>
@@ -182,15 +190,17 @@
                         <div class="col-lg-4 col-4 pl-0 pr-0">
                            <img class="image" src="assets/img/post/post_4.png" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                         </div>
-                        <div class="col-lg-8 col-8 samping_berita">
+                        <div class="col-lg-8 col-8 pr-0">
                            <div class="media-body">
                               <a href="#">
                                  <h3>Elektronfikasi Transaksi..</h3>
                               </a>
-                              <p style="color: #606060; font-weight: 300; font-size: 12px;"><i
-                                    class="fa fa-map-marker-alt" style="margin-right: .2rem;"></i>Pemerintah
-                                 Jawa Barat
-                              </p>
+                              <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
+                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                            Pemerintah
+                            Jawa Barat
+                        </p>
                               <p>01 Oktober 2020</p>
                            </div>
                         </div>
@@ -199,15 +209,17 @@
                         <div class="col-lg-4 col-4 pl-0 pr-0">
                            <img class="image" src="assets/img/post/post_4.png" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                         </div>
-                        <div class="col-lg-8 col-8 samping_berita">
+                        <div class="col-lg-8 col-8 pr-0">
                            <div class="media-body">
                               <a href="#">
                                  <h3>Elektronfikasi Transaksi..</h3>
                               </a>
-                              <p style="color: #606060; font-weight: 300; font-size: 12px;"><i
-                                    class="fa fa-map-marker-alt" style="margin-right: .2rem;"></i>Pemerintah
-                                 Jawa Barat
-                              </p>
+                              <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
+                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
+                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
+                            Pemerintah
+                            Jawa Barat
+                        </p>
                               <p>01 Oktober 2020</p>
                            </div>
                         </div>

@@ -25,7 +25,7 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    
+
                                     </ul>
                                 </nav>
                             </div>
@@ -97,7 +97,7 @@
                                     <!--Edit judul dan perubahan tag menjadi input-->
                                     <label for="tentangRegulasi" class="label_inputan">Tentang</label>
                                     <input class="search_inputan" id="tentangRegulasi" type="text"
-                                        placeholder="Cari.."></input>
+                                        placeholder="Cari..">
                                 </div>
                             </div>
                         </div>
@@ -141,7 +141,7 @@
                     </div>
                     @endforeach
                 @endif
-                    
+
                 </div>
                 <!--Bagian Pagination-->
                 <div class="row justify-content-center">
@@ -199,20 +199,7 @@
         @endif
     </main>
 
-
-    
-
-    <script>
-        $('#tahunRegulasi').each(function () {
-            var currentYear = new Date().getFullYear()
-            var oldyears = 1999;
-            for (i = oldyears; i <= currentYear; i++) {
-                $(this).append('<option value="' + (i) + '">' + (i) + '</option>');
-            }
-        });
-    </script>
-
-     <!--Edit Penambahan tombol scroll up-->
+    <!--Edit Penambahan tombol scroll up-->
     <!--Tambah Tombol scroll up dan js nya-->
     <button id="scrollUp" onclick="topFunction()" style="position: fixed; z-index: 2147483647; display: block;"><i
             class="ti-arrow-up"></i></button>
@@ -238,5 +225,5 @@
     </script>
 
 
-    
+
  @endsection

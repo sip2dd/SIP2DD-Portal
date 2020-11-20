@@ -65,9 +65,9 @@
                <li class="breadcrumb-item"><a href="{!! url('/galerivideo') !!}">Galeri</a></li>
                <li class="breadcrumb-item active"><a href="">
                   @if($detailGalleryVideo != null)
-                     {{$detailGalleryVideo['judul']}} 
-                  @else 
-                     404 : Tidak ditemukan 
+                     {{$detailGalleryVideo['judul']}}
+                  @else
+                     404 : Tidak ditemukan
                   @endif</a>
                </li>
             </ol>
@@ -76,7 +76,7 @@
    </div>
    <!-- navigation link End-->
    <!--================Blog Area =================-->
-   <section class="blog_area single-post-area background_2">
+   <section class="detail_page single-post-area background_3">
       <div class="container">
          <div class="row">
             <div class="col-lg-8 mb-30">
@@ -92,14 +92,14 @@
                            @if(array_key_exists(1, $match))
                            <div class="col-lg-12">
                            {!! $detailGalleryVideo['link'] !!}
-                           </div>    
+                           </div>
                            @else
                               <video controls>
                                  <source src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{ $detailGalleryVideo['file'] }}">
                                  Your browser does not support the video tag.
                               </video>
                            @endif
-                           
+
                         @endif
                      @else
                            <div class="carousel-item active">
@@ -114,7 +114,7 @@
                            <h3><img class="logo_gov" src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">{{$detailGalleryVideo['dibuat_oleh']}}</h3>
                            <h2>{{$detailGalleryVideo['judul']}}</h2>
                         @else
-                           Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah. 
+                           Oops! Mohon Maaf, halaman tidak tersedia atau URL yang Anda inputkan salah.
                         @endif
                         </h2>
                      </div>
@@ -125,9 +125,9 @@
                         <ul class="blog-info-link">
                            @if($detailGalleryVideo != null)
                               <li><i class="fa fa-user"></i> {{$detailGalleryVideo['dibuat_oleh']}}</li>
-                              <li><i class="fa fa-clock"></i>{{tanggal_indonesia($detailGalleryVideo['tgl_dibuat'])}}</li>
+                              <li><i class="fa fa-clock"></i>{{tanggal_indonesia($detailGalleryVideo['tgl_dibuat'],false)}}</li>
                            @endif
-                           
+
                         </ul>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -158,24 +158,24 @@
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
-                        @if($galleryVideos != null)    
+                        @if($galleryVideos != null)
                             @foreach($galleryVideos as $videoItem)
                             <div class="media post_item">
                                 <div class="col-lg-4 col-4 pl-0 pr-0">
                                     @if($videoItem['tipe'] == "Youtube")
-                                       <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($videoItem['link']) }}/mqdefault.jpg"
+                                       <img class="image" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($videoItem['link']) }}/mqdefault.jpg"
                                                                            alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                     @else
-                                       <img class="card-img" src="" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                       <img class="image" src="" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                     @endif
                                  </div>
-                                <div class="col-lg-8 col-8">
+                                <div class="col-lg-8 col-8 pr-0">
                                     <div class="media-body">
                                         <a href="{!! url('/detailgalerivideo?id=')!!}{{$videoItem['galeri_id']}}">
                                             <h3>{{ Str::limit($videoItem['judul'], 60) }}</h3>
                                         </a>
                                         <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
-                                             src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"
+                                             src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
                                              style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
                                              {{$videoItem['dibuat_oleh']}}
                                        </p>
