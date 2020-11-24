@@ -84,7 +84,7 @@
                     @if($govDetail != null)
                         <h2>{{$govDetail['nama']}}</h2>
                     @endif
-                    
+
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                         @if($govDetail != null)
                             <img class src="{{$govDetail['logo']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'" alt="">
                         @endif
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-6 visi_misi">
@@ -161,7 +161,7 @@
                             <div class="carousel-inner w-100" role="listbox">
                             @if($govNewsHighlights != null)
                                 @foreach($govNewsHighlights as $index => $govNewsHighlight)
-                                    @if ($index == 0) 
+                                    @if ($index == 0)
                                         <div class="carousel-item active">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
                                                 <article class="blog_item">
@@ -235,7 +235,7 @@
                                                     </div>
                                                     <div class="col">
                                                         <div class="lengkapnya_1">
-                                                           
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -277,12 +277,12 @@
                                 @if($govDetail != null)
                                 <h6><a href="{!! url('/beritatp2dd?id=')!!}{{$govDetail['unit_profile_id']}}">Lihat Semua</a></h6>
                                 @endif
-                                    
+
                                 </div>
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
-                            @if($govNews != null)    
+                            @if($govNews != null)
                                 @foreach($govNews as $govNewsItem)
                                 <div class="media post_item">
                                     <div class="col-lg-4 col-4 pl-0 pr-0">
@@ -370,7 +370,7 @@
         </div>
     </section>
     <!--Galeri Foto Start-->
-    <div id="galerifoto_section" class="our-customer section-paddingr pt-0 edukasi-section">
+    <div id="galerifoto_section" class="our-customer pb-40 pt-0 edukasi-section">
         <div class="container-fluid">
             <div class="our-customer-wrapper">
                 <div class="row d-flex justify-content-center">
@@ -468,5 +468,5 @@
         </div>
     </div>
     <!--Galeri Foto End-->
-    <!-- Slider Area End--> 
+    <!-- Slider Area End-->
 @endsection

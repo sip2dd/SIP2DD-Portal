@@ -98,7 +98,7 @@
     </div>
     <!-- Slider Area End-->
     <!--================Berita Terbaru =================-->
-    <section class="blog_area pt-10 mb-30">
+    <section class="blog_area pt-10 background_3">
         <div class="container">
             <!--Berita Terbaru-->
             @if($eventItems != null)

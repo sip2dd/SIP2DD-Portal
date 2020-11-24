@@ -367,7 +367,7 @@
                                             <div class="what-cap">
                                                 <h6>{{ tanggal_indonesia($eduNewsItem['tgl_dibuat']) }}</h6>
                                                 <!--Edit penmabahan instansi-->
-                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov2_grey.svg') }}"
+                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
                                                         alt="logo">{{ $eduNewsItem['dibuat_oleh'] }}
                                                 </h6>
                                                 <h4><a href="">{{ Str::limit($eduNewsItem['judul'], 70) }}</a></h4>
@@ -389,7 +389,7 @@
                                             <div class="what-cap">
                                                 <h6>{{ tanggal_indonesia($eduNewsItem['tanggal_publikasi']) }}</h6>
                                                 <!--Edit penmabahan instansi-->
-                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov2_grey.svg') }}"
+                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
                                                         alt="logo">{{ $eduNewsItem['dibuat_oleh'] }}
                                                 </h6>
                                                 <h4><a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">{{ Str::limit($eduNewsItem['judul'], 70) }}</a></h4>
@@ -434,7 +434,7 @@
         </div>
         <!--Edukasi End-->
         <!--Galeri Foto Start-->
-        <div id="galerifoto_section" class="our-customer section-paddingr edukasi-section">
+        <div id="galerifoto_section" class="our-customer pb-30 edukasi-section">
             <div class="container">
                 <div class="our-customer-wrapper">
                     <div class="row d-flex justify-content-center">

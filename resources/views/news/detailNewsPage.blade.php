@@ -76,7 +76,7 @@
    </div>
    <!-- navigation link End-->
    <!--================Blog Area =================-->
-   <section class="detail_page single-post-area background_1">
+   <section class="detail_page single-post-area mb-30 background_1">
       <div class="container">
          <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12 posts-list pl-0 pr-0" style="padding-top: 10px; padding-bottom: 50px;">

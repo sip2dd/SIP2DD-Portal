@@ -81,7 +81,7 @@
                         @if($govDetail != null)
                         <h2>{{$govDetail['profile']}}</h2>
                         @endif
-                        
+
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
     </div>
     <!-- Slider Area End-->
     <!--================Berita Terbaru =================-->
-    <section class="blog_area pt-10 mb-30">
+    <section class="blog_area pt-10">
         <div class="container">
             <!--Berita Terbaru-->
             @if($govNews != null)
@@ -141,9 +141,9 @@
                     </article>
                 </div>
                 @endforeach
-               
+
             </div>
-            <div class="row justify-content-center mb-50">
+            <div class="row justify-content-center mb-30">
                 <nav class="blog-pagination">
                     <ul class="pagination">
                             @if($page > 1)
@@ -187,7 +187,7 @@
                 </nav>
             </div>
             @else
-                <div class="row justify-content-center mb-50">
+                <div class="row justify-content-center mb-30">
                     Belum ada Data
                 </div>
             @endif

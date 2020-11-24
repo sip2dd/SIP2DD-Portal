@@ -88,7 +88,7 @@
     </div>
     <!-- Slider Area End-->
     <!--================Galeri=================-->
-    <section class="blog_area pt-10 mb-10 background_3">
+    <section class="blog_area pt-10 background_3">
         <div class="container">
             <!--Galeri-->
             @if($galleryVideos != null)

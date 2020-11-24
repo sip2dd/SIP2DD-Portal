@@ -144,7 +144,7 @@
                     @endforeach
                 </div>
                 <!--Bagian Pagination-->
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mb-30">
                     <nav class="blog-pagination">
                         <ul class="pagination">
                             @if($page > 1)
@@ -169,7 +169,7 @@
                                     <li class="page-item">
                                         <a href="{!! url('/pencarian?keyword='.$keyword.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
-                                    @endif    
+                                    @endif
                             @endfor
                             @if($page == $pagination)
                             <li class="page-item">

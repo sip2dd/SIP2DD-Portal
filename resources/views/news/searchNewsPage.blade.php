@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    
+
                                     </ul>
                                 </nav>
                             </div>
@@ -89,7 +89,7 @@
                 @if($keyword != "")
                 <div class="row">
                     <div class="col-lg-12 col-md-6 ket-jumlah-cari">
-                    <p>Hasil pencarian <strong>"{{$keyword}}"</strong>, {{$count}} hasil ditemukan</p>    
+                    <p>Hasil pencarian <strong>"{{$keyword}}"</strong>, {{$count}} hasil ditemukan</p>
                     <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                     @endforeach
                 </div>
                 <!--Bagian Pagination-->
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mb-30">
                     <nav class="blog-pagination">
                         <ul class="pagination">
                             @if($page > 1)
@@ -147,7 +147,7 @@
                                     <li class="page-item">
                                         <a href="{!! url('/pencarianberita?&keyword='.$keyword.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
-                                    @endif    
+                                    @endif
                             @endfor
                             @if($page == $pagination)
                             <li class="page-item">

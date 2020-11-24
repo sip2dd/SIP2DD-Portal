@@ -107,7 +107,7 @@
     </div>
     @endif
     <!--Galeri Foto Start-->
-    <div class="our-customer pb-30 section-paddingr pt-50 background_2">
+    <div class="our-customer pb-30 pt-50 background_3">
         <div class="container">
             <div class="our-customer-wrapper">
                 <div class="row d-flex justify-content-center">

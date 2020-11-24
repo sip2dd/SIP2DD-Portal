@@ -25,7 +25,7 @@
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li class="active"><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Edukasi Artikel</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
                                                 <li><a href="{!! url('/faq') !!}">FAQ</a></li>
                                                 <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
@@ -78,7 +78,7 @@
    </div>
    <!-- navigation link End-->
    <!--================Blog Area =================-->
-   <section class="detail_page single-post-area background_2">
+   <section class="detail_page single-post-area background_3 mb-30">
       <div class="container">
          <div class="row">
             <div class="col-lg-8 mb-30">

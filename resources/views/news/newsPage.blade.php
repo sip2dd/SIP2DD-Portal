@@ -89,7 +89,7 @@
     </div>
     <!-- Slider Area End-->
     <!--================Berita Area =================-->
-    <section class="detail_page background_1">
+    <section class="detail_page mb-30 background_1">
         <div class="container">
             <!--Berita Terbaru-->
             <div class="row">

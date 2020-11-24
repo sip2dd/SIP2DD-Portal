@@ -3493,7 +3493,7 @@ hr {
 }
 
 .blog-pagination {
-    margin-top: 80px;
+    margin-top: 30px;
 }
 
 .blog-pagination .page-link {
@@ -6231,9 +6231,10 @@ z .slider-area .hero-cap h2 {
     font-size: 24px;
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 27px;
+    margin-bottom: 20px;
     display: inline-block;
     color: #2c2c2c;
+    height:45px;
 }
 
 .service-area .services-caption .service-cap h4.service-judul {
@@ -6304,6 +6305,7 @@ z .slider-area .hero-cap h2 {
 
 .services-caption .service-cap p {
     font-size: 15px;
+    height:100px;
 }
 
 .applic-apps {
@@ -8964,7 +8966,7 @@ span.select2-container--focus {
     }
 
     .button_card_d,
-    .button_card_v {
+    .button_card_v,.button_card_x {
         font-size: 15px;
     }
 }

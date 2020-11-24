@@ -89,7 +89,7 @@
     </div>
     <!-- Slider Area End-->
     <!--================Galeri=================-->
-    <section class="pt-0 mb-20 background_1">
+    <section class="pt-0 mb-20 background_3">
         <div class="container">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 

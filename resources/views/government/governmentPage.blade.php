@@ -141,7 +141,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mb-30">
                     <nav class="blog-pagination">
                         <ul class="pagination">
                             <li class="page-item">
