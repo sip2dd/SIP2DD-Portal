@@ -49,8 +49,10 @@ class HomeController extends Controller
         $judul = "";
         $count = 0;
         $searchNews = null;
+        $searchServices = null;
         $pages = 1;
         $offset = null;
+        $limit = 6;
         $pagination = 1;
         if($request->has('keyword')) {
             if($request->keyword != ''){
@@ -59,17 +61,18 @@ class HomeController extends Controller
                 if (!$validator->fails()) {
                     $pages = $request->page;
                     if($pages > 1){
-                        $offset = ($pages - 1) * 9; 
+                        $offset = ($pages - 1) * $limit; 
                     } 
                 }else{
                     $pages = 1;
                 }
 
-                $searchNews = $this->homeRepo->searchNewsItems($judul, $offset);
+                $searchNews = $this->homeRepo->searchNewsItems($judul, $offset, $limit);
+                $searchServices = $this->homeRepo->searchServices($judul, $offset, $limit);
                 $count = $this->homeRepo->getCountsearchNews($judul);
                 
-                if($count > 9){
-                    $pagination = ceil($count / 9);
+                if($count > $limit){
+                    $pagination = ceil($count / $limit);
                 } 
                 
                 // if($searchNews != null){
@@ -82,6 +85,7 @@ class HomeController extends Controller
             'count' => $count,
             'keyword' => $judul,
             'searchNews' => $searchNews,
+            'searchServices' => $searchServices,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
             'title' => $judul

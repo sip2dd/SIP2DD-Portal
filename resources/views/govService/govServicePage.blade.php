@@ -134,7 +134,7 @@
                             <div class="service-cap">
                                 <h4 class="service-judul"><a href="{!! url('/detaillayanan?id=')!!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
                                 <div class="services-loc">
-                                    <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"> Pemerintah
+                                    <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
                                         {{$govService['dibuat_oleh']}}
                                     </h6>
                                 </div>

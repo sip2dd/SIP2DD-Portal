@@ -94,8 +94,9 @@
                 </div>
                 @endif
                 <!--Hasil Pencarian -->
-                @if($searchNews != null)
+                
                 <div class="row">
+                @if($searchNews != null)
                     @foreach($searchNews as $index => $newsItem)
                         <div class="card w-100 card-besar">
                             <div class="row no-gutters berita_card">
@@ -107,7 +108,7 @@
                                         <h5>{{tanggal_indonesia($newsItem['tanggal_publikasi'])}}</h5>
                                         <h4><a href="{!! url('detailberita?id=')!!}{{$newsItem['berita_id']}}">{{$newsItem['judul']}}</a></h4>
                                         <!--Edit penambahan nama instansi-->
-                                        <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" onerror="this.src='{{ URL::asset('img/P2DD.png') }} alt="logo"> Pemerintah Jawa Tengah
+                                        <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="logo"> {{$newsItem['dibuat_oleh']}}
                                         </h6>
                                         <p>{{ Str::limit(strip_tags($newsItem['body']), 250) }}
                                         </p>
@@ -117,33 +118,35 @@
                                 </div>
                             </div>
                         </div>
+                    @endforeach
+                @endif
 
-                         <!--Edit jikalau yang di cari adalaah layanan tampilannya ini mas-->
-                        <!-- <div class="card w-100 card-besar">
+                @if($searchServices != null)
+                    @foreach($searchServices as $index => $item)
+                     <!--Edit jikalau yang di cari adalaah layanan tampilannya ini mas-->
+                        <div class="card w-100 card-besar">
                             <div class="row no-gutters berita_card">
                                 <div class="col-lg-4 layanan_img">
-                                    <img class="" src="assets/img/log_layanan/LOGO BAPENDA1.png">
+                                    <img class="" src="{{$item['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                 </div>
                                 <div class="col-lg-8 card_desk">
                                     <div class="card-body">
-                                        <h4 class="mb-3"><a href="#">Bapenda Jabar</a></h4>
-                                        Edit penambahan nama instansi
-                                        <h6><img src="assets/img/logo_list/gov4_blue.svg" alt="logo"> Pemerintah Jawa Barat
-                                        </h6>
-                                        <p>Multiply sea night grass fourth day sea lesser rule open subdue female fill which
-                                            them
-                                            Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                        <h4 class="mb-3"><a href="#">{{$item['judul']}}</a></h4>
+                                        <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="logo"> {{$item['dibuat_oleh']}}</h6>
+                                        <p>{{ Str::limit(strip_tags($item['deskripsi']), 250) }}
                                         </p>
-                                        <p id="selengkapnya"><a href="">Link Layanan <i
+                                        <p id="selengkapnya"><a href="{!! url('/detaillayanan?id=')!!}{{$item['layanan_id']}}">Link Layanan <i
                                                     class="fas fa-chevron-right"></i></a>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     @endforeach
+                @endif
                 </div>
                 <!--Bagian Pagination-->
+                @if($searchNews != null || $searchServices != null)
                 <div class="row justify-content-center mb-30">
                     <nav class="blog-pagination">
                         <ul class="pagination">
@@ -190,7 +193,7 @@
                 @else
                 <div class="container">
                     <div class="row mt-5 mb-5">
-                        <a style="margin:auto; text-align: center; display: block;">Belum ada Data, Silahkan ketik di kolom pencarian</a>
+                        <a style="margin:auto; text-align: center; display: block;">Silahkan ketik di kolom pencarian</a>
                     </div>
                 </div>
                 @endif

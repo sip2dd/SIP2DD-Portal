@@ -24,12 +24,13 @@ Class HomeRepository implements HomeInterface{
         return $newsItems;
     }
 
-    public function getEducationNewsItems(){
-        // $eduNewsItems = $this->getApiContents("1554.json?offset=1&limit=5");
-        // if($eduNewsItems != null){
-        //     $eduNewsItems = $eduNewsItems['data']['berita_highlight_page'];
-        // }
-        $eduNewsItems = $this->getApiContents("1576.json");
+    public function getEducationNewsItems($offset = null, $limit = 10){
+        if($offset == null){
+            $eduNewsItems = $this->getApiContents("1576.json?offset=null&limit=".$limit);
+        }else{
+            $eduNewsItems = $this->getApiContents("1576.json?&offset=".$offset."&limit=".$limit);
+        }
+
         if($eduNewsItems != null){
             $eduNewsItems = $eduNewsItems['data']['edukasi_list'];
         }
@@ -44,12 +45,12 @@ Class HomeRepository implements HomeInterface{
         return $galleryNewsItems;
     }
 
-    public function searchNewsItems($keyword, $offset=null){
+    public function searchNewsItems($keyword, $offset=null, $limit = 6){
         // $newsItems = $this->getApiContents("1532.json?judul=".$keyword."&kata_kunci=".$keyword);
         if($offset == null){
-            $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=null&limit=10");
+            $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=null&limit=".$limit);
         }else{
-            $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=".$offset."&limit=10");
+            $newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=".$offset."&limit=".$limit);
         }
         
         //$newsItems = $this->getApiContents("1532.json?input=".$keyword."&offset=null&limit=10");
@@ -69,5 +70,21 @@ Class HomeRepository implements HomeInterface{
             $newsItems = $newsItems['data']['cnt_search'][0]['cnt'];
         }
         return $newsItems;
+    }
+
+    public function searchServices($keyword, $offset=null, $limit=6){
+        if($offset == null){
+            $govServices = $this->getApiContents("1558.json?input=".$keyword."&offset=null&limit=".$limit);
+        }else{
+            $govServices = $this->getApiContents("1558.json?input=".$keyword."&offset=".$offset."&limit=".$limit);
+        }
+
+        if($govServices != null){
+            $govServices = $govServices['data']['layanan_search'];
+            if(count($govServices) == 0){
+                $govServices = null;
+            }
+        }
+        return $govServices;
     }
 }
