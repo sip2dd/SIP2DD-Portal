@@ -88,13 +88,8 @@
         </div>
     </div>
     <!-- Slider Area End-->
-<<<<<<< HEAD
-    <!--================Edu=================-->
-    <section class="blog_area pt-10 mb-30 background_1">
-=======
     <!--================Galeri=================-->
     <section class="blog_area pt-10 background_1">
->>>>>>> 022283e1d63a26cd80ebdbbc8b0084c7509761b7
         <div class="container">
             <!--Galeri-->
             @if($eduItems != null)
