@@ -100,20 +100,26 @@
                         </div>
                         <div class="icon_list_layanan">
                             <i class="fa fa-map-marker-alt"></i>
-                            <p style="display:inline;">{{$detailGovServices['alamat']}}</p>
+                            <p style="display:inline;">{!! $detailGovServices['alamat']!!}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col col-12 col-sm-12 col-md-6">
                             <div class="tombol_download">
+                                @if($detailGovServices != null)
+                                <a class="btn-pdf" href="{{$detailGovServices['manual']}}" style="padding: 15px 20px; font-size: 18px;"> <i
+                                        class="fa fa-file-pdf"></i> Unduh Tutorial</a>
+                                @else
                                 <a class="btn-pdf" href="#" style="padding: 15px 20px; font-size: 18px;"> <i
                                         class="fa fa-file-pdf"></i> Unduh Tutorial</a>
+                                @endif
+                                
                             </div>
                         </div>
                         <div class="col col-12 col-sm-12 col-md-6">
                             <div class="tombol_masuk">
                                 @if($detailGovServices != null)
-                                <a class="btn radius-btn" href="{{$detailGovServices['link_layanan']}}" style="padding: 25px 30px;">Masuk</a>
+                                <a class="btn radius-btn" href="//{{$detailGovServices['link_layanan']}}" style="padding: 25px 30px;">Masuk</a>
                                 @else
                                 <a class="btn radius-btn" href="" style="padding: 25px 30px;">Masuk</a>
                                 @endif
@@ -127,6 +133,7 @@
         </div>
     </div>
     <!-- Fitur Kami Start -->
+    
     <section id="fiturlayanankami" class="best-features-area section-paddingr sky-blue " style="padding-bottom: 50px;">
         <div class="container">
             <div class="row">
@@ -212,6 +219,7 @@
             </div>
         </div>
     </section>
+    
     <section class="section-paddingr background_2">
         <div class="container">
             <div class="tutorial_vid">
@@ -226,4 +234,5 @@
             </div>
         </div>
     </section>
+    
 @endsection

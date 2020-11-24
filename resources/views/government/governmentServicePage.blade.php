@@ -62,7 +62,10 @@
             <div class="container nav-bread mt-30">
                 <nav>
                     <ol class="breadcrumb pl-0 pr-0 sky-blue">
-                        <li class="breadcrumb-item"><a href="{{url('')}}">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('')}}">TP2DD</a></li>
+                        @if($govDetail != null)
+                            <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?id=')}}{{$govDetail['unit_profile_id']}}">{{$govDetail['profile']}}</a></li>
+                        @endif
                         <li class="breadcrumb-item active"><a href="">Layanan TP2DD</a>
                         </li>
                     </ol>
@@ -78,6 +81,9 @@
                     <div class="col-lg-6">
                         <div class="section-tittle pt-25 text-center mb-50">
                             <h2>Layanan TP2DD</h2>
+                            @if($govDetail != null)
+                            <h2>{{$govDetail['profile']}}</h2>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -100,27 +106,7 @@
                     </div>
                 </div>
                 
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <!--Edit Memakai plugin select 2-->
-                        <div class="dropdown">
-                            <div class="btn-group" role="group">
-                                <select class="select_prov" style="width: 250px; padding: 10px 5px;" onchange="if (this.value) window.location.href=this.value">
-                                <option class="l1"></option>
-                                @foreach($listGovs as $gov)
-                                    @if(strlen($gov['kode_daerah']) < 3)
-                                        <option class="l1" value="{{ url('/layananinstansi') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
-                                    @else
-                                        <option class="l2" value="{{ url('/layananinstansi') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
-                                    @endif
-                                @endforeach
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 ket-jumlah">
-                        <!-- <p>menunjukkan hasil 10 Layanan</p> -->
-                    </div>
+               
                 </div>
                 <!-- Section caption -->
                 @if($govServices != null)
@@ -153,7 +139,7 @@
                         <ul class="pagination">
                             @if($page > 1)
                             <li class="page-item">
-                                <a href="{!! url('/layanan?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                <a href="{!! url('/layanantp2dd?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
                             </li>
@@ -167,11 +153,11 @@
                             @for($i =1; $i<=$pagination; $i++)
                                     @if($page == $i)
                                     <li class="page-item active">
-                                        <a href="{!! url('/layanan?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/layanantp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @else
                                     <li class="page-item">
-                                        <a href="{!! url('/layanan?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/layanantp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @endif    
                             @endfor

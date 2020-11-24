@@ -61,8 +61,16 @@
       <div class="container nav-bread mt-30">
          <nav>
             <ol class="breadcrumb pl-0 pr-0 sky-blue">
-               <li class="breadcrumb-item"><a href="#">Edukasi</a></li>
-               <li class="breadcrumb-item active"><a href="#">Pembayaran online pajak di Provinsi Jawa Barat</a>
+               <li class="breadcrumb-item"><a href="">Materi</a></li>
+                  
+                  <li class="breadcrumb-item active"><a href="">
+                  @if($detailEducation != null)
+                     {{ $detailEducation['judul']}}
+                  @else
+                     404 : Tidak ditemukan
+                  @endif
+                  </a>
+                  </li>
                </li>
             </ol>
          </nav>
@@ -76,19 +84,34 @@
             <div class="col-lg-8 mb-30">
                <div class="single-post">
                   <div class="blogs">
-                     <img src="assets/img/edukasi/image2.jpg" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                     @if($detailEducation != null)
+                           <!-- TO DO LIST API CAROUSEL DETAIL BERITA GAMBAR -->
+                           <div class="carousel-item active">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <img class="card-img" src="{{ $detailEducation['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="slide1">
+                              </div>
+                           </div>
+                         
+                        @else
+                           <div class="carousel-item active">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <img class="card-img" src="{{ URL::asset('img/P2DD.png') }}" alt="slide3">
+                              </div>
+                           </div>
+                        @endif
                      <div class="blogs_details">
-                        <h2>Edukasi Terkait Pembayaran Online Pajak diProvinsi Jawa Barat
-                        </h2>
-                        <h3> <img class="logo_gov" src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
-                            Pemerintah Jawa Barat
-                            </h3>
-                        <p class="desk_edukasi">
-                           Tutorial aplikasi elektronifikasi pemerintah daerah Provinsi Jawa Barat terkait pembayaran
-                           pajak secara online melalui aplikasi Samsat J’bret. Aplikasi tersebut digunakan untuk
-                           pembayaran pajak kendaraan bermotor secara online sehingga memudahkan masyarakat dalam
-                           melakukan transaksi.
-                        </p>
+                        @if($detailEducation != null)
+                        <h2>{{ $detailEducation['judul']}}</h2>
+                           <h3> <img class="logo_gov" src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
+                           {{ $detailEducation['dibuat_oleh']}}
+                           </h3>
+                        @else
+                           </h2>Oops! Mohon Maaf, Silahkan cek koneksi anda atau halaman tidak tersedia atau URL yang Anda inputkan salah.</h2>
+                        @endif
+                        
+                        @if($detailEducation != null)
+                        {!! $detailEducation['deskripsi'] !!}
+                        @endif
                         <div class="materi_edukasi">
                            <p>Materi :</p>
                            <a href="#" class="btn btn_materi_edukasi"><i class="fa fa-file-pdf"
@@ -102,17 +125,19 @@
                   <div class="navigationss-top ">
                      <div class="d-sm-flex justify-content-between text-center">
                         <ul class="blog-info-link">
-                           <li><i class="fa fa-user"></i> Admin Pemda</li>
-                           <li><i class="fa fa-clock"></i>03 Oktober 2020</li>
+                           <li><i class="fa fa-user"></i> @if($detailEducation != null){{ $detailEducation['dibuat_oleh']}} @endif</li>
+                           <li><i class="fa fa-clock"></i>@if($detailEducation != null){{tanggal_indonesia( $detailEducation['tgl_dibuat'])}} @endif</li>
                         </ul>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                         </div>
+                        @if($detailEducation != null)
                         <ul class="social-icons">
-                           <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                           <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                           <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                           <li><a href="{!! $socmed['facebook'] !!}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                           <li><a href="{!! $socmed['whatsapp'] !!}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                           <li><a href="{!! $socmed['twitter'] !!}" target="_blank"><i class="fab fa-twitter"></i></a></li>
                         </ul>
+                        @endif
                      </div>
                   </div>
                </div>
@@ -122,108 +147,35 @@
                   <div class="row pt-0">
                      <div class="col">
                         <div class="section-judul-berita rata_tengah">
-                           <h4>Edukasi Lainnya</h4>
+                           <h4>Materi Lainnya</h4>
                         </div>
                      </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
+                  @if($edu != null)
+                     @foreach($edu as $item)
                      <div class="media post_item">
                         <div class="col-lg-4 col-4 pl-0 pr-0">
-                           <img class="image" src="assets/img/post/post_4.png" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
+                        <img class="image" src="{{$item['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                         </div>
                         <!--Edit penambahana kelas samping berita-->
                         <div class="col-lg-8 col-8 pr-0">
                            <div class="media-body">
-                              <a href="#">
-                                 <h3>Elektronfikasi Transaksi..</h3>
+                              <a href="{!! url('/detailedukasi?id=')!!}{{$item['edukasi_id']}}">
+                                 <h3>{{ Str::limit($item['judul'], 60) }}</h3>
                               </a>
                               <!--Edit penambahan nama pemda-->
                               <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
                                 src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
                                 style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                            Pemerintah
-                            Jawa Barat
+                                {{$item['dibuat_oleh']}}
                         </p>
-                              <p>01 Oktober 2020</p>
+                              <p>{{tanggal_indonesia($item['tgl_dibuat'], false)}}</p>
                            </div>
                         </div>
                      </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4 pl-0 pr-0">
-                           <img class="image" src="assets/img/post/post_4.png" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8 pr-0">
-                           <div class="media-body">
-                              <a href="#">
-                                 <h3>Elektronfikasi Transaksi..</h3>
-                              </a>
-                              <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
-                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
-                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                            Pemerintah
-                            Jawa Barat
-                        </p>
-                              <p>01 Oktober 2020</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4 pl-0 pr-0">
-                           <img class="image" src="assets/img/post/post_4.png" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8 pr-0">
-                           <div class="media-body">
-                              <a href="#">
-                                 <h3>Elektronfikasi Transaksi..</h3>
-                              </a>
-                              <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
-                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
-                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                            Pemerintah
-                            Jawa Barat
-                        </p>
-                              <p>01 Oktober 2020</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4 pl-0 pr-0">
-                           <img class="image" src="assets/img/post/post_4.png" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8 pr-0">
-                           <div class="media-body">
-                              <a href="#">
-                                 <h3>Elektronfikasi Transaksi..</h3>
-                              </a>
-                              <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
-                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
-                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                            Pemerintah
-                            Jawa Barat
-                        </p>
-                              <p>01 Oktober 2020</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <div class="col-lg-4 col-4 pl-0 pr-0">
-                           <img class="image" src="assets/img/post/post_4.png" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
-                        </div>
-                        <div class="col-lg-8 col-8 pr-0">
-                           <div class="media-body">
-                              <a href="#">
-                                 <h3>Elektronfikasi Transaksi..</h3>
-                              </a>
-                              <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
-                                src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
-                                style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                            Pemerintah
-                            Jawa Barat
-                        </p>
-                              <p>01 Oktober 2020</p>
-                           </div>
-                        </div>
-                     </div>
+                     @endforeach
+                  @endif
                   </aside>
                </div>
             </div>

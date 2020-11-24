@@ -9,7 +9,7 @@ Class HomeRepository implements HomeInterface{
     use ApiContentsTrait;
     
     public function getGovServices(){
-        $govServices = $this->getApiContents("1535.json");
+        $govServices = $this->getApiContents("1535.json?offset=null&limit=6");
         if($govServices != null){
             $govServices = $govServices['data']['layanan'];
         }
@@ -25,9 +25,13 @@ Class HomeRepository implements HomeInterface{
     }
 
     public function getEducationNewsItems(){
-        $eduNewsItems = $this->getApiContents("1554.json?offset=1&limit=5");
+        // $eduNewsItems = $this->getApiContents("1554.json?offset=1&limit=5");
+        // if($eduNewsItems != null){
+        //     $eduNewsItems = $eduNewsItems['data']['berita_highlight_page'];
+        // }
+        $eduNewsItems = $this->getApiContents("1576.json");
         if($eduNewsItems != null){
-            $eduNewsItems = $eduNewsItems['data']['berita_highlight_page'];
+            $eduNewsItems = $eduNewsItems['data']['edukasi_list'];
         }
         return $eduNewsItems;
     }

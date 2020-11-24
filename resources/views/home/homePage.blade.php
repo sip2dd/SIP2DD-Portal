@@ -40,12 +40,6 @@
                                             </ul>
                                         </li>
 
-                                        @foreach($menus as $index => $menu)
-                                        <!-- <li><a href="{!! url($menu['parentlink']) !!}">{!! $menu['parentmenu'] !!}</a></li> -->
-                                        @endforeach
-
-
-
                                     </ul>
                                 </nav>
                             </div>
@@ -371,15 +365,15 @@
                                                 <img src="{{$eduNewsItem['gambar_utama']}}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                             </div>
                                             <div class="what-cap">
-                                                <h6>{{ tanggal_indonesia($eduNewsItem['tanggal_publikasi']) }}</h6>
+                                                <h6>{{ tanggal_indonesia($eduNewsItem['tgl_dibuat']) }}</h6>
                                                 <!--Edit penmabahan instansi-->
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov2_grey.svg') }}"
                                                         alt="logo">{{ $eduNewsItem['dibuat_oleh'] }}
                                                 </h6>
-                                                <h4><a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">{{ Str::limit($eduNewsItem['judul'], 70) }}</a></h4>
+                                                <h4><a href="">{{ Str::limit($eduNewsItem['judul'], 70) }}</a></h4>
                                             </div>
                                             <div class="tulisan-lengkapnya">
-                                                <a href="{!! url('/detailberita?id=')!!}{{$eduNewsItem['berita_id']}}">Selengkapnya <span
+                                                <a href="">Selengkapnya <span
                                                         class="fas fa-chevron-right mr-2"></span></a>
                                             </div>
                                         </div>

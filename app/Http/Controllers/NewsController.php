@@ -63,7 +63,7 @@ class NewsController extends Controller
                 $searchNews = $this->newsRepo->searchNews($judul, $offset, $limit);
                 $count = $this->newsRepo->getCountsearchNews($judul);
                 
-                if($count > 9){
+                if($count > $limit){
                     $pagination = ceil($count / 9);
                 } 
             }

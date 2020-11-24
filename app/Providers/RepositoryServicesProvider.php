@@ -22,6 +22,8 @@ use App\Repositories\Event\EventInterface;
 use App\Repositories\Event\EventRepository;
 use App\Repositories\Glossary\GlossaryInterface;
 use App\Repositories\Glossary\GlossaryRepository;
+use App\Repositories\Education\EducationInterface;
+use App\Repositories\Education\EducationRepository;
 
 class RepositoryServicesProvider extends ServiceProvider
 {
@@ -42,6 +44,7 @@ class RepositoryServicesProvider extends ServiceProvider
         $this->app->bind(RegulationInterface::class, RegulationRepository::class);
         $this->app->bind(EventInterface::class, EventRepository::class);
         $this->app->bind(GlossaryInterface::class, GlossaryRepository::class);
+        $this->app->bind(EducationInterface::class, EducationRepository::class);
 
     }
 

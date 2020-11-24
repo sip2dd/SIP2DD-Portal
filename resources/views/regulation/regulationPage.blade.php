@@ -70,12 +70,12 @@
                 </div>
                 <!--Section Form input-->
                 <div class="row justify-content-center mb-50">
-                    <form action="" class="form-inline form_searchcari">
+                    <form action="{!! url('/cariregulasi')!!}" class="form-inline form_searchcari" method="GET">
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 col_search">
                             <div class="form-group">
                                 <div class="input-group">
                                     <label for="nomorRegulasi" class="label_inputan">Nomor</label>
-                                    <input id="nomorRegulasi" class="search_inputan" type="text" autocomplete="off"
+                                    <input name="nomor" id="nomorRegulasi" class="search_inputan" type="text" autocomplete="off"
                                         placeholder="Input Nomor">
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <label for="tahunRegulasi" class="label_inputan">Tahun</label>
-                                    <select id="tahunRegulasi" class="search_inputan">
+                                    <select name="tahun" id="tahunRegulasi" class="search_inputan">
                                         <option selected hidden>Input Tahun</option>
                                         <option>Semua Tahun</option>
                                     </select>
@@ -96,7 +96,7 @@
                                 <div class="input-group">
                                     <!--Edit judul dan perubahan tag menjadi input-->
                                     <label for="tentangRegulasi" class="label_inputan">Tentang</label>
-                                    <input class="search_inputan" id="tentangRegulasi" type="text"
+                                    <input name="tentang" class="search_inputan" id="tentangRegulasi" type="text"
                                         placeholder="Cari..">
                                 </div>
                             </div>

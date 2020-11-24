@@ -36,32 +36,49 @@ Class GovernmentRepository implements GovernmentInterface{
         return $detailGov;
     }
 
-    public function getGovHighlight($id){
-        $newsItems = $this->getApiContents("1561.json?instansi_id=1328&offset=null&limit=5");
+    public function getGovHighlight($id = null, $offset=null, $limit=4){
+        if($offset == null){
+            $newsItems = $this->getApiContents("1561.json?instansi_id=".$id."&offset=null&limit=".$limit);
+        }else{
+            $newsItems = $this->getApiContents("1561.json?instansi_id=".$id."&offset=".$offset."&limit=".$limit);
+        }
+
         if($newsItems != null){
             $newsItems = $newsItems['data']['berita_instansi'];
         }
         return $newsItems;
     }
 
-    public function getGovNews($id){
-        $newsItems = $this->getApiContents("1561.json?instansi_id=1328&offset=null&limit=5");
+    public function getGovNews($id = null, $offset=null, $limit=4){
+        if($offset == null){
+            $newsItems = $this->getApiContents("1561.json?instansi_id=".$id."&offset=null&limit=".$limit);
+        }else{
+            $newsItems = $this->getApiContents("1561.json?instansi_id=".$id."&offset=".$offset."&limit=".$limit);
+        }
         if($newsItems != null){
             $newsItems = $newsItems['data']['berita_instansi'];
         }
         return $newsItems;
     }
 
-    public function getGovServices($id){
-        $govServices = $this->getApiContents("1535.json");
+    public function getGovServices($id = null, $offset=null, $limit=4){
+        if($offset == null){
+            $govServices = $this->getApiContents("1559.json?instansi_id=".$id."&offset=null&limit=".$limit);
+        }else{
+            $govServices = $this->getApiContents("1559.json?instansi_id=".$id."&offset=".$offset."&limit=".$limit);
+        }
         if($govServices != null){
-            $govServices = $govServices['data']['layanan'];
+            $govServices = $govServices['data']['layanan_instansi'];
         }
         return $govServices;
     }
 
-    public function getGalleryGovPhotos($id){
-        $galleryPhotos = $this->getApiContents("1533.json");
+    public function getGalleryGovPhotos($id = null, $offset=null, $limit=4){
+        if($offset == null){
+            $galleryPhotos = $this->getApiContents("1557.json?instansi_id=".$id."&offset=null&limit=".$limit);
+        }else{
+            $galleryPhotos = $this->getApiContents("1557.json?instansi_id=".$id."&offset=".$offset."&limit=".$limit);
+        }
         if($galleryPhotos != null){
             $galleryPhotos = $galleryPhotos['data']['galeri_gambar'];
         }

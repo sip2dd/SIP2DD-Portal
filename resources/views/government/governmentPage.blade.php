@@ -94,14 +94,18 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="dropdown">
                             <div class="btn-group" role="group">
-                                <select class="select_prov_tok" style="width: 200px;">
+                                <select class="select_prov_tok" style="width: 200px;" onchange="if (this.value) window.location.href=this.value">
                                     <option class="l1"></option>
-                                    @foreach($list_gov as $item)
-                                        <option class="l1">{{$item['nama_daerah']}}</option>
-                                    @endforeach
+                                    @foreach($list_gov as $gov)
+                                    @if(strlen($gov['kode_daerah']) < 3)
+                                        <option class="l1" value="{{ url('/detailtp2dd') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
+                                    @else
+                                        <option class="l2" value="{{ url('/detailtp2dd') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
+                                    @endif
+                                @endforeach
                                 </select>
                             </div>
-                            <div class="btn-group" role="group">
+                            <!-- <div class="btn-group" role="group">
                                 <button class="button2 btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Urutkan
@@ -113,7 +117,7 @@
                                             src="{{ URL::asset('fonts/sort-alpha-down-alt-solid.svg') }}"
                                             style="width: 13px; margin-left: .3em;"></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 ket-jumlah">

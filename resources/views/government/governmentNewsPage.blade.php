@@ -63,9 +63,9 @@
         <div class="container nav-bread mt-30">
             <nav>
                 <ol class="breadcrumb pl-0 sky-blue">
-                    <li class="breadcrumb-item"><a href="Berita.html">TP2DD</a></li>
+                    <li class="breadcrumb-item"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                     @if($govDetail != null)
-                        <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?id=')}}{{$govDetail['unit_profile_id']}}">{{$govDetail['nama']}}</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?id=')}}{{$govDetail['unit_profile_id']}}">{{$govDetail['profile']}}</a></li>
                     @endif
                     <li class="breadcrumb-item active"><a href="">Berita Lainnya</a>
                     </li>
@@ -79,7 +79,7 @@
                     <div class="section-tittle text-center mb-30">
                         <h2>Berita​</h2>
                         @if($govDetail != null)
-                        <h2>{{$govDetail['nama']}}</h2>
+                        <h2>{{$govDetail['profile']}}</h2>
                         @endif
                         
                     </div>
@@ -88,7 +88,7 @@
             <!--Section Form input-->
             <div class="form-row justify-content-center">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <form action="{!! url('/pencarian')!!}" method="GET">
+                    <form action="{!! url('/pencarianberita')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
                                 <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
@@ -129,7 +129,7 @@
                             </a>
                             <h6> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
                                 @if($govDetail != null)
-                                    {{$govDetail['nama']}}
+                                    {{$govDetail['profile']}}
                                 @endif
                             </h6>
                             <div class="row">
@@ -146,22 +146,43 @@
             <div class="row justify-content-center mb-50">
                 <nav class="blog-pagination">
                     <ul class="pagination">
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Previous">
-                                <i class="ti-angle-left"></i>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">1</a>
-                        </li>
-                        <li class="page-item active">
-                            <a href="#" class="page-link">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Next">
-                                <i class="ti-angle-right"></i>
-                            </a>
-                        </li>
+                            @if($page > 1)
+                            <li class="page-item">
+                                <a href="{!! url('/beritatp2dd?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            @else
+                            <li class="page-item">
+                                <a href="#" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            @endif
+                            @for($i =1; $i<=$pagination; $i++)
+                                    @if($page == $i)
+                                    <li class="page-item active">
+                                        <a href="{!! url('/beritatp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    </li>
+                                    @else
+                                    <li class="page-item">
+                                        <a href="{!! url('/beritatp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    </li>
+                                    @endif    
+                            @endfor
+                            @if($page == $pagination)
+                            <li class="page-item">
+                                <a href="#" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                            @else
+                            <li class="page-item">
+                                <a href="{!! url('/beritatp2dd?page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                                @endif
                     </ul>
                 </nav>
             </div>

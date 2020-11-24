@@ -16,6 +16,15 @@ Class RegulationRepository implements RegulationInterface{
         return $items;   
     }
 
+    public function searchRegulation($tentang ="null", $nomor="null", $tahun="null", $offset="null", $limit=10){
+        // $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&offset=".$offset."&limit=".$limit);
+        $items = $this->getApiContents("1573.json?tentang=1020&nomor=null&tahun=null&offset=null&limit=6");
+        if($items != null){
+            $items = $items['data']['regulasi_filter'];
+        }
+        return $items;   
+    }
+
     public function getDetailRegulation($id = "0"){
         $detailNews = $this->getApiContents("1540.json?regulasi_id=".$id);
         if($detailNews != null){

@@ -121,16 +121,16 @@
                      </div>
                   </div>
                   <div class="blog_detailss">
-                     <h2>
+                     
                      @if($detailNews != null)
-                        {{ $detailNews['judul']}}
+                     <h2>{{ $detailNews['judul']}}</h2>
                         <h3> <img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
                         {{ $detailNews['dibuat_oleh']}}
                         </h3>
                      @else
-                        Oops! Mohon Maaf, Silahkan cek koneksi anda atau halaman tidak tersedia atau URL yang Anda inputkan salah.
+                        </h2>Oops! Mohon Maaf, Silahkan cek koneksi anda atau halaman tidak tersedia atau URL yang Anda inputkan salah.</h2>
                      @endif
-                     </h2>
+                     
                      @if($detailNews != null)
                      {!! $detailNews['body'] !!}
                      @endif

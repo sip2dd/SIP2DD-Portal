@@ -66,9 +66,9 @@
                 <ol class="breadcrumb pl-0 pr-0 sky-blue">
                     <li class="breadcrumb-item"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                     @if($govDetail != null)
-                    <li class="breadcrumb-item active"><a href="">{{$govDetail['nama']}}</a>
+                    <li class="breadcrumb-item active"><a href="">{{$govDetail['nama']}}</a> </li>
                     @endif
-                    </li>
+                   
                 </ol>
             </nav>
         </div>
@@ -100,12 +100,16 @@
                 <div class="col-lg-6 visi_misi">
                     <div class="visi">
                         <h5>Visi :</h5>
+                        @if($govDetail != null)
                         <p>{{$govDetail['visi']}}</p>
+                        @endif
                     </div>
                     <div class="misi">
                         <h5>Misi:</h5>
                         <p class="misi_list">
+                        @if($govDetail != null)
                             {!! $govDetail['misi'] !!}
+                        @endif
                         <p>
                     </div>
                 </div>
@@ -180,7 +184,7 @@
                                                             <h2>{{ Str::limit($govNewsHighlight['judul'], 80) }}</h2>
                                                         </a>
                                                         <h6> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
-                                                            Pemerintah Jawa Barat
+                                                        {{$govNewsHighlight['dibuat_oleh']}}
                                                         </h6>
                                                     </div>
                                                 </article>
@@ -209,7 +213,7 @@
                                                             <h2>{{ Str::limit($govNewsHighlight['judul'], 60) }}</h2>
                                                         </a>
                                                         <h6> <img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
-                                                            Pemerintah Jawa Barat
+                                                            {{$govNewsHighlight['dibuat_oleh']}}
                                                         </h6>
                                                     </div>
                                                 </article>
@@ -330,7 +334,7 @@
                             <span><img class="img-lay" src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'" alt=""></span>
                         </div>
                         <div class="service-cap">
-                            <h4 class="service-judul"><a href="{!! url('layanan?id=') !!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
+                            <h4 class="service-judul"><a href="{!! url('detaillayanan?id=') !!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
                             <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}</p>
                              <!--Edit Penambahan tombol pemda-->
                              <div class="link_layanan">
@@ -358,8 +362,10 @@
         </div>
         <div class="container">
             <div class="row mt-5 mb-5">
-                <a href="{!! url('/layanan')!!}" class="btn radius-btn"
+            @if($govDetail != null)
+                <a href="{!! url('/layanantp2dd?id=')!!}{{$govDetail['unit_profile_id']}}" class="btn radius-btn"
                     style="margin:auto; text-align: center; display: block;">Selengkapnya</a>
+            @endif
             </div>
         </div>
     </section>
@@ -453,9 +459,11 @@
                 @endif
                 </div>
                 <div class="row mt-5 mb-5">
-                    <a href="{!! url('/galerifoto')!!}" class="btn radius-btn"
+                @if($govDetail != null)
+                    <a href="{!! url('/galeritp2dd?id=')!!}{{$govDetail['unit_profile_id']}}" class="btn radius-btn"
                         style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
                 </div>
+                @endif
             </div>
         </div>
     </div>

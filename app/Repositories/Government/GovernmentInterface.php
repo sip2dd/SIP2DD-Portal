@@ -6,8 +6,8 @@ interface GovernmentInterface{
     public function getGoverment();
     public function getListGoverment();
     public function getGovermentDetail($id);
-    public function getGovHighlight($id);
-    public function getGovNews($id);
-    public function getGovServices($id);
-    public function getGalleryGovPhotos($id);
+    public function getGovHighlight($id, $offset, $limit);
+    public function getGovNews($id, $offset, $limit);
+    public function getGovServices($id, $offset, $limit);
+    public function getGalleryGovPhotos($id, $offset, $limit);
 }

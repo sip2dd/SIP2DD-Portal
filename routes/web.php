@@ -48,10 +48,15 @@ Route::get('/detailtp2dd', [GovernmentController::class, 'detailGov']);
 // TODO : All + Detail News pemda
 Route::get('/beritatp2dd', [GovernmentController::class, 'newsGov']);
 // TODO : All + Detail layanan pemda
+Route::get('/layanantp2dd', [GovernmentController::class, 'servicesGov']);
 // TODO : All + Detail galeri pemda
+Route::get('/galeritp2dd', [GovernmentController::class, 'galleryGov']);
+// TODO : All + Detail kegiatan pemda
 
 Route::get('/layanan', [GovernmentServiceController::class, 'index']);
+Route::get('/layananinstansi', [GovernmentServiceController::class, 'servicebyCode']);
 Route::get('/detaillayanan', [GovernmentServiceController::class, 'detailServiceGov']);
+Route::get('/carilayanan', [GovernmentServiceController::class, 'searchServices']);
 
 Route::get('/faq', [FAQController::class, 'index']);
 
@@ -61,6 +66,7 @@ Route::get('/detailedukasi', [EducationController::class, 'detailEducation']);
 Route::get('/daftaristilah', [GlossaryController::class, 'index']);
 
 Route::get('/regulasi', [RegulationController::class, 'index']);
+Route::get('/cariregulasi', [RegulationController::class, 'searchRegulation']);
 
 Route::get('/dashboardkegiatan', [EventController::class, 'index']);
 Route::get('/kegiatan', [EventController::class, 'allEvent']);
