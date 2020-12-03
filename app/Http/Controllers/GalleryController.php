@@ -56,12 +56,11 @@ class GalleryController extends Controller
 
         $judul = "";
         $count = 0;
-        $searchNews = null;
         $pages = 1;
         $offset = null;
         $limit = 6;
         $pagination = 1;
-        $eventItems = null;
+        $galleryPhotos = null;
         if($request->has('keyword')) {
             if($request->keyword != ''){
                 $judul = $request->keyword;
@@ -74,6 +73,8 @@ class GalleryController extends Controller
                     $pages = 1;
                 }
                 $galleryPhotos = $this->galleryRepo->searchGalleryPhoto($judul, $offset, $limit);
+                
+                
                 //$count = $this->eventRepo->getCountsearchEvent($judul);
                 
                 if($count > $limit){
@@ -81,8 +82,7 @@ class GalleryController extends Controller
                 } 
             }
         }
-        
-        //dd($searchNews);
+
         return view('gallery.galleryPhotoPage', [
             'count' => $count,
             'keyword' => $judul,
@@ -172,12 +172,11 @@ class GalleryController extends Controller
 
         $judul = "";
         $count = 0;
-        $searchNews = null;
         $pages = 1;
         $offset = null;
         $limit = 6;
         $pagination = 1;
-        $eventItems = null;
+        $galleryVideos = null;
         if($request->has('keyword')) {
             if($request->keyword != ''){
                 $judul = $request->keyword;
@@ -189,7 +188,7 @@ class GalleryController extends Controller
                 }else{
                     $pages = 1;
                 }
-                $eventItems = $this->eventRepo->searchEvent($judul, $offset, $limit);
+                $galleryVideos = $this->galleryRepo->searchGalleryVideo($judul, $offset, $limit);
                 //$count = $this->eventRepo->getCountsearchEvent($judul);
                 
                 if($count > $limit){
@@ -199,13 +198,12 @@ class GalleryController extends Controller
         }
         
         //dd($searchNews);
-        return view('event.eventPage', [
+        return view('gallery.galleryVideoPage', [
             'count' => $count,
             'keyword' => $judul,
-            'eventItems' => $eventItems,
+            'galleryVideos' => $galleryVideos,
             'page' => $pages ?? 1,
-            'pagination' => $pagination,
-            'title' => $judul
+            'pagination' => $pagination
         ]);
     }
 

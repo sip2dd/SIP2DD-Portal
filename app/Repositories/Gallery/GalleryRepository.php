@@ -90,4 +90,37 @@ Class GalleryRepository implements GalleryInterface{
         $govServices = $this->getApiContents("1535.json");
         return $govServices;
     }
+
+    public function searchGalleryPhoto($keyword = "", $offset=null, $limit=6){
+        if($offset == null){
+            $photoItems = $this->getApiContents("1578.json?input=".$keyword."&offset=null&limit=".$limit);
+        }else{
+            $photoItems = $this->getApiContents("1578.json?input=".$keyword."&offset=".$offset."&limit=".$limit);
+        }
+
+        if($photoItems != null){
+            $photoItems = $photoItems['data']['search_galeri_foto'];
+            if(count($photoItems) == 0){
+                $photoItems = null;
+            }
+        }
+
+        return $photoItems;
+    }
+
+    public function searchGalleryVideo($keyword, $offset=null, $limit=6){
+        if($offset == null){
+            $videoItems = $this->getApiContents("1579.json?input=".$keyword."&offset=null&limit=".$limit);
+        }else{
+            $videoItems = $this->getApiContents("1579.json?input=".$keyword."&offset=".$offset."&limit=".$limit);
+        }
+
+        if($videoItems != null){
+            $videoItems = $videoItems['data']['search_galeri_video'];
+            if(count($videoItems) == 0){
+                $videoItems = null;
+            }
+        }
+        return $videoItems;
+    }
 }
