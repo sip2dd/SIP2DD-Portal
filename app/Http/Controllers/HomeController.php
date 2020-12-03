@@ -48,6 +48,8 @@ class HomeController extends Controller
 
         $judul = "";
         $count = 0;
+        $count_news = 0;
+        $count_service = 0;
         $searchNews = null;
         $searchServices = null;
         $pages = 1;
@@ -69,7 +71,9 @@ class HomeController extends Controller
 
                 $searchNews = $this->homeRepo->searchNewsItems($judul, $offset, $limit);
                 $searchServices = $this->homeRepo->searchServices($judul, $offset, $limit);
-                $count = $this->homeRepo->getCountsearchNews($judul);
+                $count_news = $this->homeRepo->getCountsearchNews($judul);
+                //$count_service =$this->homeRepo->getCountsearchServices($judul);
+                $count = $count_news + $count_service;
                 
                 if($count > $limit){
                     $pagination = ceil($count / $limit);

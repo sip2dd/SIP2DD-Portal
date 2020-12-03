@@ -10,4 +10,5 @@ interface HomeInterface{
     public function searchNewsItems($keyword, $offset, $limit);
     public function getCountsearchNews($keyword);
     public function searchServices($keyword, $offset, $limit);
+    public function getCountsearchServices($keyword);
 }

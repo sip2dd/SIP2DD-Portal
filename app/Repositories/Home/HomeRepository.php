@@ -11,7 +11,7 @@ Class HomeRepository implements HomeInterface{
     public function getGovServices(){
         $govServices = $this->getApiContents("1535.json?offset=null&limit=6");
         if($govServices != null){
-            $govServices = $govServices['data']['layanan'];
+            $govServices = $govServices['data']['layanan_list'];
         }
         return $govServices;
     }
@@ -24,11 +24,11 @@ Class HomeRepository implements HomeInterface{
         return $newsItems;
     }
 
-    public function getEducationNewsItems($offset = null, $limit = 10){
+    public function getEducationNewsItems($offset = null, $limit = 5){
         if($offset == null){
             $eduNewsItems = $this->getApiContents("1576.json?offset=null&limit=".$limit);
         }else{
-            $eduNewsItems = $this->getApiContents("1576.json?&offset=".$offset."&limit=".$limit);
+            $eduNewsItems = $this->getApiContents("1576.json?offset=".$offset."&limit=".$limit);
         }
 
         if($eduNewsItems != null){
@@ -65,6 +65,14 @@ Class HomeRepository implements HomeInterface{
 
     
     public function getCountsearchNews($keyword){
+        $newsItems = $this->getApiContents("1553.json?input=".$keyword);
+        if($newsItems != null){
+            $newsItems = $newsItems['data']['cnt_search'][0]['cnt'];
+        }
+        return $newsItems;
+    }
+
+    public function getCountsearchServices($keyword){
         $newsItems = $this->getApiContents("1553.json?input=".$keyword);
         if($newsItems != null){
             $newsItems = $newsItems['data']['cnt_search'][0]['cnt'];

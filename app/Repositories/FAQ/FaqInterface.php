@@ -3,5 +3,5 @@
 namespace App\Repositories\FAQ;
 
 interface FaqInterface{
-    public function getFAQ();
+    public function getFAQ($offset, $limit);
 }

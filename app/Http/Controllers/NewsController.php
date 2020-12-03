@@ -23,8 +23,8 @@ class NewsController extends Controller
         $menu = null;
         $highlights = $this->newsRepo->getHighlight($offset, $limit); 
         $govNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar);
-        //$localgovNews = $this->newsRepo->getLocalGovNews($offset, $limit_sidebar);
-        $localgovNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar);
+        $localgovNews = $this->newsRepo->getLocalGovNews($offset, $limit_sidebar);
+        //$localgovNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar);
         $galleryNews = $this->newsRepo->getGalleryVideos($offset, $limit);
         $p2dd_info = null;
         
@@ -64,7 +64,7 @@ class NewsController extends Controller
                 $count = $this->newsRepo->getCountsearchNews($judul);
                 
                 if($count > $limit){
-                    $pagination = ceil($count / 9);
+                    $pagination = ceil($count / $limit);
                 } 
             }
         }

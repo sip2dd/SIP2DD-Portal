@@ -38,7 +38,10 @@ Route::get('/beritadaerah', [NewsController::class, 'getLocalGovNews']);
 Route::get('/galeri', [GalleryController::class, 'galleryVideo']);
 Route::get('/detailgalerivideo', [GalleryController::class, 'detailGalleryVideo']);
 Route::get('/galerivideo', [GalleryController::class, 'galleryVideo']);
+Route::get('/carigalerivideo', [GalleryController::class, 'searchGalleryVideo']);
 Route::get('/galerifoto', [GalleryController::class, 'galleryPhoto']);
+Route::get('/carigalerifoto', [GalleryController::class, 'searchGalleryPhoto']);
+Route::get('/carigalerivideo', [GalleryController::class, 'searchGalleryVideo']);
 Route::get('/detailgalerifoto', [GalleryController::class, 'detailGalleryPhoto']);
 // TODO : Search Galeri Belum
 
@@ -71,6 +74,7 @@ Route::get('/cariregulasi', [RegulationController::class, 'searchRegulation']);
 Route::get('/dashboardkegiatan', [EventController::class, 'index']);
 Route::get('/kegiatan', [EventController::class, 'allEvent']);
 Route::get('/detailkegiatan', [EventController::class, 'getDetailEvent']);
+Route::get('/carikegiatan', [EventController::class, 'searchEvent']);
 
 
 

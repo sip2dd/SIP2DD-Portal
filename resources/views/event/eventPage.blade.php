@@ -80,10 +80,10 @@
             <div class="form-row justify-content-center">
                 <!--*Edit* untuk responsive column pada kolom pencarian-->
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <form action="" method="">
+                    <form action="{!! url('/carikegiatan')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>

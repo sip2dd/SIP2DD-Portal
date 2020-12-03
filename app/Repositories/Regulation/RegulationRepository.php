@@ -8,17 +8,27 @@ Class RegulationRepository implements RegulationInterface{
 
     use ApiContentsTrait;
 
-    public function getRegulation(){
-        $items = $this->getApiContents("1539.json");
+    public function getRegulation($offset=null, $limit = 6){
+        if($offset != null){
+            $items = $this->getApiContents("1539.json?offset=".$offset."&limit=".$limit);
+        }else{
+            $items = $this->getApiContents("1539.json?offset=null&limit=".$limit);
+        }
         if($items != null){
             $items = $items['data']['regulasi_list'];
         }
         return $items;   
     }
 
-    public function searchRegulation($tentang ="null", $nomor="null", $tahun="null", $offset="null", $limit=10){
-        // $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&offset=".$offset."&limit=".$limit);
-        $items = $this->getApiContents("1573.json?tentang=1020&nomor=null&tahun=null&offset=null&limit=6");
+    public function searchRegulation($tentang ="null", $nomor="null", $tahun="null", $status="null", $offset=null, $limit=10){
+       // $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&offset=".$offset."&limit=".$limit);
+        //$items = $this->getApiContents("1573.json?tentang=1020&nomor=null&tahun=null&offset=null&limit=6");
+        if($offset != null){
+            $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&status=".$status."&offset=".$offset."&limit=".$limit);
+        }else{
+            $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&status=".$status."&offset=null&limit=".$limit);
+        }
+        
         if($items != null){
             $items = $items['data']['regulasi_filter'];
         }

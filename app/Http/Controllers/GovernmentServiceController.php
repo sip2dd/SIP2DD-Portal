@@ -16,7 +16,7 @@ class GovernmentServiceController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
-        $limit = 4;
+        $limit = 6;
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'

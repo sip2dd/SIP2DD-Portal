@@ -75,7 +75,7 @@
                 <div class="form-row justify-content-center mb-50">
                     <!--Edit untuk penambahan class col dan ada beberapa edit di css-->
                     <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                        <form action="" method="">
+                        <!-- <form action="" method="">
                             <div class="form-group">
                                 <div class="input-group">
                                     <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
@@ -86,7 +86,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
                 <div class="row">
@@ -98,9 +98,9 @@
                                     <option class="l1"></option>
                                     @foreach($list_gov as $gov)
                                     @if(strlen($gov['kode_daerah']) < 3)
-                                        <option class="l1" value="{{ url('/detailtp2dd') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
+                                        <option class="l1" value="{{ url('/tp2dd') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
                                     @else
-                                        <option class="l2" value="{{ url('/detailtp2dd') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
+                                        <option class="l2" value="{{ url('/tp2dd') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
                                     @endif
                                 @endforeach
                                 </select>
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 ket-jumlah">
-                        <p>menunjukkan hasil 1-30 Kabupaten/Kota</p>
+                        <!-- <p>menunjukkan hasil 1-30 Kabupaten/Kota</p> -->
                     </div>
                 </div>
                 <!-- Section caption -->
@@ -134,7 +134,7 @@
                                     <span><img src="{{$government['logo']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'" style="width: 90px;"></span>
                                 </div>
                                 <div class="service-cap">
-                                    <h4><a href="{!! url('/detailtp2dd?id=')!!}{{$government['unit_profile_id']}}">{{$government['nama']}}</a></h4>
+                                    <h4><a href="{!! url('/detailtp2dd?kode_daerah=')!!}{{$government['instansi_id']}}">{{$government['nama']}}</a></h4>
                                     <p>{{ Str::limit(strip_tags($government['deskripsi']), 120) }}</p>
                                 </div>
                             </div>
@@ -144,22 +144,43 @@
                 <div class="row justify-content-center mb-30">
                     <nav class="blog-pagination">
                         <ul class="pagination">
+                        @if($page > 1)
+                            <li class="page-item">
+                                <a href="{!! url('/tp2dd?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            @else
                             <li class="page-item">
                                 <a href="#" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
                             </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
+                            @endif
+                            @for($i =1; $i<=$pagination; $i++)
+                                    @if($page == $i)
+                                    <li class="page-item active">
+                                        <a href="{!! url('/tp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    </li>
+                                    @else
+                                    <li class="page-item">
+                                        <a href="{!! url('/tp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    </li>
+                                    @endif    
+                            @endfor
+                            @if($page == $pagination)
                             <li class="page-item">
                                 <a href="#" class="page-link" aria-label="Next">
                                     <i class="ti-angle-right"></i>
                                 </a>
                             </li>
+                            @else
+                            <li class="page-item">
+                                <a href="{!! url('/tp2dd?page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                            @endif
                         </ul>
                     </nav>
                 </div>

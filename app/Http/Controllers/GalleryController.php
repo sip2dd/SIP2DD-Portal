@@ -48,6 +48,51 @@ class GalleryController extends Controller
         ]);
     }
 
+    public function searchGalleryPhoto(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'page' => 'integer'
+        ]);
+
+        $judul = "";
+        $count = 0;
+        $searchNews = null;
+        $pages = 1;
+        $offset = null;
+        $limit = 6;
+        $pagination = 1;
+        $eventItems = null;
+        if($request->has('keyword')) {
+            if($request->keyword != ''){
+                $judul = $request->keyword;
+                if (!$validator->fails()) {
+                    $pages = $request->page;
+                    if($pages > 1){
+                        $offset = ($pages - 1) * 9; 
+                    } 
+                }else{
+                    $pages = 1;
+                }
+                $galleryPhotos = $this->galleryRepo->searchGalleryPhoto($judul, $offset, $limit);
+                //$count = $this->eventRepo->getCountsearchEvent($judul);
+                
+                if($count > $limit){
+                    $pagination = ceil($count / $limit);
+                } 
+            }
+        }
+        
+        //dd($searchNews);
+        return view('gallery.galleryPhotoPage', [
+            'count' => $count,
+            'keyword' => $judul,
+            'galleryPhotos' => $galleryPhotos,
+            'page' => $pages ?? 1,
+            'pagination' => $pagination,
+            'title' => $judul
+        ]);
+    }
+
     public function detailGalleryPhoto(Request $request)
     {
         $offset =null;
@@ -116,6 +161,51 @@ class GalleryController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+        ]);
+    }
+
+    public function searchGalleryVideo(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'page' => 'integer'
+        ]);
+
+        $judul = "";
+        $count = 0;
+        $searchNews = null;
+        $pages = 1;
+        $offset = null;
+        $limit = 6;
+        $pagination = 1;
+        $eventItems = null;
+        if($request->has('keyword')) {
+            if($request->keyword != ''){
+                $judul = $request->keyword;
+                if (!$validator->fails()) {
+                    $pages = $request->page;
+                    if($pages > 1){
+                        $offset = ($pages - 1) * 9; 
+                    } 
+                }else{
+                    $pages = 1;
+                }
+                $eventItems = $this->eventRepo->searchEvent($judul, $offset, $limit);
+                //$count = $this->eventRepo->getCountsearchEvent($judul);
+                
+                if($count > $limit){
+                    $pagination = ceil($count / $limit);
+                } 
+            }
+        }
+        
+        //dd($searchNews);
+        return view('event.eventPage', [
+            'count' => $count,
+            'keyword' => $judul,
+            'eventItems' => $eventItems,
+            'page' => $pages ?? 1,
+            'pagination' => $pagination,
+            'title' => $judul
         ]);
     }
 

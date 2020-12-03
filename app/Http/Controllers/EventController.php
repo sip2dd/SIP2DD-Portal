@@ -72,6 +72,7 @@ class EventController extends Controller
             'p2dd_info' => $p2dd_info,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'count' => $count
         ]);
     }
 
@@ -106,6 +107,51 @@ class EventController extends Controller
             'socmed' => $getSocmed    
         ],
         );
+    }
+
+    public function searchEvent(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'page' => 'integer'
+        ]);
+
+        $judul = "";
+        $count = 0;
+        $searchNews = null;
+        $pages = 1;
+        $offset = null;
+        $limit = 6;
+        $pagination = 1;
+        $eventItems = null;
+        if($request->has('keyword')) {
+            if($request->keyword != ''){
+                $judul = $request->keyword;
+                if (!$validator->fails()) {
+                    $pages = $request->page;
+                    if($pages > 1){
+                        $offset = ($pages - 1) * 9; 
+                    } 
+                }else{
+                    $pages = 1;
+                }
+                $eventItems = $this->eventRepo->searchEvent($judul, $offset, $limit);
+                //$count = $this->eventRepo->getCountsearchEvent($judul);
+                
+                if($count > $limit){
+                    $pagination = ceil($count / $limit);
+                } 
+            }
+        }
+        
+        //dd($searchNews);
+        return view('event.eventPage', [
+            'count' => $count,
+            'keyword' => $judul,
+            'eventItems' => $eventItems,
+            'page' => $pages ?? 1,
+            'pagination' => $pagination,
+            'title' => $judul
+        ]);
     }
 
     public function getSocmed($title = ""){

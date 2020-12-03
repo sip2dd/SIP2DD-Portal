@@ -12,17 +12,44 @@ class RegulationController extends Controller
         $this->regRepo = $regRepo;
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $pages = 1;
+        $offset = null;
+        $pagination = 1;
+        $limit = 6;
+
+        $validator = Validator::make($request->all(), [
+            'page' => 'integer'
+        ]);
+
+        if (!$validator->fails()) {
+            $pages = $request->page;
+            if($pages > 1){
+                $offset = ($pages - 1) * $limit; 
+            } 
+        }else{
+            $pages = 1;
+        }
+
         //$menu = $this->getApiMenu();
         $menu = null;
-        $regItems = $this->regRepo->getRegulation();
+        $regItems = $this->regRepo->getRegulation($offset, $limit);
         // $p2dd_info = $this->getApiP2DDInfo();
         $p2dd_info = null;
+        $count = 1;
+
+        if($count > $limit){
+            $pagination = ceil($count / $limit);
+        } 
+
         return view('regulation.regulationPage',  [
             'menus' => $menu,
             'regItems' => $regItems,
-            'p2dd_info' => $p2dd_info
+            'p2dd_info' => $p2dd_info,
+            'count' => $count,
+            'page' => $pages ?? 1,
+            'pagination' => $pagination,
         ]);
     }
 
@@ -49,17 +76,22 @@ class RegulationController extends Controller
         }else{
             $pages = 1;
         }
-        // $tentang = $request->tentang ?? null; 
-        // $nomor =  $request->nomor ?? null;
-        // $tahun = $request->tahun ?? null; 
+        $tentang = $request->tentang ?? "null"; 
+        $nomor =  $request->nomor ?? "null";
+        $tahun = $request->tahun ?? "null"; 
+        $status = $request->status ?? "null"; 
 
-        $tentang = "a"; 
-        $nomor =  "";
-        $tahun = ""; 
+        if($status == "Pilih Status"){
+            $status = "null";
+        }
 
-        $searchReg = $this->regRepo->searchRegulation($tentang, $nomor, $tahun, $offset, $limit);
+        if($tahun == "Input Tahun" || $tahun=="Semua Tahun"){
+            $tahun = "null";
+        }
+
+        $searchReg = $this->regRepo->searchRegulation($tentang, $nomor, $tahun, $status, $offset, $limit);
         //$count = $this->regRepo->getCountsearchNews($judul);
-        dd($searchReg);
+        //dd($searchReg);
                 
         if($count > $limit){
             $pagination = ceil($count / 9);

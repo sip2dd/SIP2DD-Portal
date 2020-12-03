@@ -66,7 +66,7 @@
                 <ol class="breadcrumb pl-0 pr-0 sky-blue">
                     <li class="breadcrumb-item"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                     @if($govDetail != null)
-                    <li class="breadcrumb-item active"><a href="">{{$govDetail['nama']}}</a> </li>
+                    <li class="breadcrumb-item active"><a href="">{{$govDetail['profile']}}</a> </li>
                     @endif
                    
                 </ol>
@@ -75,6 +75,7 @@
     </div>
     <!-- navigation link End-->
     <!-- Slider Area Start-->
+    @if($govDetail != null)
     <div class="section-paddingr sky-blue">
         <div class="container pt-20">
             <!-- Section-tittle -->
@@ -82,7 +83,7 @@
                 <div class="col-lg-8">
                     <div class="section-tittle text-center mb-30">
                     @if($govDetail != null)
-                        <h2>{{$govDetail['nama']}}</h2>
+                        <h2>{{$govDetail['profile']}}</h2>
                     @endif
 
                     </div>
@@ -116,15 +117,16 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="pb-20 sky-blue">
         <div class="container">
             <!--Section Form input-->
             <div class="form-row justify-content-center">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <form action="" method="">
+                    <form action="{!! url('/pencarianberita')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>
@@ -275,7 +277,7 @@
                             <div class="col">
                                 <div class="section-judul-berita2">
                                 @if($govDetail != null)
-                                <h6><a href="{!! url('/beritatp2dd?id=')!!}{{$govDetail['unit_profile_id']}}">Lihat Semua</a></h6>
+                                <h6><a href="{!! url('/beritatp2dd?id=')!!}{{$govDetail['instansi_id']}}">Lihat Semua</a></h6>
                                 @endif
 
                                 </div>
@@ -363,7 +365,7 @@
         <div class="container">
             <div class="row mt-5 mb-5">
             @if($govDetail != null)
-                <a href="{!! url('/layanantp2dd?id=')!!}{{$govDetail['unit_profile_id']}}" class="btn radius-btn"
+                <a href="{!! url('/layanantp2dd?id=')!!}{{$govDetail['instansi_id']}}" class="btn radius-btn"
                     style="margin:auto; text-align: center; display: block;">Selengkapnya</a>
             @endif
             </div>
@@ -376,36 +378,39 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center mb-90">
-                            <h2>Galeri Foto</h2>
+                            <h2>Galeri</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row mx-auto my-auto">
-                @if($galleryGovPhotos != null)
+                @if($galleryGovVideos != null)
                     <div id="galeriCarousel" class="carousel slide w-100" data-ride="carousel">
                         <div class="carousel-inner w-100" role="listbox">
-                        @foreach($galleryGovPhotos as $index => $galleryGovPhoto)
+                        @foreach($galleryGovVideos as $index => $galleryGovVideo)
                             @if($index == 0)
                             <div class="carousel-item active">
                                 <div class="col-xl-4 col-lg-4 col-md-6">
                                     <div class="single-customer">
                                         <div class="what-img">
-                                            @if($galleryGovPhoto['link'] != null)
-                                            <img src="{{$galleryGovPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                            @if($galleryGovVideo['tipe'] == "Youtube")
+                                                <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($galleryGovVideo['link']) }}/maxresdefault.jpg"
+                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                             @else
-                                            <img src="{{$galleryGovPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                                <img class="card-img" src=""
+                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                             @endif
+                                            
                                         </div>
                                         <div class="what-cap">
-                                            <h6>{{tanggal_indonesia($galleryGovPhoto['tgl_dibuat'])}}</h6>
+                                            <h6>{{tanggal_indonesia($galleryGovVideo['tgl_dibuat'])}}</h6>
                                             <!--Edit PEnamabahan instansi-->
                                             <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                    alt="logo">Pemerintah Kalimantan Barat
+                                                    alt="logo">{{$galleryGovVideo['dibuat_oleh']}}
                                             </h6>
-                                            <h4><a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryGovPhoto['galeri_id']}}"> {{ Str::limit($galleryGovPhoto['judul'], 60) }}</a></h4>
+                                            <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryGovVideo['galeri_id']}}"> {{ Str::limit($galleryGovVideo['judul'], 60) }}</a></h4>
                                         </div>
                                         <div class="tulisan-lengkapnya">
-                                            <a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryGovPhoto['galeri_id']}}">Selengkapnya <span
+                                            <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryGovVideo['galeri_id']}}">Selengkapnya <span
                                                     class="fas fa-chevron-right mr-2"></span></a>
                                         </div>
                                     </div>
@@ -416,21 +421,23 @@
                                 <div class="col-xl-4 col-lg-4 col-md-6">
                                     <div class="single-customer">
                                         <div class="what-img">
-                                            @if($galleryGovPhoto['link'] != null)
-                                            <img src="{{$galleryGovPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                            @if($galleryGovVideo['tipe'] == "Youtube")
+                                                <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($galleryGovVideo['link']) }}/maxresdefault.jpg"
+                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                             @else
-                                            <img src="{{$galleryGovPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                                <img class="card-img" src=""
+                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
                                             @endif
                                         </div>
                                         <div class="what-cap">
-                                            <h6>{{tanggal_indonesia($galleryGovPhoto['tgl_dibuat'])}}</h6>
+                                            <h6>{{tanggal_indonesia($galleryGovVideo['tgl_dibuat'])}}</h6>
                                             <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                    alt="logo">{{ Str::limit($galleryGovPhoto['judul'], 60) }}
+                                                    alt="logo">{{ Str::limit($galleryGovVideo['judul'], 60) }}
                                             </h6>
-                                            <h4><a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryGovPhoto['galeri_id']}}">{{$galleryGovPhoto['judul']}}</a></h4>
+                                            <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryGovVideo['galeri_id']}}">{{ Str::limit($galleryGovVideo['judul'], 60) }}</a></h4>
                                         </div>
                                         <div class="tulisan-lengkapnya">
-                                            <a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryGovPhoto['galeri_id']}}">Selengkapnya <span class="fas fa-chevron-right mr-2"></span></a>
+                                            <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryGovVideo['galeri_id']}}">Selengkapnya <span class="fas fa-chevron-right mr-2"></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -460,7 +467,7 @@
                 </div>
                 <div class="row mt-5 mb-5">
                 @if($govDetail != null)
-                    <a href="{!! url('/galeritp2dd?id=')!!}{{$govDetail['unit_profile_id']}}" class="btn radius-btn"
+                    <a href="{!! url('/galeritp2dd?id=')!!}{{$govDetail['instansi_id']}}" class="btn radius-btn"
                         style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
                 </div>
                 @endif

@@ -15,7 +15,7 @@ Class GovServicesRepository implements GovServicesInterface{
         }
 
         if($govServices != null){
-            $govServices = $govServices['data']['layanan'];
+            $govServices = $govServices['data']['layanan_list'];
         }
         return $govServices;
     }

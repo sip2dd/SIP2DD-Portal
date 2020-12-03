@@ -12,11 +12,47 @@ class GovernmentController extends Controller
         $this->govRepo = $govRepo;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $governments = $this->govRepo->getGoverment(); 
+        $pages = 1;
+        $offset = null;
+        $pagination = 1;
+        $limit = 6;
+        $count = 0;
+        $kode_daerah = null;
+
+        if($request->has('kode_daerah')) {
+            $kode_daerah = $request->kode_daerah;
+        }
+
+        $validator = Validator::make($request->all(), [
+            'page' => 'integer'
+        ]);
+
+        if (!$validator->fails()) {
+            $pages = $request->page;
+            if($pages > 1){
+                $offset = ($pages - 1) * $limit; 
+            } 
+        }else{
+            $pages = 1;
+        }
+
+        // $count = $this->govService->getCountServices();
+
+        if($count > $limit){
+            $pagination = ceil($count / $limit);
+        } 
+
+        $governments = $this->govRepo->getGoverment($kode_daerah, $offset, $limit); 
         $list_gov = $this->govRepo->getListGoverment(); 
-         return view('government.governmentPage', ['governments' => $governments, 'list_gov' => $list_gov]);
+         return view('government.governmentPage', [
+             'governments' => $governments, 
+             'list_gov' => $list_gov,
+             'count' => $count,
+            'page' => $pages ?? 1,
+            'pagination' => $pagination,
+             ]);
     }
 
     public function detailGov(Request $request)
@@ -43,10 +79,16 @@ class GovernmentController extends Controller
             if($request->kode_daerah != ''){
                 $id = $request->kode_daerah;
                 $govDetail = $this->govRepo->getGovermentDetail($id);
+                //$govDetail = $this->govRepo->getGoverment($id);
+               
                 $govNewsHighlights = $this->govRepo->getGovHighlight($id, $offset, $limit);
+                
                 $govNews = $this->govRepo->getGovNews($id, $offset, 4); 
+                
                 $govServices = $this->govRepo->getGovServices($id, $offset, $limit);
-                $galleryGovPhotos = $this->govRepo->getGalleryGovPhotos($id, $offset, $limit);   
+                
+                $galleryGovVideos = $this->govRepo->getGalleryGovVideos($id, $offset, $limit);   
+                
             }else{
                 return redirect('');
             }
@@ -59,7 +101,7 @@ class GovernmentController extends Controller
             'govNewsHighlights' => $govNewsHighlights,
             'govNews' => $govNews,
             'govServices' => $govServices,
-            'galleryGovPhotos' => $galleryGovPhotos,
+            'galleryGovVideos' => $galleryGovVideos,
         ]);
     }
 

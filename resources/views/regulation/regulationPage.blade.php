@@ -32,7 +32,7 @@
                                         </li>
                                         <li class="active"><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
-                                        <li><a href="{!! url('/kegiatan') !!}">Kegiatan</a></li>
+                                        <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
                                         <li><a href="#">Galeri</a>
                                         <ul class="submenu">
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
@@ -85,7 +85,7 @@
                                 <div class="input-group">
                                     <label for="tahunRegulasi" class="label_inputan">Tahun</label>
                                     <select name="tahun" id="tahunRegulasi" class="search_inputan">
-                                        <option selected hidden>Input Tahun</option>
+                                        <option hidden>Input Tahun</option>
                                         <option>Semua Tahun</option>
                                     </select>
                                 </div>
@@ -105,8 +105,9 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <label for="statusRegulasi" class="label_inputan">Status</label>
-                                    <select class="search_inputan tentangr" id="statusRegulasi" class="search_inputan">
-                                        <option selected hidden>Pilih Status</option>
+                                    <select name="status" class="search_inputan tentangr" id="statusRegulasi" class="search_inputan">
+                                        <option hidden>Pilih Status</option>
+                                        <option>Aktif</option>
                                         <option>Diubah</option>
                                         <option>Mengubah</option>
                                         <option>Dicabut</option>
@@ -144,29 +145,50 @@
 
                 </div>
                 <!--Bagian Pagination-->
-                <!--
+                
                 <div class="row justify-content-center">
                     <nav class="blog-pagination">
                          <ul class="pagination">
+                            @if($page > 1)
+                            <li class="page-item">
+                                <a href="{!! url('/faq?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                            </li>
+                            @else
                             <li class="page-item">
                                 <a href="#" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
                             </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
+                            @endif
+                            @for($i =1; $i<=$pagination; $i++)
+                                    @if($page == $i)
+                                    <li class="page-item active">
+                                        <a href="{!! url('/faq?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    </li>
+                                    @else
+                                    <li class="page-item">
+                                        <a href="{!! url('/faq?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    </li>
+                                    @endif    
+                            @endfor
+                            @if($page == $pagination)
                             <li class="page-item">
                                 <a href="#" class="page-link" aria-label="Next">
                                     <i class="ti-angle-right"></i>
                                 </a>
                             </li>
+                            @else
+                            <li class="page-item">
+                                <a href="{!! url('/faq?page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                            </li>
+                            @endif
                         </ul>
                     </nav>
-                </div>-->
+                </div>
             </div>
         </section>
         <!-- Akhir pagination-->

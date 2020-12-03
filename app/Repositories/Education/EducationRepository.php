@@ -20,13 +20,15 @@ Class EducationRepository implements EducationInterface{
         return $detailEdu;
     }
 
-    public function getEducation($id = null, $offset=null, $limit=4){
-        if($offset == null){
+    public function getEducation($offset=null, $limit=4){
+        if($offset == null || $offset == "null" || $offset=""){
             $eduItems = $this->getApiContents("1576.json?offset=null&limit=".$limit);
         }else{
-            $eduItems = $this->getApiContents("1576.json?&offset=".$offset."&limit=".$limit);
+            $eduItems = $this->getApiContents("1576.json?offset=".$offset."&limit=".$limit);
         }
 
+        //$eduItems = $this->getApiContents("1576.json?offset=null&limit=".$limit);
+        
         if($eduItems != null){
             $eduItems = $eduItems['data']['edukasi_list'];
         }

@@ -63,7 +63,7 @@
                 <nav>
                     <ol class="breadcrumb pl-0 pr-0 sky-blue">
                         <li class="breadcrumb-item"><a href="{{url('')}}">Beranda</a></li>
-                        <li class="breadcrumb-item active"><a href="">Layanan TP2DD</a>
+                        <li class="breadcrumb-item active"><a href="{!! url('/layanan') !!}">Layanan TP2DD</a>
                         </li>
                     </ol>
                 </nav>
@@ -103,7 +103,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <!--Edit Memakai plugin select 2-->
-                        <div class="dropdown">
+                        <!-- <div class="dropdown">
                             <div class="btn-group" role="group">
                                 <select class="select_prov" style="width: 250px; padding: 10px 5px;" onchange="if (this.value) window.location.href=this.value">
                                 <option class="l1"></option>
@@ -116,7 +116,7 @@
                                 @endforeach
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-lg-6 col-md-6 ket-jumlah">
                         <!-- <p>menunjukkan hasil 10 Layanan</p> -->
