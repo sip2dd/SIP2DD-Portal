@@ -24,9 +24,9 @@ Class RegulationRepository implements RegulationInterface{
        // $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&offset=".$offset."&limit=".$limit);
         //$items = $this->getApiContents("1573.json?tentang=1020&nomor=null&tahun=null&offset=null&limit=6");
         if($offset != null){
-            $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&status=".$status."&offset=".$offset."&limit=".$limit);
+            $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&status_peraturan=".$status."&offset=".$offset."&limit=".$limit);
         }else{
-            $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&status=".$status."&offset=null&limit=".$limit);
+            $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&status_peraturan=".$status."&offset=null&limit=".$limit);
         }
         
         if($items != null){
