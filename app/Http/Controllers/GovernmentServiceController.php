@@ -91,7 +91,7 @@ class GovernmentServiceController extends Controller
                 if (!$validator->fails()) {
                     $pages = $request->page;
                     if($pages > 1){
-                        $offset = ($pages - 1) * 9; 
+                        $offset = ($pages - 1) * $limit; 
                     } 
                 }else{
                     $pages = 1;
@@ -99,8 +99,8 @@ class GovernmentServiceController extends Controller
                 $searcServices = $this->govService->searchServices($judul, $offset, $limit);
                 $count = $this->govService->getCountsearchServices($judul);
                 
-                if($count > 9){
-                    $pagination = ceil($count / 9);
+                if($count > $limit){
+                    $pagination = ceil($count / $limit);
                 } 
             }
         }

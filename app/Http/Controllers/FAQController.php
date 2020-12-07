@@ -74,7 +74,7 @@ class FAQController extends Controller
                 if (!$validator->fails()) {
                     $pages = $request->page;
                     if($pages > 1){
-                        $offset = ($pages - 1) * 9; 
+                        $offset = ($pages - 1) * $limit; 
                     } 
                 }else{
                     $pages = 1;
@@ -90,7 +90,7 @@ class FAQController extends Controller
         
         //dd($searchNews);
 
-        return view('faq.FAQPage', [
+        return view('faq.searchFAQPage', [
             'menus' => $menu,
             'faqItems' => $faqItems,
             'p2dd_info' => $p2dd_info,

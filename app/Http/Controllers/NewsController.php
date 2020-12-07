@@ -55,7 +55,7 @@ class NewsController extends Controller
                 if (!$validator->fails()) {
                     $pages = $request->page;
                     if($pages > 1){
-                        $offset = ($pages - 1) * 9; 
+                        $offset = ($pages - 1) * $limit; 
                     } 
                 }else{
                     $pages = 1;
