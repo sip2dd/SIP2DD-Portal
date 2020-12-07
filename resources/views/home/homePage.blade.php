@@ -365,10 +365,10 @@
                                                         <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
                                                                 alt="logo">{{ $galleryNewsItem['dibuat_oleh'] }}
                                                         </h6>
-                                                        <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}"> {{ Str::limit($galleryNewsItem['judul'], 60) }}</a></h4>
+                                                        <h4><a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryNewsItem['galeri_id']}}"> {{ Str::limit($galleryNewsItem['judul'], 60) }}</a></h4>
                                                     </div>
                                                     <div class="tulisan-lengkapnya">
-                                                        <a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
+                                                        <a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
                                                                 class="fas fa-chevron-right mr-2"></span></a>
                                                     </div>
                                                 </div>

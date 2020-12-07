@@ -64,7 +64,7 @@
                     <ol class="breadcrumb pl-0 pr-0 sky-blue">
                         <li class="breadcrumb-item"><a href="{{url('')}}">TP2DD</a></li>
                         @if($govDetail != null)
-                            <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?id=')}}{{$govDetail['unit_profile_id']}}">{{$govDetail['profile']}}</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?id=')}}{{$govDetail['instansi_id']}}">{{$govDetail['profile']}}</a></li>
                         @endif
                         <li class="breadcrumb-item active"><a href="">Layanan TP2DD</a>
                         </li>

@@ -95,7 +95,7 @@ class GalleryController extends Controller
     public function detailGalleryPhoto(Request $request)
     {
         $offset =null;
-        $limit = 3;
+        $limit = 5;
         $detailGalleryPhoto = null;
         $attachments = null;
 
@@ -117,6 +117,9 @@ class GalleryController extends Controller
         }
 
         $galleryPhotos = $this->galleryRepo->getGalleryPhotos($offset, $limit);
+
+       
+        
 
         return view('gallery.detailGalleryPhotoPage', [
             'detailGalleryPhoto' => $detailGalleryPhoto,

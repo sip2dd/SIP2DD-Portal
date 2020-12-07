@@ -239,7 +239,7 @@ class GovernmentController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
-        $limit = 9;
+        $limit = 20;
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -262,7 +262,8 @@ class GovernmentController extends Controller
                 $id = $request->id;
                 $kode_daerah = 1328;
                 $govDetail = $this->govRepo->getGovermentDetail($id);
-                $govServices = $this->govRepo->getGalleryGovPhotos($id, $offset, $limit);   
+                $govServices = $this->govRepo->getGovServices($id, $offset, $limit);   
+                
                 $count = 1;
             }else{
                 return redirect('');
@@ -274,6 +275,7 @@ class GovernmentController extends Controller
         if($count > $limit){
             $pagination = ceil($count / $limit);
         } 
+
 
          return view('government.governmentServicePage', [
              'govServices' => $govServices,

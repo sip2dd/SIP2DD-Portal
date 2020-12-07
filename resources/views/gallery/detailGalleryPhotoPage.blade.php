@@ -126,6 +126,76 @@
                               </div>
                            </div>
                         </div> -->
+                        @if($detailGalleryPhoto != null)
+
+                           @if($detailGalleryPhoto['file'] != null)
+                                    
+                                    <div class="item_gallery col-lg-4 col-md-6">
+                                       <a href="#gambar">
+                                          @if($detailGalleryPhoto['link'] != null)
+                                          <img class="card-img" src="{{$detailGalleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                          @else
+                                          <img class="card-img" src="{{$detailGalleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                          @endif
+                                          <div class="overly">
+                                             <div class="text"><i class="fas fa-search-plus"></i></div>
+                                          </div>
+                                       </a>
+                                       <div class="overlay" id="gambar">
+                                          <a href="#" class="tutup">X Tutup</a>
+                                          <div class="kotak">
+                                          @if($detailGalleryPhoto['link'] != null)
+                                          <img class="card-img" src="{{$detailGalleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                          @else
+                                          <img class="card-img" src="{{$detailGalleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                          @endif
+                                             <p>{{$detailGalleryPhoto['judul']}}</p>
+                                          </div>
+                                          <div class="nav-overlay">
+                                             <a href="#gambar1" class="sebelumnya">
+                                                <p class="fas fa-chevron-left"></p>
+                                             </a>
+                                             <a href="#gambar1" class="lanjut">
+                                                <p class="fas fa-chevron-right"></p>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                           @else
+                           <div class="item_gallery col-lg-4 col-md-6">
+                                       <a href="#gambar">
+                                          @if($detailGalleryPhoto['link'] != null)
+                                          <img class="card-img" src="{{$detailGalleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                          @else
+                                          <img class="card-img" src="{{$detailGalleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                          @endif
+                                          <div class="overly">
+                                             <div class="text"><i class="fas fa-search-plus"></i></div>
+                                          </div>
+                                       </a>
+                                       <div class="overlay" id="gambar">
+                                          <a href="#" class="tutup">X Tutup</a>
+                                          <div class="kotak">
+                                          @if($detailGalleryPhoto['link'] != null)
+                                          <img class="card-img" src="{{$detailGalleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                          @else
+                                          <img class="card-img" src="{{$detailGalleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                          @endif
+                                             <p>{{$detailGalleryPhoto['judul']}}</p>
+                                          </div>
+                                          <div class="nav-overlay">
+                                             <a href="#gambar1" class="sebelumnya">
+                                                <p class="fas fa-chevron-left"></p>
+                                             </a>
+                                             <a href="#gambar1" class="lanjut">
+                                                <p class="fas fa-chevron-right"></p>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                           @endif
+                        @endif
+                        
                         @if($attachments != null)
                         @foreach($attachments as $index => $attachment)
                         <div class="item_gallery col-lg-4 col-md-6">
@@ -208,7 +278,11 @@
                             @foreach($galleryPhotos as $photoItem)
                             <div class="media post_item">
                                 <div class="col-lg-4 col-4 pl-0 pr-0">
+                                @if($photoItem['file'] != null)
+                                    <img class="image" src="{{$photoItem['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
+                                @else
                                     <img class="image" src="{{$photoItem['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
+                                @endif
                                 </div>
                                 <div class="col-lg-8 col-8 pr-0">
                                     <div class="media-body">
