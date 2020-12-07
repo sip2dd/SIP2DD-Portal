@@ -107,7 +107,7 @@
                                     <label for="statusRegulasi" class="label_inputan">Status</label>
                                     <select name="status" class="search_inputan tentangr" id="statusRegulasi" class="search_inputan">
                                         <option hidden>Pilih Status</option>
-                                        <option>Aktif</option>
+                                        <option>Berlaku</option>
                                         <option>Diubah</option>
                                         <option>Mengubah</option>
                                         <option>Dicabut</option>

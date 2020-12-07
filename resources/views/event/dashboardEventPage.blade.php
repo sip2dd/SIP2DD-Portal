@@ -85,9 +85,7 @@
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-12 video-conf">
-                        <video height="380px" style="width: 100%;" controls>
-                            <source src="">
-                        </video>
+                        <x-embed url="https://www.youtube.com/watch?v=UuPaS81n0xg"/>
                     </div>
                 </div>
             </div>

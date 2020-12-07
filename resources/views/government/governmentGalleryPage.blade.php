@@ -64,7 +64,7 @@
                 <ol class="breadcrumb pl-0 sky-blue">
                     <li class="breadcrumb-item"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                     @if($govDetail != null)
-                        <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?id=')}}{{$govDetail['unit_profile_id']}}">{{$govDetail['profile']}}</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?id=')}}{{$govDetail['instansi_id']}}">{{$govDetail['profile']}}</a></li>
                     @endif
                     <li class="breadcrumb-item active"><a href="">Galeri Lainnya</a>
                     </li>
@@ -86,10 +86,11 @@
             <!--Section Form input Cari-->
             <div class="form-row justify-content-center">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <form action="" method="">
+                    <form action="{!! url('/carigalerifototp2dd')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input type="hidden" name="id" value="<?php echo ($govDetail != null) ?  $govDetail['instansi_id'] : '' ?>" />
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>
@@ -115,9 +116,9 @@
                         <article class="blog_item">
                             <div class="blog_item_img">
                                 @if($galleryPhoto['link'] != null)
-                                <img class="card-img" src="{{$galleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                <img class="card-img" src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{$galleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                 @else
-                                <img class="card-img" src="{{$galleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                <img class="card-img" src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{$galleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                 @endif
                             </div>
 
@@ -152,7 +153,7 @@
                     <ul class="pagination">
                         @if($page > 1)
                         <li class="page-item">
-                            <a href="{!! url('/galeritp2dd?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                            <a href="{!! url('/galerifototp2dd?id='.$id.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
                                 <i class="ti-angle-left"></i>
                             </a>
                         </li>
@@ -166,11 +167,11 @@
                         @for($i =1; $i<=$pagination; $i++)
                                 @if($page == $i)
                                 <li class="page-item active">
-                                    <a href="{!! url('/galeritp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    <a href="{!! url('/galerifototp2dd?id='.$id.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                 </li>
                                 @else
                                 <li class="page-item">
-                                    <a href="{!! url('/galeritp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    <a href="{!! url('/galerifototp2dd?id='.$id.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                 </li>
                                 @endif
                         @endfor
@@ -182,7 +183,7 @@
                         </li>
                         @else
                         <li class="page-item">
-                            <a href="{!! url('/galeritp2dd?page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                            <a href="{!! url('/galerifototp2dd?id='.$id.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">
                                 <i class="ti-angle-right"></i>
                             </a>
                         </li>

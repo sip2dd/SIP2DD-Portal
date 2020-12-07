@@ -91,6 +91,7 @@
     <!--================Galeri=================-->
     <section class="blog_area pt-10 background_1">
         <div class="container">
+        
             <!--Galeri-->
             @if($eduItems != null)
             <div class="row">

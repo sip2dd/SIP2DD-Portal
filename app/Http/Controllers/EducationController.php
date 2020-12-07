@@ -119,7 +119,7 @@ class EducationController extends Controller
         
         //dd($searchNews);
 
-        return view('education.educationPage', [
+        return view('education.searchEducationPage', [
             'count' => $count,
             'keyword' => $judul,
             'eduItems' => $eduItems,

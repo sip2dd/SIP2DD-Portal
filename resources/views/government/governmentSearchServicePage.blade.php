@@ -1,9 +1,9 @@
 @extends('template.main')
 
-@section('title', 'Pencarian | Portal Percepatan Digitalisasi Daerah')
+@section('title', 'Layanan TP2DD | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
-<header>
+    <header>
         <!-- Header Start -->
         <div class="header-area header-transparrent ">
             <div class="main-header header-sticky">
@@ -20,9 +20,9 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
+                                        <li><a href="{!! url('/') !!}">Beranda</a></li>
                                         <li><a href="{!! url('/berita') !!}">Berita</a></li>
-                                        <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
+                                        <li class="active"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
                                                 <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
@@ -38,7 +38,7 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-
+                                    </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -56,25 +56,46 @@
 @endsection
 
 @section('content')
-    <main class="background-utama">
+<main class="background-utama">
+        <!-- navgation link Start-->
+        <div class="section-padd4">
+            <div class="container nav-bread mt-30">
+                <nav>
+                    <ol class="breadcrumb pl-0 pr-0 sky-blue">
+                        <li class="breadcrumb-item"><a href="{{url('')}}">TP2DD</a></li>
+                        @if($govDetail != null)
+                            <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?id=')}}{{$govDetail['instansi_id']}}">{{$govDetail['profile']}}</a></li>
+                        @endif
+                        <li class="breadcrumb-item active"><a href="">Layanan TP2DD</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- navigation link End-->
         <!-- Area untuk Pencarian TP2DD -->
-        <section class="service-area section-padding">
+        <section class="service-area section-padding pt-0">
             <div class="container">
                 <!-- Section Judul -->
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6">
-                        <div class="section-tittle pt-25 text-center mb-30">
-                            <h2>Pencarian</h2>
+                        <div class="section-tittle pt-25 text-center mb-50">
+                            <h2>Layanan TP2DD</h2>
+                            @if($govDetail != null)
+                            <h2>{{$govDetail['profile']}}</h2>
+                            @endif
                         </div>
                     </div>
                 </div>
                 <!--Section Form input-->
                 <div class="form-row justify-content-center mb-50">
-                    <div class="col-lg-8 col-md-4">
-                        <form action="{!! url('/pencarian')!!}" method="GET">
+                    <!--Edit untuk responsive form input bebeerapa ada edit di css-->
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                        <form action="{!! url('/carilayanantp2dd')!!}" method="GET">
                             <div class="form-group">
                                 <div class="input-group">
                                     <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                    <input type="hidden" name="id" value="<?php echo (isset($id)) ?  $id : '' ?>" >
                                     <div class="input-group-append">
                                         <button class="button1">
                                             <i class="fas fa-search"></i>
@@ -85,74 +106,48 @@
                         </form>
                     </div>
                 </div>
-                @if($keyword != "")
+                @if($title != "")
                 <div class="row">
                     <div class="col-lg-12 col-md-6 ket-jumlah-cari">
-                    <p>Hasil pencarian <strong>"{{$keyword}}"</strong>, {{$count}} hasil ditemukan</p>
+                    <p>Hasil pencarian <strong>"{{$title}}"</strong>, {{$count}} hasil ditemukan</p>
                     <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
                     </div>
                 </div>
                 @endif
-                <!--Hasil Pencarian -->
-                
-                <div class="row">
-                @if($searchNews != null)
-                    @foreach($searchNews as $index => $newsItem)
-                        <div class="card w-100 card-besar">
-                            <div class="row no-gutters berita_card">
-                                <div class="col-lg-4 berita_img">
-                                    <img class="" src="{{$newsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
-                                </div>
-                                <div class="col-lg-8 card_desk">
-                                    <div class="card-body">
-                                        <h5>{{tanggal_indonesia($newsItem['tanggal_publikasi'])}}</h5>
-                                        <h4><a href="{!! url('detailberita?id=')!!}{{$newsItem['berita_id']}}">{{$newsItem['judul']}}</a></h4>
-                                        <!--Edit penambahan nama instansi-->
-                                        <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="logo"> {{$newsItem['dibuat_oleh']}}
-                                        </h6>
-                                        <p>{{ Str::limit(strip_tags($newsItem['body']), 250) }}
-                                        </p>
-                                        <p id="selengkapnya"><a href="{!! url('detailberita?id=')!!}{{$newsItem['berita_id']}}">Selengkapnya <i
-                                                    class="fas fa-chevron-right"></i></a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
 
-                @if($searchServices != null)
-                    @foreach($searchServices as $index => $item)
-                     <!--Edit jikalau yang di cari adalaah layanan tampilannya ini mas-->
-                        <div class="card w-100 card-besar">
-                            <div class="row no-gutters berita_card">
-                                <div class="col-lg-4 layanan_img">
-                                    <img class="" src="{{$item['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                
+                <!-- Section caption -->
+                @if($govServices != null)
+                <div class="row">
+                    @foreach($govServices as $govService)
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="services-caption text-center mb-30">
+                            <div class="service-icon">
+                                <span><img src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'"></span>
+                            </div>
+                            <div class="service-cap">
+                                <h4 class="service-judul"><a href="{!! url('/detaillayanan?id=')!!}{{$govService['layanan_id']}}">{{Str::limit($govService['judul'],32)}}</a></h4>
+                                <div class="services-loc">
+                                    <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
+                                        {{$govService['dibuat_oleh']}}
+                                    </h6>
                                 </div>
-                                <div class="col-lg-8 card_desk">
-                                    <div class="card-body">
-                                        <h4 class="mb-3"><a href="{!! url('/detaillayanan?id=')!!}{{$item['layanan_id']}}">{{$item['judul']}}</a></h4>
-                                        <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="logo"> {{$item['dibuat_oleh']}}</h6>
-                                        <p>{{ Str::limit(strip_tags($item['deskripsi']), 250) }}
-                                        </p>
-                                        <p id="selengkapnya"><a href="{!! url('/detaillayanan?id=')!!}{{$item['layanan_id']}}">Link Layanan <i
-                                                    class="fas fa-chevron-right"></i></a>
-                                        </p>
-                                    </div>
-                                </div>
+                                <p>{{Str::limit(strip_tags($govService['deskripsi']), 90) }}.</p>
+
+                            </div>
+                            <div class="link_layanan">
+                                <a href="//{{$govService['link_layanan']}}" target="_blank">Link Layanan</a>
                             </div>
                         </div>
+                    </div>
                     @endforeach
-                @endif
                 </div>
-                <!--Bagian Pagination-->
-                @if($searchNews != null || $searchServices != null)
                 <div class="row justify-content-center mb-30">
                     <nav class="blog-pagination">
-                        <ul class="pagination">
+                    <ul class="pagination">
                             @if($page > 1)
                             <li class="page-item">
-                                <a href="{!! url('/pencarian?keyword='.$keyword.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                <a href="{!! url('/carilayanantp2dd?id='.$id.'&keyword='.$title.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
                             </li>
@@ -166,13 +161,13 @@
                             @for($i =1; $i<=$pagination; $i++)
                                     @if($page == $i)
                                     <li class="page-item active">
-                                        <a href="{!! url('/pencarian?keyword='.$keyword.'&page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/carilayanantp2dd?id='.$id.'&keyword='.$title.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @else
                                     <li class="page-item">
-                                        <a href="{!! url('/pencarian?keyword='.$keyword.'&page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/carilayanantp2dd?id='.$id.'&keyword='.$title.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
-                                    @endif
+                                    @endif    
                             @endfor
                             @if($page == $pagination)
                             <li class="page-item">
@@ -182,25 +177,23 @@
                             </li>
                             @else
                             <li class="page-item">
-                                <a href="{!! url('/pencarian?keyword='.$keyword.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                <a href="{!! url('/carilayanantp2dd?id='.$id.'&keyword='.$title.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">
                                     <i class="ti-angle-right"></i>
                                 </a>
                             </li>
                             @endif
-                        </ul>
+                            </ul>
                     </nav>
                 </div>
                 @else
-                <div class="container">
-                    <div class="row mt-5 mb-5">
-                        <a style="margin:auto; text-align: center; display: block;">Silahkan ketik di kolom pencarian</a>
-                    </div>
+                <div class="row justify-content-center mb-30">
+                    Belum Ada Data
                 </div>
                 @endif
             </div>
         </section>
-        <!-- Akhir pagination-->
-
+        <!-- Akhir area TP2DD -->
     </main>
-@endsection
 
+    
+@endsection

@@ -97,9 +97,9 @@ Class GovernmentRepository implements GovernmentInterface{
     public function searchGovNews($keyword, $id = null, $offset=null, $limit=6){
 
         if($offset == null){
-            $newsItems = $this->getApiContents("1585.json?instansi_id".$id."&input=".$keyword."&offset=null&limit=".$limit);
+            $newsItems = $this->getApiContents("1585.json?instansi_id=".$id."&input=".$keyword."&offset=null&limit=".$limit);
         }else{
-            $newsItems = $this->getApiContents("1585.json?instansi_id".$id."&input=".$keyword."&offset=".$offset."&limit=".$limit);
+            $newsItems = $this->getApiContents("1585.json?instansi_id=".$id."&input=".$keyword."&offset=".$offset."&limit=".$limit);
         }
 
         if($newsItems != null){
@@ -109,6 +109,39 @@ Class GovernmentRepository implements GovernmentInterface{
             }
         }
         return $newsItems;
+    }
+
+    public function getCountSearchGovNews($judul = null,$kode_daerah =null){
+        $gov = $this->getApiContents("1586.json?instansi_id=".$kode_daerah."&input=".$judul);
+        if($gov != null){
+            $gov = $gov['data']['berita_iscnt'][0]['cnt'];
+        }
+        return $gov;
+    }
+
+    public function searchGovServices($keyword, $id = null, $offset=null, $limit=6){
+
+        if($offset == null){
+            $newsItems = $this->getApiContents("1589.json?instansi_id=".$id."&input=".$keyword."&offset=null&limit=".$limit);
+        }else{
+            $newsItems = $this->getApiContents("1589.json?instansi_id=".$id."&input=".$keyword."&offset=".$offset."&limit=".$limit);
+        }
+
+        if($newsItems != null){
+            $newsItems = $newsItems['data']['layanan_instansi_search'];
+            if(count($newsItems) == 0){
+                $newsItems = null;
+            }
+        }
+        return $newsItems;
+    }
+
+    public function getCountSearchGovServices($judul = null,$kode_daerah =null){
+        $gov = $this->getApiContents("1590.json?instansi_id=".$kode_daerah."&input=".$judul);
+        if($gov != null){
+            $gov = $gov['data']['layanan_iscnt'][0]['cnt'];
+        }
+        return $gov;
     }
 
     public function getGovServices($id = null, $offset=null, $limit=4){
@@ -123,6 +156,16 @@ Class GovernmentRepository implements GovernmentInterface{
         return $govServices;
     }
 
+    public function getCountGovServices($id = null){
+       
+        $govServices = $this->getApiContents("1588.json?instansi_id=".$id);
+        
+        if($govServices != null){
+            $govServices = $govServices['data']['layanan_instansi_count'][0]['cnt'];
+        }
+        return $govServices;
+    }
+
     public function getGalleryGovVideos($id = null, $offset=null, $limit=4){
         if($offset == null){
             $galleryPhotos = $this->getApiContents("1557.json?instansi_id=".$id."&offset=null&limit=".$limit);
@@ -133,6 +176,52 @@ Class GovernmentRepository implements GovernmentInterface{
             $galleryPhotos = $galleryPhotos['data']['galeri_video_instansi'];
         }
         return $galleryPhotos;
+    }
+
+    public function getGalleryGovPhotos($id = null, $offset=null, $limit=4){
+        if($offset == null){
+            $galleryPhotos = $this->getApiContents("1560.json?instansi_id=".$id."&offset=null&limit=".$limit);
+        }else{
+            $galleryPhotos = $this->getApiContents("1560.json?instansi_id=".$id."&offset=".$offset."&limit=".$limit);
+        }
+        if($galleryPhotos != null){
+            $galleryPhotos = $galleryPhotos['data']['galeri_gambar_instansi'];
+        }
+        return $galleryPhotos;
+    }
+
+    public function getCountGovPhotos($code = null){
+        $gov = $this->getApiContents("1591.json?instansi_id=".$code);
+        if($gov != null){
+            $gov = $gov['data']['galeri_gambar_iscnt'][0]['cnt'];
+        }
+        return $gov;
+    }
+
+    public function searchGovGalleryPhoto($keyword, $id = null, $offset=null, $limit=6){
+
+        if($offset == null){
+            $items = $this->getApiContents("1593.json?instansi_id=".$id."&input=".$keyword."&offset=null&limit=".$limit);
+        }else{
+            $items = $this->getApiContents("1593.json?instansi_id=".$id."&input=".$keyword."&offset=".$offset."&limit=".$limit);
+        }
+
+        if($items != null){
+            $items = $items['data']['galeri_gambar_isearch'];
+            if(count($items) == 0){
+                $items = null;
+            }
+        }
+        return $items;
+    }
+
+
+    public function getCountSearchGovGallery($judul = null,$kode_daerah =null){
+        $gov = $this->getApiContents("1596.json?instansi_id=".$kode_daerah."&input=".$judul);
+        if($gov != null){
+            $gov = $gov['data']['galeri_gambar_iscnt'][0]['cnt'];
+        }
+        return $gov;
     }
 
 }

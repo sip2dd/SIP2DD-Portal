@@ -24,7 +24,7 @@ class NewsController extends Controller
         $highlights = $this->newsRepo->getHighlight($offset, $limit); 
         $govNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar);
         $localgovNews = $this->newsRepo->getLocalGovNews($offset, $limit_sidebar);
-        //$localgovNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar);
+        // $localgovNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar);
         $galleryNews = $this->newsRepo->getGalleryVideos($offset, $limit);
         $p2dd_info = null;
         
@@ -164,7 +164,7 @@ class NewsController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
-        $limit = 3;
+        $limit = 6;
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -197,7 +197,7 @@ class NewsController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
-        $limit = 3;
+        $limit = 6;
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -212,9 +212,9 @@ class NewsController extends Controller
             $pages = 1;
         }
 
-        // $localgovNews = $this->newsRepo->getLocalGovNews($offset, $limit);
+        $localgovNews = $this->newsRepo->getLocalGovNews($offset, $limit);
 
-        $localgovNews = $this->newsRepo->getNationalGovNews($offset, $limit);
+        // $localgovNews = $this->newsRepo->getNationalGovNews($offset, $limit);
         $count = $this->newsRepo->getCountNationalGovNews();
 
         if($count > $limit){

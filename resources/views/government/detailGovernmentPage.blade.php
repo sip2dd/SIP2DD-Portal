@@ -123,10 +123,11 @@
             <!--Section Form input-->
             <div class="form-row justify-content-center">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <form action="{!! url('/pencarianberita')!!}" method="GET">
+                    <form action="{!! url('/cariberitatp2dd')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
                                 <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input type="hidden" name="id" value="<?php echo ($govDetail != null) ?  $govDetail['instansi_id'] : '' ?>" />
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>
@@ -374,14 +375,14 @@
             </div>
     </div>
     </section>
-    <!--Galeri Foto Start-->
-    <div id="galerifoto_section" class="our-customer pb-40 pt-0 edukasi-section">
+    <!--Galeri Video Start-->
+    <!-- <div id="galerivideo_section" class="our-customer pb-40 pt-0 edukasi-section">
         <div class="container-fluid">
             <div class="our-customer-wrapper">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center mb-90">
-                            <h2>Galeri</h2>
+                            <h2>Galeri Video</h2>
                         </div>
                     </div>
                 </div>
@@ -406,7 +407,7 @@
                                         </div>
                                         <div class="what-cap">
                                             <h6>{{tanggal_indonesia($galleryGovVideo['tgl_dibuat'])}}</h6>
-                                            <!--Edit PEnamabahan instansi-->
+                                            
                                             <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
                                                     alt="logo">{{$galleryGovVideo['dibuat_oleh']}}
                                             </h6>
@@ -470,13 +471,111 @@
                 </div>
                 <div class="row mt-5 mb-5">
                 @if($govDetail != null)
-                    <a href="{!! url('/galeritp2dd?id=')!!}{{$govDetail['instansi_id']}}" class="btn radius-btn"
+                    <a href="{!! url('/galerivideotp2dd?id=')!!}{{$govDetail['instansi_id']}}" class="btn radius-btn"
+                        style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
+                </div>
+                @endif
+            </div>
+        </div>
+    </div> -->
+    <!--Galeri Foto End-->
+    <div id="galerifoto_section" class="our-customer pb-40 pt-0 edukasi-section">
+        <div class="container-fluid">
+            <div class="our-customer-wrapper">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center mb-90">
+                            <h2>Galeri</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-auto my-auto">
+                @if($galleryGovPhotos != null)
+                    <div id="galeriCarousel" class="carousel slide w-100" data-ride="carousel">
+                        <div class="carousel-inner w-100" role="listbox">
+                        @foreach($galleryGovPhotos as $index => $galleryGovPhoto)
+                            @if($index == 0)
+                            <div class="carousel-item active">
+                                <div class="col-xl-4 col-lg-4 col-md-6">
+                                    <div class="single-customer">
+                                        <div class="what-img">
+                                        @if($galleryGovPhoto['link'] != null)
+                                        <img class="card-img" src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{$galleryGovPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                        @else
+                                        <img class="card-img" src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{$galleryGovPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                        @endif
+                                            
+                                        </div>
+                                        <div class="what-cap">
+                                            <h6>{{tanggal_indonesia($galleryGovPhoto['tgl_dibuat'])}}</h6>
+                                            <!--Edit PEnamabahan instansi-->
+                                            <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                    alt="logo">{{$galleryGovPhoto['dibuat_oleh']}}
+                                            </h6>
+                                            <h4><a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryGovPhoto['galeri_id']}}"> {{ Str::limit($galleryGovPhoto['judul'], 60) }}</a></h4>
+                                        </div>
+                                        <div class="tulisan-lengkapnya">
+                                            <a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryGovPhoto['galeri_id']}}">Selengkapnya <span
+                                                    class="fas fa-chevron-right mr-2"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @else
+                            <div class="carousel-item">
+                                <div class="col-xl-4 col-lg-4 col-md-6">
+                                    <div class="single-customer">
+                                        <div class="what-img">
+                                        @if($galleryGovPhoto['link'] != null)
+                                        <img class="card-img" src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{$galleryGovPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                        @else
+                                        <img class="card-img" src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{$galleryGovPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                        @endif
+                                        </div>
+                                        <div class="what-cap">
+                                            <h6>{{tanggal_indonesia($galleryGovPhoto['tgl_dibuat'])}}</h6>
+                                            <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                    alt="logo">{{$galleryGovPhoto['dibuat_oleh']}}
+                                            </h6>
+                                            <h4><a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryGovPhoto['galeri_id']}}">{{ Str::limit($galleryGovPhoto['judul'], 60) }}</a></h4>
+                                        </div>
+                                        <div class="tulisan-lengkapnya">
+                                            <a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryGovPhoto['galeri_id']}}">Selengkapnya <span class="fas fa-chevron-right mr-2"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                        @endforeach
+                        </div>
+                        <a class="carousel-control-prev w-auto" href="#galeriCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-info rounded-circle" aria-hidden="true"
+                                style="width: 35px; height: 35px;"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next w-auto" href="#galeriCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-info rounded-circle" aria-hidden="true"
+                                style="width: 35px; height: 35px;"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                @else
+                    <div class="container">
+                        <div class="row mt-5 mb-5">
+                            <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                        </div>
+                    </div>
+
+                @endif
+                </div>
+                <div class="row mt-5 mb-5">
+                @if($govDetail != null)
+                    <a href="{!! url('/galerifototp2dd?id=')!!}{{$govDetail['instansi_id']}}" class="btn radius-btn"
                         style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
                 </div>
                 @endif
             </div>
         </div>
     </div>
-    <!--Galeri Foto End-->
     <!-- Slider Area End-->
 @endsection

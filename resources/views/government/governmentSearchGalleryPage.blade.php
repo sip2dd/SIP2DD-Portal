@@ -60,6 +60,16 @@
     <!-- Area Header dan judul Start-->
     <div class="section-padd4 sky-blue">
         <div class="container nav-bread mt-30">
+            <nav>
+                <ol class="breadcrumb pl-0 sky-blue">
+                    <li class="breadcrumb-item"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
+                    @if($govDetail != null)
+                        <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?id=')}}{{$govDetail['instansi_id']}}">{{$govDetail['profile']}}</a></li>
+                    @endif
+                    <li class="breadcrumb-item active"><a href="">Galeri Lainnya</a>
+                    </li>
+                </ol>
+            </nav>
         </div>
         <div class="container mt-50">
             <!-- Section-tittle -->
@@ -67,16 +77,20 @@
                 <div class="col-lg-8">
                     <div class="section-tittle text-center mb-30">
                         <h2>Galeri Foto</h2>
+                        @if($govDetail != null)
+                        <h2>{{$govDetail['profile']}}</h2>
+                        @endif
                     </div>
                 </div>
             </div>
             <!--Section Form input Cari-->
             <div class="form-row justify-content-center">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <form action="{!! url('/carigalerifoto')!!}" method="GET">
+                    <form action="{!! url('/carigalerifototp2dd')!!}" method="GET">
                         <div class="form-group">
                             <div class="input-group">
                                 <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                <input type="hidden" name="id" value="<?php echo ($govDetail != null) ?  $govDetail['instansi_id'] : '' ?>" />
                                 <div class="input-group-append">
                                     <button class="button1">
                                         <i class="fas fa-search"></i>
@@ -91,12 +105,12 @@
     </div>
     <!-- Slider Area End-->
     <!--================Galeri=================-->
-    <section class="blog_area pt-10 background_3">
+    <section class="blog_area pt-10 mb-10 background_3">
         <div class="container">
-                @if($keyword != "")
+                @if($title != "")
                 <div class="row">
                     <div class="col-lg-12 col-md-6 ket-jumlah-cari">
-                    <p>Hasil pencarian <strong>"{{$keyword}}"</strong>, {{$count}} hasil ditemukan</p>
+                    <p>Hasil pencarian <strong>"{{$title}}"</strong>, {{$count}} hasil ditemukan</p>
                     <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
                     </div>
                 </div>
@@ -110,9 +124,9 @@
                         <article class="blog_item">
                             <div class="blog_item_img">
                                 @if($galleryPhoto['link'] != null)
-                                <img class="card-img" src="{{$galleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                <img class="card-img" src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{$galleryPhoto['link']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                 @else
-                                <img class="card-img" src="{{$galleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                <img class="card-img" src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{$galleryPhoto['file']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                 @endif
                             </div>
 
@@ -147,7 +161,7 @@
                     <ul class="pagination">
                         @if($page > 1)
                         <li class="page-item">
-                            <a href="{!! url('/carigalerifoto?keyword='.$keyword.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                            <a href="{!! url('/carigalerifototp2dd??id='.$kode_daerah.'&keyword='.$title.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
                                 <i class="ti-angle-left"></i>
                             </a>
                         </li>
@@ -161,11 +175,11 @@
                         @for($i =1; $i<=$pagination; $i++)
                                 @if($page == $i)
                                 <li class="page-item active">
-                                    <a href="{!! url('/carigalerifoto?keyword='.$keyword.'&page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    <a href="{!! url('/carigalerifototp2dd??id='.$kode_daerah.'&keyword='.$title.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                 </li>
                                 @else
                                 <li class="page-item">
-                                    <a href="{!! url('/carigalerifoto?keyword='.$keyword.'&page='.$i) !!}" class="page-link">{{$i}}</a>
+                                    <a href="{!! url('/carigalerifototp2dd??id='.$kode_daerah.'&keyword='.$title.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                 </li>
                                 @endif
                         @endfor
@@ -177,7 +191,7 @@
                         </li>
                         @else
                         <li class="page-item">
-                            <a href="{!! url('/carigalerifoto?keyword='.$keyword.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                            <a href="{!! url('/carigalerifototp2dd??id='.$kode_daerah.'&keyword='.$title.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">
                                 <i class="ti-angle-right"></i>
                             </a>
                         </li>

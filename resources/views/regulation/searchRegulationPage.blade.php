@@ -107,7 +107,7 @@
                                     <label for="statusRegulasi" class="label_inputan">Status</label>
                                     <select name="status" class="search_inputan tentangr" id="statusRegulasi" class="search_inputan">
                                         <option hidden>Pilih Status</option>
-                                        <option>Aktif</option>
+                                        <option>Berlaku</option>
                                         <option>Diubah</option>
                                         <option>Mengubah</option>
                                         <option>Dicabut</option>
@@ -125,6 +125,14 @@
                     </form>
                 </div>
                 <!--Bagian list regulasi -->
+                @if($count != null)
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 ket-jumlah-cari">
+                    <p>Hasil pencarian, {{$count}} hasil ditemukan</p>
+                    <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
+                    </div>
+                </div>
+                @endif
                 <div class="row">
                 @if($regItems != null)
                     @foreach($regItems as $index => $item)

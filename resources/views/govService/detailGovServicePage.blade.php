@@ -77,15 +77,18 @@
             <div class="row pemda_desk justify-content-center">
                 <div class="col-lg-4 mb-30">
                     <div class="logo_pemda">
+                    @if($detailGovServices != null)
                         <img class src="{{$detailGovServices['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'" alt="">
+                    @endif
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="judul_layanan">
                         @if($detailGovServices != null)
                         <h2>{{$detailGovServices['judul']}}</h2>
-                        @endif
+                       
                         <h5>{{$detailGovServices['dibuat_oleh']}}</h5>
+                        @endif
                     </div>
                     <div class="deskripsi_layanan">
                         @if($detailGovServices != null)
@@ -96,11 +99,15 @@
                     <div class="icon_layanan">
                         <div class="icon_list_layanan">
                             <i class="fa fa-phone-square" style="transform: rotate(90deg);"></i>
+                            @if($detailGovServices != null)
                             <p style="display: inline;">{{$detailGovServices['kontak']}}</p>
+                            @endif
                         </div>
                         <div class="icon_list_layanan">
                             <i class="fa fa-map-marker-alt"></i>
+                            @if($detailGovServices != null)
                             <p style="display:inline;">{!! $detailGovServices['alamat']!!}</p>
+                            @endif
                         </div>
                     </div>
                     <div class="row">
@@ -165,7 +172,7 @@
                                     <span class="fa fa-comment"></span>
                                 </div>
                                 <div class="features-caption">
-                                    <h3>Kanal Pemkab Ngawi</h3>
+                                    <h3>Kanal Informasi</h3>
                                     <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
                                 </div>
                             </div>
@@ -224,12 +231,13 @@
         <div class="container">
             <div class="tutorial_vid">
                 <div class="vid_judul">
+                @if($detailGovServices != null)
                     <h3>Tutorial Penggunaan fitur fitur {{$detailGovServices['judul']}}</h3>
+                @endif
                 </div>
                 <div class="vid_layanan">
-                    <video controls>
-                        <source src="https://www.youtube.com/watch?v=A0IM-2zdNhY.mp4">
-                    </video>
+                    
+                    <x-embed url="https://www.youtube.com/watch?v=UuPaS81n0xg"/>
                 </div>
             </div>
         </div>

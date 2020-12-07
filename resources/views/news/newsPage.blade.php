@@ -156,7 +156,7 @@
                                                             </div>
                                                             <div class="col">
                                                                 <div class="lengkapnya_1">
-                                                                    <a href="{!! url('/detailgalerivideo?id=')!!}{{$highlight['berita_id']}}">Selengkapnya <i
+                                                                    <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}">Selengkapnya <i
                                                                             class="fas fa-chevron-right"></i></a>
                                                                 </div>
                                                             </div>

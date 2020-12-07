@@ -8,9 +8,16 @@ interface GovernmentInterface{
     public function getListGoverment();
     public function getGovermentDetail($id);
     public function getGovHighlight($id, $offset, $limit);
+
     public function getGovNews($id, $offset, $limit);
     public function searchGovNews($keyword, $id, $offset, $limit);
     public function getCountGovNews($code);
+    public function getCountSearchGovNews($judul,$kode_daerah);
+    
     public function getGovServices($id, $offset, $limit);
+    public function getCountGovServices($id);
+    public function searchGovServices($keyword, $id, $offset, $limit);
+    public function getCountSearchGovServices($judul,$kode_daerah);
+    
     public function getGalleryGovVideos($id, $offset, $limit);
 }

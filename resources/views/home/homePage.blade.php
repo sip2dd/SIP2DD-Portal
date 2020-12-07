@@ -310,10 +310,10 @@
                                                 <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
                                                         alt="logo">{{ $eduNewsItem['dibuat_oleh'] }}
                                                 </h6>
-                                                <h4><a href="">{{ Str::limit($eduNewsItem['judul'], 70) }}</a></h4>
+                                                <h4><a href="{{ url('detailedukasi?id=') }}{{$eduNewsItem['edukasi_id']}}">{{ Str::limit($eduNewsItem['judul'], 70) }}</a></h4>
                                             </div>
                                             <div class="tulisan-lengkapnya">
-                                                <a href="">Selengkapnya <span
+                                                <a href="{{ url('detailedukasi?id=') }}{{$eduNewsItem['edukasi_id']}}">Selengkapnya <span
                                                         class="fas fa-chevron-right mr-2"></span></a>
                                             </div>
                                         </div>

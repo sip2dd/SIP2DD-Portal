@@ -109,6 +109,14 @@
     <!--================Berita Terbaru =================-->
     <section class="blog_area pt-10">
         <div class="container">
+                @if($title != "")
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 ket-jumlah-cari">
+                    <p>Hasil pencarian <strong>"{{$title}}"</strong>, {{$count}} hasil ditemukan</p>
+                    <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
+                    </div>
+                </div>
+                @endif
             <!--Berita Terbaru-->
             @if($govNews != null)
             <div class="row">
@@ -149,7 +157,7 @@
                     <ul class="pagination">
                             @if($page > 1)
                             <li class="page-item">
-                                <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&keyword='.$title.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
                             </li>
@@ -163,11 +171,11 @@
                             @for($i =1; $i<=$pagination; $i++)
                                     @if($page == $i)
                                     <li class="page-item active">
-                                        <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&keyword='.$title.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @else
                                     <li class="page-item">
-                                        <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&keyword='.$title.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @endif    
                             @endfor
@@ -179,7 +187,7 @@
                             </li>
                             @else
                             <li class="page-item">
-                                <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&keyword='.$title.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">
                                     <i class="ti-angle-right"></i>
                                 </a>
                             </li>

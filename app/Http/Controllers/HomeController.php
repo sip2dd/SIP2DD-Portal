@@ -72,7 +72,7 @@ class HomeController extends Controller
                 $searchNews = $this->homeRepo->searchNewsItems($judul, $offset, $limit);
                 $searchServices = $this->homeRepo->searchServices($judul, $offset, $limit);
                 $count_news = $this->homeRepo->getCountsearchNews($judul);
-                //$count_service =$this->homeRepo->getCountsearchServices($judul);
+                $count_service =$this->homeRepo->getCountsearchServices($judul);
                 $count = $count_news + $count_service;
                 
                 if($count > $limit){

@@ -73,9 +73,9 @@ Class HomeRepository implements HomeInterface{
     }
 
     public function getCountsearchServices($keyword){
-        $newsItems = $this->getApiContents("1553.json?input=".$keyword);
+        $newsItems = $this->getApiContents("1580.json?input=".$keyword);
         if($newsItems != null){
-            $newsItems = $newsItems['data']['cnt_search'][0]['cnt'];
+            $newsItems = $newsItems['data']['count_layanan_search'][0]['cnt'];
         }
         return $newsItems;
     }

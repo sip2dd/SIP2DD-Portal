@@ -90,6 +90,14 @@
     <!--================Galeri=================-->
     <section class="blog_area pt-10 background_3">
         <div class="container">
+                @if($keyword != "")
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 ket-jumlah-cari">
+                    <p>Hasil pencarian <strong>"{{$keyword}}"</strong>, {{$count}} hasil ditemukan</p>
+                    <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
+                    </div>
+                </div>
+                @endif
             <!--Galeri-->
             @if($galleryVideos != null)
             <div class="row">

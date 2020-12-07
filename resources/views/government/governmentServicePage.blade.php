@@ -56,7 +56,7 @@
 @endsection
 
 @section('content')
-    <main class="background-utama">
+<main class="background-utama">
         <!-- navgation link Start-->
         <div class="section-padd4">
             <div class="container nav-bread mt-30">
@@ -74,7 +74,7 @@
         </div>
         <!-- navigation link End-->
         <!-- Area untuk Pencarian TP2DD -->
-        <section class="service-area section-paddingr">
+        <section class="service-area section-padding pt-0">
             <div class="container">
                 <!-- Section Judul -->
                 <div class="row d-flex justify-content-center">
@@ -91,10 +91,11 @@
                 <div class="form-row justify-content-center mb-50">
                     <!--Edit untuk responsive form input bebeerapa ada edit di css-->
                     <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                        <form action="{!! url('/carilayanan')!!}" method="GET">
+                        <form action="{!! url('/carilayanantp2dd')!!}" method="GET">
                             <div class="form-group">
                                 <div class="input-group">
                                     <input name="keyword" type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                    <input type="hidden" name="id" value="<?php echo (isset($id)) ?  $id : '' ?>" >
                                     <div class="input-group-append">
                                         <button class="button1">
                                             <i class="fas fa-search"></i>
@@ -105,12 +106,11 @@
                         </form>
                     </div>
                 </div>
+
                 
-               
-                </div>
                 <!-- Section caption -->
                 @if($govServices != null)
-                <div class="row justify-content-center">
+                <div class="row">
                     @foreach($govServices as $govService)
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="services-caption text-center mb-30">
@@ -118,14 +118,14 @@
                                 <span><img src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'"></span>
                             </div>
                             <div class="service-cap">
-                                <h4 class="service-judul"><a href="{!! url('/detaillayanan?id=')!!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
+                                <h4 class="service-judul"><a href="{!! url('/detaillayanan?id=')!!}{{$govService['layanan_id']}}">{{Str::limit($govService['judul'],32)}}</a></h4>
                                 <div class="services-loc">
-                                    <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"> Pemerintah
+                                    <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
                                         {{$govService['dibuat_oleh']}}
                                     </h6>
                                 </div>
-                                <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}.</p>
-                                
+                                <p>{{Str::limit(strip_tags($govService['deskripsi']), 90) }}.</p>
+
                             </div>
                             <div class="link_layanan">
                                 <a href="//{{$govService['link_layanan']}}" target="_blank">Link Layanan</a>
@@ -134,12 +134,12 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="row justify-content-center mb-50">
+                <div class="row justify-content-center mb-30">
                     <nav class="blog-pagination">
-                        <ul class="pagination">
+                    <ul class="pagination">
                             @if($page > 1)
                             <li class="page-item">
-                                <a href="{!! url('/layanantp2dd?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                <a href="{!! url('/layanantp2dd?id='.$id.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
                             </li>
@@ -153,11 +153,11 @@
                             @for($i =1; $i<=$pagination; $i++)
                                     @if($page == $i)
                                     <li class="page-item active">
-                                        <a href="{!! url('/layanantp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/layanantp2dd?id='.$id.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @else
                                     <li class="page-item">
-                                        <a href="{!! url('/layanantp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/layanantp2dd?id='.$id.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @endif    
                             @endfor
@@ -169,7 +169,7 @@
                             </li>
                             @else
                             <li class="page-item">
-                                <a href="{!! url('/layanan?page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                <a href="{!! url('/layanantp2dd?id='.$id.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">
                                     <i class="ti-angle-right"></i>
                                 </a>
                             </li>
@@ -178,7 +178,7 @@
                     </nav>
                 </div>
                 @else
-                <div class="row justify-content-center mb-50">
+                <div class="row justify-content-center mb-30">
                     Belum Ada Data
                 </div>
                 @endif

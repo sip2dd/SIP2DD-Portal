@@ -43,7 +43,7 @@ Route::get('/galerifoto', [GalleryController::class, 'galleryPhoto']);
 Route::get('/carigalerifoto', [GalleryController::class, 'searchGalleryPhoto']);
 Route::get('/carigalerivideo', [GalleryController::class, 'searchGalleryVideo']);
 Route::get('/detailgalerifoto', [GalleryController::class, 'detailGalleryPhoto']);
-// TODO : Search Galeri Belum
+
 
 Route::get('/tp2dd', [GovernmentController::class, 'index']);
 Route::get('/detailtp2dd', [GovernmentController::class, 'detailGov']);
@@ -53,8 +53,11 @@ Route::get('/beritatp2dd', [GovernmentController::class, 'newsGov']);
 Route::get('/cariberitatp2dd', [GovernmentController::class, 'searchNewsGov']);
 // TODO : All + Detail layanan pemda
 Route::get('/layanantp2dd', [GovernmentController::class, 'servicesGov']);
+Route::get('/carilayanantp2dd', [GovernmentController::class, 'searchServicesGov']);
 // TODO : All + Detail galeri pemda
-Route::get('/galeritp2dd', [GovernmentController::class, 'galleryGov']);
+Route::get('/galerivideotp2dd', [GovernmentController::class, 'galleryGov']);
+Route::get('/galerifototp2dd', [GovernmentController::class, 'galleryGov']);
+Route::get('/carigalerifototp2dd', [GovernmentController::class, 'searchGalleryGov']);
 // TODO : All + Detail kegiatan pemda
 
 Route::get('/layanan', [GovernmentServiceController::class, 'index']);
