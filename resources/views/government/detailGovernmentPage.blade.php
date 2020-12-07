@@ -298,8 +298,7 @@
                                             <p style="color: #606060; font-weight: 300; font-size: 12px;"> <img
                                                 src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo"
                                                 style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
-                                                Pemerintah
-                                                Jawa Barat
+                                                {{ $govNewsItem['dibuat_oleh'] }}
                                             </p>
                                             <p>{{tanggal_indonesia($govNewsItem['tanggal_publikasi'], false)}}</p>
                                         </div>
@@ -436,7 +435,7 @@
                                         <div class="what-cap">
                                             <h6>{{tanggal_indonesia($galleryGovVideo['tgl_dibuat'])}}</h6>
                                             <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                    alt="logo">{{ Str::limit($galleryGovVideo['judul'], 60) }}
+                                                    alt="logo">{{$galleryGovVideo['dibuat_oleh']}}
                                             </h6>
                                             <h4><a href="{!! url('/detailgalerivideo?id=')!!}{{$galleryGovVideo['galeri_id']}}">{{ Str::limit($galleryGovVideo['judul'], 60) }}</a></h4>
                                         </div>

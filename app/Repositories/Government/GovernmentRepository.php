@@ -12,17 +12,17 @@ Class GovernmentRepository implements GovernmentInterface{
         // if($gov != null){
         //     $gov = $gov['data']['unit_profile'];
         // }
-        // if($offset == null){
-        //     $gov = $this->getApiContents("1562.json?kode_daerah=".$kode_daerah."&offset=null&limit=".$limit);
-        // }else{
-        //     $gov = $this->getApiContents("1562.json?kode_daerah=".$kode_daerah."&offset=".$offset."&limit=".$limit);
-        // }
-
         if($offset == null){
             $gov = $this->getApiContents("1562.json?kode_daerah=".$kode_daerah."&offset=null&limit=".$limit);
         }else{
             $gov = $this->getApiContents("1562.json?kode_daerah=".$kode_daerah."&offset=".$offset."&limit=".$limit);
         }
+
+        // if($offset == null){
+        //     $gov = $this->getApiContents("1541.json?offset=null&limit=".$limit);
+        // }else{
+        //     $gov = $this->getApiContents("1541.json?offset=".$offset."&limit=".$limit);
+        // }
         
         if($gov != null){
             $gov = $gov['data']['selected_unit'];

@@ -96,13 +96,15 @@
                             <div class="btn-group" role="group">
                                 <select class="select_prov_tok" style="width: 200px;" onchange="if (this.value) window.location.href=this.value">
                                     <option class="l1"></option>
+                                    @if($list_gov != null)
                                     @foreach($list_gov as $gov)
-                                    @if(strlen($gov['kode_daerah']) < 3)
-                                        <option class="l1" value="{{ url('/tp2dd') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
-                                    @else
-                                        <option class="l2" value="{{ url('/tp2dd') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
+                                        @if(strlen($gov['kode_daerah']) < 3)
+                                            <option class="l1" value="{{ url('/tp2dd') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
+                                        @else
+                                            <option class="l2" value="{{ url('/tp2dd') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
+                                        @endif
+                                    @endforeach
                                     @endif
-                                @endforeach
                                 </select>
                             </div>
                             <!-- <div class="btn-group" role="group">

@@ -107,6 +107,7 @@
                             <div class="btn-group" role="group">
                                 <select class="select_prov" style="width: 250px; padding: 10px 5px;" onchange="if (this.value) window.location.href=this.value">
                                 <option class="l1"></option>
+                                @if($listGovs != null)
                                 @foreach($listGovs as $gov)
                                     @if(strlen($gov['kode_daerah']) < 3)
                                         <option class="l1" value="{{ url('/layananinstansi') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
@@ -114,6 +115,7 @@
                                         <option class="l2" value="{{ url('/layananinstansi') }}?kode_daerah={{$gov['kode_daerah']}}">{{$gov['nama_daerah']}}</option>
                                     @endif
                                 @endforeach
+                                @endif
                                 </select>
                             </div>
                         </div>

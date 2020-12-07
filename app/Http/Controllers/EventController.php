@@ -17,10 +17,11 @@ class EventController extends Controller
     {
         $offset=null;
         $limit = 6;
+        $limit_highlight = 1;
         
         //$menu = $this->getApiMenu();
         $menu = null;
-        $highlightevent = $this->eventRepo->getEventHighlight($offset, $limit); 
+        $highlightevent = $this->eventRepo->getEventHighlight($offset, $limit_highlight); 
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
         // $p2dd_info = $this->getApiP2DDInfo();
         $p2dd_info = null;

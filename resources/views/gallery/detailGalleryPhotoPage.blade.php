@@ -126,6 +126,7 @@
                               </div>
                            </div>
                         </div> -->
+                        @if($attachments != null)
                         @foreach($attachments as $index => $attachment)
                         <div class="item_gallery col-lg-4 col-md-6">
                            <a href="#gambar{{$index+1}}">
@@ -159,6 +160,7 @@
                            </div>
                         </div>
                         @endforeach
+                        @endif
                      </div>
                   </div>
                   <div class="divider1"></div>
