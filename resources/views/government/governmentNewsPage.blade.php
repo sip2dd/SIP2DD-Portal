@@ -65,7 +65,7 @@
                 <ol class="breadcrumb pl-0 sky-blue">
                     <li class="breadcrumb-item"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                     @if($govDetail != null)
-                        <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?id=')}}{{$govDetail['unit_profile_id']}}">{{$govDetail['profile']}}</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/detailtp2dd?kode_daerah=')}}{{$govDetail['instansi_id']}}">{{$govDetail['profile']}}</a></li>
                     @endif
                     <li class="breadcrumb-item active"><a href="">Berita Lainnya</a>
                     </li>
@@ -148,7 +148,7 @@
                     <ul class="pagination">
                             @if($page > 1)
                             <li class="page-item">
-                                <a href="{!! url('/beritatp2dd?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
                             </li>
@@ -162,11 +162,11 @@
                             @for($i =1; $i<=$pagination; $i++)
                                     @if($page == $i)
                                     <li class="page-item active">
-                                        <a href="{!! url('/beritatp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @else
                                     <li class="page-item">
-                                        <a href="{!! url('/beritatp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @endif    
                             @endfor
@@ -178,7 +178,7 @@
                             </li>
                             @else
                             <li class="page-item">
-                                <a href="{!! url('/beritatp2dd?page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                <a href="{!! url('/beritatp2dd?id='.$kode_daerah.'&page='.($page+1)) !!}" class="page-link" aria-label="Next">
                                     <i class="ti-angle-right"></i>
                                 </a>
                             </li>

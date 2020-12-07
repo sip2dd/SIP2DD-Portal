@@ -37,7 +37,7 @@ class RegulationController extends Controller
         $regItems = $this->regRepo->getRegulation($offset, $limit);
         // $p2dd_info = $this->getApiP2DDInfo();
         $p2dd_info = null;
-        $count = 1;
+        $count = $this->regRepo->getCountRegulation();
 
         if($count > $limit){
             $pagination = ceil($count / $limit);

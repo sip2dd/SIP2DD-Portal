@@ -18,7 +18,7 @@ class EducationController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
-        $limit = 3;
+        $limit = 6;
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -34,7 +34,7 @@ class EducationController extends Controller
         }
 
         $eduItems = $this->eduRepo->getEducation($offset, $limit);
-        $count = 1;
+        $count = $this->eduRepo->getCountEducation();;
 
         if($count > $limit){
             $pagination = ceil($count / $limit);
@@ -81,6 +81,52 @@ class EducationController extends Controller
         ],
         );
 
+    }
+
+    public function searchEducation(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'page' => 'integer'
+        ]);
+
+        $judul = "";
+        $count = 0;
+        $eduItems = null;
+        $pages = 1;
+        $offset = null;
+        $limit = 6;
+        $pagination = 1;
+
+        if($request->has('keyword')) {
+            if($request->keyword != ''){
+                $judul = $request->keyword;
+                if (!$validator->fails()) {
+                    $pages = $request->page;
+                    if($pages > 1){
+                        $offset = ($pages - 1) * 9; 
+                    } 
+                }else{
+                    $pages = 1;
+                }
+                $eduItems = $this->eduRepo->getSearchEducation($judul, $offset, $limit);
+                $count = $this->eduRepo->getCountSearchEducation($judul);
+                
+                if($count > $limit){
+                    $pagination = ceil($count / $limit);
+                } 
+            }
+        }
+        
+        //dd($searchNews);
+
+        return view('education.educationPage', [
+            'count' => $count,
+            'keyword' => $judul,
+            'eduItems' => $eduItems,
+            'page' => $pages ?? 1,
+            'pagination' => $pagination,
+            'title' => $judul
+        ]);
     }
 
     public function getSocmed($title = ""){

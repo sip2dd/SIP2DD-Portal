@@ -30,13 +30,21 @@ Class GovServicesRepository implements GovServicesInterface{
 
     public function getGovServicesbyCode($code = null, $offset = null, $limit = 6){
         if($offset != null){
-            $govServices = $this->getApiContents("1559.json?instansi_id=".$code."&offset=".$offset."&limit=".$limit);
+            $govServices = $this->getApiContents("1581.json?kode_daerah='".$code."'&offset=".$offset."&limit=".$limit);
         }else{
-            $govServices = $this->getApiContents("1559.json?instansi_id=".$code."&offset=null&limit=".$limit);
+            $govServices = $this->getApiContents("1581.json?kode_daerah='".$code."'&offset=null&limit=".$limit);
         }
 
         if($govServices != null){
-            $govServices = $govServices['data']['layanan_instansi'];
+            $govServices = $govServices['data']['layanan_kode_daerah'];
+        }
+        return $govServices;
+    }
+
+    public function getCountServicesbyCode($code = null){
+        $govServices = $this->getApiContents("1582.json?kode_daerah='".$code."'");
+        if($govServices != null){
+            $govServices = $govServices['data']['layanan_kode_daerah_count'][0]['cnt'];
         }
         return $govServices;
     }
@@ -71,9 +79,9 @@ Class GovServicesRepository implements GovServicesInterface{
     }
 
     public function getCountsearchServices($keyword){
-        $newsItems = $this->getApiContents("1553.json?input=".$keyword);
+        $newsItems = $this->getApiContents("1580.json?input=".$keyword);
         if($newsItems != null){
-            $newsItems = $newsItems['data']['cnt_search'][0]['cnt'];
+            $newsItems = $newsItems['data']['count_layanan_search'][0]['cnt'];
         }
         return $newsItems;
     }

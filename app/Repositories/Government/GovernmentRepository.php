@@ -12,6 +12,12 @@ Class GovernmentRepository implements GovernmentInterface{
         // if($gov != null){
         //     $gov = $gov['data']['unit_profile'];
         // }
+        // if($offset == null){
+        //     $gov = $this->getApiContents("1562.json?kode_daerah=".$kode_daerah."&offset=null&limit=".$limit);
+        // }else{
+        //     $gov = $this->getApiContents("1562.json?kode_daerah=".$kode_daerah."&offset=".$offset."&limit=".$limit);
+        // }
+
         if($offset == null){
             $gov = $this->getApiContents("1562.json?kode_daerah=".$kode_daerah."&offset=null&limit=".$limit);
         }else{
@@ -20,6 +26,14 @@ Class GovernmentRepository implements GovernmentInterface{
         
         if($gov != null){
             $gov = $gov['data']['selected_unit'];
+        }
+        return $gov;
+    }
+
+    public function getCountGovernment(){
+        $gov = $this->getApiContents("1583.json");
+        if($gov != null){
+            $gov = $gov['data']['unit_profile_count'][0]['cnt'];
         }
         return $gov;
     }
@@ -68,6 +82,31 @@ Class GovernmentRepository implements GovernmentInterface{
         }
         if($newsItems != null){
             $newsItems = $newsItems['data']['berita_instansi'];
+        }
+        return $newsItems;
+    }
+
+    public function getCountGovNews($code = null){
+        $gov = $this->getApiContents("1587.json?instansi_id=".$code);
+        if($gov != null){
+            $gov = $gov['data']['berita_instansi_count'][0]['cnt'];
+        }
+        return $gov;
+    }
+
+    public function searchGovNews($keyword, $id = null, $offset=null, $limit=6){
+
+        if($offset == null){
+            $newsItems = $this->getApiContents("1585.json?instansi_id".$id."&input=".$keyword."&offset=null&limit=".$limit);
+        }else{
+            $newsItems = $this->getApiContents("1585.json?instansi_id".$id."&input=".$keyword."&offset=".$offset."&limit=".$limit);
+        }
+
+        if($newsItems != null){
+            $newsItems = $newsItems['data']['berita_instansi_search'];
+            if(count($newsItems) == 0){
+                $newsItems = null;
+            }
         }
         return $newsItems;
     }

@@ -10,4 +10,5 @@ interface GovServicesInterface{
     public function getCountsearchServices($keyword);
     public function getCountServices();
     public function getListGov();
+    public function getCountServicesbyCode($code);
 }

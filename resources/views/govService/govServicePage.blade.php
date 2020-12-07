@@ -71,7 +71,7 @@
         </div>
         <!-- navigation link End-->
         <!-- Area untuk Pencarian TP2DD -->
-        <section class="service-area section-paddingr">
+        <section class="service-area section-padding pt-0">
             <div class="container">
                 <!-- Section Judul -->
                 <div class="row d-flex justify-content-center">
@@ -99,7 +99,7 @@
                         </form>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <!--Edit Memakai plugin select 2-->
@@ -124,7 +124,7 @@
                 </div>
                 <!-- Section caption -->
                 @if($govServices != null)
-                <div class="row justify-content-center">
+                <div class="row">
                     @foreach($govServices as $govService)
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="services-caption text-center mb-30">
@@ -132,14 +132,14 @@
                                 <span><img src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'"></span>
                             </div>
                             <div class="service-cap">
-                                <h4 class="service-judul"><a href="{!! url('/detaillayanan?id=')!!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
+                                <h4 class="service-judul"><a href="{!! url('/detaillayanan?id=')!!}{{$govService['layanan_id']}}">{{Str::limit($govService['judul'],32)}}</a></h4>
                                 <div class="services-loc">
                                     <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
                                         {{$govService['dibuat_oleh']}}
                                     </h6>
                                 </div>
-                                <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}.</p>
-                                
+                                <p>{{Str::limit(strip_tags($govService['deskripsi']), 90) }}.</p>
+
                             </div>
                             <div class="link_layanan">
                                 <a href="//{{$govService['link_layanan']}}" target="_blank">Link Layanan</a>
@@ -148,7 +148,7 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="row justify-content-center mb-50">
+                <div class="row justify-content-center mb-30">
                     <nav class="blog-pagination">
                         <ul class="pagination">
                             @if($page > 1)
@@ -173,7 +173,7 @@
                                     <li class="page-item">
                                         <a href="{!! url('/layanan?page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
-                                    @endif    
+                                    @endif
                             @endfor
                             @if($page == $pagination)
                             <li class="page-item">
@@ -192,7 +192,7 @@
                     </nav>
                 </div>
                 @else
-                <div class="row justify-content-center mb-50">
+                <div class="row justify-content-center mb-30">
                     Belum Ada Data
                 </div>
                 @endif
@@ -201,5 +201,5 @@
         <!-- Akhir area TP2DD -->
     </main>
 
-    
+
 @endsection

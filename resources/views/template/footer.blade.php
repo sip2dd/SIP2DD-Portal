@@ -344,6 +344,39 @@
     </script>
     <!-- Jquery Slick , Owl-Carousel Plugins -->
     <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#gallery_foto_c,#edukasi_artikel_c,#berita_c,#layanan_c").owlCarousel({
+            loop:true,
+            margin:25,
+            autoplay:4500,
+            nav:true,navText:["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
+            autoplayTimeout:2000,
+            autoplayHoverPause:true,
+            dots:false,
+            responsive:{
+                0:{
+                    items:1
+                },
+                768:{
+                    items:2
+                },
+                1200:{
+                    items:3
+                }
+                }
+                });
+
+                $('.gallery_foto_c').find('.owl-nav').removeClass('disabled');
+                $('.gallery_foto_c').on('changed.owl.carousel', function(event) {
+                $(this).find('.owl-nav').removeClass('disabled');
+                });
+                $('.edukasi_artikel_c').find('.owl-nav').removeClass('disabled');
+                $('.edukasi_artikel_c').on('changed.owl.carousel', function(event) {
+                $(this).find('.owl-nav').removeClass('disabled');
+                });
+    });
+        </script>
     <script src="{{ URL::asset('js/slick.min.js') }}"></script>
     <!-- Date Picker -->
     <script src="{{ URL::asset('js/gijgo.min.js') }}"></script>

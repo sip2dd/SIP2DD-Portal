@@ -108,12 +108,12 @@
                            </div>
                         @endif
                         </div>
-                        <a class="carousel-control-prev w-auto" href="#contohCarousel" role="button" data-slide="prev">
+                        <a class="carousel-control-prev belum w-auto" href="#contohCarousel" role="button" data-slide="prev">
                            <span class="carousel-control-prev-icon" aria-hidden="true"
                               style="width: 35px; height: 35px;"></span>
                            <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next w-auto" href="#contohCarousel" role="button" data-slide="next">
+                        <a class="carousel-control-next telah w-auto" href="#contohCarousel" role="button" data-slide="next">
                            <span class="carousel-control-next-icon" aria-hidden="true"
                               style="width: 35px; height: 35px;"></span>
                            <span class="sr-only">Next</span>
@@ -121,7 +121,7 @@
                      </div>
                   </div>
                   <div class="blog_detailss">
-                     
+
                      @if($detailNews != null)
                      <h2>{{ $detailNews['judul']}}</h2>
                         <h3> <img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
@@ -130,7 +130,7 @@
                      @else
                         </h2>Oops! Mohon Maaf, Silahkan cek koneksi anda atau halaman tidak tersedia atau URL yang Anda inputkan salah.</h2>
                      @endif
-                     
+
                      @if($detailNews != null)
                      {!! $detailNews['body'] !!}
                      @endif

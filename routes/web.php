@@ -50,6 +50,7 @@ Route::get('/detailtp2dd', [GovernmentController::class, 'detailGov']);
 // TODO : Search Pemda
 // TODO : All + Detail News pemda
 Route::get('/beritatp2dd', [GovernmentController::class, 'newsGov']);
+Route::get('/cariberitatp2dd', [GovernmentController::class, 'searchNewsGov']);
 // TODO : All + Detail layanan pemda
 Route::get('/layanantp2dd', [GovernmentController::class, 'servicesGov']);
 // TODO : All + Detail galeri pemda
@@ -62,9 +63,11 @@ Route::get('/detaillayanan', [GovernmentServiceController::class, 'detailService
 Route::get('/carilayanan', [GovernmentServiceController::class, 'searchServices']);
 
 Route::get('/faq', [FAQController::class, 'index']);
+Route::get('/carifaq', [FAQController::class, 'searchFAQ']);
 
 Route::get('/edukasi', [EducationController::class, 'index']);
 Route::get('/detailedukasi', [EducationController::class, 'detailEducation']);
+Route::get('/carimateri', [EducationController::class, 'searchEducation']);
 
 Route::get('/daftaristilah', [GlossaryController::class, 'index']);
 

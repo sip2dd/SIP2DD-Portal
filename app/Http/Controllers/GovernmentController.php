@@ -38,7 +38,7 @@ class GovernmentController extends Controller
             $pages = 1;
         }
 
-        // $count = $this->govService->getCountServices();
+        $count = $this->govRepo->getCountGovernment();
 
         if($count > $limit){
             $pagination = ceil($count / $limit);
@@ -110,7 +110,8 @@ class GovernmentController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
-        $limit = 9;
+        $limit = 6;
+        $id = null;
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -134,7 +135,7 @@ class GovernmentController extends Controller
                 $kode_daerah = 1328;
                 $govDetail = $this->govRepo->getGovermentDetail($id);
                 $govNews = $this->govRepo->getGovNews($kode_daerah, $offset, $limit);    
-                $count = 1;
+                $count = $this->govRepo->getCountGovNews($kode_daerah);
             }else{
                 return redirect('');
             }
@@ -147,6 +148,84 @@ class GovernmentController extends Controller
         } 
 
          return view('government.governmentNewsPage', [
+             'kode_daerah' =>$id,
+             'govNews' => $govNews,
+             'govDetail' => $govDetail,
+             'count' => $count,
+             'page' => $pages ?? 1,
+             'pagination' => $pagination,
+             ]);
+    }
+
+    public function searchNewsGov(Request $request)
+    {
+        $pages = 1;
+        $offset = null;
+        $pagination = 1;
+        $limit = 6;
+        $id = null;
+        
+        $judul = "";
+        $count = 0;
+
+        $validator = Validator::make($request->all(), [
+            'page' => 'integer'
+        ]);
+
+        if (!$validator->fails()) {
+            $pages = $request->page;
+            if($pages > 1){
+                $offset = ($pages - 1) * $limit; 
+            } 
+        }else{
+            $pages = 1;
+        }
+
+        $govDetail = null;
+        $govNews = null;
+        
+        if($request->has('id')) {
+            if($request->id != ''){
+                $id = $request->id;
+                //$kode_daerah = 1328;
+                $kode_daerah = $id;
+                $govDetail = $this->govRepo->getGovermentDetail($id);
+                
+                if($request->has('keyword')) {
+                    if($request->keyword != ''){
+                        $judul = $request->keyword;
+                        if (!$validator->fails()) {
+                            $pages = $request->page;
+                            if($pages > 1){
+                                $offset = ($pages - 1) * 9; 
+                            } 
+                        }else{
+                            $pages = 1;
+                        }
+                        // $searchNews = $this->newsRepo->searchNews($judul, $offset, $limit);
+                        // $count = $this->newsRepo->getCountsearchNews($judul);
+
+                        $govNews = $this->govRepo->searchGovNews($judul, $kode_daerah, $offset, $limit);    
+                        $count = $this->govRepo->getCountGovNews($kode_daerah);
+                        
+                        if($count > $limit){
+                            $pagination = ceil($count / $limit);
+                        } 
+                    }
+                }
+            }else{
+                return redirect('');
+            }
+        }else{
+            return redirect('');
+        }
+
+        if($count > $limit){
+            $pagination = ceil($count / $limit);
+        } 
+
+         return view('government.governmentNewsPage', [
+             'kode_daerah' =>$id,
              'govNews' => $govNews,
              'govDetail' => $govDetail,
              'count' => $count,

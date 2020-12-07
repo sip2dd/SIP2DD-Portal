@@ -107,12 +107,12 @@
                         @endif
                         </div>
                         <a class="carousel-control-prev w-auto" href="#Carouselgambar" role="button" data-slide="prev">
-                           <span class="carousel-control-prev-icon rounded-circle bg-info" aria-hidden="true"
+                           <span class="carousel-control-prev-icon" aria-hidden="true"
                               style="width: 35px; height: 35px;"></span>
                            <span class="sr-only">Previous</span>
                         </a>
                         <a class="carousel-control-next w-auto" href="#Carouselgambar" role="button" data-slide="next">
-                           <span class="carousel-control-next-icon rounded-circle bg-info" aria-hidden="true"
+                           <span class="carousel-control-next-icon" aria-hidden="true"
                               style="width: 35px; height: 35px;"></span>
                            <span class="sr-only">Next</span>
                         </a>

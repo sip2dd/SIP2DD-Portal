@@ -72,7 +72,7 @@
     </div>
     <!-- navigation link End-->
     <!-- Slider Area Start-->
-    <div class="section-paddingr background_2">
+    <div class="section-paddingr sky-blue">
         <div class="container pt-20">
             <div class="row pemda_desk justify-content-center">
                 <div class="col-lg-4 mb-30">
@@ -91,7 +91,7 @@
                         @if($detailGovServices != null)
                         <p>{!! $detailGovServices['deskripsi'] !!}</p>
                         @endif
-                        
+
                     </div>
                     <div class="icon_layanan">
                         <div class="icon_list_layanan">
@@ -113,7 +113,7 @@
                                 <a class="btn-pdf" href="#" style="padding: 15px 20px; font-size: 18px;"> <i
                                         class="fa fa-file-pdf"></i> Unduh Tutorial</a>
                                 @endif
-                                
+
                             </div>
                         </div>
                         <div class="col col-12 col-sm-12 col-md-6">
@@ -123,17 +123,17 @@
                                 @else
                                 <a class="btn radius-btn" href="" style="padding: 25px 30px;">Masuk</a>
                                 @endif
-                                
+
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
     <!-- Fitur Kami Start -->
-    
+
     <section id="fiturlayanankami" class="best-features-area section-paddingr sky-blue " style="padding-bottom: 50px;">
         <div class="container">
             <div class="row">
@@ -219,7 +219,7 @@
             </div>
         </div>
     </section>
-    
+
     <section class="section-paddingr background_2">
         <div class="container">
             <div class="tutorial_vid">
@@ -234,5 +234,5 @@
             </div>
         </div>
     </section>
-    
+
 @endsection

@@ -358,48 +358,55 @@ hr {
     }
 }
 
-.owl-carousel .owl-nav div {
-    background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0;
-    height: 40px;
-    left: 20px;
-    line-height: 40px;
-    font-size: 22px;
-    color: #646464;
-    opacity: 1;
-    visibility: visible;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.3s ease 0s;
-    width: 40px
+@media(min-width:769px){
+    .car_berita{
+        padding-right:20px;
+        padding-left:20px;
+    }
 }
 
-.owl-carousel .owl-nav div.owl-next {
-    left: auto;
-    right: -30px
-}
-
-.owl-carousel .owl-nav div.owl-next i {
+.owl-carousel .owl-nav{
     position: relative;
-    right: 0;
-    top: 1px
 }
 
-.owl-carousel .owl-nav div.owl-prev i {
-    position: relative;
-    right: 1px;
-    top: 0px
+.owl-carousel .owl-nav button.owl-prev{
+    position:absolute;
+    left:-20px;
+    bottom:230px;
+    height:40px;
+    width:40px;
+    background:#00ABE9;
+    border-radius: 50%;
+    transition: .5s;
+    border:none;
 }
-
-.owl-carousel:hover .owl-nav div {
-    opacity: 1;
-    visibility: visible
+.owl-carousel .owl-nav button.owl-next{
+    position:absolute;
+    right:-20px;
+    bottom:230px;
+    height:40px;
+    width:40px;
+    background:#00ABE9;
+    border-radius: 50%;
+    transition: .5s;
+    border: none;
 }
+.owl-carousel .owl-prev i, .owl-carousel .owl-next i{
+    color:#fff;
+    font-size:35px;
+}
+.owl-carousel button.owl-prev:hover, .owl-carousel button.owl-next:hover{
+    background:#fafafa;
+    border:2px solid #00Abe9;
 
-.owl-carousel:hover .owl-nav div:hover {
-    color: #fff;
-    background: #ff3500
+}
+.owl-carousel button.owl-prev:hover i, .owl-carousel button.owl-next:hover i{
+    color:#00ABE9;
+}
+@media(max-width:768px){
+    .padd-carousel{
+        padding: 0px 25px;
+    }
 }
 
 .btn {
@@ -569,13 +576,6 @@ hr {
     color: red
 }
 
-.active span {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 13ch;
-}
 
 
 #scrollUp {
@@ -6238,7 +6238,8 @@ z .slider-area .hero-cap h2 {
 }
 
 .service-area .services-caption .service-cap h4.service-judul {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
+    height: 50px;
 }
 
 .service-area .services-caption .service-cap h4 a:hover {
@@ -6305,7 +6306,7 @@ z .slider-area .hero-cap h2 {
 
 .services-caption .service-cap p {
     font-size: 15px;
-    height:100px;
+    height:120px;
 }
 
 .applic-apps {
@@ -8045,8 +8046,7 @@ img.image {
 
 #mixedSlider .MS-content .item p {
     font-size: 15px;
-    margin: 2px 10px 5px 5px;
-    text-indent: 15px;
+    margin: 0px 8px 10px 5px;
 }
 
 /*Edit penghilangan foont-weight*/
@@ -8055,7 +8055,7 @@ img.image {
     margin: 0px 0px;
     font-size: 24px;
     color: #16161a;
-    letter-spacing: 1px;
+    letter-spacing: .8px;
     transition: linear 0.1s;
 }
 
@@ -8098,22 +8098,22 @@ img.image {
 }
 
 #mixedSlider .MS-controls .MS-left {
-    left: 5px;
+    left: 0px;
 }
 
 @media (max-width: 767px) {
     #mixedSlider .MS-controls .MS-left {
-        left: 5px;
+        left: 0px;
     }
 }
 
 #mixedSlider .MS-controls .MS-right {
-    right: 5px;
+    right: 0px;
 }
 
 @media (max-width: 767px) {
     #mixedSlider .MS-controls .MS-right {
-        right: 5px;
+        right: 0px;
     }
 }
 
@@ -9169,11 +9169,18 @@ h6.cap_masuk:hover {
 
 
 .carousel-control-next {
-    right: -6px;
+    right: 0px;
 }
 
 .carousel-control-prev {
-    left: -6px;
+    left: 0px;
+}
+.carousel-control-next.telah{
+    right: 10px;
+}
+
+.carousel-control-prev.belum {
+    left: 10px;
 }
 
 

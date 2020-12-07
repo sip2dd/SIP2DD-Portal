@@ -107,7 +107,7 @@ class GovernmentServiceController extends Controller
 
         $listGovs = $this->govService->getListGov(); 
         
-        return view('govService.govServicePage', [
+        return view('govService.searchGovServicePage', [
             'count' => $count,
             'keyword' => $judul,
             'listGovs' => $listGovs,
@@ -122,7 +122,7 @@ class GovernmentServiceController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
-        $limit = 4;
+        $limit = 6;
         $kode_daerah = "";
         $count = 0;
         $govServices = null;
@@ -153,7 +153,7 @@ class GovernmentServiceController extends Controller
                 }
 
                 $govServices = $this->govService->getGovServicesbyCode($kode_daerah, $offset, $limit);
-                $count = 0;
+                $count = $this->govService->getCountServicesbyCode($kode_daerah);;
                 
                 if($count > $limit){
                     $pagination = ceil($count / $limit);
@@ -163,8 +163,9 @@ class GovernmentServiceController extends Controller
 
         $listGovs = $this->govService->getListGov(); 
 
-        return view('govService.govServicePage', [
+        return view('govService.govServicePagebyCode', [
             'govServices' => $govServices,
+            'kode_daerah' => $kode_daerah,
             'listGovs' => $listGovs,
             'count' => $count,
             'page' => $pages ?? 1,

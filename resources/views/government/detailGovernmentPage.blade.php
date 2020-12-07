@@ -68,7 +68,7 @@
                     @if($govDetail != null)
                     <li class="breadcrumb-item active"><a href="">{{$govDetail['profile']}}</a> </li>
                     @endif
-                   
+
                 </ol>
             </nav>
         </div>
@@ -290,7 +290,7 @@
                                     <div class="col-lg-4 col-4 pl-0 pr-0">
                                         <img class="image" src="{{$govNewsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
                                     </div>
-                                    <div class="col-lg-8 col-8 samping_berita">
+                                    <div class="col-lg-8 col-8 pr-0">
                                         <div class="media-body">
                                             <a href="{!! url('/detailberita?id=')!!}{{$govNewsItem['berita_id']}}">
                                                 <h3>{{ Str::limit($govNewsItem['judul'], 60) }}</h3>
@@ -325,7 +325,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+
         <div id="mixedSlider">
         @if($govServices != null)
             <div class="MS-content">
@@ -336,8 +336,13 @@
                             <span><img class="img-lay" src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'" alt=""></span>
                         </div>
                         <div class="service-cap">
-                            <h4 class="service-judul"><a href="{!! url('detaillayanan?id=') !!}{{$govService['layanan_id']}}">{{$govService['judul']}}</a></h4>
-                            <p>{{ Str::limit(strip_tags($govService['deskripsi']), 120) }}</p>
+                            <h4 class="service-judul"><a href="{!! url('detaillayanan?id=') !!}{{$govService['layanan_id']}}">{{Str::limit(Str::ucfirst($govService['judul']),32)}}</a></h4>
+                            <!--Edit Penambahan nama pemda-->
+                            <div class="services-loc">
+                                <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"> {{ $govService['dibuat_oleh'] }}
+                                </h6>
+                            </div>
+                            <p>{{ Str::limit(strip_tags($govService['deskripsi']), 80) }}</p>
                              <!--Edit Penambahan tombol pemda-->
                              <div class="link_layanan">
                                     <a href="{!! url('layanan?id=') !!}{{$govService['layanan_id']}}">Link Layanan</a>
@@ -362,14 +367,13 @@
         @endif
 
         </div>
-        <div class="container">
             <div class="row mt-5 mb-5">
             @if($govDetail != null)
                 <a href="{!! url('/layanantp2dd?id=')!!}{{$govDetail['instansi_id']}}" class="btn radius-btn"
                     style="margin:auto; text-align: center; display: block;">Selengkapnya</a>
             @endif
             </div>
-        </div>
+    </div>
     </section>
     <!--Galeri Foto Start-->
     <div id="galerifoto_section" class="our-customer pb-40 pt-0 edukasi-section">

@@ -35,4 +35,37 @@ Class EducationRepository implements EducationInterface{
         return $eduItems;
     }
 
+    public function getCountEducation(){
+        $edu = $this->getApiContents("1597.json");
+        if($edu != null){
+            $edu = $edu['data']['edukasi_list_count'][0]['cnt'];
+        }
+        return $edu;
+    }
+
+    public function getSearchEducation($keyword, $offset=null, $limit=6){
+
+        if($offset == null){
+            $eduItems = $this->getApiContents("1598.json?input=".$keyword."&offset=null&limit=".$limit);
+        }else{
+            $eduItems = $this->getApiContents("1598.json?input=".$keyword."&offset=".$offset."&limit=".$limit);
+        }
+
+        if($eduItems != null){
+            $eduItems = $eduItems['data']['edukasi_search'];
+            if(count($eduItems) == 0){
+                $eduItems = null;
+            }
+        }
+        return $eduItems;
+    }
+
+    public function getCountSearchEducation($keyword){
+        $eduItems = $this->getApiContents("1599.json?input=".$keyword);
+        if($eduItems != null){
+            $eduItems = $eduItems['data']['edukasi_search_count'][0]['cnt'];
+        }
+        return $eduItems;
+    }
+
 }

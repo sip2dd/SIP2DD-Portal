@@ -20,6 +20,14 @@ Class RegulationRepository implements RegulationInterface{
         return $items;   
     }
 
+    public function getCountRegulation(){
+        $items = $this->getApiContents("1603.json");
+        if($items != null){
+            $items = $items['data']['regulasi_list_count'][0]['cnt'];
+        }
+        return $items;
+    }
+
     public function searchRegulation($tentang ="null", $nomor="null", $tahun="null", $status="null", $offset=null, $limit=10){
        // $items = $this->getApiContents("1573.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&offset=".$offset."&limit=".$limit);
         //$items = $this->getApiContents("1573.json?tentang=1020&nomor=null&tahun=null&offset=null&limit=6");
@@ -33,6 +41,14 @@ Class RegulationRepository implements RegulationInterface{
             $items = $items['data']['regulasi_filter'];
         }
         return $items;   
+    }
+
+    public function getCountSearchRegulation(){
+        $items = $this->getApiContents("1603.json");
+        if($items != null){
+            $items = $items['data']['regulasi_list_count'][0]['cnt'];
+        }
+        return $items;
     }
 
     public function getDetailRegulation($id = "0"){
