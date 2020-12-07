@@ -21,6 +21,19 @@ Class EventRepository implements EventInterface{
         return $items;
         
     }
+
+    public function getEventHighlight($offset=null, $limit=3){
+        if($offset != null){
+            $items = $this->getApiContents("1605.json?offset=".$offset."&limit=".$limit);
+        }else{
+            $items = $this->getApiContents("1605.json?offset=null&limit=".$limit);
+        }
+        
+        if($items != null){
+            $items = $items['data']['kegiatan_highlight'];
+        }
+        return $items;
+    }
     
     public function getDetailEvent($id = "0"){
         $detailEvent = $this->getApiContents("1538.json&kegiatan_id=".$id);

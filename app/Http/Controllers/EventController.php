@@ -20,7 +20,7 @@ class EventController extends Controller
         
         //$menu = $this->getApiMenu();
         $menu = null;
-        $highlightevent = $this->eventRepo->getEvent($offset, 1); 
+        $highlightevent = $this->eventRepo->getEventHighlight($offset, $limit); 
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
         // $p2dd_info = $this->getApiP2DDInfo();
         $p2dd_info = null;

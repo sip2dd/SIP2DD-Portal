@@ -151,7 +151,7 @@
                          <ul class="pagination">
                             @if($page > 1)
                             <li class="page-item">
-                                <a href="{!! url('/faq?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                <a href="{!! url('/regulasi?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
                             </li>
@@ -165,11 +165,11 @@
                             @for($i =1; $i<=$pagination; $i++)
                                     @if($page == $i)
                                     <li class="page-item active">
-                                        <a href="{!! url('/faq?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/regulasi?page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @else
                                     <li class="page-item">
-                                        <a href="{!! url('/faq?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        <a href="{!! url('/regulasi?page='.$i) !!}" class="page-link">{{$i}}</a>
                                     </li>
                                     @endif    
                             @endfor
@@ -181,7 +181,7 @@
                             </li>
                             @else
                             <li class="page-item">
-                                <a href="{!! url('/faq?page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                <a href="{!! url('/regulasi?page='.($page+1)) !!}" class="page-link" aria-label="Next">
                                     <i class="ti-angle-right"></i>
                                 </a>
                             </li>
