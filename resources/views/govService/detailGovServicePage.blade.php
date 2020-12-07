@@ -114,7 +114,7 @@
                         <div class="col col-12 col-sm-12 col-md-6">
                             <div class="tombol_download">
                                 @if($detailGovServices != null)
-                                <a class="btn-pdf" href="{{$detailGovServices['manual']}}" style="padding: 15px 20px; font-size: 18px;"> <i
+                                <a class="btn-pdf" href="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{$detailGovServices['manual']}}" style="padding: 15px 20px; font-size: 18px;"> <i
                                         class="fa fa-file-pdf"></i> Unduh Tutorial</a>
                                 @else
                                 <a class="btn-pdf" href="#" style="padding: 15px 20px; font-size: 18px;"> <i
