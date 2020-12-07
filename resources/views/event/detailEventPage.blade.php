@@ -32,7 +32,7 @@
                                         </li>
                                         <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
                                         <li><a href="#">Kolaborasi</a></li>
-                                        <li class="active"><a href="{!! url('/kegiatan') !!}">Kegiatan</a></li>
+                                        <li class="active"><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
                                         <li><a href="#">Galeri</a>
                                         <ul class="submenu">
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
