@@ -8,4 +8,5 @@ interface EventInterface{
     public function getDetailEvent($id);
     public function getCountEvent();
     public function searchEvent($keyword, $offset, $limit);
+    public function getCountsearchEvent($keyword);
 }

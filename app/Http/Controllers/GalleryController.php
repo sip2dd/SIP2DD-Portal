@@ -18,7 +18,7 @@ class GalleryController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
-        $limit = 3;
+        $limit = 6;
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -27,7 +27,7 @@ class GalleryController extends Controller
         if (!$validator->fails()) {
             $pages = $request->page;
             if($pages > 1){
-                $offset = ($pages - 1) * 3; 
+                $offset = ($pages - 1) * $limit; 
             } 
         }else{
             $pages = 1;
@@ -67,15 +67,14 @@ class GalleryController extends Controller
                 if (!$validator->fails()) {
                     $pages = $request->page;
                     if($pages > 1){
-                        $offset = ($pages - 1) * 9; 
+                        $offset = ($pages - 1) * $limit; 
                     } 
                 }else{
                     $pages = 1;
                 }
                 $galleryPhotos = $this->galleryRepo->searchGalleryPhoto($judul, $offset, $limit);
                 
-                
-                //$count = $this->eventRepo->getCountsearchEvent($judul);
+                $count = $this->galleryRepo->getCountGalleryPhoto($judul);
                 
                 if($count > $limit){
                     $pagination = ceil($count / $limit);
@@ -83,7 +82,7 @@ class GalleryController extends Controller
             }
         }
 
-        return view('gallery.galleryPhotoPage', [
+        return view('gallery.searchGalleryPhotoPage', [
             'count' => $count,
             'keyword' => $judul,
             'galleryPhotos' => $galleryPhotos,
@@ -133,7 +132,7 @@ class GalleryController extends Controller
         $pages = 1;
         $offset = null;
         $pagination = 1;
-        $limit = 3;
+        $limit = 6;
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -142,7 +141,7 @@ class GalleryController extends Controller
         if (!$validator->fails()) {
             $pages = $request->page;
             if($pages > 1){
-                $offset = ($pages - 1) * 3; 
+                $offset = ($pages - 1) * $limit; 
             } 
         }else{
             $pages = 1;
@@ -183,13 +182,13 @@ class GalleryController extends Controller
                 if (!$validator->fails()) {
                     $pages = $request->page;
                     if($pages > 1){
-                        $offset = ($pages - 1) * 9; 
+                        $offset = ($pages - 1) * $limit; 
                     } 
                 }else{
                     $pages = 1;
                 }
                 $galleryVideos = $this->galleryRepo->searchGalleryVideo($judul, $offset, $limit);
-                //$count = $this->eventRepo->getCountsearchEvent($judul);
+                $count = $this->galleryRepo->getCountGalleryVideo($judul);
                 
                 if($count > $limit){
                     $pagination = ceil($count / $limit);
@@ -198,7 +197,7 @@ class GalleryController extends Controller
         }
         
         //dd($searchNews);
-        return view('gallery.galleryVideoPage', [
+        return view('gallery.searchGalleryVideoPage', [
             'count' => $count,
             'keyword' => $judul,
             'galleryVideos' => $galleryVideos,
@@ -238,8 +237,6 @@ class GalleryController extends Controller
             'socmed' => $getSocmed 
         ],);
     }
-
-    public function searchGallery(){}
 
     public function getSocmed($title = ""){
         $socmed = Share::currentPage($title)

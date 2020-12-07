@@ -129,13 +129,13 @@ class EventController extends Controller
                 if (!$validator->fails()) {
                     $pages = $request->page;
                     if($pages > 1){
-                        $offset = ($pages - 1) * 9; 
+                        $offset = ($pages - 1) * $limit; 
                     } 
                 }else{
                     $pages = 1;
                 }
                 $eventItems = $this->eventRepo->searchEvent($judul, $offset, $limit);
-                //$count = $this->eventRepo->getCountsearchEvent($judul);
+                $count = $this->eventRepo->getCountsearchEvent($judul);
                 
                 if($count > $limit){
                     $pagination = ceil($count / $limit);
@@ -144,7 +144,7 @@ class EventController extends Controller
         }
         
         //dd($searchNews);
-        return view('event.eventPage', [
+        return view('event.searchEventPage', [
             'count' => $count,
             'keyword' => $judul,
             'eventItems' => $eventItems,

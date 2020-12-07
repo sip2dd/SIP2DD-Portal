@@ -71,7 +71,7 @@ class RegulationController extends Controller
         if (!$validator->fails()) {
             $pages = $request->page;
             if($pages > 1){
-                $offset = ($pages - 1) * 9; 
+                $offset = ($pages - 1) * $limit; 
             } 
         }else{
             $pages = 1;
@@ -90,15 +90,19 @@ class RegulationController extends Controller
         }
 
         $searchReg = $this->regRepo->searchRegulation($tentang, $nomor, $tahun, $status, $offset, $limit);
-        //$count = $this->regRepo->getCountsearchNews($judul);
+        $count = $this->regRepo->getCountSearchRegulation($tentang, $nomor, $tahun, $status);
         //dd($searchReg);
                 
         if($count > $limit){
-            $pagination = ceil($count / 9);
+            $pagination = ceil($count / $limit);
         } 
         
-        return view('regulation.regulationPage',  [
+        return view('regulation.searchRegulationPage',  [
             'menus' => $menu,
+            'tentang' => $tentang,
+            'nomor' => $nomor,
+            'tahun' => $tahun,
+            'status' => $status,
             'regItems' => $searchReg,
             'p2dd_info' => $p2dd_info,
             'count' => $count,

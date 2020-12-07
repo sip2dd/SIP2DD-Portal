@@ -108,6 +108,22 @@ Class GalleryRepository implements GalleryInterface{
         return $photoItems;
     }
 
+    public function getCountGalleryPhoto($keyword){
+        $items = $this->getApiContents("1609.json?input=".$keyword);
+        if($items != null){
+            $items = $items['data']['search_galeri_foto_count'][0]['cnt'];
+        }
+        return $items;
+    }
+
+    public function getCountGalleryVideo($keyword){
+        $items = $this->getApiContents("1608.json?input=".$keyword);
+        if($items != null){
+            $items = $items['data']['search_galeri_video_count'][0]['cnt'];
+        }
+        return $items;
+    }
+
     public function searchGalleryVideo($keyword, $offset=null, $limit=6){
         if($offset == null){
             $videoItems = $this->getApiContents("1579.json?input=".$keyword."&offset=null&limit=".$limit);

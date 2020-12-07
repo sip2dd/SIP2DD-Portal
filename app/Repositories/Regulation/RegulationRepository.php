@@ -43,10 +43,10 @@ Class RegulationRepository implements RegulationInterface{
         return $items;   
     }
 
-    public function getCountSearchRegulation(){
-        $items = $this->getApiContents("1603.json");
+    public function getCountSearchRegulation($tentang ="null", $nomor="null", $tahun="null", $status="null"){
+        $items = $this->getApiContents("1604.json?tentang=".$tentang."&nomor=".$nomor."&tahun=".$tahun."&status_peraturan=".$status);
         if($items != null){
-            $items = $items['data']['regulasi_list_count'][0]['cnt'];
+            $items = $items['data']['regulasi_filter_count'][0]['cnt'];
         }
         return $items;
     }

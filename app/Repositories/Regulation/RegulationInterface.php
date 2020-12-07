@@ -7,5 +7,5 @@ interface RegulationInterface{
     public function getCountRegulation();
     public function getDetailRegulation($id);
     public function searchRegulation($tentang, $nomor, $tahun, $status, $offset, $limit);
-    public function getCountSearchRegulation();
+    public function getCountSearchRegulation($tentang, $nomor, $tahun, $status);
 }
