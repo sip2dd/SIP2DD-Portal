@@ -43,7 +43,10 @@ trait ApiContentsTrait{
     }
 
     public function getApiP2DDInfo(){
-        $p2dd_info = $this->getApiContents('1547.json');
+        $p2dd_info = $this->getApiContents('1543.json');
+        if($p2dd_info != null){
+            $p2dd_info = $p2dd_info['data']['p2dd_info'][0];
+        }
         return $p2dd_info;
     }
 }

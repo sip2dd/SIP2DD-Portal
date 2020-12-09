@@ -36,6 +36,149 @@
 
     @yield('content')
 
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-main pt-4">
+            <div class="footer-area section-padd-footer">
+                <div class="container">
+                    <div class="row  justify-content-between">
+                        <div class="col-lg-3 col-md-12 col-sm-12">
+                            <div class="single-footer-caption mb-40">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href=""><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                                </div>
+                                <div id="icon-footer" class="footer-tittle">
+                                    <ul>
+                                        <li>
+                                            <a href="#" class="fab fa-facebook-f"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="fab fa-youtube ml-4"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="fab fab fa-vimeo-v ml-4"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="fab fa-twitter  ml-4"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-12 pl-0">
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Beranda</h4>
+                                        <ul>
+                                            <li><a href="#">Fitur Kami</a></li>
+                                            <li><a href="{!! url('/layanan') !!}">Layanan Terhangat</a></li>
+                                            <li><a href="{!! url('/berita') !!}">Berita</a></li>
+                                            <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
+                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Berita</h4>
+                                        <ul>
+                                            <li><a href="{!! url('/berita') !!}">Berita</a></li>
+                                            <li><a href="{!! url('/beritaterbaru') !!}">Berita Terbaru</a></li>
+                                            <li><a href="{!! url('/beritasatgas') !!}">Berita Satgas</a></li>
+                                            <li><a href="{!! url('/beritadaerah') !!}">Berita Daerah</a></li>
+                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-12 pl-0">
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Edukasi</h4>
+                                        <ul class="list_tiga">
+                                            <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
+                                            <li><a href="{!! url('/faq') !!}">FAQ</a></li>
+                                            <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>TP2DD</h4>
+                                        <ul class="list_tiga">
+                                            <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Regulasi</h4>
+                                        <ul class="list_tiga">
+                                            <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-12 pl-0">
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Galeri</h4>
+                                        <ul>
+                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row baris_footer">
+                                <div class="single-footer-caption mb-40">
+                                    <div class="footer-tittle">
+                                        <h4>Kegiatan</h4>
+                                        <ul>
+                                            <li><a href="{!! url('/dashboardkegiatan') !!}">Webinar Terbaru</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12">
+                            <div class="single-footer-caption mb-40">
+                                <div class="footer-tittle">
+                                    <h4>Sekretariat Pokjanas P2DD</h4>
+                                    @yield('p2dd_info')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copy-Right -->
+            <div class="row mr-0 ml-0">
+                <div class="col-md-12 footer-copy">
+                    <p>
+                        Copyright &copy;<script>
+                            document.write(new Date().getFullYear());
+                        </script> P2DD
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+
+    </footer>
+
     @include('template.footer')
 
 </body>

@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\GovServices\GovServicesInterface;
+use App\Http\Traits\ApiContentsTrait;
 use Illuminate\Support\Facades\Validator;
 
 class GovernmentServiceController extends Controller
 {
+    use ApiContentsTrait;
+
     public function __construct(GovServicesInterface $govService){
         $this->govService = $govService;
     }
@@ -17,6 +20,7 @@ class GovernmentServiceController extends Controller
         $offset = null;
         $pagination = 1;
         $limit = 6;
+        $p2dd_info =$this->getApiP2DDInfo();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -46,6 +50,7 @@ class GovernmentServiceController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'p2dd_info' => $p2dd_info,
         ]);
     }
 
@@ -53,6 +58,8 @@ class GovernmentServiceController extends Controller
         $detailGovServices = null;
         $feature = null;
         $video = null;
+        $p2dd_info =$this->getApiP2DDInfo();
+
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
@@ -68,6 +75,7 @@ class GovernmentServiceController extends Controller
             'detailGovServices' => $detailGovServices,
             'feature' => $feature,
             'video' => $video, 
+            'p2dd_info' => $p2dd_info,
         ],
         );
     }
@@ -85,6 +93,7 @@ class GovernmentServiceController extends Controller
         $offset = null;
         $limit = 6;
         $pagination = 1;
+        $p2dd_info =$this->getApiP2DDInfo();
         if($request->has('keyword')) {
             if($request->keyword != ''){
                 $judul = $request->keyword;
@@ -114,7 +123,8 @@ class GovernmentServiceController extends Controller
             'govServices' => $searcServices,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
-            'title' => $judul
+            'title' => $judul,
+            'p2dd_info' => $p2dd_info,
         ]);
     }
 
@@ -162,6 +172,7 @@ class GovernmentServiceController extends Controller
         }
 
         $listGovs = $this->govService->getListGov(); 
+        $p2dd_info =$this->getApiP2DDInfo();
 
         return view('govService.govServicePagebyCode', [
             'govServices' => $govServices,
@@ -170,6 +181,7 @@ class GovernmentServiceController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'p2dd_info' => $p2dd_info,
         ]);
     }
 

@@ -280,3 +280,23 @@
    </section>
    <!--================ Blog Area end =================-->
 @endsection
+
+@section('p2dd_info')
+
+    @if($p2dd_info != null)
+        <div class="footer-pera footer-pera2">                                
+            <!-- <p>{{$p2dd_info['title']}}</p> -->
+            <p>{!!$p2dd_info['deskripsi']!!}</p>
+            <p>{{$p2dd_info['no_telpon']}}</p>
+            <p>{{$p2dd_info['email']}}</p>
+            <p>{!!$p2dd_info['alamat']!!}</p>
+        </div>
+    @else
+        <div class="footer-pera footer-pera2">                                
+            <p>SIP2DD adalah Sistem Informasi Percepatan dan Perluasan Digitalisasi Daerah</p>
+            <p>0218224049</p>
+            <p>info@p2dd.go.id</p>
+            <p>Jalan Merdeka Barat No. 10 Jakarta Pusat</p>
+        </div>
+    @endif
+@endsection

@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Repositories\Event\EventInterface;
 use Share;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Traits\ApiContentsTrait;
 
 class EventController extends Controller
 {
+    use ApiContentsTrait;
+
     public function __construct(EventInterface $eventRepo){
         $this->eventRepo = $eventRepo;
     }
@@ -23,8 +26,7 @@ class EventController extends Controller
         $menu = null;
         $highlightevent = $this->eventRepo->getEventHighlight($offset, $limit_highlight); 
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
-        // $p2dd_info = $this->getApiP2DDInfo();
-        $p2dd_info = null;
+        $p2dd_info =$this->getApiP2DDInfo();
 
         return view('event.dashboardEventPage', [
             'menus' => $menu,
@@ -58,8 +60,7 @@ class EventController extends Controller
         //$menu = $this->getApiMenu();
         $menu = null;
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
-        // $p2dd_info = $this->getApiP2DDInfo();
-        $p2dd_info = null;
+        $p2dd_info =$this->getApiP2DDInfo();
 
         $count = $this->eventRepo->getCountEvent();
 
@@ -82,6 +83,7 @@ class EventController extends Controller
         $offset=null;
         $limit = 6;
         $detailEvent = null;
+        $p2dd_info =$this->getApiP2DDInfo();
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
@@ -105,6 +107,7 @@ class EventController extends Controller
         return view('event.detailEventPage', [
             'detailEvent' => $detailEvent, 
             'events' => $events, 
+            'p2dd_info' => $p2dd_info,
             'socmed' => $getSocmed    
         ],
         );
@@ -118,12 +121,12 @@ class EventController extends Controller
 
         $judul = "";
         $count = 0;
-        $searchNews = null;
         $pages = 1;
         $offset = null;
         $limit = 6;
         $pagination = 1;
         $eventItems = null;
+        $p2dd_info =$this->getApiP2DDInfo();
         if($request->has('keyword')) {
             if($request->keyword != ''){
                 $judul = $request->keyword;
@@ -144,13 +147,13 @@ class EventController extends Controller
             }
         }
         
-        //dd($searchNews);
         return view('event.searchEventPage', [
             'count' => $count,
             'keyword' => $judul,
             'eventItems' => $eventItems,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'p2dd_info' => $p2dd_info,
             'title' => $judul
         ]);
     }

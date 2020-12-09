@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\FAQ\FaqInterface;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Traits\ApiContentsTrait;
 
 class FAQController extends Controller
 {
+    use ApiContentsTrait;
+
     public function __construct(FaqInterface $faqRepo){
         $this->faqRepo = $faqRepo;
     }
@@ -35,8 +38,7 @@ class FAQController extends Controller
         //$menu = $this->getApiMenu();
         $menu = null;
         $faqItems = $this->faqRepo->getFAQ($offset, $limit);
-        // $p2dd_info = $this->getApiP2DDInfo();
-        $p2dd_info = null;
+        $p2dd_info = $this->getApiP2DDInfo();
         $count = $this->faqRepo->getCountFAQ();
 
         if($count > $limit){
@@ -60,7 +62,7 @@ class FAQController extends Controller
         ]);
 
         $menu = null;
-        $p2dd_info = null;
+        $p2dd_info = $this->getApiP2DDInfo();
         $judul = "";
         $count = 0;
         $faqItems = null;
@@ -88,8 +90,6 @@ class FAQController extends Controller
             }
         }
         
-        //dd($searchNews);
-
         return view('faq.searchFAQPage', [
             'menus' => $menu,
             'faqItems' => $faqItems,

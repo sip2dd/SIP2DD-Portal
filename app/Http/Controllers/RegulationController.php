@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Regulation\RegulationInterface;
+use App\Http\Traits\ApiContentsTrait;
 use Illuminate\Support\Facades\Validator;
 
 class RegulationController extends Controller
 {
+
+    use ApiContentsTrait;
+
     public function __construct(RegulationInterface $regRepo){
         $this->regRepo = $regRepo;
     }
@@ -18,6 +22,7 @@ class RegulationController extends Controller
         $offset = null;
         $pagination = 1;
         $limit = 6;
+        
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -34,9 +39,8 @@ class RegulationController extends Controller
 
         //$menu = $this->getApiMenu();
         $menu = null;
+        $p2dd_info =$this->getApiP2DDInfo();
         $regItems = $this->regRepo->getRegulation($offset, $limit);
-        // $p2dd_info = $this->getApiP2DDInfo();
-        $p2dd_info = null;
         $count = $this->regRepo->getCountRegulation();
 
         if($count > $limit){
@@ -59,7 +63,7 @@ class RegulationController extends Controller
             'page' => 'integer'
         ]);
         $menu = null;
-        $p2dd_info = null;
+        $p2dd_info =$this->getApiP2DDInfo();
 
         $judul = "";
         $count = 0;
@@ -111,25 +115,5 @@ class RegulationController extends Controller
             'pagination' => $pagination,
             'title' => $judul
         ]);
-    }
-
-    public function getDetailRegulation(Request $request){
-        
-        $detailRegulation = null;
-        if($request->has('id')) {
-            if($request->id != ''){
-                $id = $request->id;
-                $detailRegulation = $this->regRepo->getDetailRegulation($id);
-            }else{
-                return redirect('');
-            }
-        }else{
-            return redirect('');
-        }
-        
-        return view('news.detailNewsPage', [
-            'detailNews' => $detailNews,    
-        ],
-        );
     }
 }

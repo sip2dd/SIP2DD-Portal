@@ -5,20 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Education\EducationInterface;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Traits\ApiContentsTrait;
 use Share;
 
 class EducationController extends Controller
 {
+    use ApiContentsTrait;
+
     public function __construct(EducationInterface $eduRepo){
         $this->eduRepo = $eduRepo;
     }
-    //
+
     public function index(Request $request)
     {
         $pages = 1;
         $offset = null;
         $pagination = 1;
         $limit = 6;
+        
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -34,7 +38,8 @@ class EducationController extends Controller
         }
 
         $eduItems = $this->eduRepo->getEducation($offset, $limit);
-        $count = $this->eduRepo->getCountEducation();;
+        $count = $this->eduRepo->getCountEducation();
+        $p2dd_info =$this->getApiP2DDInfo();
 
         if($count > $limit){
             $pagination = ceil($count / $limit);
@@ -45,6 +50,7 @@ class EducationController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'p2dd_info' => $p2dd_info,
         ]);
 
     }
@@ -54,6 +60,7 @@ class EducationController extends Controller
         $offset=null;
         $limit = 6;
         $detailEducation = null;
+        $p2dd_info =$this->getApiP2DDInfo();
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
@@ -77,6 +84,7 @@ class EducationController extends Controller
         return view('education.detailEducationPage', [
             'detailEducation' => $detailEducation, 
             'edu' => $edu, 
+            'p2dd_info' => $p2dd_info,
             'socmed' => $getSocmed    
         ],
         );
@@ -96,6 +104,7 @@ class EducationController extends Controller
         $offset = null;
         $limit = 6;
         $pagination = 1;
+        $p2dd_info =$this->getApiP2DDInfo();
 
         if($request->has('keyword')) {
             if($request->keyword != ''){
@@ -125,6 +134,7 @@ class EducationController extends Controller
             'eduItems' => $eduItems,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'p2dd_info' => $p2dd_info,
             'title' => $judul
         ]);
     }

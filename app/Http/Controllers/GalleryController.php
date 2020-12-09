@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Repositories\Gallery\GalleryInterface;
 use Share;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Traits\ApiContentsTrait;
 
 class GalleryController extends Controller
 {
+    use ApiContentsTrait;
+
     public function __construct(GalleryInterface $galleryRepo){
         $this->galleryRepo = $galleryRepo;
     }
@@ -35,6 +38,7 @@ class GalleryController extends Controller
 
         $galleryPhotos = $this->galleryRepo->getGalleryPhotos($offset, $limit);
         $count = $this->galleryRepo->getCountGalleryPhotos();
+        $p2dd_info = $this->getApiP2DDInfo();
                 
         if($count > $limit){
             $pagination = ceil($count / $limit);
@@ -42,6 +46,7 @@ class GalleryController extends Controller
         
         return view('gallery.galleryPhotoPage', [
             'galleryPhotos' => $galleryPhotos,
+            'p2dd_info' => $p2dd_info,
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
@@ -61,6 +66,8 @@ class GalleryController extends Controller
         $limit = 6;
         $pagination = 1;
         $galleryPhotos = null;
+        $p2dd_info = $this->getApiP2DDInfo();
+
         if($request->has('keyword')) {
             if($request->keyword != ''){
                 $judul = $request->keyword;
@@ -84,6 +91,7 @@ class GalleryController extends Controller
 
         return view('gallery.searchGalleryPhotoPage', [
             'count' => $count,
+            'p2dd_info' => $p2dd_info,
             'keyword' => $judul,
             'galleryPhotos' => $galleryPhotos,
             'page' => $pages ?? 1,
@@ -98,6 +106,7 @@ class GalleryController extends Controller
         $limit = 5;
         $detailGalleryPhoto = null;
         $attachments = null;
+        $p2dd_info = $this->getApiP2DDInfo();
 
         if($request->has('id')) {
             if($request->id != ''){
@@ -118,13 +127,11 @@ class GalleryController extends Controller
 
         $galleryPhotos = $this->galleryRepo->getGalleryPhotos($offset, $limit);
 
-       
-        
-
         return view('gallery.detailGalleryPhotoPage', [
             'detailGalleryPhoto' => $detailGalleryPhoto,
-             'attachments' => $attachments,
+            'attachments' => $attachments,
             'galleryPhotos' => $galleryPhotos,
+            'p2dd_info' => $p2dd_info,
             'socmed' => $getSocmed 
         ],);
 
@@ -152,6 +159,7 @@ class GalleryController extends Controller
 
         $galleryVideos = $this->galleryRepo->getGalleryVideos($offset, $limit);
         $count = $this->galleryRepo->getCountGalleryVideos();
+        $p2dd_info = $this->getApiP2DDInfo();
         
                 
         if($count > $limit){
@@ -163,6 +171,7 @@ class GalleryController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'p2dd_info' => $p2dd_info,
         ]);
     }
 
@@ -179,6 +188,8 @@ class GalleryController extends Controller
         $limit = 6;
         $pagination = 1;
         $galleryVideos = null;
+        $p2dd_info = $this->getApiP2DDInfo();
+
         if($request->has('keyword')) {
             if($request->keyword != ''){
                 $judul = $request->keyword;
@@ -199,12 +210,12 @@ class GalleryController extends Controller
             }
         }
         
-        //dd($searchNews);
         return view('gallery.searchGalleryVideoPage', [
             'count' => $count,
             'keyword' => $judul,
             'galleryVideos' => $galleryVideos,
             'page' => $pages ?? 1,
+            'p2dd_info' => $p2dd_info,
             'pagination' => $pagination
         ]);
     }
@@ -233,11 +244,13 @@ class GalleryController extends Controller
         }
 
         $galleryVideos = $this->galleryRepo->getGalleryVideos($offset, $limit);
+        $p2dd_info = $this->getApiP2DDInfo();
 
         return view('gallery.detailGalleryVideoPage', [
             'detailGalleryVideo' => $detailGalleryVideo, 
             'galleryVideos' => $galleryVideos,
-            'socmed' => $getSocmed 
+            'socmed' => $getSocmed,
+            'p2dd_info' => $p2dd_info, 
         ],);
     }
 

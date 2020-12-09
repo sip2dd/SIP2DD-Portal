@@ -7,10 +7,13 @@ use Share;
 use BenSampo\Embed\Services\YouTube;
 use BenSampo\Embed\Rules\EmbeddableUrl;
 use App\Repositories\News\NewsInterface;
+use App\Http\Traits\ApiContentsTrait;
 use Illuminate\Support\Facades\Validator;
 
 class NewsController extends Controller
 {
+    use ApiContentsTrait;
+
     public function __construct(NewsInterface $newsRepo){
         $this->newsRepo = $newsRepo;
     }
@@ -26,13 +29,14 @@ class NewsController extends Controller
         $localgovNews = $this->newsRepo->getLocalGovNews($offset, $limit_sidebar);
         // $localgovNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar);
         $galleryNews = $this->newsRepo->getGalleryVideos($offset, $limit);
-        $p2dd_info = null;
+        $p2dd_info =$this->getApiP2DDInfo();
         
         return view('news.newsPage', [
                         'highlights' => $highlights, 
                         'govNews' => $govNews,
                         'localgovNews' => $localgovNews,
-                        'galleryNews' => $galleryNews
+                        'galleryNews' => $galleryNews,
+                        'p2dd_info' => $p2dd_info
                         ]);
     }
 
@@ -49,6 +53,7 @@ class NewsController extends Controller
         $offset = null;
         $limit = 6;
         $pagination = 1;
+        $p2dd_info =$this->getApiP2DDInfo();
         if($request->has('keyword')) {
             if($request->keyword != ''){
                 $judul = $request->keyword;
@@ -76,7 +81,8 @@ class NewsController extends Controller
             'searchNews' => $searchNews,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
-            'title' => $judul
+            'title' => $judul,
+            'p2dd_info' => $p2dd_info
         ]);
     }
 
@@ -85,6 +91,7 @@ class NewsController extends Controller
 
         $detailNews = null;
         $attachments = null;
+        $p2dd_info =$this->getApiP2DDInfo();
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
@@ -120,7 +127,8 @@ class NewsController extends Controller
             'highlights' => $highlights, 
             'govNews' => $govNews,
             'localgovNews' => $localgovNews,
-            'socmed' => $getSocmed    
+            'socmed' => $getSocmed,
+            'p2dd_info' => $p2dd_info    
         ],
         );
     }
@@ -130,6 +138,7 @@ class NewsController extends Controller
         $offset = null;
         $pagination = 1;
         $limit = 6;
+        $p2dd_info =$this->getApiP2DDInfo();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -157,6 +166,7 @@ class NewsController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'p2dd_info' => $p2dd_info
             ]);
     }
 
@@ -165,6 +175,7 @@ class NewsController extends Controller
         $offset = null;
         $pagination = 1;
         $limit = 6;
+        $p2dd_info =$this->getApiP2DDInfo();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -190,6 +201,7 @@ class NewsController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'p2dd_info' => $p2dd_info
         ]);
     }
 
@@ -198,6 +210,7 @@ class NewsController extends Controller
         $offset = null;
         $pagination = 1;
         $limit = 6;
+        $p2dd_info =$this->getApiP2DDInfo();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -226,6 +239,7 @@ class NewsController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'p2dd_info' => $p2dd_info
         ]);
     }
 

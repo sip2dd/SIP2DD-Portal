@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 use App\Repositories\Government\GovernmentInterface;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Traits\ApiContentsTrait;
 
 use Illuminate\Http\Request;
 
 class GovernmentController extends Controller
 {
+    use ApiContentsTrait;
+
     public function __construct(GovernmentInterface $govRepo){
         $this->govRepo = $govRepo;
     }
@@ -45,13 +48,16 @@ class GovernmentController extends Controller
         } 
 
         $governments = $this->govRepo->getGoverment($kode_daerah, $offset, $limit); 
-        $list_gov = $this->govRepo->getListGoverment(); 
+        $list_gov = $this->govRepo->getListGoverment();
+        $p2dd_info = $this->getApiP2DDInfo();
+
          return view('government.governmentPage', [
              'governments' => $governments, 
              'list_gov' => $list_gov,
              'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'p2dd_info' => $p2dd_info
              ]);
     }
 
@@ -62,6 +68,8 @@ class GovernmentController extends Controller
         // get detail pemda 
         $govDetail = null;
         $govNewsHighlights = null;
+        $p2dd_info = $this->getApiP2DDInfo();
+
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
@@ -105,6 +113,7 @@ class GovernmentController extends Controller
             'govServices' => $govServices,
             'galleryGovVideos' => $galleryGovVideos,
             'galleryGovPhotos' => $galleryGovPhotos,
+            'p2dd_info' => $p2dd_info
         ]);
     }
 
@@ -115,6 +124,7 @@ class GovernmentController extends Controller
         $pagination = 1;
         $limit = 6;
         $id = null;
+        $p2dd_info = $this->getApiP2DDInfo();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -157,6 +167,7 @@ class GovernmentController extends Controller
              'count' => $count,
              'page' => $pages ?? 1,
              'pagination' => $pagination,
+             'p2dd_info' => $p2dd_info
              ]);
     }
 
@@ -227,6 +238,8 @@ class GovernmentController extends Controller
             $pagination = ceil($count / $limit);
         } 
 
+        $p2dd_info = $this->getApiP2DDInfo();
+
          return view('government.governmentSearchNewsPage', [
              'kode_daerah' =>$id,
              'title' => $judul,
@@ -235,6 +248,7 @@ class GovernmentController extends Controller
              'count' => $count,
              'page' => $pages ?? 1,
              'pagination' => $pagination,
+             'p2dd_info' => $p2dd_info
              ]);
     }
 
@@ -282,6 +296,8 @@ class GovernmentController extends Controller
             $pagination = ceil($count / $limit);
         } 
 
+        $p2dd_info = $this->getApiP2DDInfo();
+
 
          return view('government.governmentServicePage', [
              'id' => $id,
@@ -290,6 +306,7 @@ class GovernmentController extends Controller
              'count' => $count,
              'page' => $pages ?? 1,
              'pagination' => $pagination,
+             'p2dd_info' => $p2dd_info
              ]);
     }
 
@@ -358,6 +375,8 @@ class GovernmentController extends Controller
             $pagination = ceil($count / $limit);
         } 
 
+        $p2dd_info = $this->getApiP2DDInfo();
+
         return view('government.governmentSearchServicePage', [
                 'id' => $id,
                 'title' => $judul,
@@ -366,6 +385,7 @@ class GovernmentController extends Controller
                 'count' => $count,
                 'page' => $pages ?? 1,
                 'pagination' => $pagination,
+                'p2dd_info' => $p2dd_info
                 ]);
     }
 
@@ -410,6 +430,8 @@ class GovernmentController extends Controller
             $pagination = ceil($count / $limit);
         } 
 
+        $p2dd_info = $this->getApiP2DDInfo();
+
          return view('government.governmentGalleryPage', [
              'id' => $id,
              'galleryPhotos' => $galleryPhotos,
@@ -417,6 +439,7 @@ class GovernmentController extends Controller
              'count' => $count,
              'page' => $pages ?? 1,
              'pagination' => $pagination,
+             'p2dd_info' => $p2dd_info
              ]);
     }
 
@@ -430,6 +453,7 @@ class GovernmentController extends Controller
         
         $judul = "";
         $count = 0;
+        $p2dd_info = $this->getApiP2DDInfo();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -495,6 +519,7 @@ class GovernmentController extends Controller
                 'count' => $count,
                 'page' => $pages ?? 1,
                 'pagination' => $pagination,
+                'p2dd_info' => $p2dd_info
                 ]);
     }
 

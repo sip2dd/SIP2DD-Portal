@@ -17,8 +17,8 @@ class HomeController extends Controller
     
     public function index()
     {
-        $menu = $this->getApiMenu();
-        // $menu = null;
+        // $menu = $this->getApiMenu();
+        $menu = null;
         
         $newsItems = $this->homeRepo->getNewsItems();
         //dd($newsItems);
@@ -26,8 +26,7 @@ class HomeController extends Controller
 
         $eduNewsItems = $this->homeRepo->getEducationNewsItems();
         $galleryNewsItems = $this->homeRepo->getGalleryNewsItems();
-        // $p2dd_info = $this->getApiP2DDInfo();
-        $p2dd_info = null;
+        $p2dd_info = $this->getApiP2DDInfo();
         
         return view('home.homePage', [
             'menus' => $menu,
@@ -56,6 +55,9 @@ class HomeController extends Controller
         $offset = null;
         $limit = 6;
         $pagination = 1;
+
+        $p2dd_info = $this->getApiP2DDInfo();
+
         if($request->has('keyword')) {
             if($request->keyword != ''){
                 $judul = $request->keyword;
@@ -92,7 +94,8 @@ class HomeController extends Controller
             'searchServices' => $searchServices,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
-            'title' => $judul
+            'title' => $judul,
+            'p2dd_info' => $p2dd_info
         ]);
     }
     
