@@ -107,19 +107,19 @@
                                     @endif
                                 </select>
                             </div>
-                            <!-- <div class="btn-group" role="group">
+                            <div class="btn-group" role="group">
                                 <button class="button2 btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Urutkan
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <a class="dropdown-item" href="#">Dari Huruf Awal <i class="fa fa-sort-alpha-down"
+                                    <a class="dropdown-item" href="{{ url('/tp2dd') }}?sort=ASC">Dari Huruf Awal <i class="fa fa-sort-alpha-down"
                                             style="margin-left: 1.5em;"></i></a>
-                                    <a class="dropdown-item" href="#">Dari Huruf Terakhir<img
+                                    <a class="dropdown-item" href="{{ url('/tp2dd') }}?sort=DESC">Dari Huruf Terakhir<img
                                             src="{{ URL::asset('fonts/sort-alpha-down-alt-solid.svg') }}"
                                             style="width: 13px; margin-left: .3em;"></a>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 ket-jumlah">
@@ -148,25 +148,46 @@
                         <ul class="pagination">
                         @if($page > 1)
                             <li class="page-item">
+                                @if($sort == null)
+                                
                                 <a href="{!! url('/tp2dd?page='.($page-1)) !!}" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
+                                @else
+                                <a href="{!! url('/tp2dd?sort='.$sort.'&page='.($page-1)) !!}" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-left"></i>
+                                </a>
+                                
+                                @endif
                             </li>
-                            @else
+                        @else
                             <li class="page-item">
                                 <a href="#" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-left"></i>
                                 </a>
                             </li>
-                            @endif
+                        @endif
                             @for($i =1; $i<=$pagination; $i++)
                                     @if($page == $i)
                                     <li class="page-item active">
+                                        @if($sort == null)
+                                        
                                         <a href="{!! url('/tp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        @else
+                                        <a href="{!! url('/tp2dd?sort='.$sort.'&page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        
+                                        @endif
+                                        
                                     </li>
                                     @else
                                     <li class="page-item">
+                                        @if($sort == null)
+                                        
                                         <a href="{!! url('/tp2dd?page='.$i) !!}" class="page-link">{{$i}}</a>
+                                        @else
+                                        <a href="{!! url('/tp2dd?sort='.$sort.'&page='.$i) !!}" class="page-link">{{$i}}
+                                        </a>
+                                        @endif
                                     </li>
                                     @endif    
                             @endfor
@@ -178,9 +199,17 @@
                             </li>
                             @else
                             <li class="page-item">
-                                <a href="{!! url('/tp2dd?page='.($page+1)) !!}" class="page-link" aria-label="Next">
+                                @if($sort == null)
+                                
+                                <a href="{!! url('/tp2dd?page='.($page+1)) !!}" class="page-link" aria-label="Previous">
                                     <i class="ti-angle-right"></i>
                                 </a>
+                                @else
+                                <a href="{!! url('/tp2dd?sort='.$sort.'&page='.($page+1)) !!}" class="page-link" aria-label="Previous">
+                                    <i class="ti-angle-right"></i>
+                                </a>
+                                
+                                @endif
                             </li>
                             @endif
                         </ul>

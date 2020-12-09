@@ -23,6 +23,7 @@ class GovernmentController extends Controller
         $limit = 6;
         $count = 0;
         $kode_daerah = null;
+        $sort = null;
 
         if($request->has('kode_daerah')) {
             $kode_daerah = $request->kode_daerah;
@@ -45,19 +46,29 @@ class GovernmentController extends Controller
 
         if($count > $limit){
             $pagination = ceil($count / $limit);
-        } 
+        }
+        
+        if($request->has('sort')) {
+            $sort = strtolower($request->sort);
+            if( $sort != 'asc' && $sort != 'desc'){
+                $sort = 'asc';
+            }
+            $governments = $this->govRepo->getSortGoverment($sort, $offset, $limit);
+        }else{
+            $governments = $this->govRepo->getGoverment($kode_daerah, $offset, $limit);    
+        }
 
-        $governments = $this->govRepo->getGoverment($kode_daerah, $offset, $limit); 
         $list_gov = $this->govRepo->getListGoverment();
         $p2dd_info = $this->getApiP2DDInfo();
 
          return view('government.governmentPage', [
-             'governments' => $governments, 
-             'list_gov' => $list_gov,
-             'count' => $count,
+            'governments' => $governments, 
+            'list_gov' => $list_gov,
+            'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
-            'p2dd_info' => $p2dd_info
+            'p2dd_info' => $p2dd_info,
+            'sort' => $sort
              ]);
     }
 
@@ -508,8 +519,6 @@ class GovernmentController extends Controller
         if($count > $limit){
             $pagination = ceil($count / $limit);
         } 
-
-      
 
         return view('government.governmentSearchGalleryPage', [
                 'kode_daerah' => $id,

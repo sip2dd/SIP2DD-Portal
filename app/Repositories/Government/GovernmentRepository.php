@@ -8,10 +8,7 @@ Class GovernmentRepository implements GovernmentInterface{
     use ApiContentsTrait;
 
     public function getGoverment($kode_daerah = null, $offset=null, $limit=6){
-        // $gov = $this->getApiContents("1541.json");
-        // if($gov != null){
-        //     $gov = $gov['data']['unit_profile'];
-        // }
+        
         if($offset == null){
             $gov = $this->getApiContents("1562.json?kode_daerah=".$kode_daerah."&offset=null&limit=".$limit);
         }else{
@@ -23,9 +20,31 @@ Class GovernmentRepository implements GovernmentInterface{
         // }else{
         //     $gov = $this->getApiContents("1541.json?offset=".$offset."&limit=".$limit);
         // }
+
+        
         
         if($gov != null){
             $gov = $gov['data']['selected_unit'];
+        }
+        return $gov;
+    }
+
+    public function getSortGoverment($sort = "asc", $offset=null, $limit=6){
+        
+        if($offset == null){
+            $gov = $this->getApiContents("1584.json?sort=".$sort."&offset=null&limit=".$limit);
+        }else{
+            $gov = $this->getApiContents("1584.json?sort=".$sort."&offset=".$offset."&limit=".$limit);
+        }
+
+        // if($offset == null){
+        //     $gov = $this->getApiContents("1541.json?offset=null&limit=".$limit);
+        // }else{
+        //     $gov = $this->getApiContents("1541.json?offset=".$offset."&limit=".$limit);
+        // }
+
+        if($gov != null){
+            $gov = $gov['data']['unit_profile_sort'];
         }
         return $gov;
     }

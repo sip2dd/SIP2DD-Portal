@@ -4,6 +4,7 @@ namespace App\Repositories\Government;
 
 interface GovernmentInterface{
     public function getGoverment($kode_daerah, $offset, $limit);
+    public function getSortGoverment($sort, $offset, $limit);
     public function getCountGovernment();
     public function getListGoverment();
     public function getGovermentDetail($id);
