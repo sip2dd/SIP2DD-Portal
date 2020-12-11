@@ -112,12 +112,22 @@
                         @if($detailEducation != null)
                         {!! $detailEducation['deskripsi'] !!}
                         @endif
+                        
+                        @if($attachments)
                         <div class="materi_edukasi">
-                           <p>Materi :</p>
-                           <a href="#" class="btn btn_materi_edukasi"><i class="fa fa-file-pdf"
-                                 style="margin-right: .5em;"></i> Unduh
-                              Disini</a>
+                           <p>Lampiran :</p>
+                           @foreach($attachments as $attachment)
+                              @if($attachment['file'] != null)
+                              <p>
+                              <a href="{{$attachment['file']}}" class="btn btn_materi_edukasi"><i class="fa fa-cloud-download-alt"
+                                    style="margin-right: .5em;"></i> {{$attachment['caption']}}</a>
+                              </p>
+                              @endif
+
+                             
+                           @endforeach
                         </div>
+                        @endif
 
                      </div>
                   </div>

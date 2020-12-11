@@ -20,6 +20,18 @@ Class EducationRepository implements EducationInterface{
         return $detailEdu;
     }
 
+    public function getDetailEducationAttachment($id){
+        $attchments = $this->getApiContents("1611.json?edukasi_id=".$id);
+        if($attchments != null){
+            if(count($attchments['data']['lampiran_edukasi']) < 1){
+                $attchments = null;
+            }else{
+                $attchments = $attchments['data']['lampiran_edukasi'];
+            }  
+        }
+        return $attchments;   
+    }
+
     public function getEducation($offset=null, $limit=4){
         if($offset == null || $offset == "null" || $offset=""){
             $eduItems = $this->getApiContents("1576.json?offset=null&limit=".$limit);

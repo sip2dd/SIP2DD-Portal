@@ -47,6 +47,19 @@ Class EventRepository implements EventInterface{
         return $detailEvent;
     }
 
+    
+    public function getDetailEventAttachment($id="0"){
+        $attchments = $this->getApiContents("1567.json?kegiatan_id=".$id);
+        if($attchments != null){
+            if(count($attchments['data']['lampiran_kegiatan']) < 1){
+                $attchments = null;
+            }else{
+                $attchments = $attchments['data']['lampiran_kegiatan'];
+            }  
+        }
+        return $attchments;
+    }
+
     public function getCountEvent(){
         $eventItems = $this->getApiContents("1572.json");
         if($eventItems != null){

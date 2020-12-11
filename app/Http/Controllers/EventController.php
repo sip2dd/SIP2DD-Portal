@@ -83,11 +83,14 @@ class EventController extends Controller
         $offset=null;
         $limit = 6;
         $detailEvent = null;
+        $attachments = null;
         $p2dd_info =$this->getApiP2DDInfo();
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
                 $detailEvent = $this->eventRepo->getDetailEvent($id);
+                $attachments = $this->eventRepo->getDetailEventAttachment($id);
+                
                 if($detailEvent != null){
                     $getSocmed = $this->getSocmed($detailEvent['judul']);
                 }else{
@@ -108,6 +111,7 @@ class EventController extends Controller
             'detailEvent' => $detailEvent, 
             'events' => $events, 
             'p2dd_info' => $p2dd_info,
+            'attachments' => $attachments, 
             'socmed' => $getSocmed    
         ],
         );

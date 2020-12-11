@@ -60,11 +60,13 @@ class EducationController extends Controller
         $offset=null;
         $limit = 6;
         $detailEducation = null;
+        $attachments = null;
         $p2dd_info =$this->getApiP2DDInfo();
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
                 $detailEducation = $this->eduRepo->getEducationDetail($id);
+                $attachments = $this->eduRepo->getDetailEducationAttachment($id);
                 if($detailEducation != null){
                     $getSocmed = $this->getSocmed($detailEducation['judul']);
                 }else{
@@ -80,11 +82,12 @@ class EducationController extends Controller
 
         
         $edu = $this->eduRepo->getEducation($offset, $limit);
-        
+
         return view('education.detailEducationPage', [
             'detailEducation' => $detailEducation, 
             'edu' => $edu, 
             'p2dd_info' => $p2dd_info,
+            'attachments' => $attachments,
             'socmed' => $getSocmed    
         ],
         );

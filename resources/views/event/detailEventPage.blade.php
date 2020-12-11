@@ -132,12 +132,26 @@
                         <p>{!! $detailEvent['deskripsi'] !!}</p>
                         @endif
                         <!--Edit judul menjadi materi-->
+                        @if($attachments)
                         <div class="materi_edukasi">
-                           <p>Materi :</p>
-                           <a href="" class="btn btn_materi_edukasi"><i class="fa fa-cloud-download-alt"
-                                 style="margin-right: .5em;"></i> Unduh
-                              Disini</a>
+                           <p>Lampiran :</p>
+                           @foreach($attachments as $attachment)
+                              @if($attachment['file'] != null)
+                              <p>
+                              <a href="{{$attachment['file']}}" class="btn btn_materi_edukasi"><i class="fa fa-cloud-download-alt"
+                                    style="margin-right: .5em;"></i> {{$attachment['caption']}} 1</a>
+                              </p>
+                              @endif
+
+                              @if($attachment['link'] != null)
+                              <p>
+                              <a href="{{$attachment['link']}}" class="btn btn_materi_edukasi"><i class="fa fa-cloud-download-alt"
+                                    style="margin-right: .5em;"></i> {{$attachment['caption']}} 2</a>
+                              </p>
+                              @endif
+                           @endforeach
                         </div>
+                        @endif
 
                      </div>
                   </div>
