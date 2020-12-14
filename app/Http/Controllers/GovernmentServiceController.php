@@ -20,6 +20,7 @@ class GovernmentServiceController extends Controller
         $offset = null;
         $pagination = 1;
         $limit = 6;
+        $menus = $this->getApiMenu();
         $p2dd_info =$this->getApiP2DDInfo();
 
         $validator = Validator::make($request->all(), [
@@ -51,6 +52,7 @@ class GovernmentServiceController extends Controller
             'page' => $pages ?? 1,
             'pagination' => $pagination,
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
         ]);
     }
 
@@ -58,6 +60,7 @@ class GovernmentServiceController extends Controller
         $detailGovServices = null;
         $feature = null;
         $video = null;
+        $menus = $this->getApiMenu();
         $p2dd_info =$this->getApiP2DDInfo();
 
         if($request->has('id')) {
@@ -76,6 +79,7 @@ class GovernmentServiceController extends Controller
             'feature' => $feature,
             'video' => $video, 
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
         ],
         );
     }
@@ -93,6 +97,7 @@ class GovernmentServiceController extends Controller
         $offset = null;
         $limit = 6;
         $pagination = 1;
+        $menus = $this->getApiMenu();
         $p2dd_info =$this->getApiP2DDInfo();
         if($request->has('keyword')) {
             if($request->keyword != ''){
@@ -125,6 +130,7 @@ class GovernmentServiceController extends Controller
             'pagination' => $pagination,
             'title' => $judul,
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
         ]);
     }
 
@@ -171,7 +177,8 @@ class GovernmentServiceController extends Controller
             }
         }
 
-        $listGovs = $this->govService->getListGov(); 
+        $listGovs = $this->govService->getListGov();
+        $menus = $this->getApiMenu(); 
         $p2dd_info =$this->getApiP2DDInfo();
 
         return view('govService.govServicePagebyCode', [
@@ -182,6 +189,7 @@ class GovernmentServiceController extends Controller
             'page' => $pages ?? 1,
             'pagination' => $pagination,
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
         ]);
     }
 

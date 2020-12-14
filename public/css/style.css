@@ -3045,6 +3045,7 @@ hr {
 }
 
 .blog_details h2 {
+    height:70px;
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 8px;
@@ -3066,6 +3067,7 @@ hr {
 @media (min-width: 1100px) {
     .blog_details h2 {
         font-size: 24px;
+        height:87px;
         margin-bottom: 15px
     }
 
@@ -7765,9 +7767,16 @@ z .slider-area .hero-cap h2 {
     font-size: 12px;
 }
 
+
 .deskripsi-galeri1 h2 {
     height: 100px;
     overflow: hidden;
+}
+
+@media(max-width:768px){
+    .deskripsi-galeri1 h2 {
+        height: 70px;
+    }
 }
 
 h6.deskripsi {

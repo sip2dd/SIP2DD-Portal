@@ -35,10 +35,10 @@ class FAQController extends Controller
             $pages = 1;
         }
 
-        //$menu = $this->getApiMenu();
-        $menu = null;
+        
         $faqItems = $this->faqRepo->getFAQ($offset, $limit);
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
         $count = $this->faqRepo->getCountFAQ();
 
         if($count > $limit){
@@ -46,7 +46,7 @@ class FAQController extends Controller
         } 
         
         return view('faq.FAQPage', [
-            'menus' => $menu,
+            'menus' => $menus,
             'faqItems' => $faqItems,
             'p2dd_info' => $p2dd_info,
             'count' => $count,
@@ -61,8 +61,9 @@ class FAQController extends Controller
             'page' => 'integer'
         ]);
 
-        $menu = null;
+        
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
         $judul = "";
         $count = 0;
         $faqItems = null;
@@ -91,7 +92,7 @@ class FAQController extends Controller
         }
         
         return view('faq.searchFAQPage', [
-            'menus' => $menu,
+            'menus' => $menus,
             'faqItems' => $faqItems,
             'p2dd_info' => $p2dd_info,
             'count' => $count,

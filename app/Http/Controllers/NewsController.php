@@ -23,19 +23,20 @@ class NewsController extends Controller
         $offset = null;
         $limit = 5;
         $limit_sidebar = 4;
-        $menu = null;
         $highlights = $this->newsRepo->getHighlight($offset, $limit); 
         $govNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar);
         $localgovNews = $this->newsRepo->getLocalGovNews($offset, $limit_sidebar);
         // $localgovNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar);
         $galleryNews = $this->newsRepo->getGalleryVideos($offset, $limit);
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
         
         return view('news.newsPage', [
                         'highlights' => $highlights, 
                         'govNews' => $govNews,
                         'localgovNews' => $localgovNews,
                         'galleryNews' => $galleryNews,
+                        'menus' => $menus,
                         'p2dd_info' => $p2dd_info
                         ]);
     }
@@ -54,6 +55,8 @@ class NewsController extends Controller
         $limit = 6;
         $pagination = 1;
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
+
         if($request->has('keyword')) {
             if($request->keyword != ''){
                 $judul = $request->keyword;
@@ -82,6 +85,7 @@ class NewsController extends Controller
             'page' => $pages ?? 1,
             'pagination' => $pagination,
             'title' => $judul,
+            'menus' => $menus,
             'p2dd_info' => $p2dd_info
         ]);
     }
@@ -92,6 +96,7 @@ class NewsController extends Controller
         $detailNews = null;
         $attachments = null;
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
@@ -128,6 +133,7 @@ class NewsController extends Controller
             'govNews' => $govNews,
             'localgovNews' => $localgovNews,
             'socmed' => $getSocmed,
+            'menus' => $menus,
             'p2dd_info' => $p2dd_info    
         ],
         );
@@ -139,6 +145,7 @@ class NewsController extends Controller
         $pagination = 1;
         $limit = 6;
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -166,6 +173,7 @@ class NewsController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'menus' => $menus,
             'p2dd_info' => $p2dd_info
             ]);
     }
@@ -176,6 +184,7 @@ class NewsController extends Controller
         $pagination = 1;
         $limit = 6;
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -201,6 +210,7 @@ class NewsController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'menus' => $menus,
             'p2dd_info' => $p2dd_info
         ]);
     }
@@ -211,6 +221,7 @@ class NewsController extends Controller
         $pagination = 1;
         $limit = 6;
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -239,6 +250,7 @@ class NewsController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'menus' => $menus,
             'p2dd_info' => $p2dd_info
         ]);
     }

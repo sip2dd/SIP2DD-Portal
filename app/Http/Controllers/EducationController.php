@@ -40,6 +40,7 @@ class EducationController extends Controller
         $eduItems = $this->eduRepo->getEducation($offset, $limit);
         $count = $this->eduRepo->getCountEducation();
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         if($count > $limit){
             $pagination = ceil($count / $limit);
@@ -50,6 +51,7 @@ class EducationController extends Controller
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'menus' => $menus,
             'p2dd_info' => $p2dd_info,
         ]);
 
@@ -62,6 +64,8 @@ class EducationController extends Controller
         $detailEducation = null;
         $attachments = null;
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
+
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
@@ -87,6 +91,7 @@ class EducationController extends Controller
             'detailEducation' => $detailEducation, 
             'edu' => $edu, 
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
             'attachments' => $attachments,
             'socmed' => $getSocmed    
         ],
@@ -108,6 +113,7 @@ class EducationController extends Controller
         $limit = 6;
         $pagination = 1;
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         if($request->has('keyword')) {
             if($request->keyword != ''){
@@ -138,6 +144,7 @@ class EducationController extends Controller
             'page' => $pages ?? 1,
             'pagination' => $pagination,
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
             'title' => $judul
         ]);
     }

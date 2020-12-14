@@ -43,7 +43,7 @@ class HomeController extends Controller
             'page' => 'integer'
         ]);
 
-        $menu = $this->getApiMenu();
+        
 
         $judul = "";
         $count = 0;
@@ -57,6 +57,7 @@ class HomeController extends Controller
         $pagination = 1;
 
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         if($request->has('keyword')) {
             if($request->keyword != ''){
@@ -88,7 +89,7 @@ class HomeController extends Controller
         }
         
         return view('home.searchPage', [
-            'menus' => $menu,
+            'menus' => $menus,
             'count' => $count,
             'keyword' => $judul,
             'searchNews' => $searchNews,

@@ -234,6 +234,129 @@
                 });
     });
         </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#Beritaowlcarousel").owlCarousel({
+                loop:true,
+                margin:25,
+                autoplay:3000,
+                nav:true,navText:["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
+                autoplayTimeout:2000,
+                autoplayHoverPause:true,
+                dots:false,
+                responsive:{
+                0:{
+                    items:1
+                },
+                768:{
+                    items:1
+                },
+                1200:{
+                    items:1
+                }
+                }
+                    });
+
+                    $('.Beritaowlcarousel').find('.owl-nav').removeClass('disabled');
+                    $('.Beritaowlcarousel').on('changed.owl.carousel', function(event) {
+                    $(this).find('.owl-nav').removeClass('disabled');
+                    });
+        });
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("#galeriowlcarousel").owlCarousel({
+                    loop:true,
+                    margin:30,
+                    autoplay:3000,
+                    nav:true,navText:["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
+                    autoplayTimeout:2000,
+                    autoplayHoverPause:true,
+                    dots:false,
+                    responsive:{
+                    0:{
+                        items:1
+                    },
+                    768:{
+                        items:2
+                    },
+                    1200:{
+                        items:2
+                    }
+                    }
+                        });
+
+                        $('.galeriowlcarousel').find('.owl-nav').removeClass('disabled');
+                        $('.galeriowlcarousel').on('changed.owl.carousel', function(event) {
+                        $(this).find('.owl-nav').removeClass('disabled');
+                        });
+            });
+                </script>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $("#Beritagovcarousel").owlCarousel({
+                        loop:true,
+                        margin:25,
+                        autoplay:3000,
+                        nav:true,navText:["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
+                        autoplayTimeout:2000,
+                        autoplayHoverPause:true,
+                        dots:false,
+                        responsive:{
+                            0:{
+                                items:1
+                            },
+                            768:{
+                                items:1
+                            },
+                            1200:{
+                                items:1
+                            }
+                            }
+                            });
+
+                            $('.BeritagovCarousel').find('.Beritagovcarousel').removeClass('disabled');
+                            $('.Beritagovcarousel').on('changed.owl.carousel', function(event) {
+                            $(this).find('.owl-nav').removeClass('disabled');
+                            });
+                });
+                    </script>
+                    <script type="text/javascript">
+                        $(document).ready(function(){
+                            $("#layanangovcarousel,#galerifotocarousel,#listkegiatancarousel").owlCarousel({
+                            loop:true,
+                            margin:25,
+                            autoplay:3000,
+                            nav:true,navText:["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
+                            autoplayTimeout:2000,
+                            autoplayHoverPause:true,
+                            dots:false,
+                            responsive:{
+                                0:{
+                                    items:1
+                                },
+                                768:{
+                                    items:2
+                                },
+                                1200:{
+                                    items:3
+                                }
+                                }
+                                });
+                                $('.layanangovcarousel').find('.layanangovcarousel').removeClass('disabled');
+                                $('.layanangovcarousel').on('changed.owl.carousel', function(event) {
+                                $(this).find('.owl-nav').removeClass('disabled');
+                                });
+                                $('.galerifotocarousel').find('.galerifotocarousel').removeClass('disabled');
+                                $('.galerifotocarousel').on('changed.owl.carousel', function(event) {
+                                $(this).find('.owl-nav').removeClass('disabled');
+                                });
+                                $('.listkegiatancarousel').find('.listkegiatancarousel').removeClass('disabled');
+                                $('.listkegiatancarousel').on('changed.owl.carousel', function(event) {
+                                $(this).find('.owl-nav').removeClass('disabled');
+                                });
+                    });
+                        </script>
     <script src="{{ URL::asset('js/slick.min.js') }}"></script>
     <!-- Date Picker -->
     <script src="{{ URL::asset('js/gijgo.min.js') }}"></script>

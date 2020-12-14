@@ -16,13 +16,12 @@ class GlossaryController extends Controller
     
     public function index()
     {
-        //$menu = $this->getApiMenu();
-        $menu = null;
+        $menus = $this->getApiMenu();
         $gloItems = $this->glossaryRepo->getGlossary();
         $p2dd_info = $this->getApiP2DDInfo();
         
         return view('glossary.glossaryPage',[
-            'menus' => $menu,
+            'menus' => $menus,
             'gloItems' => $gloItems,
             'p2dd_info' => $p2dd_info
         ]);

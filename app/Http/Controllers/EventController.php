@@ -21,15 +21,14 @@ class EventController extends Controller
         $offset=null;
         $limit = 6;
         $limit_highlight = 1;
-        
-        //$menu = $this->getApiMenu();
-        $menu = null;
+       
         $highlightevent = $this->eventRepo->getEventHighlight($offset, $limit_highlight); 
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         return view('event.dashboardEventPage', [
-            'menus' => $menu,
+            'menus' => $menus,
             'highlightevent' => $highlightevent,
             'eventItems' => $eventItems,
             'p2dd_info' => $p2dd_info,
@@ -58,9 +57,9 @@ class EventController extends Controller
         }
 
         //$menu = $this->getApiMenu();
-        $menu = null;
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         $count = $this->eventRepo->getCountEvent();
 
@@ -69,7 +68,7 @@ class EventController extends Controller
         } 
 
         return view('event.eventPage', [
-            'menus' => $menu,
+            'menus' => $menus,
             'eventItems' => $eventItems,
             'p2dd_info' => $p2dd_info,
             'page' => $pages ?? 1,
@@ -85,6 +84,7 @@ class EventController extends Controller
         $detailEvent = null;
         $attachments = null;
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
@@ -111,6 +111,7 @@ class EventController extends Controller
             'detailEvent' => $detailEvent, 
             'events' => $events, 
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
             'attachments' => $attachments, 
             'socmed' => $getSocmed    
         ],
@@ -131,6 +132,7 @@ class EventController extends Controller
         $pagination = 1;
         $eventItems = null;
         $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
         if($request->has('keyword')) {
             if($request->keyword != ''){
                 $judul = $request->keyword;
@@ -158,6 +160,7 @@ class EventController extends Controller
             'page' => $pages ?? 1,
             'pagination' => $pagination,
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
             'title' => $judul
         ]);
     }

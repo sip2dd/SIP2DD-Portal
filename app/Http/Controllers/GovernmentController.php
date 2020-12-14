@@ -60,6 +60,7 @@ class GovernmentController extends Controller
 
         $list_gov = $this->govRepo->getListGoverment();
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
          return view('government.governmentPage', [
             'governments' => $governments, 
@@ -68,6 +69,7 @@ class GovernmentController extends Controller
             'page' => $pages ?? 1,
             'pagination' => $pagination,
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
             'sort' => $sort
              ]);
     }
@@ -80,6 +82,7 @@ class GovernmentController extends Controller
         $govDetail = null;
         $govNewsHighlights = null;
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         if($request->has('id')) {
             if($request->id != ''){
@@ -124,6 +127,7 @@ class GovernmentController extends Controller
             'govServices' => $govServices,
             'galleryGovVideos' => $galleryGovVideos,
             'galleryGovPhotos' => $galleryGovPhotos,
+            'menus' => $menus,
             'p2dd_info' => $p2dd_info
         ]);
     }
@@ -136,6 +140,7 @@ class GovernmentController extends Controller
         $limit = 6;
         $id = null;
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -178,6 +183,7 @@ class GovernmentController extends Controller
              'count' => $count,
              'page' => $pages ?? 1,
              'pagination' => $pagination,
+             'menus' => $menus,
              'p2dd_info' => $p2dd_info
              ]);
     }
@@ -250,6 +256,7 @@ class GovernmentController extends Controller
         } 
 
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
          return view('government.governmentSearchNewsPage', [
              'kode_daerah' =>$id,
@@ -259,6 +266,7 @@ class GovernmentController extends Controller
              'count' => $count,
              'page' => $pages ?? 1,
              'pagination' => $pagination,
+             'menus' => $menus,
              'p2dd_info' => $p2dd_info
              ]);
     }
@@ -308,6 +316,7 @@ class GovernmentController extends Controller
         } 
 
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
 
          return view('government.governmentServicePage', [
@@ -317,6 +326,7 @@ class GovernmentController extends Controller
              'count' => $count,
              'page' => $pages ?? 1,
              'pagination' => $pagination,
+             'menus' => $menus,
              'p2dd_info' => $p2dd_info
              ]);
     }
@@ -387,6 +397,7 @@ class GovernmentController extends Controller
         } 
 
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         return view('government.governmentSearchServicePage', [
                 'id' => $id,
@@ -396,6 +407,7 @@ class GovernmentController extends Controller
                 'count' => $count,
                 'page' => $pages ?? 1,
                 'pagination' => $pagination,
+                'menus' => $menus,
                 'p2dd_info' => $p2dd_info
                 ]);
     }
@@ -442,6 +454,7 @@ class GovernmentController extends Controller
         } 
 
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
          return view('government.governmentGalleryPage', [
              'id' => $id,
@@ -450,6 +463,7 @@ class GovernmentController extends Controller
              'count' => $count,
              'page' => $pages ?? 1,
              'pagination' => $pagination,
+             'menus' => $menus,
              'p2dd_info' => $p2dd_info
              ]);
     }
@@ -465,6 +479,7 @@ class GovernmentController extends Controller
         $judul = "";
         $count = 0;
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
@@ -528,6 +543,7 @@ class GovernmentController extends Controller
                 'count' => $count,
                 'page' => $pages ?? 1,
                 'pagination' => $pagination,
+                'menus' => $menus,
                 'p2dd_info' => $p2dd_info
                 ]);
     }

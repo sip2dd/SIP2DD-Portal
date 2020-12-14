@@ -39,6 +39,7 @@ class GalleryController extends Controller
         $galleryPhotos = $this->galleryRepo->getGalleryPhotos($offset, $limit);
         $count = $this->galleryRepo->getCountGalleryPhotos();
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
                 
         if($count > $limit){
             $pagination = ceil($count / $limit);
@@ -47,6 +48,7 @@ class GalleryController extends Controller
         return view('gallery.galleryPhotoPage', [
             'galleryPhotos' => $galleryPhotos,
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
             'count' => $count,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
@@ -67,6 +69,7 @@ class GalleryController extends Controller
         $pagination = 1;
         $galleryPhotos = null;
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         if($request->has('keyword')) {
             if($request->keyword != ''){
@@ -96,6 +99,7 @@ class GalleryController extends Controller
             'galleryPhotos' => $galleryPhotos,
             'page' => $pages ?? 1,
             'pagination' => $pagination,
+            'menus' => $menus,
             'title' => $judul
         ]);
     }
@@ -107,6 +111,7 @@ class GalleryController extends Controller
         $detailGalleryPhoto = null;
         $attachments = null;
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         if($request->has('id')) {
             if($request->id != ''){
@@ -132,6 +137,7 @@ class GalleryController extends Controller
             'attachments' => $attachments,
             'galleryPhotos' => $galleryPhotos,
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
             'socmed' => $getSocmed 
         ],);
 
@@ -160,6 +166,7 @@ class GalleryController extends Controller
         $galleryVideos = $this->galleryRepo->getGalleryVideos($offset, $limit);
         $count = $this->galleryRepo->getCountGalleryVideos();
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
         
                 
         if($count > $limit){
@@ -172,6 +179,7 @@ class GalleryController extends Controller
             'page' => $pages ?? 1,
             'pagination' => $pagination,
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
         ]);
     }
 
@@ -189,6 +197,7 @@ class GalleryController extends Controller
         $pagination = 1;
         $galleryVideos = null;
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         if($request->has('keyword')) {
             if($request->keyword != ''){
@@ -216,6 +225,7 @@ class GalleryController extends Controller
             'galleryVideos' => $galleryVideos,
             'page' => $pages ?? 1,
             'p2dd_info' => $p2dd_info,
+            'menus' => $menus,
             'pagination' => $pagination
         ]);
     }
@@ -245,12 +255,14 @@ class GalleryController extends Controller
 
         $galleryVideos = $this->galleryRepo->getGalleryVideos($offset, $limit);
         $p2dd_info = $this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
 
         return view('gallery.detailGalleryVideoPage', [
             'detailGalleryVideo' => $detailGalleryVideo, 
             'galleryVideos' => $galleryVideos,
             'socmed' => $getSocmed,
-            'p2dd_info' => $p2dd_info, 
+            'p2dd_info' => $p2dd_info,
+            'menus' => $menus, 
         ],);
     }
 

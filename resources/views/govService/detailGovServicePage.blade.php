@@ -20,7 +20,29 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="{!! url('/') !!}">Beranda</a></li>
+                                    @if($menus != null)
+                                        @foreach($menus as $menu)
+                                            
+                                            @if($menu['link'] == "/".Request::segment(1))
+                                                <li class="active"><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                            @else
+                                                <li><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                            @endif
+
+                                            @if(count($menu['menu_child']) > 0)
+                                            <ul class="submenu">
+                                                @foreach($menu['menu_child'] as $child)
+                                                    <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
+                                                @endforeach
+                                            </ul>
+                                            
+                                            @endif
+                                            </li>
+                
+                                        @endforeach
+                                    
+                                    @else
+                                        <!-- <li><a href="{!! url('/') !!}">Beranda</a></li>
                                         <li><a href="{!! url('/berita') !!}">Berita</a></li>
                                         <li class="active"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
@@ -38,7 +60,8 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
-                                    </li>
+                                        </li> -->
+                                    @endif
                                     </ul>
                                 </nav>
                             </div>
@@ -86,7 +109,7 @@
                     <div class="judul_layanan">
                         @if($detailGovServices != null)
                         <h2>{{$detailGovServices['judul']}}</h2>
-                       
+
                         <h5>{{$detailGovServices['dibuat_oleh']}}</h5>
                         @endif
                     </div>
@@ -106,7 +129,7 @@
                         <div class="icon_list_layanan">
                             <i class="fa fa-map-marker-alt"></i>
                             @if($detailGovServices != null)
-                            <p style="display:inline;">{!! $detailGovServices['alamat']!!}</p>
+                            <p style="display:inline;">{{ strip_tags($detailGovServices['alamat'])}}</p>
                             @endif
                         </div>
                     </div>
@@ -236,7 +259,7 @@
                 @endif
                 </div>
                 <div class="vid_layanan">
-                    
+
                     <x-embed url="https://www.youtube.com/watch?v=UuPaS81n0xg"/>
                 </div>
             </div>
@@ -248,7 +271,7 @@
 @section('p2dd_info')
 
 @if($p2dd_info != null)
-    <div class="footer-pera footer-pera2">                                
+    <div class="footer-pera footer-pera2">
         <!-- <p>{{$p2dd_info['title']}}</p> -->
         <p>{!!$p2dd_info['deskripsi']!!}</p>
         <p>{{$p2dd_info['no_telpon']}}</p>
@@ -256,7 +279,7 @@
         <p>{!!$p2dd_info['alamat']!!}</p>
     </div>
 @else
-    <div class="footer-pera footer-pera2">                                
+    <div class="footer-pera footer-pera2">
         <p>SIP2DD adalah Sistem Informasi Percepatan dan Perluasan Digitalisasi Daerah</p>
         <p>0218224049</p>
         <p>info@p2dd.go.id</p>

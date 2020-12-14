@@ -20,7 +20,29 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="{!! url('/') !!}">Beranda</a></li>
+                                    @if($menus != null)
+                                        @foreach($menus as $menu)
+                                            
+                                            @if($menu['link'] == "/".Request::segment(1) )
+                                                <li class="active"><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                            @else
+                                                <li><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                            @endif
+
+                                            @if(count($menu['menu_child']) > 0)
+                                            <ul class="submenu">
+                                                @foreach($menu['menu_child'] as $child)
+                                                    <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
+                                                @endforeach
+                                            </ul>
+                                            
+                                            @endif
+                                            </li>
+                
+                                        @endforeach
+                                    
+                                    @else
+                                        <!-- <li><a href="{!! url('/') !!}">Beranda</a></li>
                                         <li class="active"><a href="{!! url('/berita') !!}">Berita</a></li>
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
@@ -34,11 +56,12 @@
                                         <li><a href="#">Kolaborasi</a></li>
                                         <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
                                         <li><a href="#">Galeri</a>
-                                        <ul class="submenu">
-                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
-                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
-                                        </ul>
-                                    </li>
+                                            <ul class="submenu">
+                                                <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                                <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                            </ul>
+                                        </li> -->
+                                    @endif
                                     </ul>
                                 </nav>
                             </div>
@@ -107,13 +130,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="BeritaTrCarousel" class="carousel slide w-100" data-ride="carousel">
-                            <div class="carousel-inner w-100" role="listbox">
+                        <div id="Beritaowlcarousel" class="Beritaowlcarousel owl-carousel owl-theme">
                             @if($highlights != null)
                                 @foreach($highlights as $index => $highlight)
-                                    @if ($index == 0)
-                                        <div class="carousel-item active">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
                                                 <article class="blog_item">
                                                     <div class="blog_item_img">
                                                         <img class="card-img" src="{{$highlight['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
@@ -121,7 +140,7 @@
                                                     <div class="blog_details">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <p>{{tanggal_indonesia($highlight['tanggal_publikasi'])}}</p>
+                                                                <p>{{tanggal_indonesia($highlight['tanggal_publikasi'],false)}}</p>
                                                             </div>
                                                             <div class="col">
                                                                 <div class="lengkapnya_1">
@@ -140,44 +159,8 @@
                                                         </h6>
                                                     </div>
                                                 </article>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="carousel-item">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
-                                                <article class="blog_item">
-                                                    <div class="blog_item_img">
-                                                        <img class="card-img" src="{{$highlight['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                                                    </div>
-                                                    <div class="blog_details">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <p>{{tanggal_indonesia($highlight['tanggal_publikasi'])}}</p>
-                                                            </div>
-                                                            <div class="col">
-                                                                <div class="lengkapnya_1">
-                                                                    <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}">Selengkapnya <i
-                                                                            class="fas fa-chevron-right"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <a href="{!! url('/detailberita?id=')!!}{{$highlight['berita_id']}}">
-                                                            <h2>{{ Str::limit($highlight['judul'], 60) }}</h2>
-                                                        </a>
-                                                        <h6 style="color: #606060;">
-                                                        <img
-                                                            src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
-                                                            {{$highlight['dibuat_oleh']}}
-                                                        </h6>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                        </div>
-                                    @endif
                                 @endforeach
                             @else
-                                <div class="carousel-item active">
-                                    <div class="col-lg-12 pr-0 pl-0">
                                         <article class="blog_item">
                                             <div class="blog_item_img">
                                                 <img class="card-img" src="{{ URL::asset('img/P2DD.png') }}" alt="">
@@ -198,22 +181,7 @@
                                                 </a>
                                             </div>
                                         </article>
-                                    </div>
-                                </div>
                             @endif
-                            </div>
-                            <a class="carousel-control-prev w-auto" href="#BeritaTrCarousel" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon bg-info rounded-circle" aria-hidden="true"
-                                    style="width: 35px; height: 35px;"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next w-auto" href="#BeritaTrCarousel" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon bg-info rounded-circle" aria-hidden="true"
-                                    style="width: 35px; height: 35px;"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
                         </div>
                         <!--End Berita Terbaru-->
                         <!--Galeri-->
@@ -229,15 +197,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div id="GaleriCarousel" class="carousel slide w-100" data-ride="carousel">
+                            <div id="galeriowlcarousel" class="galeriowlcarousel owl-carousel owl-theme">
                             @if($galleryNews != null)
-                                <div class="carousel-inner w-100" role="listbox">
                                         @foreach($galleryNews as $index => $gallery)
-
-                                            @if ($index == 0)
-                                                <div class="carousel-item active">
-                                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                                         <article class="blog_item">
                                                             <div class="blog_item_img">
                                                                @if($gallery['tipe'] == "Youtube")
@@ -250,7 +212,7 @@
                                                             </div>
                                                             <div class="blog_details">
                                                                 <div class="row">
-                                                                    <div class="col galeri-detail-tgl1">
+                                                                    <div class="col galeri-detail-tgl1 pr-0">
                                                                         <p>{{tanggal_indonesia($gallery['tgl_dibuat'], false)}}</p>
                                                                     </div>
                                                                     <div class="col">
@@ -270,66 +232,11 @@
                                                                 </h6>
                                                             </div>
                                                         </article>
-                                                    </div>
-                                                </div>
-                                            @else
-                                                <div class="carousel-item">
-                                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                                        <article class="blog_item">
-                                                            <div class="blog_item_img">
-                                                                @if($gallery['tipe'] == "Youtube")
-                                                                <img class="card-img" src="https://img.youtube.com/vi/{{ getYouTubeVideoId($gallery['link']) }}/maxresdefault.jpg"
-                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
-                                                                @else
-                                                                <img class="card-img" src=""
-                                                                    alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
-                                                                @endif
-                                                            </div>
-                                                            <div class="blog_details">
-                                                                <div class="row">
-                                                                    <div class="col galeri-detail-tgl1">
-                                                                        <p>{{tanggal_indonesia($gallery['tgl_dibuat'], false)}}</p>
-                                                                    </div>
-                                                                    <div class="col">
-                                                                        <div class="lengkapnya_2">
-                                                                            <a href="{!! url('/detailgalerivideo?id=')!!}{{$gallery['galeri_id']}}">Selengkapnya <i
-                                                                                    class="fas fa-chevron-right"></i></a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <a href="{!! url('/detailgalerivideo?id=')!!}{{$gallery['galeri_id']}}" class="deskripsi-galeri1">
-                                                                    <h2>{{ Str::limit($gallery['judul'], 70) }}</h2>
-                                                                </a>
-                                                                <h6 style="color: #606060;">
-                                                                <img
-                                                                    src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}" alt="logo">
-                                                                    {{$gallery['dibuat_oleh']}}
-                                                                </h6>
-                                                            </div>
-                                                        </article>
-                                                    </div>
-                                                </div>
-                                            @endif
                                         @endforeach
-                                </div>
-                                <a class="carousel-control-prev w-auto" href="#GaleriCarousel" role="button"
-                                    data-slide="prev">
-                                    <span class="carousel-control-prev-icon bg-info rounded-circle" aria-hidden="true"
-                                        style="width: 35px; height: 35px;"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-
-                                <a class="carousel-control-next w-auto" href="#GaleriCarousel" role="button"
-                                    data-slide="next">
-                                    <span class="carousel-control-next-icon bg-info rounded-circle" aria-hidden="true"
-                                        style="width: 35px; height: 35px;"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
                                 @else
                                 <div class="col-lg-6"> Belum ada Data</div>
                                 @endif
                             </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -423,7 +330,7 @@
 @section('p2dd_info')
 
     @if($p2dd_info != null)
-        <div class="footer-pera footer-pera2">                                
+        <div class="footer-pera footer-pera2">
             <!-- <p>{{$p2dd_info['title']}}</p> -->
             <p>{!!$p2dd_info['deskripsi']!!}</p>
             <p>{{$p2dd_info['no_telpon']}}</p>
@@ -431,7 +338,7 @@
             <p>{!!$p2dd_info['alamat']!!}</p>
         </div>
     @else
-        <div class="footer-pera footer-pera2">                                
+        <div class="footer-pera footer-pera2">
             <p>SIP2DD adalah Sistem Informasi Percepatan dan Perluasan Digitalisasi Daerah</p>
             <p>0218224049</p>
             <p>info@p2dd.go.id</p>

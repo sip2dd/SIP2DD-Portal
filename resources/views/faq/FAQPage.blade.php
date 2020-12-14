@@ -20,7 +20,29 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="{!! url('/') !!}">Beranda</a></li>
+                                    @if($menus != null)
+                                        @foreach($menus as $menu)
+                                            
+                                            @if($menu['link'] == "/".Request::segment(1))
+                                                <li class="active"><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                            @else
+                                                <li><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                            @endif
+
+                                            @if(count($menu['menu_child']) > 0)
+                                            <ul class="submenu">
+                                                @foreach($menu['menu_child'] as $child)
+                                                    <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
+                                                @endforeach
+                                            </ul>
+                                            
+                                            @endif
+                                            </li>
+                
+                                        @endforeach
+                                    
+                                    @else
+                                        <!-- <li><a href="{!! url('/') !!}">Beranda</a></li>
                                         <li><a href="{!! url('/berita') !!}">Berita</a></li>
                                         <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li class="active"><a href="#">Edukasi</a>
@@ -38,6 +60,8 @@
                                             <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
                                             <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
                                         </ul>
+                                        </li> -->
+                                    @endif
 
                                     </ul>
                                 </nav>

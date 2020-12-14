@@ -37,8 +37,7 @@ class RegulationController extends Controller
             $pages = 1;
         }
 
-        //$menu = $this->getApiMenu();
-        $menu = null;
+        $menus = $this->getApiMenu();
         $p2dd_info =$this->getApiP2DDInfo();
         $regItems = $this->regRepo->getRegulation($offset, $limit);
         $count = $this->regRepo->getCountRegulation();
@@ -48,7 +47,7 @@ class RegulationController extends Controller
         } 
 
         return view('regulation.regulationPage',  [
-            'menus' => $menu,
+            'menus' => $menus,
             'regItems' => $regItems,
             'p2dd_info' => $p2dd_info,
             'count' => $count,
@@ -62,7 +61,7 @@ class RegulationController extends Controller
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
         ]);
-        $menu = null;
+        $menus = $this->getApiMenu();
         $p2dd_info =$this->getApiP2DDInfo();
 
         $judul = "";
@@ -102,7 +101,7 @@ class RegulationController extends Controller
         } 
         
         return view('regulation.searchRegulationPage',  [
-            'menus' => $menu,
+            'menus' => $menus,
             'tentang' => $tentang,
             'nomor' => $nomor,
             'tahun' => $tahun,
