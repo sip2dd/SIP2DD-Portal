@@ -35,11 +35,28 @@ trait ApiContentsTrait{
     }
 
     public function getApiMenu(){
-        $menu = $this->getApiContents('1520.json');
-        if($menu != null){
-            $menu = $menu['data']['menu'];
+        $menus = $this->getApiContents('1612.json');
+        $menu_child = null;
+        if($menus != null){
+            $menus = $menus['data']['menu'];
+            foreach($menus as $index => $menu){
+                
+                    $menu_child[$index] = $menu;
+                    $child = $this->getApiContents('1610.json?parent_id='.$menu['id']);
+                    if($child != null){
+                        $child = $child['data']['menu_child'];
+                        $menu_child[$index]['menu_child'] = $child;
+            
+                        // if(count($child['data']['menu_child']) < 1){
+                        //     $child = null;
+                        // }
+                    }
+
+                    
+            }
         }
-        return $menu;
+
+        return $menu_child;
     }
 
     public function getApiP2DDInfo(){

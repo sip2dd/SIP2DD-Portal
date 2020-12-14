@@ -17,11 +17,9 @@ class HomeController extends Controller
     
     public function index()
     {
-        // $menu = $this->getApiMenu();
-        $menu = null;
-        
+        $menus = $this->getApiMenu();
+        // dd($menus);
         $newsItems = $this->homeRepo->getNewsItems();
-        //dd($newsItems);
         $govServices = $this->homeRepo->getGovServices(); 
 
         $eduNewsItems = $this->homeRepo->getEducationNewsItems();
@@ -29,7 +27,7 @@ class HomeController extends Controller
         $p2dd_info = $this->getApiP2DDInfo();
         
         return view('home.homePage', [
-            'menus' => $menu,
+            'menus' => $menus,
             'govServices' => $govServices,
             'newsItems' => $newsItems,
             'eduNewsItems' => $eduNewsItems,
@@ -44,6 +42,8 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), [
             'page' => 'integer'
         ]);
+
+        $menu = $this->getApiMenu();
 
         $judul = "";
         $count = 0;
@@ -88,6 +88,7 @@ class HomeController extends Controller
         }
         
         return view('home.searchPage', [
+            'menus' => $menu,
             'count' => $count,
             'keyword' => $judul,
             'searchNews' => $searchNews,
