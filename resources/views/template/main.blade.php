@@ -49,20 +49,8 @@
                                     <a href=""><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
                                 </div>
                                 <div id="icon-footer" class="footer-tittle">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="fab fa-facebook-f"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="fab fa-youtube ml-4"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="fab fab fa-vimeo-v ml-4"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="fab fa-twitter  ml-4"></a>
-                                        </li>
-                                    </ul>
+                                    @yield('p2dd_medsos')
+                                    
                                 </div>
                             </div>
                         </div>

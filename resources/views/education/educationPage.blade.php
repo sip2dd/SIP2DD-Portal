@@ -217,3 +217,39 @@
     </div>
 @endif
 @endsection
+
+@section('p2dd_medsos')
+
+    @if($p2dd_info != null)
+        <ul>
+            <li>
+                <a href="//{!!$p2dd_info['facebook']!!}" class="fab fa-facebook-f"></a>
+            </li>
+            <li>
+                <a href="//{!!$p2dd_info['youtube']!!}" class="fab fa-youtube ml-4"></a>
+            </li>
+            <li>
+                <a href="//{!!$p2dd_info['twitter']!!}" class="fab fa-twitter ml-4"></a>
+            </li>
+            <li>
+                <a href="//{!!$p2dd_info['instagram']!!}" class="fab fa-instagram  ml-4"></a>
+            </li>
+        </ul>
+    @else
+        <ul>
+            <li>
+                <a href="#" class="fab fa-facebook-f"></a>
+            </li>
+            <li>
+                <a href="#" class="fab fa-youtube ml-4"></a>
+            </li>
+            <li>
+                <a href="#" class="fab fa-twitter ml-4"></a>
+            </li>
+            <li>
+                <a href="#" class="fab fab fa-instagram-v ml-4"></a>
+            </li>
+            
+        </ul>
+    @endif
+@endsection

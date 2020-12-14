@@ -253,15 +253,33 @@
     <section class="section-paddingr background_2">
         <div class="container">
             <div class="tutorial_vid">
-                <div class="vid_judul">
                 @if($detailGovServices != null)
-                    <h3>Tutorial Penggunaan fitur fitur {{$detailGovServices['judul']}}</h3>
-                @endif
+                <div class="vid_judul">
+                
+                    <h3>Video {{$detailGovServices['judul']}}</h3>
+                
                 </div>
-                <div class="vid_layanan">
+                    @if($detailGovServices['link_video'] != null || $detailGovServices['link_video'] != "")
 
-                    <x-embed url="https://www.youtube.com/watch?v=UuPaS81n0xg"/>
-                </div>
+                        <div class="vid_layanan">
+                            <x-embed url="{{$detailGovServices['link_video']}}"/>
+                        </div>
+                    @elseif($detailGovServices['upload_video'] != null || $detailGovServices['upload_video'] != "")
+                            <?php
+                              preg_match('/<iframe.*src=\"(.*)\".*><\/iframe>/isU', $detailGovServices['upload_video'], $match);
+                            ?>
+                           @if(array_key_exists(1, $match))
+                           <div class="col-lg-12 pr-0 pl-0 video_iframe">
+                                   {!! $detailGovServices['upload_video'] !!}
+                               </div>
+                           @else
+                              <video controls>
+                                 <source src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{ $detailGovServices['upload_video'] }}">
+                                 Your browser does not support the video tag.
+                              </video>
+                           @endif
+                    @endif
+                @endif
             </div>
         </div>
     </section>
@@ -286,4 +304,40 @@
         <p>Jalan Merdeka Barat No. 10 Jakarta Pusat</p>
     </div>
 @endif
+@endsection
+
+@section('p2dd_medsos')
+
+    @if($p2dd_info != null)
+        <ul>
+            <li>
+                <a href="//{!!$p2dd_info['facebook']!!}" class="fab fa-facebook-f"></a>
+            </li>
+            <li>
+                <a href="//{!!$p2dd_info['youtube']!!}" class="fab fa-youtube ml-4"></a>
+            </li>
+            <li>
+                <a href="//{!!$p2dd_info['twitter']!!}" class="fab fa-twitter ml-4"></a>
+            </li>
+            <li>
+                <a href="//{!!$p2dd_info['instagram']!!}" class="fab fa-instagram  ml-4"></a>
+            </li>
+        </ul>
+    @else
+        <ul>
+            <li>
+                <a href="#" class="fab fa-facebook-f"></a>
+            </li>
+            <li>
+                <a href="#" class="fab fa-youtube ml-4"></a>
+            </li>
+            <li>
+                <a href="#" class="fab fa-twitter ml-4"></a>
+            </li>
+            <li>
+                <a href="#" class="fab fab fa-instagram-v ml-4"></a>
+            </li>
+            
+        </ul>
+    @endif
 @endsection
