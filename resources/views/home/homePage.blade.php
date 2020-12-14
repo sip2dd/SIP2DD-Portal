@@ -20,28 +20,32 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                 <ul id="navigation">
-                                    @if($menus != null)
-                                        @foreach($menus as $menu)
-                                            
-                                            @if($menu['link'] == "/".Request::segment(1) || in_array("/".Request::segment(1), $menu['menu_child']))
-                                                <li class="active"><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
-                                            @else
-                                                <li><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
-                                            @endif
+                                        @if($menus != null)
+                                            @foreach($menus as $menu)
+                                                @if(isset($menu['link']))
+                                                    @if($menu['link'] == "/".Request::segment(1))
+                                                        <li class="active"><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                                    @else
+                                                        <li><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                                    @endif
+                                                @endif
 
-                                            @if(count($menu['menu_child']) > 0)
-                                            <ul class="submenu">
-                                                @foreach($menu['menu_child'] as $child)
-                                                    <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
-                                                @endforeach
-                                            </ul>
-                                            
-                                            @endif
-                                            </li>
-                
-                                        @endforeach
-                                    
-                                    @else
+                                                @if(isset($menu['menu_child']))
+
+                                                    @if(count($menu['menu_child']) > 0)
+                                                    <ul class="submenu">
+                                                        @foreach($menu['menu_child'] as $child)
+                                                            <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                    
+                                                    @endif
+                                                @endif
+                                                </li>
+                    
+                                            @endforeach
+                                        
+                                        @else
                                     <!-- 
                                         <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
                                         <li><a href="{!! url('/berita') !!}">Berita</a></li>
