@@ -164,19 +164,30 @@
                         <div class="materi_edukasi">
                            <p>Lampiran :</p>
                            @foreach($attachments as $attachment)
-                              @if($attachment['file'] != null)
-                              <p>
-                              <a href="{{$attachment['file']}}" class="btn btn_materi_edukasi"><i class="fa fa-cloud-download-alt"
-                                    style="margin-right: .5em;"></i> {{$attachment['caption']}} 1</a>
-                              </p>
-                              @endif
+                            @if($attachment['tipe'] == "Video" )
+                                @if($attachment['link'] != null)
+                                <x-embed url="{{$attachment['link']}}"/>
+                                @elseif($attachment['file'] != null)
+                                <video controls>
+                                 <source src="$attachment['file']">
+                                 Your browser does not support the video tag.
+                              </video>
+                                @endif
+                            @else
+                                @if($attachment['link'] != null)
+                                <p>
+                                <a href="{{$attachment['link']}}" target="_blank" class="btn btn_materi_edukasi"><i class="fa fa-cloud-download-alt"
+                                        style="margin-right: .5em;"></i> {{($attachment['caption'] != null ? $attachment['caption'] : "Download Materi")}} </a>
+                                </p>
+                                @elseif($attachment['file'] != null)
+                                <p>
+                                <a href="{{$attachment['file']}}" target="_blank" class="btn btn_materi_edukasi"><i class="fa fa-cloud-download-alt"
+                                        style="margin-right: .5em;"></i> {{($attachment['caption'] != null ? $attachment['caption'] : "Download Materi")}} </a>
+                                </p>
+                                @endif
+                            @endif
 
-                              @if($attachment['link'] != null)
-                              <p>
-                              <a href="{{$attachment['link']}}" class="btn btn_materi_edukasi"><i class="fa fa-cloud-download-alt"
-                                    style="margin-right: .5em;"></i> {{$attachment['caption']}} 2</a>
-                              </p>
-                              @endif
+                              
                            @endforeach
                         </div>
                         @endif
@@ -223,7 +234,7 @@
                             <!--Edit penambahana kelas samping berita-->
                             <div class="col-lg-8 col-8 pr-0">
                             <div class="media-body">
-                                <a href="">
+                                <a href="{!! url('/detailkegiatan?id=')!!}{{$event['kegiatan_id']}}">
                                     <h3>{{ Str::limit($event['judul'], 60) }}</h3>
                                 </a>
                                 <!--Edit logo dan penambahan nama instansi-->
