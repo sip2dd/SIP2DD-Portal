@@ -92,8 +92,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-5 col-md-12 desk_video pr-0 pl-0">
                         <h2>{{ Str::limit($item['judul'], 60) }}</h2>
-                        <p>Wireframes are generally created by business analysts, user experience designers, developers,
-                            visual designers, and by those with expertise</p>
+                        <p>{{Str::limit(strip_tags($item['deskripsi']), 120) }}</p>
                         <!--Edit penamabahan margin mb-35 sama ada beberapa edit class di css-->
                         <div class="row ket_webinar justify-content-center mb-35">
                             <div class="col-lg-7 col-md-12 col_webinar">
@@ -113,7 +112,11 @@
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-12 video-conf">
-                        <x-embed url="https://www.youtube.com/watch?v=UuPaS81n0xg"/>
+                        @if($video != null)
+                            <x-embed url="{{$video}}"/>
+                        @else
+                            <img src="{{ $item['gambar_utama'] }}" class="card-img" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                        @endif
                     </div>
                 </div>
             </div>

@@ -21,15 +21,33 @@ class EventController extends Controller
         $offset=null;
         $limit = 6;
         $limit_highlight = 1;
+        $video = null;
+        $attachments = null;
        
-        $highlightevent = $this->eventRepo->getEventHighlight($offset, $limit_highlight); 
+        $highlightevent = $this->eventRepo->getEventHighlight($offset, $limit_highlight);
+        $attachments = $this->eventRepo->getDetailEventAttachment($highlightevent[0]['kegiatan_id']);
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
         $p2dd_info =$this->getApiP2DDInfo();
         $menus = $this->getApiMenu();
 
+        if($attachments != null){
+            foreach($attachments as $att){
+                if($att['tipe'] == "Video"){
+                    if($att['link'] != null){
+                        $video = $att['link'];    
+                    }
+                    // else if($att['file'] != null){
+                    //     $video = $att['file']; 
+                    // }
+                    break;
+                }
+            }
+        }
+        
         return view('event.dashboardEventPage', [
             'menus' => $menus,
             'highlightevent' => $highlightevent,
+            'video' => $video,
             'eventItems' => $eventItems,
             'p2dd_info' => $p2dd_info,
             
