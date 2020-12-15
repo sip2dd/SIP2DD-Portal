@@ -11,7 +11,7 @@
 
 <body>
     <div class="error-page">
-        <h2>Oops! Halaman tidak ditemukan</h2>
+        <h2>Oops! Service Unavailable</h2>
         <h1>503</h1>
         <p>Kami tidak dapat menemukan apa yang anda cari.</p>
         <a href="{!!  url('/') !!}">Kembali</a>
