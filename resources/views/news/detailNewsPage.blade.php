@@ -38,13 +38,13 @@
                                                             <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
                                                         @endforeach
                                                     </ul>
-                                                    
+
                                                     @endif
                                                 @endif
                                                 </li>
-                    
+
                                             @endforeach
-                                        
+
                                         @else
                                         <!-- <li><a href="{!! url('/') !!}">Beranda</a></li>
                                         <li class="active"><a href="{!! url('/berita') !!}">Berita</a></li>
@@ -168,7 +168,7 @@
                   <div class="d-sm-flex justify-content-between text-center">
                      <ul class="blog-info-link">
                         <li><i class="fa fa-user"></i> @if($detailNews != null){{ $detailNews['dibuat_oleh']}} @endif</li>
-                        <li><i class="fa fa-clock"></i>@if($detailNews != null){{tanggal_indonesia( $detailNews['tanggal_publikasi'])}} @endif</li>
+                        <li><i class="fa fa-clock"></i>@if($detailNews != null){{tanggal_indonesia( $detailNews['tanggal_publikasi'],false)}} @endif</li>
                      </ul>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -311,7 +311,7 @@
 @section('p2dd_info')
 
     @if($p2dd_info != null)
-        <div class="footer-pera footer-pera2">                                
+        <div class="footer-pera footer-pera2">
             <!-- <p>{{$p2dd_info['title']}}</p> -->
             <p>{!!$p2dd_info['deskripsi']!!}</p>
             <p>{{$p2dd_info['no_telpon']}}</p>
@@ -319,7 +319,7 @@
             <p>{!!$p2dd_info['alamat']!!}</p>
         </div>
     @else
-        <div class="footer-pera footer-pera2">                                
+        <div class="footer-pera footer-pera2">
             <p>SIP2DD adalah Sistem Informasi Percepatan dan Perluasan Digitalisasi Daerah</p>
             <p>0218224049</p>
             <p>info@p2dd.go.id</p>
@@ -359,7 +359,7 @@
             <li>
                 <a href="#" class="fab fab fa-instagram-v ml-4"></a>
             </li>
-            
+
         </ul>
     @endif
 @endsection

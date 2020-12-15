@@ -206,7 +206,7 @@
             $("#gallery_foto_c,#edukasi_artikel_c,#berita_c,#layanan_c").owlCarousel({
             loop:true,
             margin:25,
-            autoplay:4500,
+            autoplay:8000,
             nav:true,navText:["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
             autoplayTimeout:2000,
             autoplayHoverPause:true,
@@ -239,7 +239,7 @@
                 $("#Beritaowlcarousel").owlCarousel({
                 loop:true,
                 margin:25,
-                autoplay:3000,
+                autoplay:8000,
                 nav:true,navText:["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
                 autoplayTimeout:2000,
                 autoplayHoverPause:true,
@@ -268,7 +268,7 @@
                     $("#galeriowlcarousel").owlCarousel({
                     loop:true,
                     margin:30,
-                    autoplay:3000,
+                    autoplay:8000,
                     nav:true,navText:["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
                     autoplayTimeout:2000,
                     autoplayHoverPause:true,
@@ -297,7 +297,7 @@
                         $("#Beritagovcarousel").owlCarousel({
                         loop:true,
                         margin:25,
-                        autoplay:3000,
+                        autoplay:8000,
                         nav:true,navText:["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
                         autoplayTimeout:2000,
                         autoplayHoverPause:true,
@@ -326,9 +326,9 @@
                             $("#layanangovcarousel,#galerifotocarousel,#listkegiatancarousel").owlCarousel({
                             loop:true,
                             margin:25,
-                            autoplay:3000,
+                            autoplay:8000,
                             nav:true,navText:["<i class='fas fa-chevron-left'></i>","<i class='fas fa-chevron-right'></i>"],
-                            autoplayTimeout:2000,
+                            autoplayTimeout:2500,
                             autoplayHoverPause:true,
                             dots:false,
                             responsive:{

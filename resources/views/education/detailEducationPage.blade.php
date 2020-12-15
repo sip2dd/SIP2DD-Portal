@@ -38,13 +38,13 @@
                                                             <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
                                                         @endforeach
                                                     </ul>
-                                                    
+
                                                     @endif
                                                 @endif
                                                 </li>
-                    
+
                                             @endforeach
-                                        
+
                                         @else
                                         <!-- <li><a href="{!! url('/') !!}">Beranda</a></li>
                                         <li><a href="{!! url('/berita') !!}">Berita</a></li>
@@ -164,7 +164,7 @@
                      <div class="d-sm-flex justify-content-between text-center">
                         <ul class="blog-info-link">
                            <li><i class="fa fa-user"></i> @if($detailEducation != null){{ $detailEducation['dibuat_oleh']}} @endif</li>
-                           <li><i class="fa fa-clock"></i>@if($detailEducation != null){{tanggal_indonesia( $detailEducation['tgl_dibuat'])}} @endif</li>
+                           <li><i class="fa fa-clock"></i>@if($detailEducation != null){{tanggal_indonesia( $detailEducation['tgl_dibuat'],false)}} @endif</li>
                         </ul>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -274,7 +274,7 @@
             <li>
                 <a href="#" class="fab fab fa-instagram-v ml-4"></a>
             </li>
-            
+
         </ul>
     @endif
 @endsection

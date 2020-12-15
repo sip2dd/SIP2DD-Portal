@@ -38,13 +38,13 @@
                                                             <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
                                                         @endforeach
                                                     </ul>
-                                                    
+
                                                     @endif
                                                 @endif
                                                 </li>
-                    
+
                                             @endforeach
-                                        
+
                                         @else
                                         <!-- <li><a href="{!! url('/') !!}">Beranda</a></li>
                                         <li><a href="{!! url('/berita') !!}">Berita</a></li>
@@ -115,7 +115,7 @@
                         @if($video != null)
                             <x-embed url="{{$video}}"/>
                         @else
-                            <img src="{{ $item['gambar_utama'] }}" class="card-img" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                            <img src="{{ $item['gambar_utama'] }}" class="card-img card_image1" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                         @endif
                     </div>
                 </div>
@@ -241,7 +241,7 @@
             <li>
                 <a href="#" class="fab fab fa-instagram-v ml-4"></a>
             </li>
-            
+
         </ul>
     @endif
 @endsection

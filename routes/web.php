@@ -82,6 +82,8 @@ Route::get('/kegiatan', [EventController::class, 'allEvent']);
 Route::get('/detailkegiatan', [EventController::class, 'getDetailEvent']);
 Route::get('/carikegiatan', [EventController::class, 'searchEvent']);
 
+Route::get('/testing_error', [EventaController::class, 'searchEvent']);
+
 
 
 
