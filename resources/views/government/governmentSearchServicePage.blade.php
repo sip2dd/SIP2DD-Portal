@@ -102,7 +102,7 @@
         <!-- navigation link End-->
         <!-- Area untuk Pencarian TP2DD -->
         <section class="service-area section-padding pt-0">
-            <div class="container">
+            <div class="container pr-0 pl-0">
                 <!-- Section Judul -->
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6">
@@ -134,8 +134,8 @@
                     </div>
                 </div>
                 @if($title != "")
-                <div class="row">
-                    <div class="col-lg-12 col-md-6 ket-jumlah-cari">
+                <div class="row padd-coba">
+                    <div class="col-lg-12 col-md-6 ket-jumlah-cari pr-0 pl-0">
                     <p>Hasil pencarian <strong>"{{$title}}"</strong>, {{$count}} hasil ditemukan</p>
                     <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
                     </div>
@@ -145,7 +145,7 @@
                 
                 <!-- Section caption -->
                 @if($govServices != null)
-                <div class="row">
+                <div class="row padd-coba">
                     @foreach($govServices as $govService)
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="services-caption text-center mb-30">

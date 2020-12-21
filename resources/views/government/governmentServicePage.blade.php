@@ -102,7 +102,7 @@
         <!-- navigation link End-->
         <!-- Area untuk Pencarian TP2DD -->
         <section class="service-area section-padding pt-0">
-            <div class="container">
+            <div class="container pr-0 pl-0">
                 <!-- Section Judul -->
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6">
@@ -137,9 +137,9 @@
                 
                 <!-- Section caption -->
                 @if($govServices != null)
-                <div class="row">
+                <div class="row padd-coba">
                     @foreach($govServices as $govService)
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-4 col-lg-4 col-md-6 clear-padd">
                         <div class="services-caption text-center mb-30">
                             <div class="service-icon">
                                 <span><img src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'"></span>

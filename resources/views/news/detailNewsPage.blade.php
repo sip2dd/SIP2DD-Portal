@@ -114,14 +114,14 @@
                         @if($detailNews != null)
                            <!-- TO DO LIST API CAROUSEL DETAIL BERITA GAMBAR -->
                            <div class="carousel-item active">
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-padd">
                                  <img class="card-img" src="{{ $detailNews['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="slide1">
                               </div>
                            </div>
                            @if($attachments != null)
                                 @foreach($attachments as $index => $att)
                                     <div class="carousel-item">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-padd">
                                             <img class="card-img" src="{{ $att['file'] }}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="slide{{$index}}">
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                            @endif
                         @else
                            <div class="carousel-item active">
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-padd">
                                  <img class="card-img" src="{{ URL::asset('img/P2DD.png') }}" alt="slide3">
                               </div>
                            </div>
@@ -147,7 +147,7 @@
                         </a>
                      </div>
                   </div>
-                  <div class="blog_detailss">
+                  <div class="blog_detailss clear-margin">
 
                      @if($detailNews != null)
                      <h2>{{ $detailNews['judul']}}</h2>
@@ -162,17 +162,14 @@
                      {!! $detailNews['body'] !!}
                      @endif
                   </div>
-                  <div class="divider"></div>
+                  <div class="divider clear-margin"></div>
                </div>
-               <div class="navigation-top ">
+               <div class="navigation-top clear-margin">
                   <div class="d-sm-flex justify-content-between text-center">
                      <ul class="blog-info-link">
                         <li><i class="fa fa-user"></i> @if($detailNews != null){{ $detailNews['dibuat_oleh']}} @endif</li>
                         <li><i class="fa fa-clock"></i>@if($detailNews != null){{tanggal_indonesia( $detailNews['tanggal_publikasi'],false)}} @endif</li>
                      </ul>
-                     <div class="col-sm-4 text-center my-2 my-sm-0">
-                        <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
-                     </div>
                      @if($detailNews != null)
                      <ul class="social-icons">
                         <li><a href="{!! $socmed['facebook'] !!}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
@@ -183,7 +180,7 @@
                   </div>
                </div>
             </div>
-            <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="col-lg-4 col-md-12 col-sm-12 clear-padd">
                     <div class="blog_right_sidebar">
                         <div class="row pt-0">
                             <div class="col">

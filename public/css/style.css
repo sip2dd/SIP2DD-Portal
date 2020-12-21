@@ -2596,7 +2596,7 @@ hr {
 
 @media(max-width:768px) {
     .detail_page {
-        padding: 0px 20px;
+        padding: 0px 25px;
     }
 }
 
@@ -3040,7 +3040,7 @@ hr {
 }
 
 .blog_details p {
-    font-size: 14px;
+    font-size: 13px;
     color: #00ABE9;
 }
 
@@ -3064,7 +3064,7 @@ hr {
     margin-right: .3rem;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 900px) {
     .blog_details h2 {
         font-size: 24px;
         height:87px;
@@ -3218,7 +3218,7 @@ hr {
     white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        width:300px;
+        width:240px;
 }
 }
 
@@ -6163,16 +6163,12 @@ z .slider-area .hero-cap h2 {
 @media only screen and (min-width: 767px) and (max-width: 1199px) {
     .service-area .services-caption {
         padding: 15px 20px 10px 20px;
-        margin-left: 10px;
-        margin-right: 10px;
     }
 }
 
 @media (max-width:767px) {
     .service-area .services-caption {
         padding: 15px 20px 10px 20px;
-        margin-left: 10px;
-        margin-right: 10px;
     }
 }
 
@@ -7789,12 +7785,22 @@ border-radius: 5px !important;
 .galeri-detail-tgl1 p {
     font-size: 14px;
 }
+@media(max-width:900px){
+    .galeri-detail-tgl1 p {
+        font-size: 13px;
+    } 
+}
 
 .lengkapnya_2 a {
     padding-top: 5px;
     float: right;
     color: #00ABE9;
-    font-size: 12px;
+    font-size: 14px;
+}
+@media(max-width:900px){
+    .lengkapnya_2 a {
+        font-size:13px;
+    }
 }
 
 
@@ -7847,7 +7853,7 @@ h6.deskripsi {
     }
 
     .lengkapnya_1 a {
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 
@@ -9281,5 +9287,40 @@ h6.cap_masuk:hover {
 @media(max-width:576px){
     .video_iframe{
         height: 190px;
+    }
+}
+
+
+@media(max-width:600px){
+    .clear-padd{
+        padding-left: 0px !important;
+        padding-right:0px !important;
+    }
+    .clear-margin{
+        margin-left: 0px !important;
+        margin-right:0px !important;
+    }
+}
+@media(max-width:760px){
+    .add-padd{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+}
+
+.padd-coba{
+    padding:0px 30px;
+    margin-right:0px;
+    margin-left:0px;
+}
+
+@media(max-width:992px){
+    .padd-coba{
+        padding:0px 30px;
+    }
+}
+@media(max-width:768px){
+    .padd-coba{
+        padding:0px 25px;
     }
 }

@@ -134,7 +134,7 @@
     </div>
     <!-- Slider Area End-->
     <!--================Berita Terbaru =================-->
-    <section class="blog_area pt-10">
+    <section class="blog_area add-padd pt-10">
         <div class="container">
                 @if($title != "")
                 <div class="row">
@@ -148,7 +148,7 @@
             @if($govNews != null)
             <div class="row">
                 @foreach($govNews as $newsItem)
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 clear-padd">
                     <article class="blog_item">
                         <div class="blog_item_img">
                             <img class="card-img" src="{{$newsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">

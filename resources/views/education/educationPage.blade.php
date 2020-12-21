@@ -117,14 +117,14 @@
     </div>
     <!-- Slider Area End-->
     <!--================Galeri=================-->
-    <section class="blog_area pt-10 background_1">
+    <section class="blog_area pt-10 add-padd background_1">
         <div class="container">
         
             <!--Galeri-->
             @if($eduItems != null)
             <div class="row">
             @foreach($eduItems as $item)
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 clear-padd">
                     <article class="blog_item">
                         <div class="blog_item_img">
                             <img class="card-img" src="{{$item['gambar_utama']}}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">

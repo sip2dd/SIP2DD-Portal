@@ -107,7 +107,7 @@
    <section class="detail_page single-post-area background_2 mb-30">
       <div class="container">
          <div class="row">
-            <div class="col-lg-8 mb-30">
+            <div class="col-lg-8 col-md-12 col-sm-12 mb-30 clear-padd">
                <div class="single-post">
                   <div class="blogs">
                      <div id="Carouselgambar" class="carousel slide w-100" data-ride="carousel">
@@ -128,7 +128,7 @@
                            </div>
                         @else
                            <div class="carousel-item active">
-                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pl-0 pr-0">
                                  <img class="card-img" src="{{ URL::asset('img/P2DD.png') }}" alt="slide3">
                               </div>
                            </div>
@@ -201,9 +201,6 @@
                         <li><i class="fa fa-user"></i> @if($detailEvent != null){{ $detailEvent['dibuat_oleh']}} @endif</li>
                         <li><i class="fa fa-clock"></i>@if($detailEvent != null){{tanggal_indonesia( $detailEvent['tanggal_publikasi'],false)}} @endif</li>
                         </ul>
-                        <div class="col-sm-4 text-center my-2 my-sm-0">
-                           <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
-                        </div>
                         @if($detailEvent != null)
                         <ul class="social-icons">
                             <li><a href="{!! $socmed['facebook'] !!}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
@@ -215,14 +212,19 @@
                   </div>
                </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-12 col-sm-12 clear-padd">
                <div class="blog_right_sidebar">
                   <div class="row pt-0">
                      <div class="col">
-                        <div class="section-judul-berita rata_tengah">
+                        <div class="section-judul-berita">
                            <h4>Webinar Lainnya</h4>
                         </div>
                      </div>
+                     <div class="col">
+                        <div class="section-judul-berita">
+                        <h6><a href="{!! url('kegiatan') !!}">Lihat Semua</a></h6>
+                        </div>
+                    </div>
                   </div>
                   <aside class="single_sidebar_widget popular_post_widget">
                     @if($events != null)

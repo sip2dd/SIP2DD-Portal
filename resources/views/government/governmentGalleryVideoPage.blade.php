@@ -132,13 +132,13 @@
     </div>
     <!-- Slider Area End-->
     <!--================Galeri=================-->
-    <section class="blog_area pt-10 background_3">
+    <section class="blog_area pt-10 background_3 add-padd">
         <div class="container">
             <!--Galeri-->
             @if($galleryVideos != null)
             <div class="row">
             @foreach($galleryVideos as $galleryVideo)
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 clear-padd">
 
                         <article class="blog_item">
                             <div class="blog_item_img">
