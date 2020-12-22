@@ -174,7 +174,7 @@
         </div>
     </div>
     <!-- Fitur Kami Start -->
-
+    @if($features != null)
     <section id="fiturlayanankami" class="best-features-area section-paddingr sky-blue " style="padding-bottom: 50px;">
         <div class="container">
             <div class="row">
@@ -188,7 +188,7 @@
                         </div>
                     </div>
                     <!-- Section caption -->
-                    <div class="row justify-content-center">
+                    <!-- <div class="row justify-content-center">
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="single-features mb-70">
                                 <div class="features-icon">
@@ -255,11 +255,30 @@
                                 </div>
                             </div>
                         </div>
+                    </div> -->
+                    <div class="row justify-content-center">
+                    @if($features != null)
+                        @foreach($features as $feature)
+                            <div class="col-xl-4 col-lg-4 col-md-6">
+                                <div class="single-features mb-70">
+                                    <div class="features-icon">
+                                        <span class="{{$feature['icon']}}"></span>
+                                    </div>
+                                    <div class="features-caption">
+                                        <h3>{{$feature['judul']}}</h3>
+                                        <p>{{$feature['deskripsi']}}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    @endif
 
     <section class="section-paddingr background_2">
         <div class="container">

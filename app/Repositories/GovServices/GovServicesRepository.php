@@ -62,6 +62,15 @@ Class GovServicesRepository implements GovServicesInterface{
 
     }
 
+    
+    public function getDetailServiceFeature($id){
+        $govServices = $this->getApiContents("1613.json?layanan_id=".$id);
+        if($govServices != null){
+            $govServices = $govServices['data']['fitur_layanan'];
+        }
+        return $govServices;
+    }
+
     public function searchServices($keyword, $offset=null, $limit=6){
         if($offset == null){
             $govServices = $this->getApiContents("1558.json?input=".$keyword."&offset=null&limit=".$limit);

@@ -58,7 +58,7 @@ class GovernmentServiceController extends Controller
 
     public function detailServiceGov(Request $request){
         $detailGovServices = null;
-        $feature = null;
+        $features = null;
         $video = null;
         $menus = $this->getApiMenu();
         $p2dd_info =$this->getApiP2DDInfo();
@@ -66,7 +66,8 @@ class GovernmentServiceController extends Controller
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
-                $detailGovServices = $this->govService->getDetailService($id);  
+                $detailGovServices = $this->govService->getDetailService($id); 
+                $features = $this->govService->getDetailServiceFeature($id);  
             }else{
                 return redirect('');
             }
@@ -76,9 +77,9 @@ class GovernmentServiceController extends Controller
         
         return view('govService.detailGovServicePage', [
             'detailGovServices' => $detailGovServices,
-            'feature' => $feature,
             'video' => $video, 
             'p2dd_info' => $p2dd_info,
+            'features' => $features,
             'menus' => $menus,
         ],
         );
