@@ -153,7 +153,7 @@
                                     </div>
                                     <div class="features-caption">
                                         <h3>Kanal Berita</h3>
-                                        <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                        <p>Berita terlengkap mengenai Percepatan dan Perluasan Digitalisasi Daerah.</p>
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +165,7 @@
                                     </div>
                                     <div class="features-caption">
                                         <h3>Kanal Layanan</h3>
-                                        <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                        <p>Layanan P2DD dari Kementerian, Lembaga dan Daerah mengenai.</p>
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@
                                     </div>
                                     <div class="features-caption">
                                         <h3>Data & Informasi</h3>
-                                        <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                        <p>Data dan Informasi mengenai Percepatan dan Perluasan Digitalisasi Daerah.</p>
                                     </div>
                                 </div>
                             </div>
@@ -187,7 +187,7 @@
                                     </div>
                                     <div class="features-caption">
                                         <h3>Kolaborasi</h3>
-                                        <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                        <p>Wadah Kolaborasi Percepatan dan Perluasan Digitalisasi Daerah.</p>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +198,7 @@
                                     </div>
                                     <div class="features-caption">
                                         <h3>Regulasi</h3>
-                                        <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                        <p>Regulasi mengenai Percepatan dan Perluasan Digitalisasi Daerah tersedia.</p>
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@
                                     </div>
                                     <div class="features-caption">
                                         <h3>Edukasi</h3>
-                                        <p>Aorem psum olorsit amet ectetur adipiscing elit, sed dov.</p>
+                                        <p>Materi, FAQ dan Daftar Istilah mengenai Percepatan dan Perluasan Digitalisasi Daerah.</p>
                                     </div>
                                 </div>
                             </div>
