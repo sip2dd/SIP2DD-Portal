@@ -1,6 +1,6 @@
 @extends('template.main')
 
-@section('title', 'Portal Percepatan Digitalisasi Daerah')
+@section('title', 'Edukasi | Portal Percepatan Digitalisasi Daerah')
 
 @section('menu')
     <header>
@@ -230,7 +230,7 @@
 @if($p2dd_info != null)
     <div class="footer-pera footer-pera2">
         <!-- <p>{{$p2dd_info['title']}}</p> -->
-        <p>{!!$p2dd_info['deskripsi']!!}</p>
+        <p>{!! Str::limit($p2dd_info['deskripsi'], 120) !!}</p>
         <p>{{$p2dd_info['no_telpon']}}</p>
         <p>{{$p2dd_info['email']}}</p>
         <p>{!!$p2dd_info['alamat']!!}</p>
