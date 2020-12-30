@@ -2,6 +2,10 @@
 
 @section('title', 'TP2DD | Portal Percepatan Digitalisasi Daerah')
 
+@if($p2dd_info != null)
+    @section('description', strip_tags($p2dd_info['deskripsi']))
+@endif
+
 @section('menu')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 

@@ -1,6 +1,10 @@
 @extends('template.main')
 
-@section('title', 'Pemda | Portal Percepatan Digitalisasi Daerah')
+@section('title', 'Cari Berita TP2DD | Portal Percepatan Digitalisasi Daerah')
+
+@if($p2dd_info != null)
+    @section('description', strip_tags($p2dd_info['deskripsi']))
+@endif
 
 @section('menu')
 <header>
