@@ -114,28 +114,95 @@
                     <div class="single-post">
                         <div class="blogs">
                             @if ($detailGalleryVideo != null)
-                                @if ($detailGalleryVideo['tipe'] == 'Youtube')
-                                    <x-embed url="{{ $detailGalleryVideo['link'] }}" />
-                                @else
-                                    <?php preg_match(
-                                    '/<iframe.*src=\"(.*)\".*>
-                                        <\ /iframe>/isU',
-                                            $detailGalleryVideo['link'],
-                                            $match,
-                                            ); ?>
-                                            @if (array_key_exists(1, $match))
-                                                <div class="col-lg-12 pr-0 pl-0 video_iframe">
-                                                    {!! $detailGalleryVideo['link'] !!}
-                                                </div>
-                                            @else
+                                <div id="contohCarousel" class="carousel slide w-100" data-ride="carousel">
+                                    <div class="carousel-inner w-100" role="listbox">
+                                    @if($detailGalleryVideo != null)
+                                    <!-- TO DO LIST API CAROUSEL DETAIL BERITA GAMBAR -->
+                                    <div class="carousel-item active">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-padd">
+                                            @if ($detailGalleryVideo['tipe'] == 'Youtube')
+                                                <x-embed url="{{ $detailGalleryVideo['link'] }}" />
+                                            @elseif ($detailGalleryVideo['tipe'] == 'Link Lainnya')
+                                                <?php 
+                                                    $test = 0;
+                                                    $test = preg_match('#<iframe(.*?)></iframe>#is', $detailGalleryVideo['link'], $matches);
+                                                
+                                                ?>
+                                                @if($test == 0)
                                                 <video controls>
                                                     <source
-                                                        src="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{ $detailGalleryVideo['file'] }}">
-                                                    Your browser does not support the video tag.
+                                                        src="{{ $detailGalleryVideo['link'] }}">
+                                                        Your browser does not support the video tag.
+                                                </video>
+                                                @else
+                                                    {!! $detailGalleryVideo['link'] !!}
+                                                @endif
+                                                
+                                                
+                                            @else 
+                                                <video controls>
+                                                    <source
+                                                        src="{{ $detailGalleryVideo['file'] }}">
+                                                        Your browser does not support the video tag.
                                                 </video>
                                             @endif
-
-                                @endif
+                                        </div>
+                                    </div>
+                                        @if($attachments != null)
+                                                @foreach($attachments as $index => $att)
+                                                    <div class="carousel-item">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-padd">
+                                                        @if ($att['tipe'] == 'Youtube')
+                                                            <x-embed url="{{ $att['link'] }}" />
+                                                        @elseif ($att['tipe'] == 'Link Lainnya')
+                                                    
+                                                            <?php 
+                                                                $test = 0;
+                                                                $test = preg_match('#<iframe(.*?)></iframe>#is', $att['link'], $matches);
+                                                            
+                                                            ?>
+                                                            @if($test == 0)
+                                                            <video controls>
+                                                                <source
+                                                                    src="{{ $att['link'] }}">
+                                                                    Your browser does not support the video tag.
+                                                            </video>
+                                                            @else
+                                                                {!! $att['link'] !!}
+                                                            @endif
+                                                                        
+                                                            
+                                                        @else 
+                                                            <video controls>
+                                                                <source
+                                                                    src="{{ $att['file'] }}">
+                                                                    Your browser does not support the video tag.
+                                                            </video>
+                                                        @endif
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                        @endif
+                                    @else
+                                    <div class="carousel-item active">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-padd">
+                                            <img class="card-img" src="{{ URL::asset('img/P2DD.png') }}" alt="slide3">
+                                        </div>
+                                    </div>
+                                    @endif
+                                    </div>
+                                    <a class="carousel-control-prev belum w-auto" href="#contohCarousel" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"
+                                        style="width: 35px; height: 35px;"></span>
+                                    <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next telah w-auto" href="#contohCarousel" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"
+                                        style="width: 35px; height: 35px;"></span>
+                                    <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                                
                             @else
                                 <div class="carousel-item active">
                                     <div class="col-lg-12">

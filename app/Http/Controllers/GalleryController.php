@@ -235,12 +235,14 @@ class GalleryController extends Controller
         $galleryVideo = null;
         $getSocmed = null;
         $offset = null;
+        $attachments = null;
         $limit = 3;
 
         if($request->has('id')) {
             if($request->id != ''){
                 $id = $request->id;
                 $detailGalleryVideo = $this->galleryRepo->getDetailGalleryVideo($id); 
+                $attachments = $this->galleryRepo->getGalleryPhotosAtt($id);
                 if($detailGalleryVideo != null){
                     $getSocmed = $this->getSocmed($detailGalleryVideo['judul']);
                 }else{
@@ -257,9 +259,12 @@ class GalleryController extends Controller
         $p2dd_info = $this->getApiP2DDInfo();
         $menus = $this->getApiMenu();
 
+        // dd($attachments);
+
         return view('gallery.detailGalleryVideoPage', [
             'detailGalleryVideo' => $detailGalleryVideo, 
             'galleryVideos' => $galleryVideos,
+            'attachments' => $attachments,
             'socmed' => $getSocmed,
             'p2dd_info' => $p2dd_info,
             'menus' => $menus, 
