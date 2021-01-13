@@ -3101,6 +3101,23 @@ hr {
         font-size: 10px;
     }
 }
+@media (max-width:600px) {
+    .blog-info-link {
+        float: none;
+        display: block;
+    }
+
+    .blog-info-link li::after {
+        display:none;
+    }
+    .blog-info-link li {
+        display: block;
+        width:100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
 
 .blog-info-link li i,
 .blog-info-link li span {
@@ -7788,7 +7805,7 @@ border-radius: 5px !important;
 @media(max-width:900px){
     .galeri-detail-tgl1 p {
         font-size: 13px;
-    } 
+    }
 }
 
 .lengkapnya_2 a {
@@ -9322,5 +9339,47 @@ h6.cap_masuk:hover {
 @media(max-width:768px){
     .padd-coba{
         padding:0px 25px;
+    }
+}
+
+
+@media(max-width:560px){
+    .video_lainnya iframe{
+        height:180px !important;
+    }
+}
+@media(max-width:374px){
+    .video_lainnya iframe{
+        height:170px !important;
+    }
+}
+
+@media(max-width:600px){
+    .carousel-control-next-icon{
+        width:20px !important;
+        height:20px !important;
+    }
+    .carousel-control-prev-icon{
+        width:20px !important;
+        height:20px !important;
+    }
+}
+
+.carousel-indicators li{
+    width:15px !important;
+    height:15px !important;
+    border-radius: 50% !important;
+}
+.carousel-indicators .active{
+    background-color: #00Abe9 !important;
+    width: 25px !important;
+    border-radius: 10px !important;
+}
+
+@media(max-width:560px){
+    .carousel-indicators li{
+        width:10px !important;
+        height:10px !important;
+
     }
 }

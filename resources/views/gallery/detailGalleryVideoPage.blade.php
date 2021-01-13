@@ -118,19 +118,35 @@
                     <div class="single-post">
                         <div class="blogs">
                             @if ($detailGalleryVideo != null)
-                                <div id="contohCarousel" class="carousel slide w-100" data-ride="carousel">
+                                <div id="contohCarousel" class="carousel slide w-100" data-ride="carousel" data-interval="false">
+                                    <ol class="carousel-indicators">
+                                        @if ($detailGalleryVideo != null)
+                                        <li data-target="#contohCarousel" data-slide-to="0" class="active"></li>
+                                        @if($attachments !=null)
+                                        @php
+                                         $hitung = count($attachments);
+                                         @endphp
+                                         @for($i=1;$i<=$hitung;$i++)
+                                         <li data-target="#contohCarousel" data-slide-to="{{ $i }}"></li>
+                                        @endfor
+                                        @endif
+                                        @else
+                                        <li data-target="#contohCarousel" data-slide-to="0" class="active"></li>
+                                        @endif
+                                      </ol>
                                     <div class="carousel-inner w-100" role="listbox">
                                     @if($detailGalleryVideo != null)
                                     <!-- TO DO LIST API CAROUSEL DETAIL BERITA GAMBAR -->
                                     <div class="carousel-item active">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-padd">
                                             @if ($detailGalleryVideo['tipe'] == 'Youtube')
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
                                                 <x-embed url="{{ $detailGalleryVideo['link'] }}" />
                                             @elseif ($detailGalleryVideo['tipe'] == 'Link Lainnya')
-                                                <?php 
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0 video_lainnya">
+                                                <?php
                                                     $test = 0;
                                                     $test = preg_match('#<iframe(.*?)></iframe>#is', $detailGalleryVideo['link'], $matches);
-                                                
+
                                                 ?>
                                                 @if($test == 0)
                                                 <video controls>
@@ -141,9 +157,10 @@
                                                 @else
                                                     {!! $detailGalleryVideo['link'] !!}
                                                 @endif
-                                                
-                                                
-                                            @else 
+
+
+                                            @else
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
                                                 <video controls>
                                                     <source
                                                         src="{{ $detailGalleryVideo['file'] }}">
@@ -155,15 +172,15 @@
                                         @if($attachments != null)
                                                 @foreach($attachments as $index => $att)
                                                     <div class="carousel-item">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-padd">
                                                         @if ($att['tipe'] == 'Youtube')
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
                                                             <x-embed url="{{ $att['link'] }}" />
                                                         @elseif ($att['tipe'] == 'Link Lainnya')
-                                                    
-                                                            <?php 
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0 video_lainnya">
+                                                            <?php
                                                                 $test = 0;
                                                                 $test = preg_match('#<iframe(.*?)></iframe>#is', $att['link'], $matches);
-                                                            
+
                                                             ?>
                                                             @if($test == 0)
                                                             <video controls>
@@ -174,9 +191,10 @@
                                                             @else
                                                                 {!! $att['link'] !!}
                                                             @endif
-                                                                        
-                                                            
-                                                        @else 
+
+
+                                                        @else
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
                                                             <video controls>
                                                                 <source
                                                                     src="{{ $att['file'] }}">
@@ -189,7 +207,7 @@
                                         @endif
                                     @else
                                     <div class="carousel-item active">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clear-padd">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
                                             <img class="card-img" src="{{ URL::asset('img/P2DD.png') }}" alt="slide3">
                                         </div>
                                     </div>
@@ -206,7 +224,7 @@
                                     <span class="sr-only">Next</span>
                                     </a>
                                 </div>
-                                
+
                             @else
                                 <div class="carousel-item active">
                                     <div class="col-lg-12">

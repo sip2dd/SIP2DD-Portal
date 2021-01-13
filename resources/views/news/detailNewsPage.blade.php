@@ -114,6 +114,21 @@
                <div class="single-post">
                   <div class="blog_item_img">
                      <div id="contohCarousel" class="carousel slide w-100" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            @if ($detailNews != null)
+                            <li data-target="#contohCarousel" data-slide-to="0" class="active"></li>
+                            @if($attachments !=null)
+                            @php
+                             $hitung = count($attachments);
+                             @endphp
+                             @for($i=1;$i<=$hitung;$i++)
+                             <li data-target="#contohCarousel" data-slide-to="{{ $i }}"></li>
+                            @endfor
+                            @endif
+                            @else
+                            <li data-target="#contohCarousel" data-slide-to="0" class="active"></li>
+                            @endif
+                          </ol>
                         <div class="carousel-inner w-100" role="listbox">
                         @if($detailNews != null)
                            <!-- TO DO LIST API CAROUSEL DETAIL BERITA GAMBAR -->

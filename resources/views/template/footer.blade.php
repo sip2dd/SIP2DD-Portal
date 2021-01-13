@@ -9,6 +9,42 @@
     });
 
 </script>
+<script>
+    jQuery(document).ready(function() {
+        $('#galeriCarousel').carousel({
+            interval: 2500;
+        })
+        $('#beritaCarousel').carousel({
+            interval: 2000;
+        })
+        $('#edukasiCarousel').carousel({
+            interval: 2000;
+        })
+        $('#contohCarousel').carousel({
+            pause:true,
+            interval:false
+        });
+        //$('.carousel .carousel-item').each(function() {
+          //  var minPerSlide = 3;
+            //var next = $(this).next();
+            //if (!next.length) {
+              //  next = $(this).siblings(':first');
+            //}
+            //next.children(':first-child').clone().appendTo($(this));
+
+            //for (var i = 0; i < minPerSlide; i++) {
+              //  next = next.next();
+                //if (!next.length) {
+                  //  next = $(this).siblings(':first');
+                //}
+
+                //next.children(':first-child').clone().appendTo($(this));
+            //}
+        //});
+
+    });
+
+</script>
 
 <script src="{{ URL::asset('datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ URL::asset('datatables/dataTables.bootstrap4.min.js') }}"></script>
@@ -160,50 +196,8 @@
 <script src="{{ URL::asset('js/popper.min.js') }}"></script>
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 <!-- <script src="./assets/js/scripts.js"></script>-->
-<script>
-    jQuery(document).ready(function() {
-        $('#galeriCarousel').carousel({
-            interval: 2500
-        })
-        $('#beritaCarousel').carousel({
-            interval: 2000
-        })
-        $('#edukasiCarousel').carousel({
-            interval: 2000
-        })
-
-        $('.carousel .carousel-item').each(function() {
-            var minPerSlide = 3;
-            var next = $(this).next();
-            if (!next.length) {
-                next = $(this).siblings(':first');
-            }
-            next.children(':first-child').clone().appendTo($(this));
-
-            for (var i = 0; i < minPerSlide; i++) {
-                next = next.next();
-                if (!next.length) {
-                    next = $(this).siblings(':first');
-                }
-
-                next.children(':first-child').clone().appendTo($(this));
-            }
-        });
-
-    });
-
-</script>
 <!-- Jquery Mobile Menu -->
 <script src="{{ URL::asset('js/jquery.slicknav.min.js') }}"></script>
-<script src="{{ URL::asset('js/multislider.js') }}"></script>
-<script src="{{ URL::asset('js/multislider.min.js') }}"></script>
-<script>
-    $('#mixedSlider').multislider({
-        duration: 650,
-        interval: 3000
-    });
-
-</script>
 <!-- Jquery Slick , Owl-Carousel Plugins -->
 <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
 <script type="text/javascript">
