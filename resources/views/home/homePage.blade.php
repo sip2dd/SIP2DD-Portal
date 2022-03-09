@@ -78,6 +78,15 @@
 
                                      -->
                                     @endif
+                                        <!-- <li>
+                                            <div style="padding: 13px 30px;
+    border-radius: 50px;
+    background-color: #00ABE9;
+    color: #fff !important;
+    font-size: 15px !important;">
+                                                <a href="#">test</a>
+                                            </div>
+                                        </li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -116,6 +125,8 @@
                                     <a data-animation="fadeInLeft" data-delay=".8s" href="{!! url('pencarian') !!}"
                                         class="btn radius-btn">Cari
                                         Layanan & Berita</a>
+                                    <a data-animation="fadeInLeft" data-delay=".8s" href="https://kelola.p2dd.go.id"
+                                        class="btn radius-btn" style="background: #40E0D0;" target="_blank" rel="noopener noreferrer">Akses Kelola P2DD</a>
                                 </div>
                             </div>
                             <div class="col-lg-6">

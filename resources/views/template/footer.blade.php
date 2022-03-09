@@ -12,13 +12,13 @@
 <script>
     jQuery(document).ready(function() {
         $('#galeriCarousel').carousel({
-            interval: 2500;
+            interval: 2500
         })
         $('#beritaCarousel').carousel({
-            interval: 2000;
+            interval: 2000
         })
         $('#edukasiCarousel').carousel({
-            interval: 2000;
+            interval: 2000
         })
         $('#contohCarousel').carousel({
             pause:true,
@@ -376,7 +376,7 @@
 
 <!-- Scrollup, nice-select, sticky -->
 <script src="{{ URL::asset('js/jquery.scrollUp.min.js') }}"></script>
-<script src="{{ URL::asset('js/jquery.nice-select.js') }}"></script>
+<script src="{{ URL::asset('js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.sticky.js') }}"></script>
 
 <!-- contact js -->

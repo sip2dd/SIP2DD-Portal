@@ -170,7 +170,11 @@
                            @foreach($attachments as $attachment)
                             @if($attachment['tipe'] == "Video" )
                                 @if($attachment['link'] != null)
-                                <x-embed url="{{$attachment['link']}}"/>
+                                <?php
+                                    $url = $attachment['link'];
+                                    parse_str(parse_url( $url, PHP_URL_QUERY ), $vars );
+                                    echo '<iframe src="https://www.youtube.com/embed/'.$vars['v'].'" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                                ?>
                                 @elseif($attachment['file'] != null)
                                 <video controls>
                                  <source src="$attachment['file']">

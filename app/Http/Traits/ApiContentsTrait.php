@@ -11,15 +11,17 @@ trait ApiContentsTrait{
     public function getApiContents(String $url = ""){
         $client = new Client(); 
         try{
-            $url = config('url.base_api') . $url;
+            // $url = config('url.base_api') . $url;
             //$url = "http://103.18.117.44/sicantik-wsa/api/TemplateData/keluaran/1527.json";
+//            $url = "https://p2dd.go.id/backend/api/TemplateData/keluaran/" . $url;
+	    $url = "https://kelola.p2dd.go.id/p2dd/api/TemplateData/keluaran/" . $url;
             //$request = $client->get($url);
-            $request = $client->request('GET', $url,['timeout' => 5, 'connect_timeout' => 5]);
+            $request = $client->request('GET', $url,['timeout' => 5, 'connect_timeout' => 5, 'verify' => false]);
             $response = $request->getBody()->getContents();
             $data = json_decode($response, true);    
         }catch (ConnectException $e) {
             //$data = "connect";
-            $data = null;
+            $data = $e;
         }catch (RequestException $e){
             //$data = "request";
             $data = null;
@@ -30,7 +32,7 @@ trait ApiContentsTrait{
             //$data = "guzzle";
             $data = null;
         }
-
+//        dd($data);
         return $data;
     }
 

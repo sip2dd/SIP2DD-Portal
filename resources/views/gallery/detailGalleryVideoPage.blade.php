@@ -140,7 +140,11 @@
                                     <div class="carousel-item active">
                                             @if ($detailGalleryVideo['tipe'] == 'Youtube')
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
-                                                <x-embed url="{{ $detailGalleryVideo['link'] }}" />
+                                            <?php
+                                                $url = $detailGalleryVideo['link'];
+                                                parse_str(parse_url( $url, PHP_URL_QUERY ), $vars );
+                                                echo '<iframe src="https://www.youtube.com/embed/'.$vars['v'].'" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                                            ?>
                                             @elseif ($detailGalleryVideo['tipe'] == 'Link Lainnya')
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0 video_lainnya">
                                                 <?php
@@ -174,7 +178,11 @@
                                                     <div class="carousel-item">
                                                         @if ($att['tipe'] == 'Youtube')
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0">
-                                                            <x-embed url="{{ $att['link'] }}" />
+                                                        <?php
+                                                            $url = $att['link'];
+                                                            parse_str(parse_url( $url, PHP_URL_QUERY ), $vars );
+                                                            echo '<iframe src="https://www.youtube.com/embed/'.$vars['v'].'" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                                                        ?> 
                                                         @elseif ($att['tipe'] == 'Link Lainnya')
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 pl-0 video_lainnya">
                                                             <?php

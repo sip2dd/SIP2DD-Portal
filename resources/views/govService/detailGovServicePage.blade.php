@@ -150,7 +150,7 @@
                             <div class="tombol_download">
                                 @if ($detailGovServices != null)
                                     <a class="btn-pdf"
-                                        href="http://103.18.117.44/sicantik-ws/webroot/files/upload/{{ $detailGovServices['manual'] }}"
+                                        href="https://kelola.p2dd.go.id/p2dd/webroot/files/upload/{{ $detailGovServices['manual'] }}"
                                         style="padding: 15px 20px; font-size: 18px;"> <i class="fa fa-file-pdf"></i> Unduh
                                         Tutorial</a>
                                 @else
@@ -163,7 +163,7 @@
                         <div class="col col-12 col-sm-12 col-md-6">
                             <div class="tombol_masuk">
                                 @if ($detailGovServices != null)
-                                    <a class="btn radius-btn" href="//{{ $detailGovServices['link_layanan'] }}"
+                                    <a class="btn radius-btn" href="{{ $detailGovServices['link_layanan'] }}"
                                         style="padding: 25px 30px;">Link Layanan</a>
                                 @else
                                     <a class="btn radius-btn" href="" style="padding: 25px 30px;">Link Layanan</a>
@@ -296,7 +296,11 @@
                     @if ($detailGovServices['link_video'] != null || $detailGovServices['link_video'] != '')
 
                         <div class="vid_layanan">
-                            <x-embed url="{{ $detailGovServices['link_video'] }}" />
+                        <?php
+                            $url = $detailGovServices['link_video'];
+                            parse_str(parse_url( $url, PHP_URL_QUERY ), $vars );
+                            echo '<iframe src="https://www.youtube.com/embed/'.$vars['v'].'" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                        ?>
                         </div>
                     @elseif($detailGovServices['upload_video'] != null || $detailGovServices['upload_video'] != "")
                         <?php preg_match(

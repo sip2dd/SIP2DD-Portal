@@ -128,7 +128,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="dropdown">
                             <div class="btn-group" role="group">
-                                <select class="select_prov_tok" style="width: 200px;"
+                                <select id="nama_daerah" class="select_prov_tok" style="width: 200px;"
                                     onchange="if (this.value) window.location.href=this.value">
                                     <option class="l1"></option>
                                     @if ($list_gov != null)
@@ -281,6 +281,33 @@
     <button id="scrollUp" onclick="topFunction()" style="position: fixed; z-index: 2147483647; display: block;"><i
             class="ti-arrow-up"></i></button>
     <script>
+        if (window.navigator.geolocation) {
+            // Geolocation available
+            if (!window.location.href.includes("?")) {
+                window.navigator.geolocation
+                .getCurrentPosition(successfulLookup, console.log);
+            } else {
+                let select_nama_daerah = document.querySelector('#nama_daerah')
+                select_nama_daerah.value = window.location.href
+            }
+        } 
+
+        function successfulLookup(position) {
+            const { latitude, longitude } = position.coords;
+            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=4403bccfc3b446a2af7efa71f0fce0c0`)
+                .then(response => response.json())
+                .then(json => {
+                    let city = json.results[0].components.city
+                    alert(city)
+                    fetch(`https://kelola.p2dd.go.id/p2dd/api/TemplateData/keluaran/1563.json?nama_daerah=${city}`)
+                        .then(response => response.json())
+                        .then(json => {
+                            let kode_daerah = json.data.list_daerah[0].kode_daerah
+                            console.log(kode_daerah);
+                            window.location.href = `{{ url('/tp2dd') }}?kode_daerah=${kode_daerah}`
+                        })
+                });
+        }
         var mybutton = document.getElementById("scrollUp");
 
         window.onscroll = function() {

@@ -25,7 +25,7 @@ class EventController extends Controller
         $attachments = null;
        
         $highlightevent = $this->eventRepo->getEventHighlight($offset, $limit_highlight);
-        $attachments = $this->eventRepo->getDetailEventAttachment($highlightevent[0]['kegiatan_id']);
+        $attachments = $highlightevent ? $this->eventRepo->getDetailEventAttachment($highlightevent[0]['kegiatan_id']):null;
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
         $p2dd_info =$this->getApiP2DDInfo();
         $menus = $this->getApiMenu();

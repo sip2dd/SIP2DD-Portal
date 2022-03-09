@@ -18,8 +18,8 @@ class HomeController extends Controller
     public function index()
     {
         $menus = $this->getApiMenu();
-        // dd($menus);
         $newsItems = $this->homeRepo->getNewsItems();
+        // dd($newsItems);
         $govServices = $this->homeRepo->getGovServices(); 
 
         $eduNewsItems = $this->homeRepo->getEducationNewsItems();

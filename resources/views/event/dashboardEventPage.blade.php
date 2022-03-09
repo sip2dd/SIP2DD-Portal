@@ -116,11 +116,17 @@
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-12 video-conf">
-                        @if($video != null)
-                            <x-embed url="{{$video}}"/>
-                        @else
-                            <img src="{{ $item['gambar_utama'] }}" class="card-img card_image1" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                        @endif
+                        <div class="laravel-embed__responsive-wrapper" style="width: 100%;">
+                            @if($video != null)
+                            <?php
+                                $url = $video;
+                                parse_str(parse_url( $url, PHP_URL_QUERY ), $vars );
+                                echo '<iframe src="https://www.youtube.com/embed/'.$vars['v'].'" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                            ?>
+                            @else
+                                <img src="{{ $item['gambar_utama'] }}" class="card-img card_image1" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

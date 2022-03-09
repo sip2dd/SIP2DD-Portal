@@ -151,6 +151,29 @@
                 </div>
             </div>
         </div>
+        <section class="section-paddingr sky-blue">
+            <div class="container">
+                <div class="tutorial_vid">
+                    @if ($govDetail != null)
+                        <div class="vid_judul">
+
+                            <h3>Video {{$govDetail['profile']}}</h3>
+
+                        </div>
+                        @if ($govDetail['video_profil'] != null || $govDetail['video_profil'] != '')
+
+                            <div class="vid_layanan">
+                            <?php
+                                $url = $govDetail['video_profil'];
+                                parse_str(parse_url( $url, PHP_URL_QUERY ), $vars );
+                                echo '<iframe src="https://www.youtube.com/embed/'.$vars['v'].'" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                            ?>
+                            </div>
+                        @endif
+                    @endif
+                </div>
+            </div>
+        </section>
     @endif
     <div class="pb-20 sky-blue">
         <div class="container">

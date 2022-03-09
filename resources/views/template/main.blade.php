@@ -25,9 +25,23 @@
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <x-embed-styles />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ URL::asset('datatables/dataTables.bootstrap4.min.css') }}">
+    <style>
+        .laravel-embed__responsive-wrapper {
+            /* position: relative; */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .laravel-embed__fallback, .laravel-embed__responsive-wrapper iframe, .laravel-embed__responsive-wrapper object, .laravel-embed__responsive-wrapper embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -147,6 +161,29 @@
                                     <h4>Sekretariat Pokjanas P2DD</h4>
                                     @yield('p2dd_info')
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-area section-padd-footer sky-blue">
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="section-tittle text-center">
+                                <h2 class="layanan_index" style="font-size: 24px;margin-bottom: 24px;"><span>DIDUKUNG OLEH</span></h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="section-tittle text-center">
+                                <a href="https://www.kominfo.go.id/" target="_blank" rel="noopener noreferrer"><img src="{{ URL::asset('img/kolaborasi/kominfo.png') }}" alt="Kominfo" style="height: 100px;margin-right: 8px;" title="Kominfo"></a>
+                                <a href="https://www.menpan.go.id/" target="_blank" rel="noopener noreferrer"><img src="{{ URL::asset('img/kolaborasi/panrb.png') }}" alt="Kemenpan" style="height: 100px;margin-right: 8px;" title="Kemenpan"></a>
+                                <a href="https://www.bappenas.go.id/" target="_blank" rel="noopener noreferrer"><img src="{{ URL::asset('img/kolaborasi/bappenas.png') }}" alt="Bappenas" style="height: 100px;margin-right: 8px;" title="Bappenas"></a>
+                                <a href="https://www.kemenkeu.go.id/" target="_blank" rel="noopener noreferrer"><img src="{{ URL::asset('img/kolaborasi/kemenkeu.png') }}" alt="Kemenkeu" style="height: 100px;margin-right: 8px;" title="Kemenkeu"></a>
+                                <a href="https://www.kemendagri.go.id/" target="_blank" rel="noopener noreferrer"><img src="{{ URL::asset('img/kolaborasi/kemendagri.png') }}" alt="Kemendagri" style="height: 100px;margin-right: 8px;" title="Kemendagri"></a>
+                                <a href="https://www.ekon.go.id/" target="_blank" rel="noopener noreferrer"><img src="{{ URL::asset('img/kolaborasi/kemenko.png') }}" alt="Kemenko" style="height: 100px;margin-right: 8px;" title="Kemenko"></a>
+                                <a href="https://www.setneg.go.id/" target="_blank" rel="noopener noreferrer"><img src="{{ URL::asset('img/kolaborasi/setneg.png') }}" alt="Setneg" style="height: 100px;margin-right: 8px;" title="Setneg"></a>
+                                <a href="https://www.bi.go.id/" target="_blank" rel="noopener noreferrer"><img src="{{ URL::asset('img/kolaborasi/bi.png') }}" alt="BI" style="height: 100px;margin-right: 8px;" title="BI"></a>
                             </div>
                         </div>
                     </div>
