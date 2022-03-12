@@ -16,63 +16,78 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="{!!  url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                                <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
                             <!-- Main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
-                                    <ul id="navigation">
-                                        @if ($menus != null)
-                                            @foreach ($menus as $menu)
-                                                @if (isset($menu['link']))
-                                                    @if ($menu['link'] == '/' . Request::segment(1))
-                                                        <li class="active"><a
-                                                                href="{!!  url($menu['link']) !!}">{{ $menu['nama'] }}</a>
+                                <ul id="navigation">
+                                        @if($menus != null)
+                                            @foreach($menus as $menu)
+                                                @if(isset($menu['link']))
+                                                    @if($menu['link'] == "/".Request::segment(1))
+                                                        @if($menu['link'] == "/#")
+                                                            <li class="active"><a>{{$menu['nama']}}</a>
                                                         @else
-                                                        <li><a href="{!!  url($menu['link']) !!}">{{ $menu['nama'] }}</a>
+                                                        <li class="active"><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                                        @endif
+                                                    @elseif($menu['link'] == "/#")
+                                                        <li><a>{{$menu['nama']}}</a>
+                                                    @else
+                                                        <li><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
                                                     @endif
                                                 @endif
 
-                                                @if (isset($menu['menu_child']))
+                                                @if(isset($menu['menu_child']))
 
-                                                    @if (count($menu['menu_child']) > 0)
-                                                        <ul class="submenu">
-                                                            @foreach ($menu['menu_child'] as $child)
-                                                                <li><a
-                                                                        href="{!!  url($child['link']) !!}">{{ $child['menu'] }}</a>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-
+                                                    @if(count($menu['menu_child']) > 0)
+                                                    <ul class="submenu">
+                                                        @foreach($menu['menu_child'] as $child)
+                                                            <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                    
                                                     @endif
                                                 @endif
                                                 </li>
-
+                    
                                             @endforeach
-
+                                        
                                         @else
-                                            <!-- <li><a href="{!!  url('/') !!}">Beranda</a></li>
-                                            <li><a href="{!!  url('/berita') !!}">Berita</a></li>
-                                            <li><a href="{!!  url('/tp2dd') !!}">TP2DD</a></li>
-                                            <li><a href="#">Edukasi</a>
-                                                <ul class="submenu">
-                                                    <li><a href="{!!  url('/edukasi') !!}">Materi</a></li>
-                                                    <li><a href="{!!  url('/faq') !!}">FAQ</a></li>
-                                                    <li><a href="{!!  url('/daftaristilah') !!}">Daftar Istilah</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="{!!  url('/regulasi') !!}">Regulasi</a></li>
-                                            <li><a href="#">Kolaborasi</a></li>
-                                            <li><a href="{!!  url('/dashboardkegiatan') !!}">Kegiatan</a></li>
-                                            <li class="active"><a href="#">Galeri</a>
+                                    <!-- 
+                                        <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
+                                        <li><a href="{!! url('/berita') !!}">Berita</a></li>
+                                        <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
+                                        <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
-                                                <li><a href="{!!  url('/galerifoto') !!}">Galeri Foto</a></li>
-                                                <li><a href="{!!  url('/galerivideo') !!}">Galeri Video</a></li>
+                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
+                                                <li><a href="{!! url('/faq') !!}">FAQ</a></li>
+                                                <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
                                             </ul>
-                                           </li> -->
-                                        @endif
+                                        </li>
+                                        <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
+                                        <li><a href="#">Kolaborasi</a></li>
+                                        <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
+                                        <li><a href="#">Galeri</a>
+                                            <ul class="submenu">
+                                                <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                                <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                            </ul>
+                                        </li>
+
+                                     -->
+                                    @endif
+                                        <!-- <li>
+                                            <div style="padding: 13px 30px;
+    border-radius: 50px;
+    background-color: #00ABE9;
+    color: #fff !important;
+    font-size: 15px !important;">
+                                                <a href="#">test</a>
+                                            </div>
+                                        </li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -87,7 +102,6 @@
         </div>
         <!-- Header End -->
     </header>
-
 @endsection
 
 @section('content')

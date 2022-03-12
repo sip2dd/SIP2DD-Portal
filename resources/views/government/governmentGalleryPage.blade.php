@@ -7,7 +7,7 @@
 @endif
 
 @section('menu')
-<header>
+    <header>
         <!-- Header Start -->
         <div class="header-area header-transparrent ">
             <div class="main-header header-sticky">
@@ -23,12 +23,18 @@
                             <!-- Main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
-                                    <ul id="navigation">
+                                <ul id="navigation">
                                         @if($menus != null)
                                             @foreach($menus as $menu)
                                                 @if(isset($menu['link']))
                                                     @if($menu['link'] == "/".Request::segment(1))
+                                                        @if($menu['link'] == "/#")
+                                                            <li class="active"><a>{{$menu['nama']}}</a>
+                                                        @else
                                                         <li class="active"><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                                        @endif
+                                                    @elseif($menu['link'] == "/#")
+                                                        <li><a>{{$menu['nama']}}</a>
                                                     @else
                                                         <li><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
                                                     @endif
@@ -50,9 +56,10 @@
                                             @endforeach
                                         
                                         @else
-                                        <!-- <li><a href="{!! url('/') !!}">Beranda</a></li>
+                                    <!-- 
+                                        <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
                                         <li><a href="{!! url('/berita') !!}">Berita</a></li>
-                                        <li class="active"><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
+                                        <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
                                         <li><a href="#">Edukasi</a>
                                             <ul class="submenu">
                                                 <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
@@ -64,12 +71,23 @@
                                         <li><a href="#">Kolaborasi</a></li>
                                         <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
                                         <li><a href="#">Galeri</a>
-                                        <ul class="submenu">
-                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
-                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
-                                        </ul>
-                                        </li> -->
+                                            <ul class="submenu">
+                                                <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                                <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                            </ul>
+                                        </li>
+
+                                     -->
                                     @endif
+                                        <!-- <li>
+                                            <div style="padding: 13px 30px;
+    border-radius: 50px;
+    background-color: #00ABE9;
+    color: #fff !important;
+    font-size: 15px !important;">
+                                                <a href="#">test</a>
+                                            </div>
+                                        </li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -84,7 +102,6 @@
         </div>
         <!-- Header End -->
     </header>
-
 @endsection
 
 @section('content')

@@ -33,7 +33,13 @@
                                             @foreach($menus as $menu)
                                                 @if(isset($menu['link']))
                                                     @if($menu['link'] == "/".Request::segment(1))
+                                                        @if($menu['link'] == "/#")
+                                                            <li class="active"><a>{{$menu['nama']}}</a>
+                                                        @else
                                                         <li class="active"><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                                        @endif
+                                                    @elseif($menu['link'] == "/#")
+                                                        <li><a>{{$menu['nama']}}</a>
                                                     @else
                                                         <li><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
                                                     @endif
