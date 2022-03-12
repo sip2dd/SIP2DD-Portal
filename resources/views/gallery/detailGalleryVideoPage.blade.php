@@ -158,6 +158,9 @@
                                             <?php
                                                 $url = $detailGalleryVideo['link'];
                                                 parse_str(parse_url( $url, PHP_URL_QUERY ), $vars );
+                                                if(empty($vars)){
+                                                    $vars['v'] = "err";
+                                                }
                                                 echo '<iframe src="https://www.youtube.com/embed/'.$vars['v'].'" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                                             ?>
                                             @elseif ($detailGalleryVideo['tipe'] == 'Link Lainnya')
@@ -196,6 +199,9 @@
                                                         <?php
                                                             $url = $att['link'];
                                                             parse_str(parse_url( $url, PHP_URL_QUERY ), $vars );
+                                                            if(empty($vars)){
+                                                                $vars['v'] = "err";
+                                                            }
                                                             echo '<iframe src="https://www.youtube.com/embed/'.$vars['v'].'" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                                                         ?> 
                                                         @elseif ($att['tipe'] == 'Link Lainnya')
