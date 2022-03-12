@@ -122,8 +122,8 @@ class NewsController extends Controller
     
         $highlights = $this->newsRepo->getHighlight($offset, $limit_sidebar);
         $govNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar);
-        // $localgovNews = $this->newsRepo->getLocalGovNews();
-        $localgovNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar); 
+        $localgovNews = $this->newsRepo->getLocalGovNews();
+        //$localgovNews = $this->newsRepo->getNationalGovNews($offset, $limit_sidebar); 
         
         
         return view('news.detailNewsPage', [

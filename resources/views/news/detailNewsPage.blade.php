@@ -232,8 +232,8 @@
                             </div>
                         </div>
                         <aside class="single_sidebar_widget popular_post_widget">
-                        @if($govNews != null)
-                            @foreach($govNews as $govNewsItem)
+                        @if($highlights != null)
+                            @foreach($highlights as $govNewsItem)
                             <div class="media post_item">
                                 <div class="col-lg-4 col-4 pl-0 pr-0">
                                     <img class="image" src="{{$govNewsItem['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="post">
