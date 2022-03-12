@@ -78,7 +78,8 @@ Route::get('/regulasi', [RegulationController::class, 'index']);
 Route::get('/cariregulasi', [RegulationController::class, 'searchRegulation']);
 
 Route::get('/dashboardkegiatan', [EventController::class, 'index']);
-Route::get('/kegiatan', [EventController::class, 'allEvent']);
+Route::get('/kegiataninisiatif', [EventController::class, 'allEvent']);
+Route::get('/kegiatannormatif', [EventController::class, 'allEventNormatif']);
 Route::get('/detailkegiatan', [EventController::class, 'getDetailEvent']);
 Route::get('/carikegiatan', [EventController::class, 'searchEvent']);
 

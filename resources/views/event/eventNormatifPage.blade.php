@@ -1,6 +1,6 @@
 @extends('template.main')
 
-@section('title', 'Pencarian Kegiatan | Portal Percepatan Digitalisasi Daerah')
+@section('title', 'Kegiatan | Portal Percepatan Digitalisasi Daerah')
 
 @if($p2dd_info != null)
     @section('description', strip_tags($p2dd_info['deskripsi']))
@@ -111,7 +111,7 @@
             <nav>
                 <ol class="breadcrumb pl-0 sky-blue">
                     <li class="breadcrumb-item"><a href="{!!  url('/dashboardkegiatan') !!}">Kegiatan</a></li>
-                    <li class="breadcrumb-item active"><a href="{!!  url('/carikegiatan') !!}">Cari Kegiatan</a>
+                    <li class="breadcrumb-item active"><a href="{!!  url('/kegiatannormatif') !!}">Kegiatan Normatif</a>
                     </li>
                 </ol>
             </nav>
@@ -121,7 +121,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-tittle text-center mb-30">
-                        <h2>Kegiatan</h2>
+                        <h2>Kegiatan Normatif</h2>
                     </div>
                 </div>
             </div>
@@ -150,14 +150,6 @@
     <!--================Berita Terbaru =================-->
     <section class="blog_area pt-10 add-padd background_3">
         <div class="container">
-            @if ($keyword != '')
-                <div class="row">
-                    <div class="col-lg-12 col-md-6 ket-jumlah-cari">
-                        <p>Hasil pencarian <strong>"{{ $keyword }}"</strong>, {{ $count }} hasil ditemukan</p>
-                        <!-- <p>Hasil pencarian <strong>"Elektronifikasi"</strong>, 30 hasil ditemukan</p> -->
-                    </div>
-                </div>
-            @endif
             <!--Berita Terbaru-->
             @if ($eventItems != null)
                 <div class="row">
@@ -171,7 +163,7 @@
                                 <div class="blog_details">
                                     <div class="row">
                                         <div class="col">
-                                            <p>{{ tanggal_indonesia($item['tgl_dibuat']) }}</p>
+                                            <p>{{ tanggal_indonesia($item['tanggal_publikasi']) }}</p>
                                         </div>
                                     </div>
                                     <a href="{!!  url('/detailkegiatan?id=') !!}{{ $item['kegiatan_id'] }}"
@@ -198,8 +190,8 @@
                         <ul class="pagination">
                             @if ($page > 1)
                                 <li class="page-item">
-                                    <a href="{!!  url('/carikegiatan?keyword=' . $title . '&page=' . ($page - 1)) !!}"
-                                        class="page-link" aria-label="Previous">
+                                    <a href="{!!  url('/kegiatannormatif?page=' . ($page - 1)) !!}" class="page-link"
+                                        aria-label="Previous">
                                         <i class="ti-angle-left"></i>
                                     </a>
                                 </li>
@@ -213,13 +205,11 @@
                             @for ($i = 1; $i <= $pagination; $i++)
                                 @if ($page == $i)
                                     <li class="page-item active">
-                                        <a href="{!!  url('/carikegiatan?keyword=' . $title . '&page=' . $i) !!}"
-                                            class="page-link">{{ $i }}</a>
+                                        <a href="{!!  url('/kegiatannormatif?page=' . $i) !!}" class="page-link">{{ $i }}</a>
                                     </li>
                                 @else
                                     <li class="page-item">
-                                        <a href="{!!  url('/carikegiatan?keyword=' . $title . '&page=' . $i) !!}"
-                                            class="page-link">{{ $i }}</a>
+                                        <a href="{!!  url('/kegiatannormatif?page=' . $i) !!}" class="page-link">{{ $i }}</a>
                                     </li>
                                 @endif
                             @endfor
@@ -231,8 +221,8 @@
                                 </li>
                             @else
                                 <li class="page-item">
-                                    <a href="{!!  url('/carikegiatan?keyword=' . $title . '&page=' . ($page + 1)) !!}"
-                                        class="page-link" aria-label="Next">
+                                    <a href="{!!  url('/kegiatannormatif?page=' . ($page + 1)) !!}" class="page-link"
+                                        aria-label="Next">
                                         <i class="ti-angle-right"></i>
                                     </a>
                                 </li>
@@ -242,13 +232,13 @@
                 </div>
             @else
                 <div class="container">
-                    <div class="row mt-5 mb-5">
+                    <div class="row pt-5 pb-5">
                         <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
                     </div>
                 </div>
                 <!-- <div class="row justify-content-center mb-50">
-                        Belum ada Data
-                    </div> -->
+                            Belum ada Data
+                        </div> -->
             @endif
         </div>
     </section>

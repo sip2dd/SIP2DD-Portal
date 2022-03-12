@@ -27,6 +27,7 @@ class EventController extends Controller
         $highlightevent = $this->eventRepo->getEventHighlight($offset, $limit_highlight);
         $attachments = $highlightevent ? $this->eventRepo->getDetailEventAttachment($highlightevent[0]['kegiatan_id']):null;
         $eventItems = $this->eventRepo->getEvent($offset, $limit);
+        $eventItemsNormatif = $this->eventRepo->getEventNormatif($offset, $limit);
         $p2dd_info =$this->getApiP2DDInfo();
         $menus = $this->getApiMenu();
 
@@ -49,6 +50,7 @@ class EventController extends Controller
             'highlightevent' => $highlightevent,
             'video' => $video,
             'eventItems' => $eventItems,
+            'eventItemsNormatif' => $eventItemsNormatif,
             'p2dd_info' => $p2dd_info,
             
         ]);
@@ -86,6 +88,47 @@ class EventController extends Controller
         } 
 
         return view('event.eventPage', [
+            'menus' => $menus,
+            'eventItems' => $eventItems,
+            'p2dd_info' => $p2dd_info,
+            'page' => $pages ?? 1,
+            'pagination' => $pagination,
+            'count' => $count
+        ]);
+    }
+
+    public function allEventNormatif(Request $request)
+    {
+        $offset=null;
+        $limit = 6;
+        $pagination = 1;
+        $pages = 1;
+
+        $validator = Validator::make($request->all(), [
+            'page' => 'integer'
+        ]);
+
+        if (!$validator->fails()) {
+            $pages = $request->page;
+            if($pages > 1){
+                $offset = ($pages - 1) * $limit; 
+            } 
+        }else{
+            $pages = 1;
+        }
+
+        //$menu = $this->getApiMenu();
+        $eventItems = $this->eventRepo->getEventNormatif($offset, $limit);
+        $p2dd_info =$this->getApiP2DDInfo();
+        $menus = $this->getApiMenu();
+
+        $count = $this->eventRepo->getCountEventNormatif();
+
+        if($count > $limit){
+            $pagination = ceil($count / $limit);
+        } 
+
+        return view('event.eventNormatifPage', [
             'menus' => $menus,
             'eventItems' => $eventItems,
             'p2dd_info' => $p2dd_info,

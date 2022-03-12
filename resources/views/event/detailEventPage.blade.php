@@ -242,7 +242,7 @@
                   <div class="row pt-0">
                      <div class="col">
                         <div class="section-judul-berita">
-                           <h4>Webinar Lainnya</h4>
+                           <h4>Kegiatan Lainnya</h4>
                         </div>
                      </div>
                      <div class="col">
@@ -270,7 +270,7 @@
                                         style="height: 14px; vertical-align: -1px; margin-right: .2rem;">
                                         {{$event['dibuat_oleh']}}
                                 </p>
-                                <p>{{tanggal_indonesia($event['tgl_dibuat'], false)}}</p>
+                                <p>{{tanggal_indonesia($event['tanggal_publikasi'], false)}}</p>
                             </div>
                             </div>
                         </div>

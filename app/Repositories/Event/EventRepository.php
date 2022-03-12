@@ -10,13 +10,27 @@ Class EventRepository implements EventInterface{
 
     public function getEvent($offset=null, $limit=3){
         if($offset != null){
-            $items = $this->getApiContents("1537.json?offset=".$offset."&limit=".$limit);
+            $items = $this->getApiContents("1646.json?offset=".$offset."&limit=".$limit);
         }else{
-            $items = $this->getApiContents("1537.json?offset=null&limit=".$limit);
+            $items = $this->getApiContents("1646.json?offset=null&limit=".$limit);
         }
         
         if($items != null){
-            $items = $items['data']['kegiatan_list'];
+            $items = $items['data']['portal_kegiatan_inisiatif'];
+        }
+        return $items;
+        
+    }
+
+    public function getEventNormatif($offset=null, $limit=3){
+        if($offset != null){
+            $items = $this->getApiContents("1643.json?offset=".$offset."&limit=".$limit);
+        }else{
+            $items = $this->getApiContents("1643.json?offset=null&limit=".$limit);
+        }
+        
+        if($items != null){
+            $items = $items['data']['portal_daftar_kegiatan'];
         }
         return $items;
         
@@ -62,6 +76,14 @@ Class EventRepository implements EventInterface{
 
     public function getCountEvent(){
         $eventItems = $this->getApiContents("1572.json");
+        if($eventItems != null){
+            $eventItems = $eventItems['data']['cnt_kegiatan'][0]['cnt'];
+        }
+        return $eventItems;
+    }
+
+    public function getCountEventNormatif(){
+        $eventItems = $this->getApiContents("1647.json");
         if($eventItems != null){
             $eventItems = $eventItems['data']['cnt_kegiatan'][0]['cnt'];
         }

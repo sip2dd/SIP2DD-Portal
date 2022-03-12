@@ -121,7 +121,7 @@
                                 {{ $item['dibuat_oleh'] }}</p>
                             </div>
                             <div class="col-lg-5 col-md-12 col-webinar">
-                                <p class="ket_waktu"><i class="fa fa-clock"></i> {{tanggal_indonesia($item['tgl_dibuat'],false)}}</p>
+                                <p class="ket_waktu"><i class="fa fa-clock"></i> {{tanggal_indonesia($item['tanggal_publikasi'],false)}}</p>
                             </div>
                         </div>
                         <div class="button_webinar">
@@ -150,65 +150,117 @@
         </div>
         @endforeach
     @else
-    <div class="section-padd4 sky-blue">
+    
+    <!-- <div class="section-padd4 sky-blue">
         <div class="container nav-bread mt-30">
             <nav>
-                <ol class="breadcrumb pl-0 sky-blue">
+                <ol class="breadcrumb pl-0 sky-blue"> -->
                     <!-- <li class="breadcrumb-item"><a href="Berita.html">Kegiatan</a></li>
                     <li class="breadcrumb-item active"><a href="#">List Webinar</a>
                     </li> -->
-                </ol>
+                <!-- </ol>
             </nav>
         </div>
-    </div>
+    </div> -->
     @endif
     <!--Galeri Foto Start-->
-    <div class="our-customer pb-30 pt-50 background_3">
-        <div class="container padd-carousel">
-            <div class="our-customer-wrapper">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="section-tittle text-center mb-90">
-                            <h2>Webinar Terbaru</h2>
-                        </div>
-                    </div>
-                </div>
-                @if($eventItems != null)
-                <div class="row mx-auto my-auto">
-                    <div id="listkegiatancarousel" class="listkegiatancarousel owl-carousel owl-theme">
-                        @foreach($eventItems as $index => $item)
-                                    <div class="single-customer">
-                                        <div class="what-img">
-                                            <img src="{{$item['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                                        </div>
-                                        <div class="what-cap">
-                                            <h6>{{tanggal_indonesia($item['tgl_dibuat'])}}</h6>
-                                            <!--Edit PEnamabahan instansi-->
-                                            <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                    alt="logo">{{ $item['dibuat_oleh'] }}
-                                            </h6>
-                                            <h4><a href="{!! url('/detailkegiatan?id=')!!}{{$item['kegiatan_id']}}"> {{ Str::limit($item['judul'], 60) }}</a></h4>
-                                        </div>
-                                        <div class="tulisan-lengkapnya">
-                                            <a href="{!! url('/detailkegiatan?id=')!!}{{$item['kegiatan_id']}}">Selengkapnya <span
-                                                    class="fas fa-chevron-right mr-2"></span></a>
-                                        </div>
-                                    </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="row mt-5 mb-5">
-                    <a href="{!! url('kegiatan') !!}" class="btn radius-btn"
-                        style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
-                </div>
-                @else
-                        <div class="container">
-                            <div class="row mt-5 mb-5">
-                                <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+    <div class="section-padd4 sky-blue">
+        <div class="our-customer pb-30 pt-50 background_3">
+            <div class="container padd-carousel">
+                <div class="our-customer-wrapper">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="section-tittle text-center mb-90">
+                                <h2>Kegiatan Inisiatif</h2>
                             </div>
                         </div>
+                    </div>
+                    @if($eventItems != null)
+                    <div class="row mx-auto my-auto">
+                        <div id="listkegiatancarousel" class="listkegiatancarousel owl-carousel owl-theme">
+                            @foreach($eventItems as $index => $item)
+                                        <div class="single-customer">
+                                            <div class="what-img">
+                                                <img src="{{$item['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                            </div>
+                                            <div class="what-cap">
+                                                <h6>{{tanggal_indonesia($item['tanggal_publikasi'])}}</h6>
+                                                <!--Edit PEnamabahan instansi-->
+                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                        alt="logo">{{ $item['dibuat_oleh'] }}
+                                                </h6>
+                                                <h4><a href="{!! url('/detailkegiatan?id=')!!}{{$item['kegiatan_id']}}"> {{ Str::limit($item['judul'], 60) }}</a></h4>
+                                            </div>
+                                            <div class="tulisan-lengkapnya">
+                                                <a href="{!! url('/detailkegiatan?id=')!!}{{$item['kegiatan_id']}}">Selengkapnya <span
+                                                        class="fas fa-chevron-right mr-2"></span></a>
+                                            </div>
+                                        </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="row mt-5 mb-5">
+                        <a href="{!! url('kegiataninisiatif') !!}" class="btn radius-btn"
+                            style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
+                    </div>
+                    @else
+                            <div class="container">
+                                <div class="row mt-5 mb-5">
+                                    <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                                </div>
+                            </div>
 
-                @endif
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="our-customer pb-30 pt-50 background_3">
+            <div class="container padd-carousel">
+                <div class="our-customer-wrapper">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="section-tittle text-center mb-90">
+                                <h2>Kegiatan Normatif</h2>
+                            </div>
+                        </div>
+                    </div>
+                    @if($eventItemsNormatif != null)
+                    <div class="row mx-auto my-auto">
+                        <div id="listkegiatancarousel" class="listkegiatancarousel owl-carousel owl-theme">
+                            @foreach($eventItemsNormatif as $index => $item)
+                                        <div class="single-customer">
+                                            <div class="what-img">
+                                                <img src="{{$item['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                            </div>
+                                            <div class="what-cap">
+                                                <h6>{{tanggal_indonesia($item['tanggal_publikasi'])}}</h6>
+                                                <!--Edit PEnamabahan instansi-->
+                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                        alt="logo">{{ $item['dibuat_oleh'] }}
+                                                </h6>
+                                                <h4><a href="{!! url('/detailkegiatan?id=')!!}{{$item['kegiatan_id']}}"> {{ Str::limit($item['judul'], 60) }}</a></h4>
+                                            </div>
+                                            <div class="tulisan-lengkapnya">
+                                                <a href="{!! url('/detailkegiatan?id=')!!}{{$item['kegiatan_id']}}">Selengkapnya <span
+                                                        class="fas fa-chevron-right mr-2"></span></a>
+                                            </div>
+                                        </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="row mt-5 mb-5">
+                        <a href="{!! url('kegiatannormatif') !!}" class="btn radius-btn"
+                            style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
+                    </div>
+                    @else
+                            <div class="container">
+                                <div class="row mt-5 mb-5">
+                                    <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                                </div>
+                            </div>
+
+                    @endif
+                </div>
             </div>
         </div>
     </div>
