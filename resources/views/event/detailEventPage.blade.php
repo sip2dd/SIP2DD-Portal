@@ -110,7 +110,7 @@
       <div class="container nav-bread mt-30">
          <nav>
             <ol class="breadcrumb pl-0 pr-0 sky-blue">
-               <li class="breadcrumb-item"><a href="Edukasi.html">Kegiatan</a></li>
+               <li class="breadcrumb-item"><a href="{!!  url('/dashboardkegiatan') !!}">Kegiatan</a></li>
                <li class="breadcrumb-item active"><a href="">
                 @if($detailEvent != null)
                      {{ $detailEvent['judul']}}
