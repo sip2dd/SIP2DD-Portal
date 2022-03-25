@@ -202,12 +202,12 @@
                                 @if($attachment['link'] != null)
                                 <p>
                                 <a href="{{$attachment['link']}}" target="_blank" class="btn btn_materi_edukasi"><i class="fa fa-cloud-download-alt"
-                                        style="margin-right: .5em;"></i> {{($attachment['caption'] != null ? $attachment['caption'] : "Download Materi")}} </a>
+                                        style="margin-right: .5em;"></i> {{($attachment['caption'] != null ? $attachment['caption'] : "Unduh Materi")}} </a>
                                 </p>
                                 @elseif($attachment['file'] != null)
                                 <p>
                                 <a href="{{$attachment['file']}}" target="_blank" class="btn btn_materi_edukasi"><i class="fa fa-cloud-download-alt"
-                                        style="margin-right: .5em;"></i> {{($attachment['caption'] != null ? $attachment['caption'] : "Download Materi")}} </a>
+                                        style="margin-right: .5em;"></i> {{($attachment['caption'] != null ? $attachment['caption'] : "Unduh Materi")}} </a>
                                 </p>
                                 @endif
                             @endif
