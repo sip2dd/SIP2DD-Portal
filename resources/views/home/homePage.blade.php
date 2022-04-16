@@ -1,13 +1,13 @@
 @extends('template.main')
 
-@if($p2dd_info != null)
+@if ($p2dd_info != null)
     @section('title', $p2dd_info['title'])
 @else
     @section('title', 'Portal Percepatan Digitalisasi Daerah')
 @endif
 
 
-@if($p2dd_info != null)
+@if ($p2dd_info != null)
     @section('description', strip_tags($p2dd_info['deskripsi']))
 @endif
 
@@ -21,78 +21,78 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                                <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}"
+                                        alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
                             <!-- Main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
-                                <ul id="navigation">
-                                        @if($menus != null)
-                                            @foreach($menus as $menu)
-                                                @if(isset($menu['link']))
-                                                    @if($menu['link'] == "/".Request::segment(1))
-                                                        @if($menu['link'] == "/#")
-                                                            <li class="active"><a>{{$menu['nama']}}</a>
-                                                        @else
-                                                        <li class="active"><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                    <ul id="navigation">
+                                        @if ($menus != null)
+                                            @foreach ($menus as $menu)
+                                                @if (isset($menu['link']))
+                                                    @if ($menu['link'] == '/' . Request::segment(1))
+                                                        @if ($menu['link'] == '/#')
+                                                            <li class="active"><a>{{ $menu['nama'] }}</a>
+                                                            @else
+                                                            <li class="active"><a
+                                                                    href="{!! url($menu['link']) !!}">{{ $menu['nama'] }}</a>
                                                         @endif
-                                                    @elseif($menu['link'] == "/#")
-                                                        <li><a>{{$menu['nama']}}</a>
-                                                    @else
-                                                        <li><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                                    @elseif($menu['link'] == '/#')
+                                                        <li><a>{{ $menu['nama'] }}</a>
+                                                        @else
+                                                        <li><a href="{!! url($menu['link']) !!}">{{ $menu['nama'] }}</a>
                                                     @endif
                                                 @endif
 
-                                                @if(isset($menu['menu_child']))
-
-                                                    @if(count($menu['menu_child']) > 0)
-                                                    <ul class="submenu">
-                                                        @foreach($menu['menu_child'] as $child)
-                                                            <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
-                                                        @endforeach
-                                                    </ul>
-                                                    
+                                                @if (isset($menu['menu_child']))
+                                                    @if (count($menu['menu_child']) > 0)
+                                                        <ul class="submenu">
+                                                            @foreach ($menu['menu_child'] as $child)
+                                                                <li><a
+                                                                        href="{!! url($child['link']) !!}">{{ $child['menu'] }}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
                                                     @endif
                                                 @endif
                                                 </li>
-                    
                                             @endforeach
-                                        
                                         @else
-                                    <!-- 
-                                        <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
-                                        <li><a href="{!! url('/berita') !!}">Berita</a></li>
-                                        <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
-                                        <li><a href="#">Edukasi</a>
-                                            <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
-                                                <li><a href="{!! url('/faq') !!}">FAQ</a></li>
-                                                <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
-                                        <li><a href="#">Kolaborasi</a></li>
-                                        <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
-                                        <li><a href="#">Galeri</a>
-                                            <ul class="submenu">
-                                                <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
-                                                <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
-                                            </ul>
-                                        </li>
+                                            <!--
+                                                                                    <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
+                                                                                    <li><a href="{!! url('/berita') !!}">Berita</a></li>
+                                                                                    <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
+                                                                                    <li><a href="#">Edukasi</a>
+                                                                                        <ul class="submenu">
+                                                                                            <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
+                                                                                            <li><a href="{!! url('/faq') !!}">FAQ</a></li>
+                                                                                            <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                    <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
+                                                                                    <li><a href="#">Kolaborasi</a></li>
+                                                                                    <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
+                                                                                    <li><a href="#">Galeri</a>
+                                                                                        <ul class="submenu">
+                                                                                            <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                                                                            <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                                                                        </ul>
+                                                                                    </li>
 
-                                     -->
-                                    @endif
+                                                                                 -->
+                                        @endif
                                         <!-- <li>
-                                            <div style="padding: 13px 30px;
-    border-radius: 50px;
-    background-color: #00ABE9;
-    color: #fff !important;
-    font-size: 15px !important;">
-                                                <a href="#">test</a>
-                                            </div>
-                                        </li> -->
+                                                                                        <div style="padding: 13px 30px;
+                                                border-radius: 50px;
+                                                background-color: #00ABE9;
+                                                color: #fff !important;
+                                                font-size: 15px !important;">
+                                                                                            <a href="#">test</a>
+                                                                                        </div>
+                                                                                    </li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -117,28 +117,29 @@
                 <div class="single-slider section-padding d-flex justify-items-center">
                     <div class="container">
                         <div class="row d-flex align-items-center">
-                            <div class="col-lg-6 col-md-9 ">
+                            <div class="col-lg-6 col-md-12 ">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInUp" data-delay=".4s">Portal Informasi<br>Percepatan dan
-                                        Perluasan<br>Digitalisasi Daerah</h1>
-                                    <p data-animation="fadeInUp" data-delay=".6s">Merupakan portal yang dapat dijadikan
-                                        sebagai referensi bagi masyarakat untuk
-                                        mendapatkan informasi terkait pelaksanaan <strong>Elektronifikasi Transaksi
-                                            Pemerintah Daerah</strong>.
+                                    <h1 data-animation="fadeInUp" data-delay=".4s">Evaluasi Kinerja<br>(Championship)
+                                        TP2DD<br>Tahun 2022</h1>
+                                    <p data-animation="fadeInUp" data-delay=".6s">Berdasarkan <strong> surat no.
+                                            EK.3.5/79/D.I.M.EKON/04/2022 tanggal 8 April 2022 </strong>
+                                        oleh Deputi Bidang Koordinasi Ekonomi Makro dan Keuangan selaku Ketua Pelaksana
+                                        Satgas P2DD, Bapak Iskandar Simorangkir,
+                                        evaluasi kinerja (championship) tahun 2022 diharapkan mengoptimalkan Sistem
+                                        Informasi P2DD dalam pengisian formulir dan penyampaian dokumen pendukung hingga
+                                        <strong> paling lambat pada 20 Mei 2022 </strong>
                                     </p>
                                 </div>
                                 <div class="slider-btns">
-                                    <a data-animation="fadeInLeft" data-delay=".8s" href="{!! url('pencarian') !!}"
-                                        class="btn radius-btn">Cari
-                                        Layanan & Berita</a>
                                     <a data-animation="fadeInLeft" data-delay=".8s" href="https://kelola.p2dd.go.id"
-                                        class="btn radius-btn" style="background: #40E0D0;" target="_blank" rel="noopener noreferrer">Akses Kelola P2DD</a>
+                                        class="btn radius-btn">Akses Kelola P2DD</a>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="hero__img d-none d-lg-block f-right" data-animation="fadeInRight"
                                     data-delay=".8s">
-                                    <img style="width: 500px" src="{{ URL::asset('img/beranda/Group_gambar.svg') }}" alt="">
+                                    <img style="width: 500px" src="{{ URL::asset('img/beranda/Group_gambar.svg') }}"
+                                        alt="">
                                 </div>
                             </div>
                         </div>
@@ -226,7 +227,8 @@
                                     </div>
                                     <div class="features-caption">
                                         <h3>Edukasi</h3>
-                                        <p>Materi, FAQ dan Daftar Istilah mengenai Percepatan dan Perluasan Digitalisasi Daerah.</p>
+                                        <p>Materi, FAQ dan Daftar Istilah mengenai Percepatan dan Perluasan Digitalisasi
+                                            Daerah.</p>
                                     </div>
                                 </div>
                             </div>
@@ -240,49 +242,53 @@
         <section class="service-area sky-blue section-paddingr">
             <div class="container padd-carousel">
                 <div class="car_berita">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="section-tittle text-center mb-90">
-                            <h2 class="layanan_index"><span>Layanan Terhangat</span></h2>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="section-tittle text-center mb-90">
+                                <h2 class="layanan_index"><span>Layanan Terhangat</span></h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @if($govServices != null)
-                <div id="layanan_c" class="layanan_c owl-carousel owl-theme">
-                            @foreach($govServices as $index => $govService)
+                    @if ($govServices != null)
+                        <div id="layanan_c" class="layanan_c owl-carousel owl-theme">
+                            @foreach ($govServices as $index => $govService)
                                 <div class="services-caption text-center mb-10 mr-1 ml-1">
                                     <div class="service-icon">
-                                        <span><img class="img-lay" src="{{$govService['gambar_utama']}}" onerror="this.src='{{ URL::asset('img/logo/log.png') }}'" alt=""></span>
+                                        <span><img class="img-lay" src="{{ $govService['gambar_utama'] }}"
+                                                onerror="this.src='{{ URL::asset('img/logo/log.png') }}'" alt=""></span>
                                     </div>
                                     <div class="service-cap">
                                         <!--Edit Penambahan kelas judul-->
-                                        <h4 class="service-judul"><a href="{!! url('detaillayanan?id=') !!}{{$govService['layanan_id']}}">{{Str::limit(Str::ucfirst($govService['judul']),32)}}</a></h4>
+                                        <h4 class="service-judul"><a
+                                                href="{!! url('detaillayanan?id=') !!}{{ $govService['layanan_id'] }}">{{ Str::limit(Str::ucfirst($govService['judul']), 32) }}</a>
+                                        </h4>
                                         <!--Edit Penambahan nama pemda-->
                                         <div class="services-loc">
-                                            <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo"> {{ $govService['dibuat_oleh'] }}
+                                            <h6><img src="{{ URL::asset('img/logo_list/gov4_blue.svg') }}" alt="logo">
+                                                {{ $govService['dibuat_oleh'] }}
                                             </h6>
                                         </div>
                                         <p>{{ Str::limit(strip_tags($govService['deskripsi']), 80) }}.</p>
                                         <!--Edit Penambahan tombol pemda-->
                                         <div class="link_layanan">
-                                            <a href="{{$govService['link_layanan']}}">Link Layanan</a>
+                                            <a href="{{ $govService['link_layanan'] }}">Link Layanan</a>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
-                    </div>
-                @else
-                <div class="container">
+                        </div>
+                    @else
+                        <div class="container">
+                            <div class="row mt-5 mb-5">
+                                <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                            </div>
+                        </div>
+                    @endif
                     <div class="row mt-5 mb-5">
-                        <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                        <a href="{!! url('layanan') !!}" class="btn radius-btn"
+                            style="margin:auto; text-align: center; display: block;">Selengkapnya</a>
                     </div>
                 </div>
-                @endif
-                <div class="row mt-5 mb-5">
-                    <a href="{!! url('layanan') !!}" class="btn radius-btn"
-                        style="margin:auto; text-align: center; display: block;">Selengkapnya</a>
-                </div>
-            </div>
             </div>
         </section>
         <!--Layanan Terhangat end baru 2-->
@@ -299,36 +305,39 @@
                         </div>
                     </div>
                     <div class="row mx-auto my-auto">
-                        @if($newsItems != null)
-                        <div id="berita_c" class="berita_c owl-carousel owl-theme">
-                            @foreach($newsItems as $index => $newsItem)
-                                            <div class="single-customer">
-                                                <!--Edit css bagian gambar image-->
-                                                <div class="what-img">
-                                                    <img src="{{ $newsItem['gambar_utama'] }}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                                                </div>
-                                                <div class="what-cap">
-                                                    <h6>{{ tanggal_indonesia($newsItem['tanggal_publikasi']) }}</h6>
-                                                    <!--Edit PEnamabhan instansi-->
-                                                    <h6 class="cap_deskripsi"><img
-                                                            src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                            alt="logo">{{ $newsItem['dibuat_oleh'] }}
-                                                    </h6>
-                                                    <h4><a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">{{ Str::limit($newsItem['judul'], 60) }}.</a></h4>
-                                                </div>
-                                                <div class="tulisan-lengkapnya">
-                                                    <a href="{!! url('/detailberita?id=')!!}{{$newsItem['berita_id']}}">Selengkapnya <span
-                                                            class="fas fa-chevron-right mr-2"></span></a>
-                                                </div>
-                                            </div>
-                            @endforeach
-                        </div>
-                        @else
-                        <div class="container">
-                            <div class="row mt-5 mb-5">
-                                <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                        @if ($newsItems != null)
+                            <div id="berita_c" class="berita_c owl-carousel owl-theme">
+                                @foreach ($newsItems as $index => $newsItem)
+                                    <div class="single-customer">
+                                        <!--Edit css bagian gambar image-->
+                                        <div class="what-img">
+                                            <img src="{{ $newsItem['gambar_utama'] }}"
+                                                onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
+                                        </div>
+                                        <div class="what-cap">
+                                            <h6>{{ tanggal_indonesia($newsItem['tanggal_publikasi']) }}</h6>
+                                            <!--Edit PEnamabhan instansi-->
+                                            <h6 class="cap_deskripsi"><img
+                                                    src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                    alt="logo">{{ $newsItem['dibuat_oleh'] }}
+                                            </h6>
+                                            <h4><a
+                                                    href="{!! url('/detailberita?id=') !!}{{ $newsItem['berita_id'] }}">{{ Str::limit($newsItem['judul'], 60) }}.</a>
+                                            </h4>
+                                        </div>
+                                        <div class="tulisan-lengkapnya">
+                                            <a href="{!! url('/detailberita?id=') !!}{{ $newsItem['berita_id'] }}">Selengkapnya
+                                                <span class="fas fa-chevron-right mr-2"></span></a>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
-                        </div>
+                        @else
+                            <div class="container">
+                                <div class="row mt-5 mb-5">
+                                    <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                                </div>
+                            </div>
                         @endif
                     </div>
                     <div class="row mt-5 mb-5">
@@ -352,34 +361,38 @@
                         </div>
                     </div>
                     <div class="row mx-auto my-auto">
-                        @if($eduNewsItems != null)
-                        <div id="edukasi_artikel_c" class="edukasi_artikel_c owl-carousel owl-theme">
-                            @foreach($eduNewsItems as $index => $eduNewsItem)
-                                        <div class="single-customer">
-                                            <div class="what-img">
-                                                <img src="{{$eduNewsItem['gambar_utama']}}"  onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
-                                            </div>
-                                            <div class="what-cap">
-                                                <h6>{{ tanggal_indonesia($eduNewsItem['tgl_dibuat']) }}</h6>
-                                                <!--Edit penmabahan instansi-->
-                                                <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                        alt="logo">{{ $eduNewsItem['dibuat_oleh'] }}
-                                                </h6>
-                                                <h4><a href="{{ url('detailedukasi?id=') }}{{$eduNewsItem['edukasi_id']}}">{{ Str::limit($eduNewsItem['judul'], 70) }}</a></h4>
-                                            </div>
-                                            <div class="tulisan-lengkapnya">
-                                                <a href="{{ url('detailedukasi?id=') }}{{$eduNewsItem['edukasi_id']}}">Selengkapnya <span
-                                                        class="fas fa-chevron-right mr-2"></span></a>
-                                            </div>
+                        @if ($eduNewsItems != null)
+                            <div id="edukasi_artikel_c" class="edukasi_artikel_c owl-carousel owl-theme">
+                                @foreach ($eduNewsItems as $index => $eduNewsItem)
+                                    <div class="single-customer">
+                                        <div class="what-img">
+                                            <img src="{{ $eduNewsItem['gambar_utama'] }}"
+                                                onerror="this.src='{{ URL::asset('img/P2DD.png') }}'" alt="">
                                         </div>
-                            @endforeach
-                        </div>
-                        @else
-                        <div class="container">
-                            <div class="row mt-5 mb-5">
-                                <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                                        <div class="what-cap">
+                                            <h6>{{ tanggal_indonesia($eduNewsItem['tgl_dibuat']) }}</h6>
+                                            <!--Edit penmabahan instansi-->
+                                            <h6 class="cap_deskripsi"><img
+                                                    src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                    alt="logo">{{ $eduNewsItem['dibuat_oleh'] }}
+                                            </h6>
+                                            <h4><a
+                                                    href="{{ url('detailedukasi?id=') }}{{ $eduNewsItem['edukasi_id'] }}">{{ Str::limit($eduNewsItem['judul'], 70) }}</a>
+                                            </h4>
+                                        </div>
+                                        <div class="tulisan-lengkapnya">
+                                            <a href="{{ url('detailedukasi?id=') }}{{ $eduNewsItem['edukasi_id'] }}">Selengkapnya
+                                                <span class="fas fa-chevron-right mr-2"></span></a>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
-                        </div>
+                        @else
+                            <div class="container">
+                                <div class="row mt-5 mb-5">
+                                    <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                                </div>
+                            </div>
                         @endif
                     </div>
                     <div class="row mt-5 mb-5">
@@ -391,75 +404,79 @@
         </div>
         <!--Edukasi End 2-->
 
-                <!--Galeri Foto Start 2-->
-                <div id="galerifoto_section" class="our-customer pb-30 edukasi-section">
-                    <div class="container padd-carousel">
-                        <div class="our-customer-wrapper">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-lg-12">
-                                    <div class="section-tittle text-center mb-90">
-                                        <h2>Galeri Foto</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mx-auto my-auto">
-                                @if($galleryNewsItems != null)
-                                <div id="gallery_foto_c" class="gallery_foto_c owl-carousel owl-theme">
-                                    @foreach($galleryNewsItems as $index => $galleryNewsItem)
-                                                <div class="single-customer">
-                                                    <div class="what-img">
-                                                        @if($galleryNewsItem['file'] != null)
-                                                            <img class="card-img" src="{{$galleryNewsItem['file']}}" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
-                                                        @else
-                                                            <img class="card-img" src="{{$galleryNewsItem['link']}}" alt="" onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
-                                                        @endif
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <h6>{{ tanggal_indonesia($galleryNewsItem['tgl_dibuat']) }}</h6>
-                                                        <!--Edit penmabahna Instansi-->
-                                                        <h6 class="cap_deskripsi"><img src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
-                                                                alt="logo">{{ $galleryNewsItem['dibuat_oleh'] }}
-                                                        </h6>
-                                                        <h4><a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryNewsItem['galeri_id']}}"> {{ Str::limit($galleryNewsItem['judul'], 60) }}</a></h4>
-                                                    </div>
-                                                    <div class="tulisan-lengkapnya">
-                                                        <a href="{!! url('/detailgalerifoto?id=')!!}{{$galleryNewsItem['galeri_id']}}">Selengkapnya <span
-                                                                class="fas fa-chevron-right mr-2"></span></a>
-                                                    </div>
-                                                </div>
-                                    @endforeach
-                                </div>
-                                @else
-                                <div class="container">
-                                    <div class="row mt-5 mb-5">
-                                        <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
-                                    </div>
-                                </div>
-                                @endif
-                            </div>
-                            <div class="row mt-5 mb-5">
-                                <a href="{!! url('/galerifoto') !!}" class="btn radius-btn"
-                                    style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
+        <!--Galeri Foto Start 2-->
+        <div id="galerifoto_section" class="our-customer pb-30 edukasi-section">
+            <div class="container padd-carousel">
+                <div class="our-customer-wrapper">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="section-tittle text-center mb-90">
+                                <h2>Galeri Foto</h2>
                             </div>
                         </div>
                     </div>
+                    <div class="row mx-auto my-auto">
+                        @if ($galleryNewsItems != null)
+                            <div id="gallery_foto_c" class="gallery_foto_c owl-carousel owl-theme">
+                                @foreach ($galleryNewsItems as $index => $galleryNewsItem)
+                                    <div class="single-customer">
+                                        <div class="what-img">
+                                            @if ($galleryNewsItem['file'] != null)
+                                                <img class="card-img" src="{{ $galleryNewsItem['file'] }}" alt=""
+                                                    onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                            @else
+                                                <img class="card-img" src="{{ $galleryNewsItem['link'] }}" alt=""
+                                                    onerror="this.src='{{ URL::asset('img/P2DD.png') }}'">
+                                            @endif
+                                        </div>
+                                        <div class="what-cap">
+                                            <h6>{{ tanggal_indonesia($galleryNewsItem['tgl_dibuat']) }}</h6>
+                                            <!--Edit penmabahna Instansi-->
+                                            <h6 class="cap_deskripsi"><img
+                                                    src="{{ URL::asset('img/logo_list/gov4_grey.svg') }}"
+                                                    alt="logo">{{ $galleryNewsItem['dibuat_oleh'] }}
+                                            </h6>
+                                            <h4><a href="{!! url('/detailgalerifoto?id=') !!}{{ $galleryNewsItem['galeri_id'] }}">
+                                                    {{ Str::limit($galleryNewsItem['judul'], 60) }}</a></h4>
+                                        </div>
+                                        <div class="tulisan-lengkapnya">
+                                            <a href="{!! url('/detailgalerifoto?id=') !!}{{ $galleryNewsItem['galeri_id'] }}">Selengkapnya
+                                                <span class="fas fa-chevron-right mr-2"></span></a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @else
+                            <div class="container">
+                                <div class="row mt-5 mb-5">
+                                    <a style="margin:auto; text-align: center; display: block;">Belum ada Data</a>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="row mt-5 mb-5">
+                        <a href="{!! url('/galerifoto') !!}" class="btn radius-btn"
+                            style="margin:0 auto; text-align: center; display: block;">Selengkapnya</a>
+                    </div>
                 </div>
-                <!--Galeri Foto End 2-->
+            </div>
+        </div>
+        <!--Galeri Foto End 2-->
     </main>
 @endsection
 
 @section('p2dd_info')
 
-    @if($p2dd_info != null)
-        <div class="footer-pera footer-pera2">                                
-            <!-- <p>{{$p2dd_info['title']}}</p> -->
+    @if ($p2dd_info != null)
+        <div class="footer-pera footer-pera2">
+            <!-- <p>{{ $p2dd_info['title'] }}</p> -->
             <p>{!! Str::limit($p2dd_info['deskripsi'], 120) !!}</p>
-            <p>{{$p2dd_info['no_telpon']}}</p>
-            <p>{{$p2dd_info['email']}}</p>
-            <p>{!!$p2dd_info['alamat']!!}</p>
+            <p>{{ $p2dd_info['no_telpon'] }}</p>
+            <p>{{ $p2dd_info['email'] }}</p>
+            <p>{!! $p2dd_info['alamat'] !!}</p>
         </div>
     @else
-        <div class="footer-pera footer-pera2">                                
+        <div class="footer-pera footer-pera2">
             <p>SIP2DD adalah Sistem Informasi Percepatan dan Perluasan Digitalisasi Daerah</p>
             <p>0218224049</p>
             <p>info@p2dd.go.id</p>
@@ -470,19 +487,19 @@
 
 @section('p2dd_medsos')
 
-    @if($p2dd_info != null)
+    @if ($p2dd_info != null)
         <ul>
             <li>
-                <a href="//{!!$p2dd_info['facebook']!!}" class="fab fa-facebook-f"></a>
+                <a href="//{!! $p2dd_info['facebook'] !!}" class="fab fa-facebook-f"></a>
             </li>
             <li>
-                <a href="//{!!$p2dd_info['youtube']!!}" class="fab fa-youtube ml-4"></a>
+                <a href="//{!! $p2dd_info['youtube'] !!}" class="fab fa-youtube ml-4"></a>
             </li>
             <li>
-                <a href="//{!!$p2dd_info['twitter']!!}" class="fab fa-twitter ml-4"></a>
+                <a href="//{!! $p2dd_info['twitter'] !!}" class="fab fa-twitter ml-4"></a>
             </li>
             <li>
-                <a href="//{!!$p2dd_info['instagram']!!}" class="fab fa-instagram  ml-4"></a>
+                <a href="//{!! $p2dd_info['instagram'] !!}" class="fab fa-instagram  ml-4"></a>
             </li>
         </ul>
     @else
@@ -499,9 +516,7 @@
             <li>
                 <a href="#" class="fab fab fa-instagram-v ml-4"></a>
             </li>
-            
+
         </ul>
     @endif
 @endsection
-
-

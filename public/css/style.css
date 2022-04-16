@@ -5833,6 +5833,12 @@ del {
     .slider-padding {
         padding-top: 40px
     }
+    .slider-area .hero__caption {
+        text-align: center;
+    }
+    .slider-btns {
+        text-align: center;
+    }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -5870,7 +5876,7 @@ del {
 }
 
 .slider-area .hero__caption h1 {
-    font-size: 35px;
+    font-size: 33px;
     font-weight: 700;
     color: #00ABE9;
     font-family: "Nunito", sans-serif;
@@ -5880,7 +5886,7 @@ del {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .slider-area .hero__caption h1 {
-        font-size: 40px;
+        font-size: 35px;
         line-height: 1.2
     }
 }
@@ -5901,6 +5907,7 @@ del {
 
 .slider-area .hero__caption p {
     margin-bottom: 54px;
+    font-size:14px;
     padding-right: 155px
 }
 
