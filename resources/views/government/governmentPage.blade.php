@@ -2,7 +2,7 @@
 
 @section('title', 'TP2DD | Portal Percepatan Digitalisasi Daerah')
 
-@if($p2dd_info != null)
+@if ($p2dd_info != null)
     @section('description', strip_tags($p2dd_info['deskripsi']))
 @endif
 
@@ -18,78 +18,78 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}" alt=""></a>
+                                <a href="{!! url('/') !!}"><img src="{{ URL::asset('img/logo/log.png') }}"
+                                        alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
                             <!-- Main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
-                                <ul id="navigation">
-                                        @if($menus != null)
-                                            @foreach($menus as $menu)
-                                                @if(isset($menu['link']))
-                                                    @if($menu['link'] == "/".Request::segment(1))
-                                                        @if($menu['link'] == "/#")
-                                                            <li class="active"><a>{{$menu['nama']}}</a>
-                                                        @else
-                                                        <li class="active"><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                    <ul id="navigation">
+                                        @if ($menus != null)
+                                            @foreach ($menus as $menu)
+                                                @if (isset($menu['link']))
+                                                    @if ($menu['link'] == '/' . Request::segment(1))
+                                                        @if ($menu['link'] == '/#')
+                                                            <li class="active"><a>{{ $menu['nama'] }}</a>
+                                                            @else
+                                                            <li class="active"><a
+                                                                    href="{!! url($menu['link']) !!}">{{ $menu['nama'] }}</a>
                                                         @endif
-                                                    @elseif($menu['link'] == "/#")
-                                                        <li><a>{{$menu['nama']}}</a>
-                                                    @else
-                                                        <li><a href="{!! url($menu['link']) !!}">{{$menu['nama']}}</a>
+                                                    @elseif($menu['link'] == '/#')
+                                                        <li><a>{{ $menu['nama'] }}</a>
+                                                        @else
+                                                        <li><a href="{!! url($menu['link']) !!}">{{ $menu['nama'] }}</a>
                                                     @endif
                                                 @endif
 
-                                                @if(isset($menu['menu_child']))
-
-                                                    @if(count($menu['menu_child']) > 0)
-                                                    <ul class="submenu">
-                                                        @foreach($menu['menu_child'] as $child)
-                                                            <li><a href="{!! url($child['link']) !!}">{{$child['menu']}}</a></li>
-                                                        @endforeach
-                                                    </ul>
-                                                    
+                                                @if (isset($menu['menu_child']))
+                                                    @if (count($menu['menu_child']) > 0)
+                                                        <ul class="submenu">
+                                                            @foreach ($menu['menu_child'] as $child)
+                                                                <li><a
+                                                                        href="{!! url($child['link']) !!}">{{ $child['menu'] }}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
                                                     @endif
                                                 @endif
                                                 </li>
-                    
                                             @endforeach
-                                        
                                         @else
-                                    <!-- 
-                                        <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
-                                        <li><a href="{!! url('/berita') !!}">Berita</a></li>
-                                        <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
-                                        <li><a href="#">Edukasi</a>
-                                            <ul class="submenu">
-                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
-                                                <li><a href="{!! url('/faq') !!}">FAQ</a></li>
-                                                <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
-                                        <li><a href="#">Kolaborasi</a></li>
-                                        <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
-                                        <li><a href="#">Galeri</a>
-                                            <ul class="submenu">
-                                                <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
-                                                <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
-                                            </ul>
-                                        </li>
+                                            <!--
+                                                <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
+                                                <li><a href="{!! url('/berita') !!}">Berita</a></li>
+                                                <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
+                                                <li><a href="#">Edukasi</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
+                                                        <li><a href="{!! url('/faq') !!}">FAQ</a></li>
+                                                        <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
+                                                <li><a href="#">Kolaborasi</a></li>
+                                                <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
+                                                <li><a href="#">Galeri</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                                        <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                                    </ul>
+                                                </li>
 
-                                     -->
-                                    @endif
+                                             -->
+                                        @endif
                                         <!-- <li>
-                                            <div style="padding: 13px 30px;
-    border-radius: 50px;
-    background-color: #00ABE9;
-    color: #fff !important;
-    font-size: 15px !important;">
-                                                <a href="#">test</a>
-                                            </div>
-                                        </li> -->
+                                                    <div style="padding: 13px 30px;
+            border-radius: 50px;
+            background-color: #00ABE9;
+            color: #fff !important;
+            font-size: 15px !important;">
+                                                        <a href="#">test</a>
+                                                    </div>
+                                                </li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -125,17 +125,17 @@
                     <!--Edit untuk penambahan class col dan ada beberapa edit di css-->
                     <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                         <!-- <form action="" method="">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
-                                        <div class="input-group-append">
-                                            <button class="button1">
-                                                <i class="fas fa-search"></i>
-                                            </button>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" autocomplete="off" class="inputan-cari" placeholder="Cari">
+                                                <div class="input-group-append">
+                                                    <button class="button1">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </form> -->
+                                    </form> -->
                     </div>
                 </div>
                 <div class="row">
@@ -169,8 +169,8 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <a class="dropdown-item" href="{{ url('/tp2dd') }}?sort=ASC">Dari Huruf Awal <i
                                             class="fa fa-sort-alpha-down" style="margin-left: 1.5em;"></i></a>
-                                    <a class="dropdown-item" href="{{ url('/tp2dd') }}?sort=DESC">Dari Huruf Terakhir<img
-                                            src="{{ URL::asset('fonts/sort-alpha-down-alt-solid.svg') }}"
+                                    <a class="dropdown-item" href="{{ url('/tp2dd') }}?sort=DESC">Dari Huruf
+                                        Terakhir<img src="{{ URL::asset('fonts/sort-alpha-down-alt-solid.svg') }}"
                                             style="width: 13px; margin-left: .3em;"></a>
                                 </div>
                             </div>
@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="service-cap">
                                         <h4><a
-                                                href="{!!  url('/detailtp2dd?kode_daerah=') !!}{{ $government['instansi_id'] }}">{{ $government['nama'] }}</a>
+                                                href="{!! url('/detailtp2dd?kode_daerah=') !!}{{ $government['instansi_id'] }}">{{ ucwords(strtolower($government['nama'])) }}</a>
                                         </h4>
                                         <p>{{ Str::limit(strip_tags($government['deskripsi']), 120) }}</p>
                                     </div>
@@ -207,17 +207,13 @@
                                 @if ($page > 1)
                                     <li class="page-item">
                                         @if ($sort == null)
-
-                                            <a href="{!!  url('/tp2dd?page=' . ($page - 1)) !!}" class="page-link"
-                                                aria-label="Previous">
+                                            <a href="{!! url('/tp2dd?page=' . ($page - 1)) !!}" class="page-link" aria-label="Previous">
                                                 <i class="ti-angle-left"></i>
                                             </a>
                                         @else
-                                            <a href="{!!  url('/tp2dd?sort=' . $sort . '&page=' . ($page - 1)) !!}"
-                                                class="page-link" aria-label="Previous">
+                                            <a href="{!! url('/tp2dd?sort=' . $sort . '&page=' . ($page - 1)) !!}" class="page-link" aria-label="Previous">
                                                 <i class="ti-angle-left"></i>
                                             </a>
-
                                         @endif
                                     </li>
                                 @else
@@ -231,22 +227,21 @@
                                     @if ($page == $i)
                                         <li class="page-item active">
                                             @if ($sort == null)
-
-                                                <a href="{!!  url('/tp2dd?page=' . $i) !!}" class="page-link">{{ $i }}</a>
-                                            @else
-                                                <a href="{!!  url('/tp2dd?sort=' . $sort . '&page=' . $i) !!}"
+                                                <a href="{!! url('/tp2dd?page=' . $i) !!}"
                                                     class="page-link">{{ $i }}</a>
-
+                                            @else
+                                                <a href="{!! url('/tp2dd?sort=' . $sort . '&page=' . $i) !!}"
+                                                    class="page-link">{{ $i }}</a>
                                             @endif
 
                                         </li>
                                     @else
                                         <li class="page-item">
                                             @if ($sort == null)
-
-                                                <a href="{!!  url('/tp2dd?page=' . $i) !!}" class="page-link">{{ $i }}</a>
+                                                <a href="{!! url('/tp2dd?page=' . $i) !!}"
+                                                    class="page-link">{{ $i }}</a>
                                             @else
-                                                <a href="{!!  url('/tp2dd?sort=' . $sort . '&page=' . $i) !!}"
+                                                <a href="{!! url('/tp2dd?sort=' . $sort . '&page=' . $i) !!}"
                                                     class="page-link">{{ $i }}
                                                 </a>
                                             @endif
@@ -262,17 +257,13 @@
                                 @else
                                     <li class="page-item">
                                         @if ($sort == null)
-
-                                            <a href="{!!  url('/tp2dd?page=' . ($page + 1)) !!}" class="page-link"
-                                                aria-label="Previous">
+                                            <a href="{!! url('/tp2dd?page=' . ($page + 1)) !!}" class="page-link" aria-label="Previous">
                                                 <i class="ti-angle-right"></i>
                                             </a>
                                         @else
-                                            <a href="{!!  url('/tp2dd?sort=' . $sort . '&page=' . ($page + 1)) !!}"
-                                                class="page-link" aria-label="Previous">
+                                            <a href="{!! url('/tp2dd?sort=' . $sort . '&page=' . ($page + 1)) !!}" class="page-link" aria-label="Previous">
                                                 <i class="ti-angle-right"></i>
                                             </a>
-
                                         @endif
                                     </li>
                                 @endif
@@ -300,16 +291,21 @@
             // Geolocation available
             if (!window.location.href.includes("?")) {
                 window.navigator.geolocation
-                .getCurrentPosition(successfulLookup, console.log);
+                    .getCurrentPosition(successfulLookup, console.log);
             } else {
                 let select_nama_daerah = document.querySelector('#nama_daerah')
                 select_nama_daerah.value = window.location.href
             }
-        } 
+        }
 
         function successfulLookup(position) {
-            const { latitude, longitude } = position.coords;
-            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=4403bccfc3b446a2af7efa71f0fce0c0`)
+            const {
+                latitude,
+                longitude
+            } = position.coords;
+            fetch(
+                    `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=4403bccfc3b446a2af7efa71f0fce0c0`
+                    )
                 .then(response => response.json())
                 .then(json => {
                     let city = json.results[0].components.city
@@ -341,7 +337,6 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
-
     </script>
 
 
@@ -372,16 +367,16 @@
     @if ($p2dd_info != null)
         <ul>
             <li>
-                <a href="//{!!  $p2dd_info['facebook'] !!}" class="fab fa-facebook-f"></a>
+                <a href="//{!! $p2dd_info['facebook'] !!}" class="fab fa-facebook-f"></a>
             </li>
             <li>
-                <a href="//{!!  $p2dd_info['youtube'] !!}" class="fab fa-youtube ml-4"></a>
+                <a href="//{!! $p2dd_info['youtube'] !!}" class="fab fa-youtube ml-4"></a>
             </li>
             <li>
-                <a href="//{!!  $p2dd_info['twitter'] !!}" class="fab fa-twitter ml-4"></a>
+                <a href="//{!! $p2dd_info['twitter'] !!}" class="fab fa-twitter ml-4"></a>
             </li>
             <li>
-                <a href="//{!!  $p2dd_info['instagram'] !!}" class="fab fa-instagram  ml-4"></a>
+                <a href="//{!! $p2dd_info['instagram'] !!}" class="fab fa-instagram  ml-4"></a>
             </li>
         </ul>
     @else
