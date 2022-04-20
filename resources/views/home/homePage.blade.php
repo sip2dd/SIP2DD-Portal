@@ -62,37 +62,37 @@
                                             @endforeach
                                         @else
                                             <!--
-                                                                                                                                                                                        <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
-                                                                                                                                                                                        <li><a href="{!! url('/berita') !!}">Berita</a></li>
-                                                                                                                                                                                        <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
-                                                                                                                                                                                        <li><a href="#">Edukasi</a>
-                                                                                                                                                                                            <ul class="submenu">
-                                                                                                                                                                                                <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
-                                                                                                                                                                                                <li><a href="{!! url('/faq') !!}">FAQ</a></li>
-                                                                                                                                                                                                <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
-                                                                                                                                                                                            </ul>
-                                                                                                                                                                                        </li>
-                                                                                                                                                                                        <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
-                                                                                                                                                                                        <li><a href="#">Kolaborasi</a></li>
-                                                                                                                                                                                        <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
-                                                                                                                                                                                        <li><a href="#">Galeri</a>
-                                                                                                                                                                                            <ul class="submenu">
-                                                                                                                                                                                                <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
-                                                                                                                                                                                                <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
-                                                                                                                                                                                            </ul>
-                                                                                                                                                                                        </li>
+                                                                                                                                                                                                                                                                <li class="active"><a href="{!! url('/') !!}">Beranda</a></li>
+                                                                                                                                                                                                                                                                <li><a href="{!! url('/berita') !!}">Berita</a></li>
+                                                                                                                                                                                                                                                                <li><a href="{!! url('/tp2dd') !!}">TP2DD</a></li>
+                                                                                                                                                                                                                                                                <li><a href="#">Edukasi</a>
+                                                                                                                                                                                                                                                                    <ul class="submenu">
+                                                                                                                                                                                                                                                                        <li><a href="{!! url('/edukasi') !!}">Materi</a></li>
+                                                                                                                                                                                                                                                                        <li><a href="{!! url('/faq') !!}">FAQ</a></li>
+                                                                                                                                                                                                                                                                        <li><a href="{!! url('/daftaristilah') !!}">Daftar Istilah</a></li>
+                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                </li>
+                                                                                                                                                                                                                                                                <li><a href="{!! url('/regulasi') !!}">Regulasi</a></li>
+                                                                                                                                                                                                                                                                <li><a href="#">Kolaborasi</a></li>
+                                                                                                                                                                                                                                                                <li><a href="{!! url('/dashboardkegiatan') !!}">Kegiatan</a></li>
+                                                                                                                                                                                                                                                                <li><a href="#">Galeri</a>
+                                                                                                                                                                                                                                                                    <ul class="submenu">
+                                                                                                                                                                                                                                                                        <li><a href="{!! url('/galerifoto') !!}">Galeri Foto</a></li>
+                                                                                                                                                                                                                                                                        <li><a href="{!! url('/galerivideo') !!}">Galeri Video</a></li>
+                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                </li>
 
-                                                                                                                                                                                     -->
+                                                                                                                                                                                                                                                             -->
                                         @endif
                                         <!-- <li>
-                                                                     <div style="padding: 13px 30px;
-                                                                    border-radius: 50px;
-                                                                    background-color: #00ABE9;
-                                                                    color: #fff !important;
-                                                                    font-size: 15px !important;">
-                                                                    <a href="#">test</a>
-                                                                    </div>
-                                                                    </li> -->
+                                                                                                                                             <div style="padding: 13px 30px;
+                                                                                                                                            border-radius: 50px;
+                                                                                                                                            background-color: #00ABE9;
+                                                                                                                                            color: #fff !important;
+                                                                                                                                            font-size: 15px !important;">
+                                                                                                                                            <a href="#">test</a>
+                                                                                                                                            </div>
+                                                                                                                                            </li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -131,33 +131,34 @@
                                         <strong> paling lambat pada 20 Mei 2022 </strong>
                                     </p>
                                     <!--<h1 data-animation="fadeInUp" data-delay=".4s">Portal Informasi<br>Percepatan dan
-                                                                                                                                    Perluasan<br>Digitalisasi Daerah</h1>
-                                                                                                                                <p data-animation="fadeInUp" data-delay=".6s">Merupakan portal yang dapat dijadikan
-                                                                                                                                    sebagai referensi bagi masyarakat untuk
-                                                                                                                                    mendapatkan informasi terkait pelaksanaan <strong>Elektronifikasi Transaksi
-                                                                                                                                        Pemerintah Daerah</strong>.
-                                                                                                                                </p> -->
+                                                                                                                                                                                                            Perluasan<br>Digitalisasi Daerah</h1>
+                                                                                                                                                                                                        <p data-animation="fadeInUp" data-delay=".6s">Merupakan portal yang dapat dijadikan
+                                                                                                                                                                                                            sebagai referensi bagi masyarakat untuk
+                                                                                                                                                                                                            mendapatkan informasi terkait pelaksanaan <strong>Elektronifikasi Transaksi
+                                                                                                                                                                                                                Pemerintah Daerah</strong>.
+                                                                                                                                                                                                        </p> -->
                                 </div>
                                 <div class="slider-btns">
                                     <a data-animation="fadeInLeft" data-delay=".8s" href="https://kelola.p2dd.go.id"
                                         class="btn radius-btn">Akses Kelola P2DD</a>
                                     <!--  <a data-animation="fadeInLeft" data-delay=".8s" href="{!! url('pencarian') !!}"
-                                                                                                                        class="btn radius-btn">Cari
-                                                                                                                        Layanan & Berita</a>
-                                                                                                                    <a data-animation="fadeInLeft" data-delay=".8s" href="https://kelola.p2dd.go.id"
-                                                                                                                        class="btn radius-btn" style="background: #40E0D0;" target="_blank"
-                                                                                                                        rel="noopener noreferrer">Akses Kelola P2DD</a> -->
+                                                                                                                                                                                                class="btn radius-btn">Cari
+                                                                                                                                                                                                Layanan & Berita</a>
+                                                                                                                                                                                            <a data-animation="fadeInLeft" data-delay=".8s" href="https://kelola.p2dd.go.id"
+                                                                                                                                                                                                class="btn radius-btn" style="background: #40E0D0;" target="_blank"
+                                                                                                                                                                                                rel="noopener noreferrer">Akses Kelola P2DD</a> -->
 
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="hero__img d-none d-lg-block f-right" data-animation="fadeInRight"
                                     data-delay=".8s">
-                                    <iframe id="fred" style="border: 8px solid #00ABE9" title="Surat Championship"
+                                    <iframe id="fred" style="border-radius:20px; border: 8px solid #00ABE9"
+                                        title="Surat Championship"
                                         src="https://drive.google.com/file/d/1PokiAWYfD6A6c2Zke2Pno0Nv439LBWoT/preview"
                                         frameborder="1" scrolling="auto" height="500" width="400"></iframe>
                                     <!--<img style="width: 500px" src="{{ URL::asset('img/beranda/Group_gambar.svg') }}"
-                                                                                                                    alt=""> -->
+                                                                                                                                                                                            alt=""> -->
                                 </div>
                             </div>
                         </div>
@@ -166,6 +167,24 @@
             </div>
         </div>
         <!-- Bagian Atas End -->
+        <!--Video -->
+        <section class="service-area sky-blue section-paddingr">
+            <div class="container padd-carousel">
+                <div class="car_berita">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="section-tittle text-center mb-70">
+                                <h2 class="layanan_index"><span>Video Sosialisasi</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe style="border-radius:20px; border: 8px solid #00ABE9" width="100%" height="500px"
+                        src="https://www.youtube.com/embed/YHskh_2wo10?autoplay=1&mute=1" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <!--  Akhir Bagian video  -->
         <!-- Fitur Kami Start -->
         <!--Edit semua icon pada fitur kami-->
         <section id="fiturkami" class="best-features-area section-paddingr sky-blue ">
